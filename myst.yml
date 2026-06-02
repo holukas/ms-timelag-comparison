@@ -1,0 +1,21 @@
+version: 1
+project:
+  id: ms-timelag-comparison
+  title: Impact of time-lag settings on N₂O and CH₄ eddy covariance fluxes
+  description: >-
+    Analysis and documentation for a manuscript on the impact of different
+    time-lag settings on eddy covariance fluxes of N₂O and CH₄.
+  authors:
+    - name: Lukas Hörtnagl
+      email: lukas.hoertnagl@usys.ethz.ch
+      affiliations:
+        - ETH Zürich
+  bibliography:
+    - docs/references.bib
+  toc:
+    - file: docs/intro.md
+    - file: docs/processing-versions.md
+site:
+  template: book-theme
+  options:
+    logo_text: ms-timelag-comparison

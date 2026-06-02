@@ -39,15 +39,37 @@ Run the analysis notebooks:
 uv run jupyter lab
 ```
 
-Build the documentation book:
+Build the documentation book (Jupyter Book 2 / MyST):
 
-```bash
-uv run jupyter book build .
+```powershell
+# On Windows: UTF-8 avoids a cp1252 crash on emoji output, and
+# JB_ALLOW_NODEENV lets Jupyter Book install its private Node (MyST engine).
+$env:JB_ALLOW_NODEENV=1; $env:PYTHONUTF8=1; $env:PYTHONIOENCODING="utf-8"
+uv run jupyter book build --html        # -> _build/html
+```
+
+Preview live with auto-reload while writing:
+
+```powershell
+uv run jupyter book start               # serves at http://localhost:3000
 ```
 
 The notebooks run the processing pipeline (merge → clean → plots) and, once
 built, render into the published reproducibility website together with the
 prose pages in `docs/`.
+
+## Deploy
+
+Publish to GitHub Pages with the bundled script (builds, then pushes
+`_build/html` to the `gh-pages` branch):
+
+```powershell
+.\deploy.ps1
+```
+
+One-time setup in the browser: repo **Settings → Pages → Source: Deploy from a
+branch → `gh-pages` / `/ (root)`**. The site is then served at
+<https://holukas.github.io/ms-timelag-comparison/>.
 
 ## Author
 

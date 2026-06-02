@@ -1,7 +1,7 @@
 [project]
-name = "dataset-ch-cha-flux-product"
+name = "ms-timelag-comparison"
 version = "0.1.0"
-description = "Dataset for grassland CH-CHA"
+description = "Impact of different time-lag settings on eddy covariance fluxes of N2O and CH4"
 authors = [
     { name = "Lukas Hörtnagl", email = "lukas.hoertnagl@usys.ethz.ch" }
 ]
