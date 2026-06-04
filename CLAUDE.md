@@ -99,3 +99,16 @@ Notebooks run in order, each stage feeding the next:
 - Author: Lukas Hörtnagl (ETH Zürich).
 - The set of time-lag settings being compared is the study variable — keep it
   defined explicitly and auditable in the notebook(s), not hardcoded ad hoc.
+
+## The user runs things, not the assistant
+
+The user runs all of these themselves — do the edits, then stop and leave them
+to run it:
+
+- **Commits / pushes** — never `git commit` or `git push`. Drafting a commit
+  message is fine; committing is not. No `Co-Authored-By` or attribution
+  trailers in commit messages.
+- **Notebook execution** — never execute notebooks (no `jupyter nbconvert
+  --execute`, no running cells).
+- **Book build / deploy** — never run `jupyter book build` / `start` or
+  `deploy.ps1`. Explain how; let the user run it.

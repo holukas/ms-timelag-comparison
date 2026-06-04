@@ -17,7 +17,16 @@ project:
     - file: docs/processing-versions.md
     - file: docs/processing-steps.md
     - file: docs/data.md
+    - file: docs/building-the-book.md
+    - file: docs/notebooks.md
+    - title: Analysis notebooks
+      children:
+        - file: notebooks/01_read_fluxes_to_parquet.ipynb
+        - file: notebooks/02_subset_flux_columns.ipynb
+        - file: notebooks/03_plot_fluxes.ipynb
+        - file: notebooks/04_subset_flux_product_2024.ipynb
+        - file: notebooks/05_merge_variants_and_flux_product.ipynb
 site:
-  template: book-theme
+  template: article-theme
   options:
     logo_text: ms-timelag-comparison
