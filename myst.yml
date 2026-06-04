@@ -14,6 +14,7 @@ project:
     - docs/references.bib
   toc:
     - file: docs/intro.md
+    - file: docs/site.md
     - file: docs/processing-versions.md
     - file: docs/processing-steps.md
     - file: docs/data.md
@@ -26,7 +27,7 @@ project:
         - file: notebooks/03_plot_fluxes.ipynb
         - file: notebooks/04_subset_flux_product_2024.ipynb
         - file: notebooks/05_merge_variants_and_flux_product.ipynb
-    - file: notebooks/06_figure_gallery.ipynb
+    - file: docs/figure-gallery.md
 site:
   template: book-theme
   options:
