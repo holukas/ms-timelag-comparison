@@ -12,14 +12,40 @@ The processing is carried out in Jupyter notebooks that consume the
 ```
 notebooks/   executable notebooks — run the processing and render into the book
 docs/        prose-only book pages (intro, methods) + references.bib
-data/        datasets (gitignored)
-  raw/         untouched inputs
-  interim/     merged / cleaned intermediates
-  processed/   analysis-ready
+data/        datasets, organized by processing stage (see below)
 figures/     exported figures
-tables/       exported tables
+tables/      exported tables
 myst.yml     Jupyter Book config + table of contents
+deploy.ps1   build + publish the book to GitHub Pages
 ```
+
+### Data stages and version control
+
+`data/` is organized by **processing stage**. `00-*` are the raw inputs and are
+never written to; higher-numbered folders are derived and regenerable.
+
+```
+data/
+  00-eddypro_fluxes_level-1/                  raw EddyPro flux output (FLUXNET CSV)
+  00-eddypro_settings/                        EddyPro project + metadata files
+  00-meteo/                                    meteorological data
+  01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet   (notebook 01)
+  02-eddypro_fluxes_level-1_parquet_subsets/  column subsets         (notebook 02)
+```
+
+Version control: the **raw `00-*` inputs are tracked** (for provenance), while
+derived **`*.parquet` files are gitignored** (large and regenerable).
+
+## Analysis pipeline
+
+The notebooks run in order; each stage feeds the next:
+
+1. **`01_read_fluxes_to_parquet.ipynb`** — read each EddyPro FLUXNET CSV with
+   `diive` and save it as Parquet (`00-… → 01-…`).
+2. **`02_subset_flux_columns.ipynb`** — keep a defined list of columns (fluxes +
+   time-lag diagnostics) and save the subsets (`01-… → 02-…`).
+3. **`03_plot_fluxes.ipynb`** — per analyzer (QCL, LGR) and gas (N₂O, CH₄), plot
+   flux over time lag used by variant; writes `figures/03_*.png`.
 
 ## Setup
 
@@ -54,7 +80,7 @@ Preview live with auto-reload while writing:
 uv run jupyter book start               # serves at http://localhost:3000
 ```
 
-The notebooks run the processing pipeline (merge → clean → plots) and, once
+The notebooks run the processing pipeline (read → subset → plot) and, once
 built, render into the published reproducibility website together with the
 prose pages in `docs/`.
 

@@ -1,6 +1,9 @@
 _build/
 .claude/
 .obsidian/
+.idea/
+
+*.parquet
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
