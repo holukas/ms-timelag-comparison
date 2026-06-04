@@ -26,6 +26,7 @@ project:
         - file: notebooks/03_plot_fluxes.ipynb
         - file: notebooks/04_subset_flux_product_2024.ipynb
         - file: notebooks/05_merge_variants_and_flux_product.ipynb
+    - file: notebooks/06_figure_gallery.ipynb
 site:
   template: book-theme
   options:
