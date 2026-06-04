@@ -16,4 +16,19 @@
   <url>
     <loc>http://localhost:3000/building-the-book</loc>
   </url>
+  <url>
+    <loc>http://localhost:3000/read-fluxes-to-parquet</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/subset-flux-columns</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/plot-fluxes</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/subset-flux-product-2024</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/merge-variants-and-flux-product</loc>
+  </url>
 </urlset>
