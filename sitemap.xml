@@ -34,4 +34,7 @@
   <url>
     <loc>http://localhost:3000/merge-variants-and-flux-product</loc>
   </url>
+  <url>
+    <loc>http://localhost:3000/figure-gallery</loc>
+  </url>
 </urlset>
