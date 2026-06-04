@@ -1,16 +1,16 @@
 # ms-timelag-comparison
 
-Analysis and documentation for a scientific manuscript on the **impact of
-different time-lag settings on eddy covariance fluxes of N₂O and CH₄**.
+Analysis and documentation for a scientific manuscript on the impact of
+different time-lag settings on eddy covariance fluxes of N₂O and CH₄.
 
-The processing is carried out in Jupyter notebooks that consume the
+The processing runs in Jupyter notebooks that use the
 [`diive`](../../diive) eddy covariance toolkit, and is published as a
 [Jupyter Book](https://jupyterbook.org/) reproducibility website.
 
 ## Repository layout
 
 ```
-notebooks/   executable notebooks — run the processing and render into the book
+notebooks/   executable notebooks: run the processing and render into the book
 docs/        prose-only book pages (intro, methods) + references.bib
 data/        datasets, organized by processing stage (see below)
 figures/     exported figures
@@ -21,7 +21,7 @@ deploy.ps1   build + publish the book to GitHub Pages
 
 ### Data stages and version control
 
-`data/` is organized by **processing stage**. `00-*` are the raw inputs and are
+`data/` is organized by processing stage. `00-*` are the raw inputs and are
 never written to; higher-numbered folders are derived and regenerable.
 
 ```
@@ -33,19 +33,19 @@ data/
   02-eddypro_fluxes_level-1_parquet_subsets/  column subsets         (notebook 02)
 ```
 
-Version control: the **raw `00-*` inputs are tracked** (for provenance), while
-derived **`*.parquet` files are gitignored** (large and regenerable).
+Version control: the raw `00-*` inputs are tracked (for provenance), while
+derived `*.parquet` files are gitignored (large and regenerable).
 
 ## Analysis pipeline
 
 The notebooks run in order; each stage feeds the next:
 
-1. **`01_read_fluxes_to_parquet.ipynb`** — read each EddyPro FLUXNET CSV with
-   `diive` and save it as Parquet (`00-… → 01-…`).
-2. **`02_subset_flux_columns.ipynb`** — keep a defined list of columns (fluxes +
-   time-lag diagnostics) and save the subsets (`01-… → 02-…`).
-3. **`03_plot_fluxes.ipynb`** — per analyzer (QCL, LGR) and gas (N₂O, CH₄), plot
-   flux over time lag used by variant; writes `figures/03_*.png`.
+1. `01_read_fluxes_to_parquet.ipynb` reads each EddyPro FLUXNET CSV with `diive`
+   and saves it as Parquet (`00-… → 01-…`).
+2. `02_subset_flux_columns.ipynb` keeps a defined list of columns (fluxes and
+   time-lag diagnostics) and saves the subsets (`01-… → 02-…`).
+3. `03_plot_fluxes.ipynb` plots flux over time lag used per analyzer (QCL, LGR)
+   and gas (N₂O, CH₄), by variant, into `figures/03_*.png`.
 
 ## Setup
 
@@ -99,7 +99,7 @@ branch → `gh-pages` / `/ (root)`**. The site is then served at
 
 ## Author
 
-Lukas Hörtnagl — ETH Zürich (lukas.hoertnagl@usys.ethz.ch)
+Lukas Hörtnagl, ETH Zürich (lukas.hoertnagl@usys.ethz.ch)
 
 ## License
 

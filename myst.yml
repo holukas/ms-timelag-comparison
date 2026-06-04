@@ -27,6 +27,6 @@ project:
         - file: notebooks/04_subset_flux_product_2024.ipynb
         - file: notebooks/05_merge_variants_and_flux_product.ipynb
 site:
-  template: article-theme
+  template: book-theme
   options:
     logo_text: ms-timelag-comparison
