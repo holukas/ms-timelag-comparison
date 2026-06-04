@@ -17,6 +17,9 @@
     <loc>http://localhost:3000/building-the-book</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/notebooks</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/read-fluxes-to-parquet</loc>
   </url>
   <url>
