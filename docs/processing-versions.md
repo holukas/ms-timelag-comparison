@@ -21,7 +21,10 @@ For each campaign the same scheme of versions is applied:
   to the PWB method.
 - A constant-lag run, in which a single fixed lag is imposed for the whole
   campaign (no per-record search).
-- A PWB run (planned).
+- A PWB run (`*-4`), which detects and removes the lag with the Pre-Whitening
+  with Block-bootstrap method (see [processing steps](processing-steps.md)).
+  Fluxes for this variant are not computed yet, so far only its per-chunk
+  time-lag results are available.
 
 ## 2021_1 (QCL)
 
@@ -30,7 +33,7 @@ For each campaign the same scheme of versions is applied:
 | `QCL-1`   | Covariance maximization | −1 to 10 s    | none                           | Also performs the unzipping of the raw data.         |
 | `QCL-2R`  | Covariance maximization | −1 to 10 s    | 0.60 s, 0.65 s                 | Also exports rotated time series for the PWB method. |
 | `QCL-3`   | Constant lag            | n/a           | 0.60 s, 0.65 s                 |                                                      |
-| `QCL-PWB` | PWB                     | n/a           | n/a                            | Planned.                                             |
+| `QCL-4`   | PWB                     | n/a           | detected per chunk             | Time lags only, no fluxes yet.                       |
 
 ## 2021_2 (LGR)
 
@@ -39,4 +42,4 @@ For each campaign the same scheme of versions is applied:
 | `LGR-1`   | Covariance maximization | −1 to 10 s    | none                           | Also performs the unzipping of the raw data.         |
 | `LGR-2R`  | Covariance maximization | −1 to 10 s    | 1.75 s, 1.75 s                 | Also exports rotated time series for the PWB method. |
 | `LGR-3`   | Constant lag            | n/a           | 1.75 s, 1.75 s                 |                                                      |
-| `LGR-PWB` | PWB                     | n/a           | n/a                            | Planned.                                             |
+| `LGR-4`   | PWB                     | n/a           | detected per chunk             | Time lags only, no fluxes yet.                       |

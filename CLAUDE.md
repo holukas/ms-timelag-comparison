@@ -41,8 +41,10 @@ folders are raw inputs and are never written to; higher numbers are derived.
 data/00-eddypro_fluxes_level-1/                  raw EddyPro FLUXNET CSVs
 data/00-eddypro_settings/                        EddyPro .eddypro + .metadata files
 data/00-meteo/                                    meteo data
+data/00-pwb_tlag_summary/                        PWB (*-4) tlag summary CSVs
 data/01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet  (notebook 01)
-data/02-eddypro_fluxes_level-1_parquet_subsets/  column subsets        (notebook 02)
+data/01-pwb_tlag_summary_parquet/                PWB tlag as Parquet   (notebook 01)
+data/02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021  (notebook 02)
 ```
 
 **Version control:** raw `00-*` inputs are **tracked** (provenance); `*.parquet`

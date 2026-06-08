@@ -29,8 +29,10 @@ data/
   00-eddypro_fluxes_level-1/                  raw EddyPro flux output (FLUXNET CSV)
   00-eddypro_settings/                        EddyPro project + metadata files
   00-meteo/                                    meteorological data
-  01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet   (notebook 01)
-  02-eddypro_fluxes_level-1_parquet_subsets/  column subsets         (notebook 02)
+  00-pwb_tlag_summary/                        PWB (*-4) tlag summaries
+  01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet      (notebook 01)
+  01-pwb_tlag_summary_parquet/                PWB tlag summaries as Parquet (notebook 01)
+  02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021 only (notebook 02)
 ```
 
 Version control: the raw `00-*` inputs are tracked (for provenance), while
@@ -40,12 +42,15 @@ derived `*.parquet` files are gitignored (large and regenerable).
 
 The notebooks run in order; each stage feeds the next:
 
-1. `01_read_fluxes_to_parquet.ipynb` reads each EddyPro FLUXNET CSV with `diive`
-   and saves it as Parquet (`00-… → 01-…`).
+1. `01_read_fluxes_to_parquet.ipynb` reads each EddyPro FLUXNET CSV with `diive`,
+   saves it as Parquet, and converts the PWB (`*-4`) tlag summaries (`00-… → 01-…`).
 2. `02_subset_flux_columns.ipynb` keeps a defined list of columns (fluxes and
-   time-lag diagnostics) and saves the subsets (`01-… → 02-…`).
+   time-lag diagnostics) and restricts the rows to 2021 (`01-… → 02-…`).
 3. `03_plot_fluxes.ipynb` plots flux over time lag used per analyzer (QCL, LGR)
-   and gas (N₂O, CH₄), by variant, into `figures/03_*.png`.
+   and gas (N₂O, CH₄), by variant including the PWB lag, into `figures/03_*.png`.
+
+The remaining notebooks build the reference dataset (`04`), merge everything
+(`05`), and render a figure gallery (`06`).
 
 ## Setup
 
