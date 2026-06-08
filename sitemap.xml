@@ -5,6 +5,9 @@
     <loc>http://localhost:3000</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/site</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/processing-versions</loc>
   </url>
   <url>
