@@ -25,8 +25,7 @@ project:
         - file: notebooks/01_read_fluxes_to_parquet.ipynb
         - file: notebooks/02_subset_flux_columns.ipynb
         - file: notebooks/03_plot_fluxes.ipynb
-        - file: notebooks/04_subset_flux_product_2024.ipynb
-        - file: notebooks/05_merge_variants_and_flux_product.ipynb
+        - file: notebooks/04_compare_variant_fluxes.ipynb
     - file: docs/figure-gallery.md
 site:
   template: book-theme

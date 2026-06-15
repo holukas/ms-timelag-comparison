@@ -11,11 +11,23 @@ the rendered notebook.
    Keeps a defined column list (fluxes and time-lag diagnostics) and restricts
    the rows to the analysis year (2021) (`01- → 02-`).
 3. [03 · Plot fluxes and time lag used](../notebooks/03_plot_fluxes.ipynb).
-   Plots flux over time lag used per analyzer and gas, by variant including the
-   PWB (`*-4`) lag, into `figures/03_*.png`.
-4. [04 · Subset flux product FP2025.3 (year 2024)](../notebooks/04_subset_flux_product_2024.ipynb).
-   Extracts the 2024 reference subset from the external FP2025.3 product (`→ 04-`).
-5. [05 · Merge variants with the flux product](../notebooks/05_merge_variants_and_flux_product.ipynb).
-   Merges all variant subsets with the 2024 reference, suffixed by source (`→ 05-`).
-6. [06 · Figure gallery](../notebooks/06_figure_gallery.ipynb).
-   Shows every figure in `figures/` as a grid, globbed at run time.
+   Plots flux, time lag used, and a lag histogram per analyzer and gas, by
+   variant including the PWB (`*-4`) lag, into `figures/03_*.png`.
+4. [04 · Compare flux across the four time-lag variants](../notebooks/04_compare_variant_fluxes.ipynb).
+   Pairs the four variants per analyzer on the half-hours where all four have a
+   valid flux and quantifies how the lag setting shifts the flux: per-variant
+   distribution and budget, bias and regression against the reference, and the
+   cumulative flux. Writes `tables/04_compare_*.csv` and `figures/04_*.png`.
+
+## Parked notebooks
+
+These ran against the earlier six-variant setup and are parked (`x-` prefix)
+pending rework for the PWB (`*-4`) variant. They are not part of the active
+pipeline and are not built into the book.
+
+- `x-04` · Subset flux product FP2025.3 (year 2024): extracts the 2024 reference
+  subset from the external FP2025.3 product (`→ 04-`).
+- `x-05` · Merge variants with the flux product: merges the variant subsets with
+  the 2024 reference, suffixed by source (`→ 05-`).
+- `x-06` · Figure gallery: shows every figure in `figures/` as a grid, globbed at
+  run time.

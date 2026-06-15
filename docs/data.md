@@ -19,11 +19,15 @@ data/
   01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet         (notebook 01)
   01-pwb_tlag_summary_parquet/                PWB tlag summaries as Parquet (notebook 01)
   02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021 only    (notebook 02)
-  04-flux-product-2025.3_subset_2024/         FP2025.3 reference, 2024     (notebook 04)
-  05-merged_variants_fluxproduct/             variants + product, merged   (notebook 05)
+  04-flux-product-2025.3_subset_2024/         FP2025.3 reference, 2024     (notebook x-04, parked)
+  05-merged_variants_fluxproduct/             variants + product, merged   (notebook x-05, parked)
 ```
 
-(There is no `03-` data folder; notebook 03 produces figures, not a dataset.)
+Notebooks 03 and 04 produce figures and tables, not a numbered data folder.
+Notebook 03 writes the plots in `figures/`; notebook 04 (the variant flux
+comparison) writes `tables/04_compare_*.csv` and `figures/04_*.png`. The `04-`
+and `05-` data folders come from the parked `x-04` / `x-05` notebooks (see
+[Notebooks](notebooks.md)).
 
 ## `00-eddypro_fluxes_level-1/`
 
@@ -36,9 +40,11 @@ filename (e.g. `eddypro_QCL-1_…_fluxnet_…_adv.csv`).
 | `QCL-1`  | QCL      | 2021_1           | 2026 |
 | `QCL-2R` | QCL      | 2021_1           | 2026 |
 | `QCL-3`  | QCL      | 2020_4 to 2021_1 | 2024 |
+| `QCL-4`  | QCL      | 2021_1           | 2026 |
 | `LGR-1`  | LGR      | 2021_2           | 2026 |
 | `LGR-2R` | LGR      | 2021_2           | 2026 |
 | `LGR-3`  | LGR      | 2021_2 to 2022_1 | 2024 |
+| `LGR-4`  | LGR      | 2021_2           | 2026 |
 
 Columns central to this study:
 
@@ -95,8 +101,10 @@ Parquet.
 - `04-flux-product-2025.3_subset_2024/` holds the year-2024 subset of the final
   flux product FP2025.3 (CH-CHA, 2005 to 2024), loaded from an external location
   and used as the independent reference. Produced by
-  [notebook 04](../notebooks/04_subset_flux_product_2024.ipynb).
-- `05-merged_variants_fluxproduct/` holds all six variant subsets merged with the
+  [notebook x-04](../notebooks/x-04_subset_flux_product_2024.ipynb) (parked,
+  pending rework for the PWB variant).
+- `05-merged_variants_fluxproduct/` holds the variant subsets merged with the
   FP2025.3 2024 reference on the timestamp index, each source's columns suffixed
   by origin (`FN2O_LGR-1`, `FN2O_FP2025.3`, …). Produced by
-  [notebook 05](../notebooks/05_merge_variants_and_flux_product.ipynb).
+  [notebook x-05](../notebooks/x-05_merge_variants_and_flux_product.ipynb)
+  (parked, pending rework for the PWB variant).

@@ -71,3 +71,15 @@ overview plots, and a `log.txt` of the run.
 
 The lag-corrected files then go through normal flux processing with EC time-lag
 maximization disabled, because the tube delay has already been corrected here.
+
+**Keep H₂O in the EddyPro settings.** Even though the study only looks at the
+N₂O and CH₄ fluxes, water vapor must still be included in the run. The
+high-frequency spectral correction (here EddyPro's Fratini method) is humidity
+dependent and uses the H₂O series to characterize the tube attenuation, so
+dropping H₂O changes the correction applied to N₂O and CH₄ and biases their
+fluxes low. This matters for a fair comparison: the `*-4` runs should differ
+from the other versions only in how the N₂O and CH₄ lag is handled, not in
+whether H₂O is present. Only the N₂O and CH₄ lag is removed beforehand (that is
+the study variable); the H₂O lag is left in the raw data and compensated by
+EddyPro in the normal way, using the same constant H₂O lag as the other
+versions.
