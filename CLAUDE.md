@@ -53,15 +53,18 @@ committed (manuscript record).
 
 ## Processing versions (the study variable)
 
-Fluxes are computed several times, varying only how the N₂O/CH₄ time lag is
+Fluxes are computed several times, varying only how the N₂O/CH₄/H₂O time lag is
 found. Per analyzer (QCL = quantum cascade laser, campaign 2021_1; LGR = Los
-Gatos Research, campaign 2021_2), the variants share one scheme:
+Gatos Research, campaign 2021_2), the five variants share one scheme:
 
-- `*-1`: covariance maximization, −1 to 10 s window, no default (`OPENLAG`).
-- `*-2R`: covariance maximization, 10 s window, default fallback lag; also
-  exports rotated time series (`DEFAULT`).
-- `*-3`: constant lag (earlier 2024 runs).
-- `*-4`: PWB. Detect and remove the lag from the raw data in one run via diive's
+- `*-1`: covariance maximization, 0 to 10 s window, no default (`OPENLAG`).
+- `*-2`: covariance maximization, 0 to 10 s window, default fallback lag
+  (`DEFAULT`).
+- `*-3`: covariance maximization, narrow per-campaign window, default fallback
+  lag (`DEFAULT`, narrow).
+- `*-4`: constant lag (fixed at the nominal lag, from the Flux Product). Only
+  variant currently implemented.
+- `*-5`: PWB. Detect and remove the lag from the raw data in one run via diive's
   detect-and-remove TUI (`diive-tlag-pwb-detect-remove-tui`; rotation is
   in-memory, no separate apply step), then process fluxes with EC maximization
   disabled (see `docs/processing-steps.md`).
