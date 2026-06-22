@@ -32,10 +32,7 @@
     <loc>http://localhost:3000/plot-fluxes</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/subset-flux-product-2024</loc>
-  </url>
-  <url>
-    <loc>http://localhost:3000/merge-variants-and-flux-product</loc>
+    <loc>http://localhost:3000/compare-variant-fluxes</loc>
   </url>
   <url>
     <loc>http://localhost:3000/figure-gallery</loc>

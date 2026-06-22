@@ -1,6 +1,6 @@
 # Processing steps
 
-This page describes the **PWB** time-lag method used to produce the `*-4`
+This page describes the **PWB** time-lag method used to produce the `*-5`
 [processing versions](processing-versions.md), and the diive workflow that
 applies it.
 
@@ -8,7 +8,7 @@ applies it.
 
 For reactive and trace gases such as N₂O and CH₄, the gas-wind cross-correlation
 is often too weak for conventional covariance-maximization (CM) to pinpoint the
-time lag reliably. The `*-4` versions instead use the Pre-Whitening with
+time lag reliably. The `*-5` versions instead use the Pre-Whitening with
 Block-bootstrap (PWB) method (Vitale et al., 2024), as implemented in `diive`. It
 works in two stages.
 
@@ -35,7 +35,7 @@ Reference: Vitale D. et al. (2024), *Environmental and Ecological Statistics* 31
 
 ## Workflow
 
-The `*-4_PWB` versions are produced with diive's detect-and-remove TUI, an
+The `*-5_PWB` versions are produced with diive's detect-and-remove TUI, an
 end-to-end pipeline that detects and removes the lag in a single run. There is no
 longer a separate pre-rotation step or a separate apply step: rotation is done in
 memory, and the lag-corrected 30-minute files come straight out. Launch it with:
@@ -71,3 +71,15 @@ overview plots, and a `log.txt` of the run.
 
 The lag-corrected files then go through normal flux processing with EC time-lag
 maximization disabled, because the tube delay has already been corrected here.
+
+**Keep H₂O in the EddyPro settings.** Even though the study only looks at the
+N₂O and CH₄ fluxes, water vapor must still be included in the run. The
+high-frequency spectral correction (here EddyPro's Fratini method) is humidity
+dependent and uses the H₂O series to characterize the tube attenuation, so
+dropping H₂O changes the correction applied to N₂O and CH₄ and biases their
+fluxes low. This matters for a fair comparison: the `*-5` runs should differ
+from the other versions only in how the N₂O and CH₄ lag is handled, not in
+whether H₂O is present. Only the N₂O and CH₄ lag is removed beforehand (that is
+the study variable); the H₂O lag is left in the raw data and compensated by
+EddyPro in the normal way, using the same constant H₂O lag as the other
+versions.
