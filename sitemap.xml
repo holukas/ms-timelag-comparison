@@ -17,6 +17,9 @@
     <loc>http://localhost:3000/data</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/inventory</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/building-the-book</loc>
   </url>
   <url>
