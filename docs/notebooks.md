@@ -30,5 +30,7 @@ pipeline and are not built into the book.
   subset from the external FP2025.3 product (`→ 04-`).
 - `x-05` · Merge variants with the flux product: merges the variant subsets with
   the 2024 reference, suffixed by source (`→ 05-`).
-- `x-06` · Figure gallery: shows every figure in `figures/` as a grid, globbed at
-  run time.
+
+The old `x-06` figure-gallery notebook is gone; its auto-globbed figure grid now
+lives in the [Repository inventory](../notebooks/00_inventory.ipynb) page,
+alongside the data-file manifest.

@@ -18,6 +18,7 @@ project:
     - file: docs/processing-versions.md
     - file: docs/processing-steps.md
     - file: docs/data.md
+    - file: notebooks/00_inventory.ipynb
     - file: docs/building-the-book.md
     - file: docs/notebooks.md
     - title: Analysis notebooks

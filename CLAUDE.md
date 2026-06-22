@@ -47,9 +47,11 @@ data/01-pwb_tlag_summary_parquet/                PWB tlag as Parquet   (notebook
 data/02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021  (notebook 02)
 ```
 
-**Version control:** raw `00-*` inputs are **tracked** (provenance); `*.parquet`
-files are **gitignored** (large, regenerable). `figures/` and `tables/` are
-committed (manuscript record).
+**Version control:** everything under `data/` is **tracked**, both the raw `00-*`
+inputs (provenance) and the derived `*.parquet` stages (a committed snapshot of
+every stage, regenerable from the inputs). `figures/` is committed too
+(manuscript record). The live file manifest is the `00_inventory` notebook,
+which lists `data/` and `figures/` straight from disk.
 
 ## Processing versions (the study variable)
 
