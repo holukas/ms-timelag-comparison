@@ -40,7 +40,7 @@ LGR (campaign 2021_2), CH₄ flux vs. time lag used.
 
 Comparison of the four variants on the half-hours where all four have a valid
 flux. The cumulative plots show how the lag setting shifts the overall flux; the
-regression plots show each variant against the reference (`*-2R`).
+regression plots show each variant against the reference (`*-2`).
 
 ::::{grid} 1 1 2 2
 

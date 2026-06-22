@@ -15,7 +15,7 @@ data/
   00-eddypro_fluxes_level-1/                  raw EddyPro flux output (input)
   00-eddypro_settings/                        EddyPro project + metadata (input)
   00-meteo/                                   meteorological data (input)
-  00-pwb_tlag_summary/                        PWB (*-4) tlag summaries (input)
+  00-pwb_tlag_summary/                        PWB (*-5) tlag summaries (input)
   01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet         (notebook 01)
   01-pwb_tlag_summary_parquet/                PWB tlag summaries as Parquet (notebook 01)
   02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021 only    (notebook 02)
@@ -32,19 +32,23 @@ and `05-` data folders come from the parked `x-04` / `x-05` notebooks (see
 ## `00-eddypro_fluxes_level-1/`
 
 EddyPro output in FLUXNET format (one row per half hour, ~9,500 records, 483
-columns), one file per processing version. The version code is embedded in each
-filename (e.g. `eddypro_QCL-1_…_fluxnet_…_adv.csv`).
+columns), one file per processing version. The version code is the leading token
+of each filename (e.g. `QCL-1_eddypro_…_fluxnet_…_adv.csv`).
 
-| Version  | Analyzer | Campaign         | Run  |
-| -------- | -------- | ---------------- | ---- |
-| `QCL-1`  | QCL      | 2021_1           | 2026 |
-| `QCL-2R` | QCL      | 2021_1           | 2026 |
-| `QCL-3`  | QCL      | 2020_4 to 2021_1 | 2024 |
-| `QCL-4`  | QCL      | 2021_1           | 2026 |
-| `LGR-1`  | LGR      | 2021_2           | 2026 |
-| `LGR-2R` | LGR      | 2021_2           | 2026 |
-| `LGR-3`  | LGR      | 2021_2 to 2022_1 | 2024 |
-| `LGR-4`  | LGR      | 2021_2           | 2026 |
+| Version | Analyzer | Campaign         | Run  |
+| ------- | -------- | ---------------- | ---- |
+| `QCL-1` | QCL      | 2021_1           | 2026 |
+| `QCL-2` | QCL      | 2021_1           | 2026 |
+| `QCL-3` | QCL      | 2021_1           | 2026 |
+| `QCL-4` | QCL      | 2020_4 to 2021_1 | 2024 |
+| `LGR-1` | LGR      | 2021_2           | 2026 |
+| `LGR-2` | LGR      | 2021_2           | 2026 |
+| `LGR-3` | LGR      | 2021_2           | 2026 |
+| `LGR-4` | LGR      | 2021_2 to 2022_1 | 2024 |
+
+The PWB scenario (`QCL-5`, `LGR-5`) has no flux output here yet; only its
+per-chunk time-lag summaries exist so far (see `00-pwb_tlag_summary/` below). Its
+flux files will be added to this folder once available.
 
 Columns central to this study:
 
@@ -60,14 +64,20 @@ The EddyPro configuration that produced each flux file: a `.eddypro` project fil
 and its companion `.metadata` file per version. Filenames encode the time-lag
 strategy:
 
-- `*_OPENLAG-10s_*`: open covariance-maximization search (−1 to 10 s), no default
+- `*-1_OPENLAG-10s_*`: open covariance-maximization search (0 to 10 s), no default
   fallback (versions `*-1`).
-- `*_DEFAULT-10s_*`: covariance maximization (10 s window) with a default
-  fallback lag (versions `*-2R`).
-- `*_CH-CHA_…`: the earlier (2024) constant-lag runs (versions `*-3`).
+- `*-2_DEFAULT-10s_*`: covariance maximization (0 to 10 s window) with a default
+  fallback lag (versions `*-2`).
+- `*-3_DEFAULT-NARROW_*`: covariance maximization over the narrow per-campaign
+  window, default fallback lag (versions `*-3`).
+- `*-4_CH-CHA_…`: the earlier (2024) constant-lag runs from the Flux Product
+  (versions `*-4`).
 
-These files are the auditable definition of each version; keep them in sync with
-the [processing versions](processing-versions.md) table.
+There are no EddyPro settings for `*-5` (PWB); that scenario removes the lag with
+diive's detect-and-remove workflow instead (see
+[processing steps](processing-steps.md)). These files are the auditable
+definition of each version; keep them in sync with the
+[processing versions](processing-versions.md) table.
 
 ## `00-meteo/`
 
@@ -75,7 +85,7 @@ Meteorological data used as supporting context. To be documented once populated.
 
 ## `00-pwb_tlag_summary/`
 
-The PWB detect-and-remove output for the `*-4` variants (`LGR-4`, `QCL-4`): one
+The PWB detect-and-remove output for the `*-5` scenario (`LGR-5`, `QCL-5`): one
 `*_detect_and_remove_tlag_summary.csv` per analyzer, with one row per processed
 chunk (see [processing steps](processing-steps.md) for the method). These hold
 time-lag results only, not fluxes. The applied lag per gas is
@@ -91,7 +101,7 @@ Parquet.
   Parquet, one file per version (`LGR-1.parquet`, …). Produced by
   [notebook 01](../notebooks/01_read_fluxes_to_parquet.ipynb).
 - `01-pwb_tlag_summary_parquet/` holds the PWB tlag summaries as Parquet
-  (`LGR-4_pwb_tlag.parquet`, `QCL-4_pwb_tlag.parquet`). Only chunks on the
+  (`LGR-5_pwb_tlag.parquet`, `QCL-5_pwb_tlag.parquet`). Only chunks on the
   30-minute grid are kept, so they align with the flux timestamps. Produced by
   [notebook 01](../notebooks/01_read_fluxes_to_parquet.ipynb).
 - `02-eddypro_fluxes_level-1_parquet_subsets/` holds column subsets of the flux
@@ -102,7 +112,7 @@ Parquet.
   flux product FP2025.3 (CH-CHA, 2005 to 2024), loaded from an external location
   and used as the independent reference. Produced by
   [notebook x-04](../notebooks/x-04_subset_flux_product_2024.ipynb) (parked,
-  pending rework for the PWB variant).
+  pending rework for the PWB scenario (`*-5`)).
 - `05-merged_variants_fluxproduct/` holds the variant subsets merged with the
   FP2025.3 2024 reference on the timestamp index, each source's columns suffixed
   by origin (`FN2O_LGR-1`, `FN2O_FP2025.3`, …). Produced by

@@ -14,55 +14,22 @@ Two measurement campaigns are covered, distinguished by the gas analyzer used:
 
 ## The five versions
 
-<<<<<<< Updated upstream
-- A covariance-maximization run over a wide search window of −1 to 10 s, with no
-  default lag applied when maximization does not return a clear value.
-- A second covariance-maximization run over the same −1 to 10 s window, but
-  falling back to a default lag (analyzer-specific values below) when no clear
-  maximum is found. This run also exports the rotated time series used as input
-  to the PWB method.
-- A constant-lag run, in which a single fixed lag is imposed for the whole
-  campaign (no per-record search).
-- A PWB run (`*-4`), which detects and removes the lag with the Pre-Whitening
-  with Block-bootstrap method (see [processing steps](processing-steps.md)).
-  The lag is removed from the raw data first, then fluxes are computed with EC
-  maximization disabled. Both the fluxes and the per-chunk time-lag results are
-  available.
-=======
 The same scheme of five versions is applied to each campaign and to each gas
 (N₂O, CH₄, H₂O). The versions differ only in how the lag is found:
->>>>>>> Stashed changes
 
-| Version | Method                  | Search window         | Default lag applied            | Notes                                            |
-| ------- | ----------------------- | --------------------- | ------------------------------ | ------------------------------------------------ |
-| `-1`    | Covariance maximization | 0 to 10 s             | no (OPENLAG)                   | Also performs the unzipping of the raw data.     |
-| `-2`    | Covariance maximization | 0 to 10 s             | yes, nominal lag as fallback   |                                                  |
-| `-3`    | Covariance maximization | narrow (per campaign) | yes, nominal lag as fallback   | Narrow window is the per-gas range listed below. |
-| `-4`    | Constant lag            | n/a                   | fixed at the nominal lag       | From the Flux Product. Implemented.              |
-| `-5`    | PWB                     | n/a                   | n/a                            | Pre-whitening with block-bootstrap (Vitale et al. 2024). |
+| Version | Method                  | Search window         | Default lag applied          | Notes                                                    |
+| ------- | ----------------------- | --------------------- | ---------------------------- | -------------------------------------------------------- |
+| `-1`    | Covariance maximization | 0 to 10 s             | no (OPENLAG)                 | Also performs the unzipping of the raw data.             |
+| `-2`    | Covariance maximization | 0 to 10 s             | yes, nominal lag as fallback | Also exports the rotated time series used by PWB.        |
+| `-3`    | Covariance maximization | narrow (per campaign) | yes, nominal lag as fallback | Narrow window is the per-gas range listed below.         |
+| `-4`    | Constant lag            | n/a                   | fixed at the nominal lag     | From the Flux Product.                                   |
+| `-5`    | PWB                     | n/a                   | n/a                          | Pre-whitening with block-bootstrap (Vitale et al. 2024). |
 
-<<<<<<< Updated upstream
-| Version   | Method                  | Search window | Default / fixed lag (N₂O, CH₄) | Notes                                                |
-| --------- | ----------------------- | ------------- | ------------------------------ | ---------------------------------------------------- |
-| `QCL-1`   | Covariance maximization | −1 to 10 s    | none                           | Also performs the unzipping of the raw data.         |
-| `QCL-2R`  | Covariance maximization | −1 to 10 s    | 0.60 s, 0.65 s                 | Also exports rotated time series for the PWB method. |
-| `QCL-3`   | Constant lag            | n/a           | 0.60 s, 0.65 s                 |                                                      |
-| `QCL-4`   | PWB                     | n/a           | detected per chunk             | Lag removed from raw data, then fluxes with EC max off. |
-=======
-Implementation status: only the constant-lag run (`-4`) is currently done for
-both campaigns; `-1`, `-2`, `-3`, and `-5` are still to be produced.
->>>>>>> Stashed changes
+Implementation status: `-1`, `-2`, `-3`, and `-4` are produced for both campaigns;
+`-5` (PWB) is still to come (only the per-chunk time-lag summaries exist so far).
 
 ## Nominal lags and narrow windows
 
-<<<<<<< Updated upstream
-| Version   | Method                  | Search window | Default / fixed lag (N₂O, CH₄) | Notes                                                |
-| --------- | ----------------------- | ------------- | ------------------------------ | ---------------------------------------------------- |
-| `LGR-1`   | Covariance maximization | −1 to 10 s    | none                           | Also performs the unzipping of the raw data.         |
-| `LGR-2R`  | Covariance maximization | −1 to 10 s    | 1.75 s, 1.75 s                 | Also exports rotated time series for the PWB method. |
-| `LGR-3`   | Constant lag            | n/a           | 1.75 s, 1.75 s                 |                                                      |
-| `LGR-4`   | PWB                     | n/a           | detected per chunk             | Lag removed from raw data, then fluxes with EC max off. |
-=======
 For each campaign and gas, the **nominal lag** is the value used as the default
 fallback (`-2`, `-3`) and as the fixed lag (`-4`); the **narrow window** is the
 search range for `-3`. Values are derived from the per-period lag analysis
@@ -86,4 +53,3 @@ covering these campaigns are reproduced here.
 | H₂O | 1.80            | 1.65 to 6.00      |
 
 For the LGR campaign the lag fluctuates within these ranges across the period.
->>>>>>> Stashed changes
