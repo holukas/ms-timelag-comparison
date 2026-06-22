@@ -23,10 +23,10 @@ data/
   05-merged_variants_fluxproduct/             variants + product, merged   (notebook x-05, parked)
 ```
 
-Notebooks 03 and 04 produce figures and tables, not a numbered data folder.
-Notebook 03 writes the plots in `figures/`; notebook 04 (the variant flux
-comparison) writes `tables/04_compare_*.csv` and `figures/04_*.png`. The `04-`
-and `05-` data folders come from the parked `x-04` / `x-05` notebooks (see
+Notebooks 03 and 04 produce figures, not a numbered data folder. Notebook 03
+writes the per-scenario flux and time-lag plots in `figures/03_*.png`; notebook
+04 (the cumulative flux comparison) writes `figures/04_cumulative_*.png`. The
+`04-` and `05-` data folders come from the parked `x-04` / `x-05` notebooks (see
 [Notebooks](notebooks.md)).
 
 ## `00-eddypro_fluxes_level-1/`
@@ -57,6 +57,8 @@ Columns central to this study:
 - Time-lag diagnostics, per gas. These are the variables the comparison turns on:
   `N2O_TLAG_USED`, `N2O_TLAG_ACTUAL`, `N2O_TLAG_NOMINAL`, `N2O_TLAG_MIN`,
   `N2O_TLAG_MAX`, and the equivalent `CH4_TLAG_*` set.
+- Radiation: `SW_IN_POT` (potential shortwave radiation), used downstream to
+  split fluxes into daytime (`SW_IN_POT > 0`) and nighttime (`SW_IN_POT == 0`).
 
 ## `00-eddypro_settings/`
 
@@ -105,8 +107,8 @@ Parquet.
   30-minute grid are kept, so they align with the flux timestamps. Produced by
   [notebook 01](../notebooks/01_read_fluxes_to_parquet.ipynb).
 - `02-eddypro_fluxes_level-1_parquet_subsets/` holds column subsets of the flux
-  Parquets (fluxes and time-lag diagnostics), restricted to the analysis year
-  (2021). Produced by
+  Parquets (fluxes, time-lag diagnostics, and `SW_IN_POT` for the daytime /
+  nighttime split), restricted to the analysis year (2021). Produced by
   [notebook 02](../notebooks/02_subset_flux_columns.ipynb).
 - `04-flux-product-2025.3_subset_2024/` holds the year-2024 subset of the final
   flux product FP2025.3 (CH-CHA, 2005 to 2024), loaded from an external location
@@ -117,4 +119,4 @@ Parquet.
   FP2025.3 2024 reference on the timestamp index, each source's columns suffixed
   by origin (`FN2O_LGR-1`, `FN2O_FP2025.3`, …). Produced by
   [notebook x-05](../notebooks/x-05_merge_variants_and_flux_product.ipynb)
-  (parked, pending rework for the PWB variant).
+  (parked, pending rework for the PWB scenario (`*-5`)).

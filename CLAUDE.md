@@ -41,7 +41,7 @@ folders are raw inputs and are never written to; higher numbers are derived.
 data/00-eddypro_fluxes_level-1/                  raw EddyPro FLUXNET CSVs
 data/00-eddypro_settings/                        EddyPro .eddypro + .metadata files
 data/00-meteo/                                    meteo data
-data/00-pwb_tlag_summary/                        PWB (*-4) tlag summary CSVs
+data/00-pwb_tlag_summary/                        PWB (*-5) tlag summary CSVs
 data/01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet  (notebook 01)
 data/01-pwb_tlag_summary_parquet/                PWB tlag as Parquet   (notebook 01)
 data/02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021  (notebook 02)
@@ -62,12 +62,15 @@ Gatos Research, campaign 2021_2), the five variants share one scheme:
   (`DEFAULT`).
 - `*-3`: covariance maximization, narrow per-campaign window, default fallback
   lag (`DEFAULT`, narrow).
-- `*-4`: constant lag (fixed at the nominal lag, from the Flux Product). Only
-  variant currently implemented.
+- `*-4`: constant lag (fixed at the nominal lag, from the Flux Product).
 - `*-5`: PWB. Detect and remove the lag from the raw data in one run via diive's
   detect-and-remove TUI (`diive-tlag-pwb-detect-remove-tui`; rotation is
   in-memory, no separate apply step), then process fluxes with EC maximization
   disabled (see `docs/processing-steps.md`).
+
+Implementation status: `*-1` to `*-4` have flux output; `*-5` (PWB) has its
+per-chunk time-lag summaries but no fluxes yet (they join the pipeline
+automatically once the `LGR-5` / `QCL-5` flux files appear).
 
 Keep this registry explicit and auditable. It lives in
 `docs/processing-versions.md` and the notebooks' config cells (`ANALYZERS`,
@@ -75,8 +78,10 @@ Keep this registry explicit and auditable. It lives in
 
 ## Analysis pipeline
 
-Notebooks run in order, each stage feeding the next:
-`01` read CSV → Parquet, `02` subset columns, `03` plot flux vs. time lag used.
+Notebooks run in order, each stage feeding the next: `01` read CSV → Parquet,
+`02` subset columns (incl. `SW_IN_POT` for a daytime/nighttime split), `03` plot
+flux vs. time lag used, `04` compare cumulative flux across scenarios (all,
+daytime, nighttime).
 
 ## Notebook conventions
 

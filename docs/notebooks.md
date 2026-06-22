@@ -8,16 +8,17 @@ the rendered notebook.
    Reads each EddyPro FLUXNET CSV with `diive` and saves it as Parquet, and
    converts the PWB (`*-5`) tlag summaries to Parquet (`00- → 01-`).
 2. [02 · Subset flux columns](../notebooks/02_subset_flux_columns.ipynb).
-   Keeps a defined column list (fluxes and time-lag diagnostics) and restricts
-   the rows to the analysis year (2021) (`01- → 02-`).
+   Keeps a defined column list (fluxes, time-lag diagnostics, and `SW_IN_POT` for
+   a later daytime / nighttime split) and restricts the rows to the analysis year
+   (2021) (`01- → 02-`).
 3. [03 · Plot fluxes and time lag used](../notebooks/03_plot_fluxes.ipynb).
    Plots flux, time lag used, and a lag histogram per analyzer and gas, by
    variant including the PWB (`*-5`) lag, into `figures/03_*.png`.
-4. [04 · Compare flux across the four time-lag variants](../notebooks/04_compare_variant_fluxes.ipynb).
-   Pairs the four variants per analyzer on the half-hours where all four have a
-   valid flux and quantifies how the lag setting shifts the flux: per-variant
-   distribution and budget, bias and regression against the reference, and the
-   cumulative flux. Writes `tables/04_compare_*.csv` and `figures/04_*.png`.
+4. [04 · Compare cumulative flux across the time-lag scenarios](../notebooks/04_compare_variant_fluxes.ipynb).
+   Pairs the scenarios per analyzer on the half-hours where every scenario has a
+   valid flux, then plots the cumulative flux (the running budget) per scenario
+   in three panels: all common half-hours, daytime (`SW_IN_POT > 0`), and
+   nighttime (`SW_IN_POT == 0`). Writes `figures/04_cumulative_*.png`.
 
 ## Parked notebooks
 
