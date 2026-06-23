@@ -38,6 +38,12 @@
     <loc>http://localhost:3000/compare-variant-fluxes</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/flux-processing-chain</loc>
+  </url>
+  <url>
+    <loc>http://localhost:3000/figures-qc-fluxes</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/figure-gallery</loc>
   </url>
 </urlset>
