@@ -96,8 +96,9 @@ so the comparison can be repeated on quality-controlled fluxes; it reads the ful
 `01-` tables (the chain needs the EddyPro flag and `USTAR` columns) and writes
 `data/05-flux_processing_chain_parquet/`. `06` reads that chain output and
 rebuilds the `03` and `04` figures on the quality-controlled flux for one USTAR
-scenario (`figures/06_*.png`). Notebooks `01`–`04` operate on Level-1 EddyPro
-fluxes; the chain (L2–L4) is post-processing on top.
+scenario (`figures/06_*.png`); these are the relevant result figures, while the
+raw-flux `figures/03_*` / `04_*` are intermediate. Notebooks `01`–`04` operate on
+Level-1 EddyPro fluxes; the chain (L2–L4) is post-processing on top.
 
 ## Notebook conventions
 

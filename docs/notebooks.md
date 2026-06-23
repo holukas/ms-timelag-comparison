@@ -13,12 +13,16 @@ the rendered notebook.
    (2021) (`01- → 02-`).
 3. [03 · Plot fluxes and time lag used](../notebooks/03_plot_fluxes.ipynb).
    Plots flux, time lag used, and a lag histogram per analyzer and gas, by
-   variant including the PWB (`*-5`) lag, into `figures/03_*.png`.
+   variant including the PWB (`*-5`) lag, into `figures/03_*.png`. These plot the
+   raw Level-1 flux and are intermediate: notebook 06 rebuilds them on the
+   quality-controlled flux.
 4. [04 · Compare cumulative flux across the time-lag scenarios](../notebooks/04_compare_variant_fluxes.ipynb).
    Pairs the scenarios per analyzer on the half-hours where every scenario has a
    valid flux, then plots the cumulative flux (the running budget) per scenario
    in three panels: all common half-hours, daytime (`SW_IN_POT > 0`), and
-   nighttime (`SW_IN_POT == 0`). Writes `figures/04_cumulative_*.png`.
+   nighttime (`SW_IN_POT == 0`). Writes `figures/04_cumulative_*.png`. Also
+   intermediate (raw Level-1 flux); see notebook 06 for the quality-controlled
+   version.
 5. [05 · Apply the flux processing chain to each variant](../notebooks/05_flux_processing_chain.ipynb).
    Runs `diive`'s post-processing chain (L2 quality flags, L3.1 storage, L3.2
    outlier removal, L3.3 USTAR filtering) on every variant and gas, so the
@@ -29,7 +33,8 @@ the rendered notebook.
    Reads the chain output (`05-`) and rebuilds the notebook 03 and notebook 04
    figures on the quality-controlled flux for one USTAR scenario: flux / time lag
    / lag histogram by variant, and the paired cumulative comparison (all,
-   daytime, nighttime). Writes `figures/06_*.png`.
+   daytime, nighttime). Writes `figures/06_*.png`. These are the relevant result
+   figures; the notebook 03 / 04 `figures/03_*` / `04_*` are intermediate.
 
 ## Parked notebooks
 
