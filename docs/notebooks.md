@@ -19,6 +19,17 @@ the rendered notebook.
    valid flux, then plots the cumulative flux (the running budget) per scenario
    in three panels: all common half-hours, daytime (`SW_IN_POT > 0`), and
    nighttime (`SW_IN_POT == 0`). Writes `figures/04_cumulative_*.png`.
+5. [05 · Apply the flux processing chain to each variant](../notebooks/05_flux_processing_chain.ipynb).
+   Runs `diive`'s post-processing chain (L2 quality flags, L3.1 storage, L3.2
+   outlier removal, L3.3 USTAR filtering) on every variant and gas, so the
+   comparison can be repeated on quality-controlled fluxes. Reads the full
+   per-variant tables (`01-`), writes `05-flux_processing_chain_parquet/` and a
+   post-QC cumulative overlay `figures/05_cumulative_qc_*.png`.
+6. [06 · Figures on quality-controlled fluxes](../notebooks/06_figures_qc_fluxes.ipynb).
+   Reads the chain output (`05-`) and rebuilds the notebook 03 and notebook 04
+   figures on the quality-controlled flux for one USTAR scenario: flux / time lag
+   / lag histogram by variant, and the paired cumulative comparison (all,
+   daytime, nighttime). Writes `figures/06_*.png`.
 
 ## Parked notebooks
 

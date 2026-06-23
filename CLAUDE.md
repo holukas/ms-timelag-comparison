@@ -90,7 +90,14 @@ Keep this registry explicit and auditable. It lives in
 Notebooks run in order, each stage feeding the next: `01` read CSV → Parquet,
 `02` subset columns (incl. `SW_IN_POT` for a daytime/nighttime split), `03` plot
 flux vs. time lag used, `04` compare cumulative flux across scenarios (all,
-daytime, nighttime).
+daytime, nighttime). `05` applies diive's flux processing chain (L2 quality
+flags, L3.1 storage, L3.2 outlier removal, L3.3 USTAR filtering) to every variant
+so the comparison can be repeated on quality-controlled fluxes; it reads the full
+`01-` tables (the chain needs the EddyPro flag and `USTAR` columns) and writes
+`data/05-flux_processing_chain_parquet/`. `06` reads that chain output and
+rebuilds the `03` and `04` figures on the quality-controlled flux for one USTAR
+scenario (`figures/06_*.png`). Notebooks `01`–`04` operate on Level-1 EddyPro
+fluxes; the chain (L2–L4) is post-processing on top.
 
 ## Notebook conventions
 

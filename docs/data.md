@@ -116,6 +116,10 @@ Parquet (a committed snapshot, regenerable from the `00-*` inputs).
   Parquets (fluxes, time-lag diagnostics, and `SW_IN_POT` for the daytime /
   nighttime split), restricted to the analysis year (2021). Produced by
   [notebook 02](../notebooks/02_subset_flux_columns.ipynb).
+- `05-flux_processing_chain_parquet/` holds the flux processing chain output, one
+  `*_fpc.parquet` per variant and gas (`LGR-1_FN2O_fpc.parquet`, …): every flag,
+  QCF, and USTAR-filtered series the chain produced (L2 to L3.3). Produced by
+  [notebook 05](../notebooks/05_flux_processing_chain.ipynb).
 - `04-flux-product-2025.3_subset_2024/` holds the year-2024 subset of the final
   flux product FP2025.3 (CH-CHA, 2005 to 2024), loaded from an external location
   and used as the independent reference. Produced by
