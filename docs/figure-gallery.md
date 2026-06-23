@@ -6,8 +6,9 @@ by the analysis notebooks. Click any figure to open it full size.
 ## Flux and time lag by scenario (notebook 03)
 
 Flux, time lag used, and a lag histogram per analyzer and gas, with the five
-scenarios as columns. The PWB column (`*-5`) shows its detected lag; its flux is
-pending, so that top panel is a placeholder for now.
+scenarios as columns. The PWB column (`*-5`) shows its flux alongside the
+detected lag that shaped it (its `*_TLAG_USED` columns carry no compensation,
+since the lag was removed from the raw data before flux processing).
 
 ::::{grid} 1 1 2 2
 

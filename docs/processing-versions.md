@@ -25,8 +25,10 @@ The same scheme of five versions is applied to each campaign and to each gas
 | `-4`    | Constant lag            | n/a                   | fixed at the nominal lag     | From the Flux Product.                                   |
 | `-5`    | PWB                     | n/a                   | n/a                          | Pre-whitening with block-bootstrap (Vitale et al. 2024). |
 
-Implementation status: `-1`, `-2`, `-3`, and `-4` are produced for both campaigns;
-`-5` (PWB) is still to come (only the per-chunk time-lag summaries exist so far).
+Implementation status: all five versions (`-1` through `-5`) are produced for
+both campaigns. For `-5` (PWB) the lag is detected and removed from the raw data
+before the EddyPro run, so that run applies no lag compensation; its per-chunk
+time-lag summaries are kept alongside the fluxes.
 
 ## Nominal lags and narrow windows
 

@@ -29,28 +29,36 @@ data/
   00-eddypro_fluxes_level-1/                  raw EddyPro flux output (FLUXNET CSV)
   00-eddypro_settings/                        EddyPro project + metadata files
   00-meteo/                                    meteorological data
-  00-pwb_tlag_summary/                        PWB (*-4) tlag summaries
+  00-pwb_tlag_summary/                        PWB (*-5) tlag summaries
   01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet      (notebook 01)
   01-pwb_tlag_summary_parquet/                PWB tlag summaries as Parquet (notebook 01)
   02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021 only (notebook 02)
 ```
 
-Version control: the raw `00-*` inputs are tracked (for provenance), while
-derived `*.parquet` files are gitignored (large and regenerable).
+Version control: everything under `data/` is tracked, both the raw `00-*` inputs
+(for provenance) and the derived `*.parquet` stages (a committed snapshot,
+regenerable from the inputs).
 
 ## Analysis pipeline
 
 The notebooks run in order; each stage feeds the next:
 
 1. `01_read_fluxes_to_parquet.ipynb` reads each EddyPro FLUXNET CSV with `diive`,
-   saves it as Parquet, and converts the PWB (`*-4`) tlag summaries (`00-… → 01-…`).
+   saves it as Parquet, and converts the PWB (`*-5`) tlag summaries (`00-… → 01-…`).
 2. `02_subset_flux_columns.ipynb` keeps a defined list of columns (fluxes and
    time-lag diagnostics) and restricts the rows to 2021 (`01-… → 02-…`).
-3. `03_plot_fluxes.ipynb` plots flux over time lag used per analyzer (QCL, LGR)
-   and gas (N₂O, CH₄), by variant including the PWB lag, into `figures/03_*.png`.
+3. `03_plot_fluxes.ipynb` plots flux, time lag used, and a lag histogram per
+   analyzer (QCL, LGR) and gas (N₂O, CH₄), with the five variants as columns,
+   into `figures/03_*.png`.
+4. `04_compare_variant_fluxes.ipynb` pairs the variants per analyzer on the
+   half-hours where every variant has a valid flux, then plots the cumulative
+   flux (running budget) per variant in three panels (all, daytime, nighttime),
+   into `figures/04_cumulative_*.png`.
 
-The remaining notebooks build the reference dataset (`04`), merge everything
-(`05`), and render a figure gallery (`06`).
+`00_inventory.ipynb` is a standalone page: it lists the `data/` and `figures/`
+manifest straight from disk and renders the figure gallery. The `x-04` / `x-05`
+notebooks (flux-product reference and merge) are parked and not part of the
+active pipeline.
 
 ## Setup
 

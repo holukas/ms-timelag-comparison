@@ -70,9 +70,16 @@ Gatos Research, campaign 2021_2), the five variants share one scheme:
   in-memory, no separate apply step), then process fluxes with EC maximization
   disabled (see `docs/processing-steps.md`).
 
-Implementation status: `*-1` to `*-4` have flux output; `*-5` (PWB) has its
-per-chunk time-lag summaries but no fluxes yet (they join the pipeline
-automatically once the `LGR-5` / `QCL-5` flux files appear).
+Implementation status: all five variants (`*-1` to `*-5`) have flux output for
+both analyzers. The `*-5` (PWB) EddyPro run uses `tlag_meth=0` (no lag
+compensation), since the lag was already removed from the raw data; its per-chunk
+time-lag summaries are kept alongside the fluxes.
+
+A note on reading the comparison: `*-4` (constant lag) systematically yields a
+lower flux budget than the covariance-maximization variants (`*-1` to `*-3`),
+strongest for N₂O. This is the covariance-maximization bias (per half-hour, the
+lag that maximizes |covariance| is selected, inflating the flux of a low
+signal-to-noise gas), not a processing error; it is a core result of the study.
 
 Keep this registry explicit and auditable. It lives in
 `docs/processing-versions.md` and the notebooks' config cells (`ANALYZERS`,

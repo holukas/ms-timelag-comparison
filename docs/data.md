@@ -47,10 +47,13 @@ of each filename (e.g. `QCL-1_eddypro_…_fluxnet_…_adv.csv`).
 | `LGR-2` | LGR      | 2021_2           | 2026 |
 | `LGR-3` | LGR      | 2021_2           | 2026 |
 | `LGR-4` | LGR      | 2021_2 to 2022_1 | 2024 |
+| `QCL-5` | QCL      | 2021_1           | 2026 |
+| `LGR-5` | LGR      | 2021_2           | 2026 |
 
-The PWB scenario (`QCL-5`, `LGR-5`) has no flux output here yet; only its
-per-chunk time-lag summaries exist so far (see `00-pwb_tlag_summary/` below). Its
-flux files will be added to this folder once available.
+The PWB scenario (`QCL-5`, `LGR-5`) now has flux output here too. For PWB the lag
+is detected and removed from the raw data before the EddyPro run, so that run
+applies no lag compensation; the per-chunk time-lag summaries are kept separately
+(see `00-pwb_tlag_summary/` below).
 
 Columns central to this study:
 
@@ -76,12 +79,13 @@ strategy:
   window, default fallback lag (versions `*-3`).
 - `*-4_CH-CHA_…`: the earlier (2024) constant-lag runs from the Flux Product
   (versions `*-4`).
+- `*-5_PWB-LAG-REMOVED_*`: the PWB runs (versions `*-5`). The lag is detected and
+  removed from the raw data with diive's detect-and-remove workflow (see
+  [processing steps](processing-steps.md)) beforehand, so the EddyPro run itself
+  applies no lag compensation (`tlag_meth=0`, no covariance maximization).
 
-There are no EddyPro settings for `*-5` (PWB); that scenario removes the lag with
-diive's detect-and-remove workflow instead (see
-[processing steps](processing-steps.md)). These files are the auditable
-definition of each version; keep them in sync with the
-[processing versions](processing-versions.md) table.
+These files are the auditable definition of each version; keep them in sync with
+the [processing versions](processing-versions.md) table.
 
 ## `00-meteo/`
 
