@@ -64,7 +64,8 @@ Gatos Research, campaign 2021_2), the five variants share one scheme:
   (`DEFAULT`).
 - `*-3`: covariance maximization, narrow per-campaign window, default fallback
   lag (`DEFAULT`, narrow).
-- `*-4`: constant lag (fixed at the nominal lag, from the Flux Product).
+- `*-4`: constant lag, fixed at the per-campaign nominal lag (EddyPro
+  `tlag_meth=1`, `CONSTANT`).
 - `*-5`: PWB. Detect and remove the lag from the raw data in one run via diive's
   detect-and-remove TUI (`diive-tlag-pwb-detect-remove-tui`; rotation is
   in-memory, no separate apply step), then process fluxes with EC maximization

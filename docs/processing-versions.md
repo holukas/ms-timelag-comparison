@@ -22,7 +22,7 @@ The same scheme of five versions is applied to each campaign and to each gas
 | `-1`    | Covariance maximization | 0 to 10 s             | no (OPENLAG)                 | Also performs the unzipping of the raw data.             |
 | `-2`    | Covariance maximization | 0 to 10 s             | yes, nominal lag as fallback | Also exports the rotated time series used by PWB.        |
 | `-3`    | Covariance maximization | narrow (per campaign) | yes, nominal lag as fallback | Narrow window is the per-gas range listed below.         |
-| `-4`    | Constant lag            | n/a                   | fixed at the nominal lag     | From the Flux Product.                                   |
+| `-4`    | Constant lag            | n/a                   | fixed at the nominal lag     | EddyPro constant-lag run (`tlag_meth=1`).                |
 | `-5`    | PWB                     | n/a                   | n/a                          | Pre-whitening with block-bootstrap (Vitale et al. 2024). |
 
 Implementation status: all five versions (`-1` through `-5`) are produced for
