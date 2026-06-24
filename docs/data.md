@@ -42,17 +42,13 @@ of each filename (e.g. `QCL-1_eddypro_…_fluxnet_…_adv.csv`).
 | `QCL-1` | QCL      | 2021_1           | 2026 |
 | `QCL-2` | QCL      | 2021_1           | 2026 |
 | `QCL-3` | QCL      | 2021_1           | 2026 |
-| `QCL-4` | QCL      | 2021_1           | 2026 |
+| `QCL-4` | QCL      | 2020_4 to 2021_1 | 2024 |
 | `LGR-1` | LGR      | 2021_2           | 2026 |
 | `LGR-2` | LGR      | 2021_2           | 2026 |
 | `LGR-3` | LGR      | 2021_2           | 2026 |
-<<<<<<< Updated upstream
 | `LGR-4` | LGR      | 2021_2 to 2022_1 | 2024 |
 | `QCL-5` | QCL      | 2021_1           | 2026 |
 | `LGR-5` | LGR      | 2021_2           | 2026 |
-=======
-| `LGR-4` | LGR      | 2021_2           | 2026 |
->>>>>>> Stashed changes
 
 The PWB scenario (`QCL-5`, `LGR-5`) now has flux output here too. For PWB the lag
 is detected and removed from the raw data before the EddyPro run, so that run
@@ -81,20 +77,12 @@ strategy:
   fallback lag (versions `*-2`).
 - `*-3_DEFAULT-NARROW_*`: covariance maximization over the narrow per-campaign
   window, default fallback lag (versions `*-3`).
-<<<<<<< Updated upstream
 - `*-4_CH-CHA_…`: the earlier (2024) constant-lag runs from the Flux Product
   (versions `*-4`).
 - `*-5_PWB-LAG-REMOVED_*`: the PWB runs (versions `*-5`). The lag is detected and
   removed from the raw data with diive's detect-and-remove workflow (see
   [processing steps](processing-steps.md)) beforehand, so the EddyPro run itself
   applies no lag compensation (`tlag_meth=0`, no covariance maximization).
-=======
-- `*-4_CONSTANT_*`: constant-lag run with the nominal lag imposed
-  (`tlag_meth=1`) (versions `*-4`).
-- `*-5_PWB-LAG-REMOVED_*`: the lag-removed raw data (from diive's detect-and-remove
-  workflow, see [processing steps](processing-steps.md)) processed with covariance
-  maximization off (versions `*-5`).
->>>>>>> Stashed changes
 
 These files are the auditable definition of each version; keep them in sync with
 the [processing versions](processing-versions.md) table.
