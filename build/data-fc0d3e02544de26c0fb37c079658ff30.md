@@ -84,8 +84,8 @@ strategy:
   [processing steps](processing-steps.md)) beforehand, so the EddyPro run itself
   applies no lag compensation (`tlag_meth=0`, no covariance maximization).
 
-These files are the auditable definition of each version; keep them in sync with
-the [processing versions](processing-versions.md) table.
+These files define each version; keep them in sync with the
+[processing versions](processing-versions.md) table.
 
 ## `00-meteo/`
 

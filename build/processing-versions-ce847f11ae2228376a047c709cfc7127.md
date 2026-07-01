@@ -1,7 +1,7 @@
 # Processing versions
 
-This page is the explicit, auditable registry of the time-lag settings being
-compared in this study. Fluxes are computed several times from the same raw data,
+This page lists the time-lag settings compared in this study. Fluxes are computed
+several times from the same raw data,
 changing only how the time lag between the vertical wind component and each gas
 (N₂O, CH₄, H₂O) is determined. Each row below is one processing version,
 identified by a short code (e.g. `QCL-3`) used throughout the notebooks, figures,
