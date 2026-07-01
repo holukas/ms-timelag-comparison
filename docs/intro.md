@@ -19,8 +19,8 @@ by the gas analyzer:
 
 ## How to read this book
 
-- [Processing versions](processing-versions.md) is the explicit, auditable
-  registry of the time-lag settings being compared (the study variable).
+- [Processing versions](processing-versions.md) lists the time-lag settings being
+  compared.
 - [Processing steps](processing-steps.md) describes the PWB lag detection and
   removal workflow used for the additional variant.
 - [Data](data.md) covers the datasets and how the `data/` folder is organized by
@@ -32,8 +32,8 @@ by the gas analyzer:
 
 The analysis runs in Jupyter notebooks (`notebooks/`) that use the
 [`diive`](https://github.com/holukas/diive) eddy covariance toolkit. The
-notebooks both run the processing (read EddyPro output, subset, merge, plot) and
-render into this book, so the figures and tables you see are produced by the code
-shown alongside them.
+notebooks both run the processing (read EddyPro output, subset, quality-control,
+and plot) and render into this book, so the figures and tables you see come from
+the code shown alongside them.
 
 Author: Lukas Hörtnagl, ETH Zürich (lukas.hoertnagl@usys.ethz.ch)

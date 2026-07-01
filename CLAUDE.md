@@ -82,7 +82,7 @@ strongest for N₂O. This is the covariance-maximization bias (per half-hour, th
 lag that maximizes |covariance| is selected, inflating the flux of a low
 signal-to-noise gas), not a processing error; it is a core result of the study.
 
-Keep this registry explicit and auditable. It lives in
+Keep this list defined in one place. It lives in
 `docs/processing-versions.md` and the notebooks' config cells (`ANALYZERS`,
 `GASES`, `KEEP_COLS`), never hardcoded ad hoc.
 
@@ -133,7 +133,7 @@ chain (L2–L4) is post-processing on top of the Level-1 EddyPro fluxes.
 
 - Author: Lukas Hörtnagl (ETH Zürich).
 - The set of time-lag settings being compared is the study variable. Keep it
-  defined explicitly and auditable in the notebook(s), not hardcoded ad hoc.
+  defined in one place in the notebook(s), not hardcoded ad hoc.
 - Prose style: humanize all book/doc text. No em or en dashes (use commas,
   colons, periods, parentheses; "to" for ranges). Plain, neutral technical
   voice; trim mechanical boldface and AI-writing tells.
