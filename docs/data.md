@@ -21,14 +21,14 @@ data/
   01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet         (notebook 01)
   01-pwb_tlag_summary_parquet/                PWB tlag summaries as Parquet (notebook 01)
   02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021 only    (notebook 02)
+  05-flux_processing_chain_parquet/           QC fluxes (chain L2 to L3.3) (notebook 05)
   04-flux-product-2025.3_subset_2024/         FP2025.3 reference, 2024     (notebook x-04, parked)
   05-merged_variants_fluxproduct/             variants + product, merged   (notebook x-05, parked)
 ```
 
-Notebooks 03 and 04 produce figures, not a numbered data folder. Notebook 03
-writes the per-scenario flux and time-lag plots in `figures/03_*.png`; notebook
-04 (the cumulative flux comparison) writes `figures/04_cumulative_*.png`. The
-`04-` and `05-` data folders come from the parked `x-04` / `x-05` notebooks (see
+The figure notebooks (08, 09) write to `figures/`, not to a numbered data
+folder. The `04-flux-product-2025.3_subset_2024` and `05-merged_variants_fluxproduct`
+folders above come from the parked `x-04` / `x-05` notebooks (see
 [Notebooks](notebooks.md)).
 
 ## `00-eddypro_fluxes_level-1/`

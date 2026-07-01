@@ -11,38 +11,30 @@ the rendered notebook.
    Keeps a defined column list (fluxes, time-lag diagnostics, and `SW_IN_POT` for
    a later daytime / nighttime split) and restricts the rows to the analysis year
    (2021) (`01- → 02-`).
-3. [03 · Plot fluxes and time lag used](../notebooks/03_plot_fluxes.ipynb).
-   Plots flux, time lag used, and a lag histogram per analyzer and gas, by
-   variant including the PWB (`*-5`) lag, into `figures/03_*.png`. These plot the
-   raw Level-1 flux and are intermediate: notebook 06 rebuilds them on the
-   quality-controlled flux.
-4. [04 · Compare cumulative flux across the time-lag scenarios](../notebooks/04_compare_variant_fluxes.ipynb).
-   Pairs the scenarios per analyzer on the half-hours where every scenario has a
-   valid flux, then plots the cumulative flux (the running budget) per scenario
-   in three panels: all common half-hours, daytime (`SW_IN_POT > 0`), and
-   nighttime (`SW_IN_POT == 0`). Writes `figures/04_cumulative_*.png`. Also
-   intermediate (raw Level-1 flux); see notebook 06 for the quality-controlled
-   version.
-5. [05 · Apply the flux processing chain to each variant](../notebooks/05_flux_processing_chain.ipynb).
+3. [05 · Apply the flux processing chain to each variant](../notebooks/05_flux_processing_chain.ipynb).
    Runs `diive`'s post-processing chain (L2 quality flags, L3.1 storage, L3.2
    outlier removal, L3.3 USTAR filtering) on every variant and gas, so the
    comparison can be repeated on quality-controlled fluxes. Reads the full
-   per-variant tables (`01-`), writes `05-flux_processing_chain_parquet/` and a
-   post-QC cumulative overlay `figures/05_cumulative_qc_*.png`.
-6. [06 · Figures on quality-controlled fluxes](../notebooks/06_figures_qc_fluxes.ipynb).
-   Reads the chain output (`05-`) and rebuilds the notebook 03 and notebook 04
-   figures on the quality-controlled flux for one USTAR scenario: flux / time lag
-   / lag histogram by variant, and the paired cumulative comparison (all,
-   daytime, nighttime). Writes `figures/06_*.png`. These are the relevant result
-   figures; the notebook 03 / 04 `figures/03_*` / `04_*` are intermediate.
-7. [08 · Merged analyzers, full-year QC flux figures](../notebooks/08_merged_analyzers_full_year.ipynb)
-   (there is no notebook 07). The two analyzers cover complementary halves of 2021
-   (QCL runs January to July, LGR July to December), so stitching them per variant
-   gives one continuous full-year series. Reads the same sources as notebook 06
-   (chain output `05-` for the QC flux, the `02-` / `01-` subsets for the lag) and
-   plots, per gas, the merged flux, the time lag used, and a stacked
-   per-instrument lag histogram, with the five variants as columns. Writes
-   `figures/08_{scenario}_merged_{gas}.png`.
+   per-variant tables (`01-`) and writes `05-flux_processing_chain_parquet/`. This
+   notebook writes data only; the figures that use it are built downstream (08, 09).
+4. [08 · Merged analyzers, full-year QC flux figures](../notebooks/08_merged_analyzers_full_year.ipynb).
+   The two analyzers cover complementary halves of 2021 (QCL runs January to July,
+   LGR July to December), so stitching them per variant gives one continuous
+   full-year series. Reads the chain output (`05-`) for the QC flux and the `02-` /
+   `01-` subsets for the lag, then plots, per gas, the merged flux, the time lag
+   used, and a stacked per-instrument lag histogram, with the five variants as
+   columns. Writes `figures/08_{scenario}_merged_{gas}.png`.
+5. [09 · Cumulative quality-controlled flux by variant](../notebooks/09_cumulative_qc_fluxes.ipynb).
+   The single place the cumulative comparison is produced. Reads the chain output
+   (`05-`) and draws, per gas, the running budget of each variant over the paired
+   common samples, in two panels (QCL and LGR), integrated to a cumulative mass
+   (N₂O in kg N₂O-N ha⁻¹, CH₄ in g CH₄-C m⁻²) with each variant's total in the
+   legend. Writes `figures/09_cumulative_{scenario}_{gas}.png`.
+
+Notebook numbers 03, 04, 06 and 07 are intentionally unused: 03, 04 and 06
+produced earlier plots (the raw-Level-1 intermediates and the per-analyzer QC
+figures) and were removed once figure creation was consolidated into notebooks 08
+and 09.
 
 ## Parked notebooks
 

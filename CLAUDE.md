@@ -88,22 +88,24 @@ Keep this registry explicit and auditable. It lives in
 
 ## Analysis pipeline
 
-Notebooks run in order, each stage feeding the next: `01` read CSV → Parquet,
-`02` subset columns (incl. `SW_IN_POT` for a daytime/nighttime split), `03` plot
-flux vs. time lag used, `04` compare cumulative flux across scenarios (all,
-daytime, nighttime). `05` applies diive's flux processing chain (L2 quality
-flags, L3.1 storage, L3.2 outlier removal, L3.3 USTAR filtering) to every variant
-so the comparison can be repeated on quality-controlled fluxes; it reads the full
-`01-` tables (the chain needs the EddyPro flag and `USTAR` columns) and writes
-`data/05-flux_processing_chain_parquet/`. `06` reads that chain output and
-rebuilds the `03` and `04` figures on the quality-controlled flux for one USTAR
-scenario (`figures/06_*.png`); these are the relevant result figures, while the
-raw-flux `figures/03_*` / `04_*` are intermediate. `08` (there is no `07`) merges
-the two analyzers' QC fluxes, which cover complementary halves of 2021 (QCL is
-campaign 2021_1, LGR is 2021_2), into one continuous full-year series per variant,
-then plots the merged flux, time lag used, and a stacked per-instrument lag
-histogram, one figure per gas (`figures/08_*.png`). Notebooks `01`–`04` operate on
-Level-1 EddyPro fluxes; the chain (L2–L4) is post-processing on top.
+All figures are built on the quality-controlled fluxes; the raw Level-1 plots have
+been retired. Notebooks run in order, each stage feeding the next: `01` read CSV →
+Parquet, `02` subset columns (incl. `SW_IN_POT` for a daytime/nighttime split).
+`05` applies diive's flux processing chain (L2 quality flags, L3.1 storage, L3.2
+outlier removal, L3.3 USTAR filtering) to every variant so the comparison runs on
+quality-controlled fluxes; it reads the full `01-` tables (the chain needs the
+EddyPro flag and `USTAR` columns) and writes `data/05-flux_processing_chain_parquet/`
+(data only, no figures). Figure creation is consolidated into two notebooks that
+both read the chain output. `08` merges the two analyzers' QC fluxes, which cover
+complementary halves of 2021 (QCL is campaign 2021_1, LGR is 2021_2), into one
+continuous full-year series per variant, then plots the merged flux, time lag
+used, and a stacked per-instrument lag histogram, one figure per gas
+(`figures/08_*.png`). `09` is the single place the cumulative comparison is
+produced: the running QC-flux budget per variant over the paired common samples,
+one figure per gas with QCL and LGR panels (`figures/09_cumulative_*.png`).
+Notebook numbers `03`, `04`, `06` and `07` are intentionally unused (`03` / `04`
+were the retired raw-flux plots, `06` the retired per-analyzer QC figures). The
+chain (L2–L4) is post-processing on top of the Level-1 EddyPro fluxes.
 
 ## Notebook conventions
 
@@ -111,8 +113,8 @@ Level-1 EddyPro fluxes; the chain (L2–L4) is post-processing on top.
   `## Runtime` markdown header + a cell printing start / end / elapsed.
 - diive I/O: `ReadFileType(filetype='EDDYPRO-FLUXNET-CSV-30MIN', ...)` to read,
   `diive.core.io.files.save_parquet` / `load_parquet` for Parquet.
-- `figures/03_*.png` are intermediate (small `FIGSIZE` / `DPI`); bump those
-  constants for publication-ready output.
+- Figure notebooks expose `FIGSIZE` / `DPI` constants; keep `DPI` high (300) for
+  publication-ready output.
 
 ## Environment
 

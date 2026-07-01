@@ -25,11 +25,9 @@ project:
       children:
         - file: notebooks/01_read_fluxes_to_parquet.ipynb
         - file: notebooks/02_subset_flux_columns.ipynb
-        - file: notebooks/03_plot_fluxes.ipynb
-        - file: notebooks/04_compare_variant_fluxes.ipynb
         - file: notebooks/05_flux_processing_chain.ipynb
-        - file: notebooks/06_figures_qc_fluxes.ipynb
         - file: notebooks/08_merged_analyzers_full_year.ipynb
+        - file: notebooks/09_cumulative_qc_fluxes.ipynb
     - file: docs/figure-gallery.md
 site:
   template: book-theme
