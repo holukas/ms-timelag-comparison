@@ -98,7 +98,11 @@ so the comparison can be repeated on quality-controlled fluxes; it reads the ful
 `data/05-flux_processing_chain_parquet/`. `06` reads that chain output and
 rebuilds the `03` and `04` figures on the quality-controlled flux for one USTAR
 scenario (`figures/06_*.png`); these are the relevant result figures, while the
-raw-flux `figures/03_*` / `04_*` are intermediate. Notebooks `01`–`04` operate on
+raw-flux `figures/03_*` / `04_*` are intermediate. `08` (there is no `07`) merges
+the two analyzers' QC fluxes, which cover complementary halves of 2021 (QCL is
+campaign 2021_1, LGR is 2021_2), into one continuous full-year series per variant,
+then plots the merged flux, time lag used, and a stacked per-instrument lag
+histogram, one figure per gas (`figures/08_*.png`). Notebooks `01`–`04` operate on
 Level-1 EddyPro fluxes; the chain (L2–L4) is post-processing on top.
 
 ## Notebook conventions

@@ -35,6 +35,14 @@ the rendered notebook.
    / lag histogram by variant, and the paired cumulative comparison (all,
    daytime, nighttime). Writes `figures/06_*.png`. These are the relevant result
    figures; the notebook 03 / 04 `figures/03_*` / `04_*` are intermediate.
+7. [08 · Merged analyzers, full-year QC flux figures](../notebooks/08_merged_analyzers_full_year.ipynb)
+   (there is no notebook 07). The two analyzers cover complementary halves of 2021
+   (QCL runs January to July, LGR July to December), so stitching them per variant
+   gives one continuous full-year series. Reads the same sources as notebook 06
+   (chain output `05-` for the QC flux, the `02-` / `01-` subsets for the lag) and
+   plots, per gas, the merged flux, the time lag used, and a stacked
+   per-instrument lag histogram, with the five variants as columns. Writes
+   `figures/08_{scenario}_merged_{gas}.png`.
 
 ## Parked notebooks
 

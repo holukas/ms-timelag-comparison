@@ -79,3 +79,30 @@ LGR, CH₄ cumulative QC flux by variant (all / daytime / nighttime, CUT_50).
 :::
 
 ::::
+
+## Merged full-year flux and time lag (notebook 08)
+
+The QCL and LGR halves of each variant stitched into one continuous 2021 series
+([notebook 08](../notebooks/08_merged_analyzers_full_year.ipynb)), one figure per
+gas. Each shows the merged quality-controlled flux, the time lag used, and a
+stacked per-instrument lag histogram, with the five variants as columns; the
+dashed line marks the QCL to LGR handover in July, and the histogram peaks label
+each instrument's modal lag. Shown for the `CUT_50` USTAR scenario.
+
+::::{grid} 1 1 2 2
+
+:::{card}
+[![Merged N₂O](../figures/08_cut_50_merged_n2o.png)](../figures/08_cut_50_merged_n2o.png)
++++
+Merged QCL + LGR, full-year 2021 N₂O QC flux, time lag, and lag histogram by
+variant (CUT_50).
+:::
+
+:::{card}
+[![Merged CH₄](../figures/08_cut_50_merged_ch4.png)](../figures/08_cut_50_merged_ch4.png)
++++
+Merged QCL + LGR, full-year 2021 CH₄ QC flux, time lag, and lag histogram by
+variant (CUT_50).
+:::
+
+::::
