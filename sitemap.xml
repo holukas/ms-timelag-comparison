@@ -32,19 +32,13 @@
     <loc>http://localhost:3000/subset-flux-columns</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/plot-fluxes</loc>
-  </url>
-  <url>
-    <loc>http://localhost:3000/compare-variant-fluxes</loc>
-  </url>
-  <url>
     <loc>http://localhost:3000/flux-processing-chain</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/figures-qc-fluxes</loc>
+    <loc>http://localhost:3000/merged-analyzers-full-year</loc>
   </url>
   <url>
-    <loc>http://localhost:3000/merged-analyzers-full-year</loc>
+    <loc>http://localhost:3000/cumulative-qc-fluxes</loc>
   </url>
   <url>
     <loc>http://localhost:3000/figure-gallery</loc>
