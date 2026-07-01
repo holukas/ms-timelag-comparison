@@ -8,8 +8,8 @@ the rendered notebook.
    Reads each EddyPro FLUXNET CSV with `diive` and saves it as Parquet, and
    converts the PWB (`*-5`) tlag summaries to Parquet (`00- → 01-`).
 2. [02 · Subset flux columns](../notebooks/02_subset_flux_columns.ipynb).
-   Keeps a defined column list (fluxes, time-lag diagnostics, and `SW_IN_POT` for
-   a later daytime / nighttime split) and restricts the rows to the analysis year
+   Keeps a defined column list (fluxes, time-lag diagnostics, and `SW_IN_POT`,
+   potential shortwave radiation) and restricts the rows to the analysis year
    (2021) (`01- → 02-`).
 3. [05 · Apply the flux processing chain to each variant](../notebooks/05_flux_processing_chain.ipynb).
    Runs `diive`'s post-processing chain (L2 quality flags, L3.1 storage, L3.2

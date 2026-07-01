@@ -33,6 +33,7 @@ data/
   01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet      (notebook 01)
   01-pwb_tlag_summary_parquet/                PWB tlag summaries as Parquet (notebook 01)
   02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021 only (notebook 02)
+  05-flux_processing_chain_parquet/           quality-controlled fluxes  (notebook 05)
 ```
 
 Version control: everything under `data/` is tracked, both the raw `00-*` inputs
@@ -47,18 +48,24 @@ The notebooks run in order; each stage feeds the next:
    saves it as Parquet, and converts the PWB (`*-5`) tlag summaries (`00-… → 01-…`).
 2. `02_subset_flux_columns.ipynb` keeps a defined list of columns (fluxes and
    time-lag diagnostics) and restricts the rows to 2021 (`01-… → 02-…`).
-3. `03_plot_fluxes.ipynb` plots flux, time lag used, and a lag histogram per
-   analyzer (QCL, LGR) and gas (N₂O, CH₄), with the five variants as columns,
-   into `figures/03_*.png`.
-4. `04_compare_variant_fluxes.ipynb` pairs the variants per analyzer on the
-   half-hours where every variant has a valid flux, then plots the cumulative
-   flux (running budget) per variant in three panels (all, daytime, nighttime),
-   into `figures/04_cumulative_*.png`.
+3. `05_flux_processing_chain.ipynb` runs `diive`'s post-processing chain (L2
+   quality flags, L3.1 storage, L3.2 outlier removal, L3.3 USTAR filtering) on
+   every variant and gas, writing the quality-controlled fluxes (`01-… → 05-…`).
+   This notebook writes data only; the figures are built downstream.
+4. `08_merged_analyzers_full_year.ipynb` merges the two analyzers (QCL and LGR
+   cover complementary halves of 2021) into one full-year series per variant and
+   plots the flux, time lag used, and a lag histogram, one figure per gas
+   (`figures/08_*.png`).
+5. `09_cumulative_qc_fluxes.ipynb` plots the cumulative quality-controlled flux
+   (running budget) per variant, one figure per gas with QCL and LGR panels, as a
+   cumulative mass (N₂O in kg N₂O-N ha⁻¹, CH₄ in g CH₄-C m⁻²), into
+   `figures/09_*.png`.
 
 `00_inventory.ipynb` is a standalone page: it lists the `data/` and `figures/`
-manifest straight from disk and renders the figure gallery. The `x-04` / `x-05`
-notebooks (flux-product reference and merge) are parked and not part of the
-active pipeline.
+manifest straight from disk and renders the figure gallery. Notebook numbers 03,
+04, 06 and 07 are unused (03/04/06 produced earlier plots that were removed once
+figure creation was consolidated into 08 and 09). The `x-04` / `x-05` notebooks
+(flux-product reference and merge) are parked and not part of the active pipeline.
 
 ## Setup
 
@@ -93,9 +100,9 @@ Preview live with auto-reload while writing:
 uv run jupyter book start               # serves at http://localhost:3000
 ```
 
-The notebooks run the processing pipeline (read → subset → plot) and, once
-built, render into the published reproducibility website together with the
-prose pages in `docs/`.
+The notebooks run the processing pipeline (read → subset → quality-control →
+plot) and, once built, render into the published reproducibility website together
+with the prose pages in `docs/`.
 
 ## Deploy
 

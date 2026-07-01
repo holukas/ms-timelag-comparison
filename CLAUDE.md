@@ -90,7 +90,7 @@ Keep this registry explicit and auditable. It lives in
 
 All figures are built on the quality-controlled fluxes; the raw Level-1 plots have
 been retired. Notebooks run in order, each stage feeding the next: `01` read CSV →
-Parquet, `02` subset columns (incl. `SW_IN_POT` for a daytime/nighttime split).
+Parquet, `02` subset columns (incl. `SW_IN_POT`, potential radiation).
 `05` applies diive's flux processing chain (L2 quality flags, L3.1 storage, L3.2
 outlier removal, L3.3 USTAR filtering) to every variant so the comparison runs on
 quality-controlled fluxes; it reads the full `01-` tables (the chain needs the

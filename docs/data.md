@@ -62,8 +62,8 @@ Columns central to this study:
 - Time-lag diagnostics, per gas. These are the variables the comparison turns on:
   `N2O_TLAG_USED`, `N2O_TLAG_ACTUAL`, `N2O_TLAG_NOMINAL`, `N2O_TLAG_MIN`,
   `N2O_TLAG_MAX`, and the equivalent `CH4_TLAG_*` set.
-- Radiation: `SW_IN_POT` (potential shortwave radiation), used downstream to
-  split fluxes into daytime (`SW_IN_POT > 0`) and nighttime (`SW_IN_POT == 0`).
+- Radiation: `SW_IN_POT` (potential shortwave radiation); a positive value marks
+  daytime, zero marks nighttime.
 
 ## `00-eddypro_settings/`
 
@@ -113,8 +113,8 @@ Parquet (a committed snapshot, regenerable from the `00-*` inputs).
   30-minute grid are kept, so they align with the flux timestamps. Produced by
   [notebook 01](../notebooks/01_read_fluxes_to_parquet.ipynb).
 - `02-eddypro_fluxes_level-1_parquet_subsets/` holds column subsets of the flux
-  Parquets (fluxes, time-lag diagnostics, and `SW_IN_POT` for the daytime /
-  nighttime split), restricted to the analysis year (2021). Produced by
+  Parquets (fluxes, time-lag diagnostics, and `SW_IN_POT`), restricted to the
+  analysis year (2021). Produced by
   [notebook 02](../notebooks/02_subset_flux_columns.ipynb).
 - `05-flux_processing_chain_parquet/` holds the flux processing chain output, one
   `*_fpc.parquet` per variant and gas (`LGR-1_FN2O_fpc.parquet`, …): every flag,
