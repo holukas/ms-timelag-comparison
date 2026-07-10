@@ -458,6 +458,7 @@ requires-dist = [
     { name = "shap", specifier = ">=0.48.0,<1.0.0" },
     { name = "statsmodels", specifier = ">=0.14.4,<0.15.0" },
     { name = "textual", specifier = ">=8.2.7" },
+    { name = "trimesh", marker = "extra == 'gui3d'", specifier = ">=4.0" },
     { name = "uncertainties", specifier = ">=3.2.2,<4.0.0" },
     { name = "xgboost", specifier = ">=3.0.0,<4.0.0" },
     { name = "yellowbrick", specifier = ">=1.5,<2.0" },
