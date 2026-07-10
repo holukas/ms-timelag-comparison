@@ -59,17 +59,24 @@ Fluxes are computed several times, varying only how the N₂O/CH₄/H₂O time l
 found. Per analyzer (QCL = quantum cascade laser, campaign 2021_1; LGR = Los
 Gatos Research, campaign 2021_2), the five variants share one scheme:
 
-- `*-1`: covariance maximization, 0 to 10 s window, no default (`OPENLAG`).
+- `*-1`: covariance maximization, 0 to 10 s window, no default (`OPENLAG`; CM).
 - `*-2`: covariance maximization, 0 to 10 s window, default fallback lag
-  (`DEFAULT`).
+  (`DEFAULT`; CM).
 - `*-3`: covariance maximization, narrow per-campaign window, default fallback
-  lag (`DEFAULT`, narrow).
+  lag (`DEFAULT`, narrow; CM$_{CTR}$).
 - `*-4`: constant lag, fixed at the per-campaign nominal lag (EddyPro
-  `tlag_meth=1`, `CONSTANT`).
+  `tlag_meth=1`, `CONSTANT`; no paper acronym).
 - `*-5`: PWB. Detect and remove the lag from the raw data in one run via diive's
   detect-and-remove TUI (`diive-tlag-pwb-detect-remove-tui`; rotation is
   in-memory, no separate apply step), then process fluxes with EC maximization
-  disabled (see `docs/processing-steps.md`).
+  disabled (see `docs/processing-steps.md`). The lag applied is the optimised
+  PWB$_{OPT}$ lag (`PWB$_{OPT}$`).
+
+The `OPENLAG` / `DEFAULT` / `CONSTANT` / `PWB` tokens are the EddyPro/diive
+setting names; `CM`, `CM$_{CTR}$`, `PWB`, `PWB$_{OPT}$` are the method
+abbreviations from Vitale et al. (2024) used in the figures and docs (CM =
+covariance maximisation, CTR = constrained/narrow window, PWB$_{OPT}$ = optimised
+pre-whitening with block-bootstrap). Both name the same five variants.
 
 Implementation status: all five variants (`*-1` to `*-5`) have flux output for
 both analyzers. The `*-5` (PWB) EddyPro run uses `tlag_meth=0` (no lag
