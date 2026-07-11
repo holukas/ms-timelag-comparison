@@ -11,9 +11,10 @@ scenario. Click any figure to open it full size.
 The QCL and LGR halves of each variant stitched into one continuous 2021 series
 ([notebook 08](../notebooks/08_merged_analyzers_full_year.ipynb)), one figure per
 gas. Each shows the merged quality-controlled flux, the time lag used, and a
-stacked per-instrument lag histogram, with the five variants as columns; the
-dashed line marks the QCL to LGR handover in July, and the histogram peaks label
-each instrument's modal lag. Shown for the `CUT_50` USTAR scenario.
+per-instrument lag histogram (0.05 s bins on the EddyPro tlag raster, the two
+instruments overlaid), with the five variants as columns; the dashed line marks
+the QCL to LGR handover in July, and each panel prints the two instruments' modal
+lags in its corner. Shown for the `CUT_50` USTAR scenario.
 
 ::::{grid} 1 1 2 2
 
