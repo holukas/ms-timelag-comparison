@@ -22,8 +22,9 @@ the rendered notebook.
    LGR July to December), so stitching them per variant gives one continuous
    full-year series. Reads the chain output (`05-`) for the QC flux and the `02-` /
    `01-` subsets for the lag, then plots, per gas, the merged flux, the time lag
-   used, and a stacked per-instrument lag histogram, with the five variants as
-   columns. Writes `figures/08_{scenario}_merged_{gas}.png`.
+   used, and a per-instrument lag histogram (0.05 s EddyPro tlag raster, the two
+   instruments overlaid), with the five variants as columns. Writes
+   `figures/08_{scenario}_merged_{gas}.png`.
 5. [09 · Cumulative quality-controlled flux by variant](../notebooks/09_cumulative_qc_fluxes.ipynb).
    The single place the cumulative comparison is produced. Reads the chain output
    (`05-`) and draws, per gas, the running budget of each variant over the paired

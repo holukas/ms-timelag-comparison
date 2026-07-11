@@ -106,8 +106,8 @@ EddyPro flag and `USTAR` columns) and writes `data/05-flux_processing_chain_parq
 both read the chain output. `08` merges the two analyzers' QC fluxes, which cover
 complementary halves of 2021 (QCL is campaign 2021_1, LGR is 2021_2), into one
 continuous full-year series per variant, then plots the merged flux, time lag
-used, and a stacked per-instrument lag histogram, one figure per gas
-(`figures/08_*.png`). `09` is the single place the cumulative comparison is
+used, and a per-instrument lag histogram (0.05 s EddyPro tlag raster, the two
+instruments overlaid), one figure per gas (`figures/08_*.png`). `09` is the single place the cumulative comparison is
 produced: the running QC-flux budget per variant over the paired common samples,
 one figure per gas with QCL and LGR panels (`figures/09_cumulative_*.png`).
 Notebook numbers `03`, `04`, `06` and `07` are intentionally unused (`03` / `04`
