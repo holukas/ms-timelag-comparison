@@ -16,6 +16,7 @@ project:
     - file: docs/intro.md
     - file: docs/site.md
     - file: docs/processing-versions.md
+    - file: docs/time-lag-options.md
     - file: docs/processing-steps.md
     - file: docs/data.md
     - file: notebooks/00_inventory.ipynb
