@@ -47,7 +47,6 @@ data/00-meteo/                                    meteo data
 data/00-pwb_tlag_summary/                        PWB (*-5) tlag summary CSVs
 data/01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet  (notebook 01)
 data/01-pwb_tlag_summary_parquet/                PWB tlag as Parquet   (notebook 01)
-data/02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021  (notebook 02)
 ```
 
 **Version control:** everything under `data/` is **tracked**, both the raw `00-*`
@@ -98,9 +97,14 @@ Keep this list defined in one place. It lives in
 
 ## Analysis pipeline
 
-All figures are built on the quality-controlled fluxes; the raw Level-1 plots have
-been retired. Notebooks run in order, each stage feeding the next: `01` read CSV →
-Parquet, `02` subset columns (incl. `SW_IN_POT`, potential radiation).
+The manuscript figures are built on the quality-controlled fluxes (`08`, `09`);
+`02` and `03` mirror those same figures on the Level-1 fluxes, before the chain, as
+the pre-quality-control counterpart. Notebooks run in order, each stage feeding the
+next: `01` read CSV → Parquet. `02` and `03` read the Level-1 tables (`01-`)
+directly and write the raw-flux figures (`figures/02_*.png`, `figures/03_*.png`):
+`02` is the Level-1 version of `08` (merged full-year raw flux, time lag, lag
+histogram), `03` the Level-1 version of `09` (raw flux distribution and cumulative
+budget). They apply no quality control.
 `05` applies diive's flux processing chain (L2 quality flags, L3.1 storage, L3.2
 outlier removal, L3.3 USTAR filtering, CUT_16/CUT_50/CUT_84) to every variant and
 gas so the comparison runs on quality-controlled fluxes; it reads the full `01-`
@@ -121,9 +125,9 @@ figure per gas with two rows: the half-hourly flux density distribution per
 variant on top (kernel-density line, fixed x-range per gas, PWB$_{OPT}$ drawn as a
 grey shaded reference area), and the running QC-flux budget per variant over the
 paired common samples below (QCL and LGR panels, PWB$_{OPT}$ again a grey shaded
-area), writing `figures/09_cumulative_*.png`. Notebook numbers `03`, `04`, `06`
-and `07` are intentionally unused (`03` / `04` were the retired raw-flux plots,
-`06` the retired per-analyzer QC figures). The chain
+area), writing `figures/09_cumulative_*.png`. Notebook numbers `04`, `06` and `07`
+are intentionally unused (earlier retired plots: the per-analyzer QC figures and
+other intermediates). The chain
 (L2 to L4) is post-processing on top of the Level-1 EddyPro fluxes.
 
 ## Notebook conventions

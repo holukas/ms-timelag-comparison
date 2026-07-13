@@ -14,7 +14,8 @@ project:
     - docs/building-the-book.md
     - docs/notebooks.md
     - notebooks/01_read_fluxes_to_parquet.ipynb
-    - notebooks/02_subset_flux_columns.ipynb
+    - notebooks/02_level1_merged_analyzers.ipynb
+    - notebooks/03_level1_cumulative_fluxes.ipynb
     - notebooks/05_flux_processing_chain.ipynb
     - notebooks/08_merged_analyzers_full_year.ipynb
     - notebooks/09_cumulative_qc_fluxes.ipynb
@@ -55,7 +56,8 @@ website:
       - section: "Analysis notebooks"
         contents:
           - notebooks/01_read_fluxes_to_parquet.ipynb
-          - notebooks/02_subset_flux_columns.ipynb
+          - notebooks/02_level1_merged_analyzers.ipynb
+          - notebooks/03_level1_cumulative_fluxes.ipynb
           - notebooks/05_flux_processing_chain.ipynb
           - notebooks/08_merged_analyzers_full_year.ipynb
           - notebooks/09_cumulative_qc_fluxes.ipynb

@@ -7,11 +7,18 @@ the rendered notebook.
 1. [01 · Read flux CSVs and PWB tlag summaries → Parquet](../notebooks/01_read_fluxes_to_parquet.ipynb).
    Reads each EddyPro FLUXNET CSV with `diive` and saves it as Parquet, and
    converts the PWB (`*-5`) tlag summaries to Parquet (`00- → 01-`).
-2. [02 · Subset flux columns](../notebooks/02_subset_flux_columns.ipynb).
-   Keeps a defined column list (fluxes, time-lag diagnostics, and `SW_IN_POT`,
-   potential shortwave radiation) and restricts the rows to the analysis year
-   (2021) (`01- → 02-`).
-3. [05 · Apply the flux processing chain to each variant](../notebooks/05_flux_processing_chain.ipynb).
+2. [02 · Level-1 merged analyzers, full-year raw fluxes](../notebooks/02_level1_merged_analyzers.ipynb).
+   The pre-quality-control counterpart of notebook 08: the same merged full-year
+   view, but built directly on the Level-1 EddyPro fluxes (`01-`), before the flux
+   processing chain. Plots, per gas, the merged raw flux, the time lag used, and a
+   per-instrument lag histogram, with the five variants as columns. Writes
+   `figures/02_merged_{gas}.png`.
+3. [03 · Level-1 flux distribution and cumulative budget](../notebooks/03_level1_cumulative_fluxes.ipynb).
+   The pre-quality-control counterpart of notebook 09: the half-hourly flux density
+   distribution and the running cumulative budget per variant, over the paired
+   common samples, read straight from the Level-1 fluxes (`01-`). Writes
+   `figures/03_cumulative_{gas}.png`.
+4. [05 · Apply the flux processing chain to each variant](../notebooks/05_flux_processing_chain.ipynb).
    Runs `diive`'s post-processing chain (L2 quality flags, L3.1 storage, L3.2
    outlier removal, L3.3 USTAR filtering) on every variant and gas, so the
    comparison can be repeated on quality-controlled fluxes. Reads the full
@@ -20,17 +27,17 @@ the rendered notebook.
    date/time heatmap grid and a time-series grid of the CUT_50 QC flux for every
    variant (both analyzers), shown in the notebook only. The saved figures that use
    this stage are built downstream (08, 09).
-4. [08 · Merged analyzers, full-year QC flux figures](../notebooks/08_merged_analyzers_full_year.ipynb).
+5. [08 · Merged analyzers, full-year QC flux figures](../notebooks/08_merged_analyzers_full_year.ipynb).
    The two analyzers cover complementary halves of 2021 (QCL runs January to July,
    LGR July to December), so stitching them per variant gives one continuous
-   full-year series. Reads the chain output (`05-`) for the QC flux and the `02-` /
-   `01-` subsets for the lag, then plots, per gas, the merged flux, the time lag
+   full-year series. Reads the chain output (`05-`) for the QC flux and the `01-`
+   level-1 tables for the lag, then plots, per gas, the merged flux, the time lag
    used, and a per-instrument lag histogram (0.05 s EddyPro tlag raster, the two
    instruments overlaid), with the five variants as columns. The time lag is masked
    to the records where the QC flux survives, so the lag row, histogram, and mode
    describe exactly the records shown in the flux row. Writes
    `figures/08_{scenario}_merged_{gas}.png`.
-5. [09 · Cumulative quality-controlled flux by variant](../notebooks/09_cumulative_qc_fluxes.ipynb).
+6. [09 · Cumulative quality-controlled flux by variant](../notebooks/09_cumulative_qc_fluxes.ipynb).
    The single place the cumulative comparison is produced. Reads the chain output
    (`05-`) and draws, per gas, two rows. The top row shows the half-hourly flux
    density distribution per variant (a kernel-density line, with PWB_OPT drawn as a
@@ -40,10 +47,11 @@ the rendered notebook.
    with each variant's total in the legend and PWB_OPT again as a grey shaded area.
    Writes `figures/09_cumulative_{scenario}_{gas}.png`.
 
-Notebook numbers 03, 04, 06 and 07 are intentionally unused: 03, 04 and 06
-produced earlier plots (the raw-Level-1 intermediates and the per-analyzer QC
-figures) and were removed once figure creation was consolidated into notebooks 08
-and 09.
+Notebooks 02 and 03 mirror the figures of 08 and 09 on the Level-1 fluxes
+(before quality control); 08 and 09 are the quality-controlled versions. Notebook
+numbers 04, 06 and 07 are intentionally unused: they held earlier plots
+(per-analyzer QC figures and other intermediates) that were removed once figure
+creation was consolidated.
 
 ## Parked notebooks
 

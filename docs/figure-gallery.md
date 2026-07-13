@@ -1,10 +1,12 @@
 # Figure gallery
 
-The manuscript record of the plots produced by the analysis notebooks. All
+The manuscript record of the plots produced by the analysis notebooks. The main
 figures are built on the **quality-controlled** fluxes from the flux processing
 chain ([notebook 05](../notebooks/05_flux_processing_chain.ipynb), L2 to L3.3 with
 USTAR filtering) applied to every variant, shown here for the `CUT_50` USTAR
-scenario. Click any figure to open it full size.
+scenario. The Level-1 sections at the bottom are the same figures on the **raw**
+fluxes, before quality control (notebooks 02 and 03). Click any figure to open it
+full size.
 
 ## Merged full-year flux and time lag (notebook 08)
 
@@ -59,6 +61,57 @@ N₂O cumulative QC flux by variant (kg N₂O-N ha⁻¹), QCL and LGR (CUT_50).
 [![CH₄ cumulative](../figures/09_cumulative_cut_50_ch4.png)](../figures/09_cumulative_cut_50_ch4.png)
 
 CH₄ cumulative QC flux by variant (g CH₄-C m⁻²), QCL and LGR (CUT_50).
+:::
+
+:::
+
+## Level-1 merged full-year raw flux (notebook 02)
+
+The pre-quality-control counterpart of the merged figure above, built directly on
+the Level-1 EddyPro fluxes
+([notebook 02](../notebooks/02_level1_merged_analyzers.ipynb)), one figure per gas:
+the merged raw flux, the time lag used, and the per-instrument lag histogram, with
+the five variants as columns.
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+[![Level-1 merged N₂O](../figures/02_merged_n2o.png)](../figures/02_merged_n2o.png)
+
+Merged QCL + LGR, full-year 2021 N₂O raw flux, time lag, and lag histogram by
+variant (Level-1, before quality control).
+:::
+
+::: {.g-col-12 .g-col-md-6}
+[![Level-1 merged CH₄](../figures/02_merged_ch4.png)](../figures/02_merged_ch4.png)
+
+Merged QCL + LGR, full-year 2021 CH₄ raw flux, time lag, and lag histogram by
+variant (Level-1, before quality control).
+:::
+
+:::
+
+## Level-1 cumulative raw flux (notebook 03)
+
+The pre-quality-control counterpart of the cumulative figure above, built on the
+Level-1 fluxes ([notebook 03](../notebooks/03_level1_cumulative_fluxes.ipynb)), one
+figure per gas: the flux density distribution (top) and the cumulative budget
+(bottom) per variant, QCL on the left and LGR on the right.
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+[![Level-1 N₂O cumulative](../figures/03_cumulative_n2o.png)](../figures/03_cumulative_n2o.png)
+
+N₂O raw-flux distribution and cumulative budget by variant (kg N₂O-N ha⁻¹), QCL and
+LGR (Level-1, before quality control).
+:::
+
+::: {.g-col-12 .g-col-md-6}
+[![Level-1 CH₄ cumulative](../figures/03_cumulative_ch4.png)](../figures/03_cumulative_ch4.png)
+
+CH₄ raw-flux distribution and cumulative budget by variant (g CH₄-C m⁻²), QCL and
+LGR (Level-1, before quality control).
 :::
 
 :::

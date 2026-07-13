@@ -33,7 +33,6 @@ data/
   00-pwb_tlag_summary/                        PWB (*-5) tlag summaries
   01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet      (notebook 01)
   01-pwb_tlag_summary_parquet/                PWB tlag summaries as Parquet (notebook 01)
-  02-eddypro_fluxes_level-1_parquet_subsets/  column subsets, 2021 only (notebook 02)
   05-flux_processing_chain_parquet/           quality-controlled fluxes  (notebook 05)
 ```
 
@@ -47,26 +46,33 @@ The notebooks run in order; each stage feeds the next:
 
 1. `01_read_fluxes_to_parquet.ipynb` reads each EddyPro FLUXNET CSV with `diive`,
    saves it as Parquet, and converts the PWB (`*-5`) tlag summaries (`00-… → 01-…`).
-2. `02_subset_flux_columns.ipynb` keeps a defined list of columns (fluxes and
-   time-lag diagnostics) and restricts the rows to 2021 (`01-… → 02-…`).
-3. `05_flux_processing_chain.ipynb` runs `diive`'s post-processing chain (L2
+2. `02_level1_merged_analyzers.ipynb` builds the merged full-year figures directly
+   from the Level-1 fluxes (`01-`), before quality control: raw flux, time lag
+   used, and lag histogram, one figure per gas (`figures/02_*.png`). The pre-QC
+   counterpart of notebook 08.
+3. `03_level1_cumulative_fluxes.ipynb` builds the flux distribution and cumulative
+   budget from the Level-1 fluxes (`01-`), before quality control, one figure per
+   gas (`figures/03_*.png`). The pre-QC counterpart of notebook 09.
+4. `05_flux_processing_chain.ipynb` runs `diive`'s post-processing chain (L2
    quality flags, L3.1 storage, L3.2 outlier removal, L3.3 USTAR filtering) on
    every variant and gas, writing the quality-controlled fluxes (`01-… → 05-…`).
    This notebook writes data only; the figures are built downstream.
-4. `08_merged_analyzers_full_year.ipynb` merges the two analyzers (QCL and LGR
+5. `08_merged_analyzers_full_year.ipynb` merges the two analyzers (QCL and LGR
    cover complementary halves of 2021) into one full-year series per variant and
    plots the flux, time lag used, and a lag histogram, one figure per gas
    (`figures/08_*.png`).
-5. `09_cumulative_qc_fluxes.ipynb` plots the cumulative quality-controlled flux
+6. `09_cumulative_qc_fluxes.ipynb` plots the cumulative quality-controlled flux
    (running budget) per variant, one figure per gas with QCL and LGR panels, as a
    cumulative mass (N₂O in kg N₂O-N ha⁻¹, CH₄ in g CH₄-C m⁻²), into
    `figures/09_*.png`.
 
+Notebooks 02 and 03 are the Level-1 (pre-quality-control) mirrors of 08 and 09.
+
 `00_inventory.ipynb` is a standalone page: it lists the `data/` and `figures/`
-manifest straight from disk and renders the figure gallery. Notebook numbers 03,
-04, 06 and 07 are unused (03/04/06 produced earlier plots that were removed once
-figure creation was consolidated into 08 and 09). The `x-04` / `x-05` notebooks
-(flux-product reference and merge) are parked and not part of the active pipeline.
+manifest straight from disk and renders the figure gallery. Notebook numbers 04,
+06 and 07 are unused (earlier plots that were removed once figure creation was
+consolidated). The `x-04` / `x-05` notebooks (flux-product reference and merge)
+are parked and not part of the active pipeline.
 
 ## Setup
 
@@ -102,8 +108,8 @@ uv run quarto preview                    # serves at http://localhost:4200
 
 Quarto renders the notebooks from their committed outputs (`execute.enabled: false`
 in `_quarto.yml`), so building never re-runs them; run them in JupyterLab first to
-refresh. The notebooks run the processing pipeline (read → subset →
-quality-control → plot) and render into the published reproducibility website
+refresh. The notebooks run the processing pipeline (read → quality-control →
+plot) and render into the published reproducibility website
 together with the prose pages in `docs/`.
 
 ## Deploy

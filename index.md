@@ -32,8 +32,10 @@ by the gas analyzer:
 
 The analysis runs in Jupyter notebooks (`notebooks/`) that use the
 [`diive`](https://github.com/holukas/diive) eddy covariance toolkit. The
-notebooks both run the processing (read EddyPro output, subset, quality-control,
-and plot) and render into this site, so the figures and tables you see come from
-the code shown alongside them.
+notebooks both run the processing (read EddyPro output, quality-control, and
+plot) and render into this site, so the figures and tables you see come from the
+code shown alongside them. Level-1 (pre-quality-control) figures come from
+notebooks 02 and 03; the quality-controlled figures come from notebooks 08 and
+09.
 
 Author: Lukas Hörtnagl, ETH Zürich (lukas.hoertnagl@usys.ethz.ch)
