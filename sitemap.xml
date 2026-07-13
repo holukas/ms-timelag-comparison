@@ -11,6 +11,9 @@
     <loc>http://localhost:3000/processing-versions</loc>
   </url>
   <url>
+    <loc>http://localhost:3000/time-lag-options</loc>
+  </url>
+  <url>
     <loc>http://localhost:3000/processing-steps</loc>
   </url>
   <url>
