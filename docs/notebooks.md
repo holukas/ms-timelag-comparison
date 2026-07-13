@@ -15,22 +15,30 @@ the rendered notebook.
    Runs `diive`'s post-processing chain (L2 quality flags, L3.1 storage, L3.2
    outlier removal, L3.3 USTAR filtering) on every variant and gas, so the
    comparison can be repeated on quality-controlled fluxes. Reads the full
-   per-variant tables (`01-`) and writes `05-flux_processing_chain_parquet/`. This
-   notebook writes data only; the figures that use it are built downstream (08, 09).
+   per-variant tables (`01-`) and writes `05-flux_processing_chain_parquet/`. It
+   saves no figure files, but at the end it renders an inline overview per gas: a
+   date/time heatmap grid and a time-series grid of the CUT_50 QC flux for every
+   variant (both analyzers), shown in the notebook only. The saved figures that use
+   this stage are built downstream (08, 09).
 4. [08 · Merged analyzers, full-year QC flux figures](../notebooks/08_merged_analyzers_full_year.ipynb).
    The two analyzers cover complementary halves of 2021 (QCL runs January to July,
    LGR July to December), so stitching them per variant gives one continuous
    full-year series. Reads the chain output (`05-`) for the QC flux and the `02-` /
    `01-` subsets for the lag, then plots, per gas, the merged flux, the time lag
    used, and a per-instrument lag histogram (0.05 s EddyPro tlag raster, the two
-   instruments overlaid), with the five variants as columns. Writes
+   instruments overlaid), with the five variants as columns. The time lag is masked
+   to the records where the QC flux survives, so the lag row, histogram, and mode
+   describe exactly the records shown in the flux row. Writes
    `figures/08_{scenario}_merged_{gas}.png`.
 5. [09 · Cumulative quality-controlled flux by variant](../notebooks/09_cumulative_qc_fluxes.ipynb).
    The single place the cumulative comparison is produced. Reads the chain output
-   (`05-`) and draws, per gas, the running budget of each variant over the paired
-   common samples, in two panels (QCL and LGR), integrated to a cumulative mass
-   (N₂O in kg N₂O-N ha⁻¹, CH₄ in g CH₄-C m⁻²) with each variant's total in the
-   legend. Writes `figures/09_cumulative_{scenario}_{gas}.png`.
+   (`05-`) and draws, per gas, two rows. The top row shows the half-hourly flux
+   density distribution per variant (a kernel-density line, with PWB_OPT drawn as a
+   grey shaded reference area). The bottom row shows the running cumulative QC-flux
+   budget of each variant over the paired common samples, in two panels (QCL and
+   LGR), integrated to a cumulative mass (N₂O in kg N₂O-N ha⁻¹, CH₄ in g CH₄-C m⁻²)
+   with each variant's total in the legend and PWB_OPT again as a grey shaded area.
+   Writes `figures/09_cumulative_{scenario}_{gas}.png`.
 
 Notebook numbers 03, 04, 06 and 07 are intentionally unused: 03, 04 and 06
 produced earlier plots (the raw-Level-1 intermediates and the per-analyzer QC

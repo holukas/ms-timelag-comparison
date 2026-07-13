@@ -10,9 +10,10 @@ scenario. Click any figure to open it full size.
 
 The QCL and LGR halves of each variant stitched into one continuous 2021 series
 ([notebook 08](../notebooks/08_merged_analyzers_full_year.ipynb)), one figure per
-gas. Each shows the merged quality-controlled flux, the time lag used, and a
-per-instrument lag histogram (0.05 s bins on the EddyPro tlag raster, the two
-instruments overlaid), with the five variants as columns; the dashed line marks
+gas. Each shows the merged quality-controlled flux, the time lag used (over the
+records where the QC flux survives), and a per-instrument lag histogram (0.05 s
+bins on the EddyPro tlag raster, the two instruments overlaid), with the five
+variants as columns; the dashed line marks
 the QCL to LGR handover in July, and each panel prints the two instruments' modal
 lags in its corner. Shown for the `CUT_50` USTAR scenario.
 
@@ -36,12 +37,15 @@ variant (CUT_50).
 
 ## Cumulative flux comparison (notebook 09)
 
-Cumulative quality-controlled flux (the running budget) per variant, on the
-half-hours where every variant has a valid flux, integrated to a cumulative mass
-(N₂O as kg N₂O-N ha⁻¹, CH₄ as g CH₄-C m⁻²). One figure per gas, with the QCL
-campaign (2021_1) on the left and the LGR campaign (2021_2) on the right; each
-variant's overall total is given in the legend. Lines that fan apart mean the lag
-setting accumulates into a different total budget even after quality control.
+One figure per gas, with two rows. The lower row is the cumulative
+quality-controlled flux (the running budget) per variant, on the half-hours where
+every variant has a valid flux, integrated to a cumulative mass (N₂O as
+kg N₂O-N ha⁻¹, CH₄ as g CH₄-C m⁻²); each variant's overall total is given in the
+legend, and lines that fan apart mean the lag setting accumulates into a
+different total budget even after quality control. The upper row is the flux
+density distribution per variant on those same samples, with PWB$_{OPT}$ drawn as
+a grey shaded reference area. Each figure has the QCL campaign (2021_1) on the
+left and the LGR campaign (2021_2) on the right.
 
 ::::{grid} 1 1 2 2
 

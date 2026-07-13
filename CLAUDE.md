@@ -99,20 +99,29 @@ All figures are built on the quality-controlled fluxes; the raw Level-1 plots ha
 been retired. Notebooks run in order, each stage feeding the next: `01` read CSV →
 Parquet, `02` subset columns (incl. `SW_IN_POT`, potential radiation).
 `05` applies diive's flux processing chain (L2 quality flags, L3.1 storage, L3.2
-outlier removal, L3.3 USTAR filtering) to every variant so the comparison runs on
-quality-controlled fluxes; it reads the full `01-` tables (the chain needs the
-EddyPro flag and `USTAR` columns) and writes `data/05-flux_processing_chain_parquet/`
-(data only, no figures). Figure creation is consolidated into two notebooks that
-both read the chain output. `08` merges the two analyzers' QC fluxes, which cover
-complementary halves of 2021 (QCL is campaign 2021_1, LGR is 2021_2), into one
-continuous full-year series per variant, then plots the merged flux, time lag
-used, and a per-instrument lag histogram (0.05 s EddyPro tlag raster, the two
-instruments overlaid), one figure per gas (`figures/08_*.png`). `09` is the single place the cumulative comparison is
-produced: the running QC-flux budget per variant over the paired common samples,
-one figure per gas with QCL and LGR panels (`figures/09_cumulative_*.png`).
-Notebook numbers `03`, `04`, `06` and `07` are intentionally unused (`03` / `04`
-were the retired raw-flux plots, `06` the retired per-analyzer QC figures). The
-chain (L2–L4) is post-processing on top of the Level-1 EddyPro fluxes.
+outlier removal, L3.3 USTAR filtering, CUT_16/CUT_50/CUT_84) to every variant and
+gas so the comparison runs on quality-controlled fluxes; it reads the full `01-`
+tables (the chain needs the EddyPro flag and `USTAR` columns) and writes
+`data/05-flux_processing_chain_parquet/`. It writes only data files, but at the
+end it also renders inline overview figures per gas (a date/time heatmap grid and
+a time-series grid of the CUT_50 QC flux for every variant, both analyzers); those
+overviews are shown inline only and are not saved to `figures/`. Figure creation for the manuscript is
+consolidated into two notebooks that both read the chain output. `08` merges the
+two analyzers' QC fluxes, which cover complementary halves of 2021 (QCL is
+campaign 2021_1, LGR is 2021_2), into one continuous full-year series per variant,
+then plots the merged flux, time lag used, and a per-instrument lag histogram
+(0.05 s EddyPro tlag raster, the two instruments overlaid), one figure per gas
+(`figures/08_*.png`); the time lag is masked to the records where the QC flux
+survives, so the lag row, histogram and mode describe exactly the records in the
+flux row. `09` is the single place the cumulative comparison is produced, one
+figure per gas with two rows: the half-hourly flux density distribution per
+variant on top (kernel-density line, fixed x-range per gas, PWB$_{OPT}$ drawn as a
+grey shaded reference area), and the running QC-flux budget per variant over the
+paired common samples below (QCL and LGR panels, PWB$_{OPT}$ again a grey shaded
+area), writing `figures/09_cumulative_*.png`. Notebook numbers `03`, `04`, `06`
+and `07` are intentionally unused (`03` / `04` were the retired raw-flux plots,
+`06` the retired per-analyzer QC figures). The chain
+(L2 to L4) is post-processing on top of the Level-1 EddyPro fluxes.
 
 ## Notebook conventions
 
