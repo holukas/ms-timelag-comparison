@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-07-13">
 
-<title>Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
+<title>building-the-book – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -24,31 +24,67 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./docs/site.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-314a0a95d22abaef64a43eaffdb7cdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../docs/notebooks.html" rel="next">
+<link href="../notebooks/00_inventory.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-314a0a95d22abaef64a43eaffdb7cdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -249,7 +285,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Time-lag settings &amp; N₂O/CH₄ EC fluxes</span>
     </a>
   </div>
@@ -276,7 +312,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/building-the-book.html">The book</a></li><li class="breadcrumb-item"><a href="../docs/building-the-book.html">Building the book</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -298,7 +334,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
@@ -313,37 +349,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/site.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/site.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study site</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/processing-versions.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/processing-versions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Processing versions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/time-lag-options.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/time-lag-options.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Choosing a time-lag option</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/processing-steps.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/processing-steps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Processing steps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/data.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/00_inventory.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/00_inventory.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Repository inventory</span></a>
   </div>
 </li>
@@ -351,22 +387,22 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">The book</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/building-the-book.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/building-the-book.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Building the book</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/notebooks.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/notebooks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Notebooks</span></a>
   </div>
 </li>
@@ -383,31 +419,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/01_read_fluxes_to_parquet.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/01_read_fluxes_to_parquet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">01 · Read flux CSVs and PWB tlag summaries → Parquet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/02_subset_flux_columns.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/02_subset_flux_columns.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">02 · Subset flux columns</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/05_flux_processing_chain.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/05_flux_processing_chain.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05 · Apply the flux processing chain to each variant</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/08_merged_analyzers_full_year.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/08_merged_analyzers_full_year.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">08 · Merged analyzers: full-year QC fluxes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/09_cumulative_qc_fluxes.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/09_cumulative_qc_fluxes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">09 · Flux distribution and cumulative budget by variant</span></a>
   </div>
 </li>
@@ -415,7 +451,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/figure-gallery.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/figure-gallery.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Figure gallery</span></a>
   </div>
 </li>
@@ -429,19 +465,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#building-the-book" id="toc-building-the-book" class="nav-link active" data-scroll-target="#building-the-book">Building the book</a>
   <ul class="collapse">
-  <li><a href="#how-to-read-this-site" id="toc-how-to-read-this-site" class="nav-link" data-scroll-target="#how-to-read-this-site">How to read this site</a></li>
-  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#preview-locally" id="toc-preview-locally" class="nav-link" data-scroll-target="#preview-locally">Preview locally</a></li>
+  <li><a href="#build-static-html" id="toc-build-static-html" class="nav-link" data-scroll-target="#build-static-html">Build static HTML</a></li>
+  <li><a href="#publish-to-github-pages" id="toc-publish-to-github-pages" class="nav-link" data-scroll-target="#publish-to-github-pages">Publish to GitHub Pages</a></li>
+  <li><a href="#verify-a-deploy" id="toc-verify-a-deploy" class="nav-link" data-scroll-target="#verify-a-deploy">Verify a deploy</a></li>
+  <li><a href="#last-updated-date" id="toc-last-updated-date" class="nav-link" data-scroll-target="#last-updated-date">Last updated date</a></li>
+  <li><a href="#table-of-contents-and-layout" id="toc-table-of-contents-and-layout" class="nav-link" data-scroll-target="#table-of-contents-and-layout">Table of contents and layout</a></li>
+  <li><a href="#gotchas" id="toc-gotchas" class="nav-link" data-scroll-target="#gotchas">Gotchas</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/index.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/docs/building-the-book.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/building-the-book.html">The book</a></li><li class="breadcrumb-item"><a href="../docs/building-the-book.html">Building the book</a></li></ol></nav>
 <div class="quarto-title">
 </div>
 
@@ -465,28 +507,64 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>This site documents the analysis for the manuscript on the impact of different time-lag settings on eddy covariance fluxes of N₂O and CH₄.</p>
-<p>In eddy covariance, the time lag between the vertical wind measured by the sonic anemometer and the gas signal from the analyzer must be determined before fluxes can be computed. How that lag is found can change the resulting flux: a wide covariance-maximization search, a search with a default fallback, a fixed constant lag, and an external detection method do not all give the same answer. This study quantifies that effect by computing the fluxes several times from the same raw data, varying only the time-lag setting, and comparing the results.</p>
-<p>Two measurement campaigns at the CH-CHA grassland site are covered, distinguished by the gas analyzer:</p>
+<section id="building-the-book" class="level1">
+<h1>Building the book</h1>
+<p>How to build and publish this site. It is a <a href="https://quarto.org/">Quarto</a> website project, configured by <code>_quarto.yml</code> at the repo root and published to GitHub Pages.</p>
+<p>The commands below are PowerShell (Windows), run from the repo root.</p>
+<section id="prerequisites" class="level2">
+<h2 class="anchored" data-anchor-id="prerequisites">Prerequisites</h2>
 <ul>
-<li>QCL (quantum cascade laser), campaign 2021_1</li>
-<li>LGR (Los Gatos Research analyzer), campaign 2021_2</li>
+<li>uv for the Python environment: <code>uv sync</code> once. This also installs Quarto (the <code>quarto-cli</code> package), so <code>uv run quarto ...</code> works with no separate install. Check it with <code>uv run quarto --version</code>. (A system-wide Quarto from <code>winget install --id Posit.Quarto</code> or <a href="https://quarto.org/docs/get-started/" class="uri">https://quarto.org/docs/get-started/</a> works too, if you prefer.)</li>
 </ul>
-<section id="how-to-read-this-site" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-read-this-site">How to read this site</h2>
-<ul>
-<li><a href="./docs/processing-versions.html">Processing versions</a> lists the time-lag settings being compared.</li>
-<li><a href="./docs/processing-steps.html">Processing steps</a> describes the PWB lag detection and removal workflow used for the additional variant.</li>
-<li><a href="./docs/data.html">Data</a> covers the datasets and how the <code>data/</code> folder is organized by processing stage.</li>
-<li><a href="./docs/building-the-book.html">Building the book</a> explains how to build and publish this site.</li>
-</ul>
+<p>Quarto renders the notebooks from the outputs already stored in each <code>.ipynb</code> (<code>execute.enabled: false</code> in <code>_quarto.yml</code>), so building the site never runs the notebooks. Run the notebooks yourself in JupyterLab first to refresh their outputs; the build just renders what is committed.</p>
 </section>
-<section id="reproducibility" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
-<p>The analysis runs in Jupyter notebooks (<code>notebooks/</code>) that use the <a href="https://github.com/holukas/diive"><code>diive</code></a> eddy covariance toolkit. The notebooks both run the processing (read EddyPro output, subset, quality-control, and plot) and render into this site, so the figures and tables you see come from the code shown alongside them.</p>
-<p>Author: Lukas Hörtnagl, ETH Zürich (lukas.hoertnagl@usys.ethz.ch)</p>
+<section id="preview-locally" class="level2">
+<h2 class="anchored" data-anchor-id="preview-locally">Preview locally</h2>
+<p>Live server with auto-reload while writing:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">$env</span><span class="op">:</span><span class="va">PYTHONUTF8</span><span class="op">=</span><span class="dv">1</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">uv</span> run quarto preview          <span class="co"># serves at http://localhost:4200 and opens a browser</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="build-static-html" class="level2">
+<h2 class="anchored" data-anchor-id="build-static-html">Build static HTML</h2>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">$env</span><span class="op">:</span><span class="va">PYTHONUTF8</span><span class="op">=</span><span class="dv">1</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dt">uv</span> run quarto render           <span class="co"># output in _site/</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>$env:PYTHONUTF8=1</code> avoids a cp1252 crash on Windows if any notebook output contains emoji.</p>
+</section>
+<section id="publish-to-github-pages" class="level2">
+<h2 class="anchored" data-anchor-id="publish-to-github-pages">Publish to GitHub Pages</h2>
+<p>Use the bundled script. It renders the site and pushes <code>_site</code> to the <code>gh-pages</code> branch:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">.</span>\deploy<span class="op">.</span><span class="fu">ps1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><code>deploy.ps1</code> runs, in effect:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">$env</span><span class="op">:</span><span class="va">PYTHONUTF8</span><span class="op">=</span><span class="dv">1</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="dt">uv</span> run quarto render                     <span class="co"># -&gt; _site</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>uv run ghp-import <span class="op">-</span>n <span class="op">-</span>p <span class="op">-</span>f _site         <span class="co"># -n adds .nojekyll</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>One-time setup (in the browser, only needed once): repo Settings → Pages → Source: Deploy from a branch → <code>gh-pages</code> / <code>/ (root)</code>. The site is then served at <a href="https://holukas.github.io/ms-timelag-comparison/" class="uri">https://holukas.github.io/ms-timelag-comparison/</a>.</p>
+</section>
+<section id="verify-a-deploy" class="level2">
+<h2 class="anchored" data-anchor-id="verify-a-deploy">Verify a deploy</h2>
+<p>GitHub’s CDN takes a minute or two and caches aggressively:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Pages enabled? (404 = off, JSON with "status":"built" = on)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">curl</span><span class="op">.</span><span class="fu">exe</span> <span class="op">-</span>s https<span class="op">://</span>api<span class="op">.</span><span class="fu">github</span><span class="op">.</span><span class="fu">com</span><span class="op">/</span>repos<span class="op">/</span>holukas<span class="op">/</span>ms-timelag-comparison<span class="op">/</span>pages</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Live site responding?</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">curl</span><span class="op">.</span><span class="fu">exe</span> <span class="op">-</span>s <span class="op">-</span>o <span class="va">$null</span> <span class="op">-</span>w <span class="st">"%{http_code}</span><span class="ch">`n</span><span class="st">"</span> https<span class="op">://</span>holukas<span class="op">.</span><span class="fu">github</span><span class="op">.</span><span class="fu">io</span><span class="op">/</span>ms-timelag-comparison<span class="op">/</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>After publishing, hard-refresh the page (Ctrl+Shift+R). A normal reload can show the previously cached version.</p>
+</section>
+<section id="last-updated-date" class="level2">
+<h2 class="anchored" data-anchor-id="last-updated-date">Last updated date</h2>
+<p>Every page shows its own “last updated” date, taken from the file’s last git commit (<code>date: last-modified</code> in <code>_quarto.yml</code>). Nothing to maintain by hand: commit a change to a page and its date updates on the next build.</p>
+</section>
+<section id="table-of-contents-and-layout" class="level2">
+<h2 class="anchored" data-anchor-id="table-of-contents-and-layout">Table of contents and layout</h2>
+<p>Pages are listed in <code>_quarto.yml</code> twice: under <code>project.render</code> (what gets built, and in what order) and under <code>website.sidebar.contents</code> (the left navigation). Add a new prose page by creating it in <code>docs/</code> and adding a <code>- docs/&lt;name&gt;.md</code> entry to both. The analysis notebooks in <code>notebooks/</code> are added the same way.</p>
+<p>To hide the left sidebar on a single page, add <code>sidebar: false</code> to that page’s YAML front matter. To change the look, edit <code>format.html.theme</code> in <code>_quarto.yml</code> (any <a href="https://quarto.org/docs/output-formats/html-themes.html">Bootswatch theme</a>, or your own <code>.scss</code>).</p>
+</section>
+<section id="gotchas" class="level2">
+<h2 class="anchored" data-anchor-id="gotchas">Gotchas</h2>
+<ul>
+<li><code>PYTHONUTF8</code> is worth setting on Windows so emoji in notebook output cannot trigger a cp1252 <code>UnicodeEncodeError</code>. <code>deploy.ps1</code> sets it for you.</li>
+<li>Quarto uses page-relative asset links, so the site works from the <code>/ms-timelag-comparison/</code> sub-path with no base-path environment variable to set (unlike the previous Jupyter Book setup).</li>
+<li>The <code>references.bib</code> file has no entries yet; that is harmless. Citations use Pandoc syntax (<code>[@key]</code>) once entries are added.</li>
+</ul>
 
 
 </section>
@@ -908,10 +986,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../notebooks/00_inventory.html" class="pagination-link" aria-label="Repository inventory">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Repository inventory</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./docs/site.html" class="pagination-link" aria-label="Study site">
-        <span class="nav-page-text">Study site</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/notebooks.html" class="pagination-link" aria-label="Notebooks">
+        <span class="nav-page-text">Notebooks</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -923,7 +1004,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Lukas Hörtnagl, ETH Zürich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/index.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/docs/building-the-book.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

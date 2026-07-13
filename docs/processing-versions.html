@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-07-13">
 
-<title>Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
+<title>processing-versions – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,28 +27,29 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./docs/site.html" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-314a0a95d22abaef64a43eaffdb7cdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../docs/time-lag-options.html" rel="next">
+<link href="../docs/site.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-314a0a95d22abaef64a43eaffdb7cdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -77,6 +78,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -249,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Time-lag settings &amp; N₂O/CH₄ EC fluxes</span>
     </a>
   </div>
@@ -276,7 +306,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introduction</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/site.html">Background &amp; methods</a></li><li class="breadcrumb-item"><a href="../docs/processing-versions.html">Processing versions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -298,52 +328,52 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
  <span class="menu-text">Background &amp; methods</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/site.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/site.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Study site</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/processing-versions.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/processing-versions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Processing versions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/time-lag-options.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/time-lag-options.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Choosing a time-lag option</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/processing-steps.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/processing-steps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Processing steps</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/data.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/00_inventory.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/00_inventory.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Repository inventory</span></a>
   </div>
 </li>
@@ -360,13 +390,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/building-the-book.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/building-the-book.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Building the book</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/notebooks.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/notebooks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Notebooks</span></a>
   </div>
 </li>
@@ -383,31 +413,31 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/01_read_fluxes_to_parquet.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/01_read_fluxes_to_parquet.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">01 · Read flux CSVs and PWB tlag summaries → Parquet</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/02_subset_flux_columns.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/02_subset_flux_columns.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">02 · Subset flux columns</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/05_flux_processing_chain.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/05_flux_processing_chain.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">05 · Apply the flux processing chain to each variant</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/08_merged_analyzers_full_year.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/08_merged_analyzers_full_year.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">08 · Merged analyzers: full-year QC fluxes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/09_cumulative_qc_fluxes.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/09_cumulative_qc_fluxes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">09 · Flux distribution and cumulative budget by variant</span></a>
   </div>
 </li>
@@ -415,7 +445,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/figure-gallery.html" class="sidebar-item-text sidebar-link">
+  <a href="../docs/figure-gallery.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Figure gallery</span></a>
   </div>
 </li>
@@ -429,19 +459,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
+  <li><a href="#processing-versions" id="toc-processing-versions" class="nav-link active" data-scroll-target="#processing-versions">Processing versions</a>
   <ul class="collapse">
-  <li><a href="#how-to-read-this-site" id="toc-how-to-read-this-site" class="nav-link" data-scroll-target="#how-to-read-this-site">How to read this site</a></li>
-  <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a></li>
+  <li><a href="#the-five-versions" id="toc-the-five-versions" class="nav-link" data-scroll-target="#the-five-versions">The five versions</a></li>
+  <li><a href="#nominal-lags-and-narrow-windows" id="toc-nominal-lags-and-narrow-windows" class="nav-link" data-scroll-target="#nominal-lags-and-narrow-windows">Nominal lags and narrow windows</a>
+  <ul class="collapse">
+  <li><a href="#qcl-source-period-2020_45_2021_1" id="toc-qcl-source-period-2020_45_2021_1" class="nav-link" data-scroll-target="#qcl-source-period-2020_45_2021_1">2021_1 (QCL), source period <code>2020_4+5_2021_1</code></a></li>
+  <li><a href="#lgr-source-period-2021_2_2022_1" id="toc-lgr-source-period-2021_2_2022_1" class="nav-link" data-scroll-target="#lgr-source-period-2021_2_2022_1">2021_2 (LGR), source period <code>2021_2_2022_1</code></a></li>
+  </ul></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/index.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/docs/processing-versions.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/site.html">Background &amp; methods</a></li><li class="breadcrumb-item"><a href="../docs/processing-versions.html">Processing versions</a></li></ol></nav>
 <div class="quarto-title">
 </div>
 
@@ -465,30 +499,138 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="introduction" class="level1">
-<h1>Introduction</h1>
-<p>This site documents the analysis for the manuscript on the impact of different time-lag settings on eddy covariance fluxes of N₂O and CH₄.</p>
-<p>In eddy covariance, the time lag between the vertical wind measured by the sonic anemometer and the gas signal from the analyzer must be determined before fluxes can be computed. How that lag is found can change the resulting flux: a wide covariance-maximization search, a search with a default fallback, a fixed constant lag, and an external detection method do not all give the same answer. This study quantifies that effect by computing the fluxes several times from the same raw data, varying only the time-lag setting, and comparing the results.</p>
-<p>Two measurement campaigns at the CH-CHA grassland site are covered, distinguished by the gas analyzer:</p>
+<section id="processing-versions" class="level1">
+<h1>Processing versions</h1>
+<p>This page lists the time-lag settings compared in this study. Fluxes are computed several times from the same raw data, changing only how the time lag between the vertical wind component and each gas (N₂O, CH₄, H₂O) is determined. Each row below is one processing version, identified by a short code (e.g.&nbsp;<code>QCL-3</code>) used throughout the notebooks, figures, and tables.</p>
+<p>Two measurement campaigns are covered, distinguished by the gas analyzer used:</p>
 <ul>
-<li>QCL (quantum cascade laser), campaign 2021_1</li>
-<li>LGR (Los Gatos Research analyzer), campaign 2021_2</li>
+<li>2021_1 (QCL, quantum cascade laser)</li>
+<li>2021_2 (LGR, Los Gatos Research analyzer)</li>
 </ul>
-<section id="how-to-read-this-site" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-read-this-site">How to read this site</h2>
-<ul>
-<li><a href="./docs/processing-versions.html">Processing versions</a> lists the time-lag settings being compared.</li>
-<li><a href="./docs/processing-steps.html">Processing steps</a> describes the PWB lag detection and removal workflow used for the additional variant.</li>
-<li><a href="./docs/data.html">Data</a> covers the datasets and how the <code>data/</code> folder is organized by processing stage.</li>
-<li><a href="./docs/building-the-book.html">Building the book</a> explains how to build and publish this site.</li>
-</ul>
+<section id="the-five-versions" class="level2">
+<h2 class="anchored" data-anchor-id="the-five-versions">The five versions</h2>
+<p>The same scheme of five versions is applied to each campaign and to each gas (N₂O, CH₄, H₂O). The versions differ only in how the lag is found. The method abbreviations (CM, CM<span class="math inline">\(_{CTR}\)</span>, PWB, PWB<span class="math inline">\(_{OPT}\)</span>) follow Vitale et al.&nbsp;(2024): CM = covariance maximisation, subscript CTR = constrained (narrow window), PWB = pre-whitening with block-bootstrap, PWB<span class="math inline">\(_{OPT}\)</span> = the optimised PWB lag (the S1/S2/S3 decision rule applied to the per-period PWB estimates).</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 19%">
+<col style="width: 14%">
+<col style="width: 19%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Method</th>
+<th>Search window</th>
+<th>Default lag applied</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>-1</code></td>
+<td>CM</td>
+<td>0 to 10 s</td>
+<td>no (OPENLAG)</td>
+<td>Also performs the unzipping of the raw data.</td>
+</tr>
+<tr class="even">
+<td><code>-2</code></td>
+<td>CM</td>
+<td>0 to 10 s</td>
+<td>yes, nominal lag as fallback</td>
+<td>Also exports the rotated time series used by PWB.</td>
+</tr>
+<tr class="odd">
+<td><code>-3</code></td>
+<td>CM<span class="math inline">\(_{CTR}\)</span> (constrained CM)</td>
+<td>narrow (per campaign)</td>
+<td>yes, nominal lag as fallback</td>
+<td>Narrow window is the per-gas range listed below.</td>
+</tr>
+<tr class="even">
+<td><code>-4</code></td>
+<td>Constant lag</td>
+<td>n/a</td>
+<td>fixed at the nominal lag</td>
+<td>EddyPro constant-lag run (<code>tlag_meth=1</code>); no paper acronym.</td>
+</tr>
+<tr class="odd">
+<td><code>-5</code></td>
+<td>PWB<span class="math inline">\(_{OPT}\)</span></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>Pre-whitening with block-bootstrap (Vitale et al.&nbsp;2024).</td>
+</tr>
+</tbody>
+</table>
+<p>Implementation status: all five versions (<code>-1</code> through <code>-5</code>) are produced for both campaigns. For <code>-5</code> (PWB) the lag is detected and removed from the raw data before the EddyPro run, so that run applies no lag compensation; its per-chunk time-lag summaries are kept alongside the fluxes. The lag applied (and reported in the figures) is the optimised PWB<span class="math inline">\(_{OPT}\)</span> lag, not the raw per-period PWB mode.</p>
 </section>
-<section id="reproducibility" class="level2">
-<h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
-<p>The analysis runs in Jupyter notebooks (<code>notebooks/</code>) that use the <a href="https://github.com/holukas/diive"><code>diive</code></a> eddy covariance toolkit. The notebooks both run the processing (read EddyPro output, subset, quality-control, and plot) and render into this site, so the figures and tables you see come from the code shown alongside them.</p>
-<p>Author: Lukas Hörtnagl, ETH Zürich (lukas.hoertnagl@usys.ethz.ch)</p>
+<section id="nominal-lags-and-narrow-windows" class="level2">
+<h2 class="anchored" data-anchor-id="nominal-lags-and-narrow-windows">Nominal lags and narrow windows</h2>
+<p>For each campaign and gas, the <strong>nominal lag</strong> is the value used as the default fallback (<code>-2</code>, <code>-3</code>) and as the fixed lag (<code>-4</code>); the <strong>narrow window</strong> is the search range for <code>-3</code>. Values are derived from the per-period lag analysis (provenance: the full 2012 to 2022 per-period lag table); only the two periods covering these campaigns are reproduced here.</p>
+<section id="qcl-source-period-2020_45_2021_1" class="level3">
+<h3 class="anchored" data-anchor-id="qcl-source-period-2020_45_2021_1">2021_1 (QCL), source period <code>2020_4+5_2021_1</code></h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Gas</th>
+<th>Nominal lag (s)</th>
+<th>Narrow window (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>N₂O</td>
+<td>0.60</td>
+<td>0.40 to 0.90</td>
+</tr>
+<tr class="even">
+<td>CH₄</td>
+<td>0.65</td>
+<td>0.45 to 0.90</td>
+</tr>
+<tr class="odd">
+<td>H₂O</td>
+<td>0.70</td>
+<td>0.60 to 2.00</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="lgr-source-period-2021_2_2022_1" class="level3">
+<h3 class="anchored" data-anchor-id="lgr-source-period-2021_2_2022_1">2021_2 (LGR), source period <code>2021_2_2022_1</code></h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Gas</th>
+<th>Nominal lag (s)</th>
+<th>Narrow window (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>N₂O</td>
+<td>1.75</td>
+<td>1.50 to 3.30</td>
+</tr>
+<tr class="even">
+<td>CH₄</td>
+<td>1.75</td>
+<td>1.50 to 3.30</td>
+</tr>
+<tr class="odd">
+<td>H₂O</td>
+<td>1.80</td>
+<td>1.65 to 6.00</td>
+</tr>
+</tbody>
+</table>
+<p>For the LGR campaign the lag fluctuates within these ranges across the period.</p>
 
 
+</section>
 </section>
 </section>
 
@@ -908,10 +1050,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../docs/site.html" class="pagination-link" aria-label="Study site">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Study site</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./docs/site.html" class="pagination-link" aria-label="Study site">
-        <span class="nav-page-text">Study site</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../docs/time-lag-options.html" class="pagination-link" aria-label="Choosing a time-lag option">
+        <span class="nav-page-text">Choosing a time-lag option</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -923,7 +1068,7 @@ ul.task-list li input[type="checkbox"] {
     </div>   
     <div class="nav-footer-center">
 <p>Lukas Hörtnagl, ETH Zürich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/index.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/docs/processing-versions.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
