@@ -15,7 +15,7 @@ range sets the narrow window for variant 3. PWB OPT (variant 5) is independent.
 The Nemitz et al. (2018) fallback hierarchy is shown separately as a reference
 path:
 
-```mermaid
+```{mermaid}
 flowchart TD
     C1["(1) CM-W (variant 1)<br/>wide covariance maximisation, 0 to 10 s<br/>keep the lags, no fallback"]
 

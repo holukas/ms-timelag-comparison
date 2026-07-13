@@ -17,23 +17,23 @@ variants as columns; the dashed line marks
 the QCL to LGR handover in July, and each panel prints the two instruments' modal
 lags in its corner. Shown for the `CUT_50` USTAR scenario.
 
-::::{grid} 1 1 2 2
+::: {.grid}
 
-:::{card}
+::: {.g-col-12 .g-col-md-6}
 [![Merged N₂O](../figures/08_cut_50_merged_n2o.png)](../figures/08_cut_50_merged_n2o.png)
-+++
+
 Merged QCL + LGR, full-year 2021 N₂O QC flux, time lag, and lag histogram by
 variant (CUT_50).
 :::
 
-:::{card}
+::: {.g-col-12 .g-col-md-6}
 [![Merged CH₄](../figures/08_cut_50_merged_ch4.png)](../figures/08_cut_50_merged_ch4.png)
-+++
+
 Merged QCL + LGR, full-year 2021 CH₄ QC flux, time lag, and lag histogram by
 variant (CUT_50).
 :::
 
-::::
+:::
 
 ## Cumulative flux comparison (notebook 09)
 
@@ -47,18 +47,18 @@ density distribution per variant on those same samples, with PWB$_{OPT}$ drawn a
 a grey shaded reference area. Each figure has the QCL campaign (2021_1) on the
 left and the LGR campaign (2021_2) on the right.
 
-::::{grid} 1 1 2 2
+::: {.grid}
 
-:::{card}
+::: {.g-col-12 .g-col-md-6}
 [![N₂O cumulative](../figures/09_cumulative_cut_50_n2o.png)](../figures/09_cumulative_cut_50_n2o.png)
-+++
+
 N₂O cumulative QC flux by variant (kg N₂O-N ha⁻¹), QCL and LGR (CUT_50).
 :::
 
-:::{card}
+::: {.g-col-12 .g-col-md-6}
 [![CH₄ cumulative](../figures/09_cumulative_cut_50_ch4.png)](../figures/09_cumulative_cut_50_ch4.png)
-+++
+
 CH₄ cumulative QC flux by variant (g CH₄-C m⁻²), QCL and LGR (CUT_50).
 :::
 
-::::
+:::
