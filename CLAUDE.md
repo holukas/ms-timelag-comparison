@@ -17,19 +17,22 @@ different time-lag settings on eddy covariance fluxes of N₂O and CH₄**.
 - **Notebooks do double duty.** The notebooks in `notebooks/` both *run* the
   processing and *render into the documentation*. They are the analysis and the
   narrative at once.
-- **Documentation = Jupyter Book 2 (MyST)**, published to GitHub Pages. Config
-  and table of contents live in `myst.yml` at the repo root.
+- **Documentation = Quarto website**, published to GitHub Pages. Config and
+  table of contents live in `_quarto.yml` at the repo root; `index.md` is the
+  landing page. Quarto renders notebooks from their committed outputs
+  (`execute.enabled: false`), so building never re-runs them.
 
 ## Layout
 
 ```
-notebooks/   executable notebooks → run processing AND render into the book
-docs/        prose-only book pages (intro, methods text) + references.bib
+notebooks/   executable notebooks → run processing AND render into the site
+docs/        prose-only pages (methods text) + references.bib
+index.md     site landing page (introduction)
 data/        datasets, organized by processing stage (00-* = raw inputs)
 figures/     exported figures (manuscript record)
 tables/      exported tables (manuscript record)
-myst.yml     Jupyter Book config + TOC
-deploy.ps1   build + publish the book to GitHub Pages
+_quarto.yml  Quarto website config + TOC
+deploy.ps1   build + publish the site to GitHub Pages
 ```
 
 ### Data stages
@@ -138,12 +141,13 @@ and `07` are intentionally unused (`03` / `04` were the retired raw-flux plots,
 - Run things via `uv run ...` (e.g. `uv run jupyter lab`).
 - `diive` is an **editable** install: new functions added to it are available
   in notebooks here after a kernel restart, no reinstall needed.
-- **Building the book on Windows:** set `$env:PYTHONUTF8=1` (avoids a cp1252
-  crash on emoji output); first build needs `$env:JB_ALLOW_NODEENV=1` to install
-  Jupyter Book's private Node. Publishing needs `$env:BASE_URL="/ms-timelag-comparison"`
-  baked in, or the live site loses its CSS. **Always build/deploy from
-  PowerShell** (use `.\deploy.ps1`); Git Bash mangles a leading-slash
-  `BASE_URL` into a Windows path.
+- **Building the site:** Quarto ships via the `quarto-cli` dev dep, so `uv sync`
+  installs it (no separate CLI needed). `uv run quarto render` builds into
+  `_site`; `uv run quarto preview` serves with live reload. Set
+  `$env:PYTHONUTF8=1` on Windows to avoid a cp1252 crash on emoji output. Quarto
+  emits page-relative asset links, so no `BASE_URL` is needed (the old Jupyter
+  Book footgun is gone). Publish with `.\deploy.ps1` (renders, then
+  `ghp-import` to `gh-pages`).
 
 ## Conventions
 
@@ -164,5 +168,5 @@ run it:
   trailers in commit messages.
 - **Notebook execution.** Never execute notebooks (no `jupyter nbconvert
   --execute`, no running cells).
-- **Book build and deploy.** Never run `jupyter book build` / `start` or
+- **Site build and deploy.** Never run `quarto render` / `quarto preview` or
   `deploy.ps1`. Explain how; let the user run it.

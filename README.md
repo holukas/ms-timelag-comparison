@@ -5,18 +5,19 @@ different time-lag settings on eddy covariance fluxes of N₂O and CH₄.
 
 The processing runs in Jupyter notebooks that use the
 [`diive`](../../diive) eddy covariance toolkit, and is published as a
-[Jupyter Book](https://jupyterbook.org/) reproducibility website.
+[Quarto](https://quarto.org/) reproducibility website.
 
 ## Repository layout
 
 ```
-notebooks/   executable notebooks: run the processing and render into the book
-docs/        prose-only book pages (intro, methods) + references.bib
+notebooks/   executable notebooks: run the processing and render into the site
+docs/        prose-only pages (intro, methods) + references.bib
+index.md     site landing page (introduction)
 data/        datasets, organized by processing stage (see below)
 figures/     exported figures
 tables/      exported tables
-myst.yml     Jupyter Book config + table of contents
-deploy.ps1   build + publish the book to GitHub Pages
+_quarto.yml  Quarto website config + table of contents
+deploy.ps1   build + publish the site to GitHub Pages
 ```
 
 ### Data stages and version control
@@ -85,29 +86,30 @@ Run the analysis notebooks:
 uv run jupyter lab
 ```
 
-Build the documentation book (Jupyter Book 2 / MyST):
+Build the documentation site with Quarto (`uv sync` installs it via the
+`quarto-cli` package):
 
 ```powershell
-# On Windows: UTF-8 avoids a cp1252 crash on emoji output, and
-# JB_ALLOW_NODEENV lets Jupyter Book install its private Node (MyST engine).
-$env:JB_ALLOW_NODEENV=1; $env:PYTHONUTF8=1; $env:PYTHONIOENCODING="utf-8"
-uv run jupyter book build --html        # -> _build/html
+$env:PYTHONUTF8=1                        # avoids a cp1252 crash on emoji output
+uv run quarto render                     # -> _site
 ```
 
 Preview live with auto-reload while writing:
 
 ```powershell
-uv run jupyter book start               # serves at http://localhost:3000
+uv run quarto preview                    # serves at http://localhost:4200
 ```
 
-The notebooks run the processing pipeline (read → subset → quality-control →
-plot) and, once built, render into the published reproducibility website together
-with the prose pages in `docs/`.
+Quarto renders the notebooks from their committed outputs (`execute.enabled: false`
+in `_quarto.yml`), so building never re-runs them; run them in JupyterLab first to
+refresh. The notebooks run the processing pipeline (read → subset →
+quality-control → plot) and render into the published reproducibility website
+together with the prose pages in `docs/`.
 
 ## Deploy
 
-Publish to GitHub Pages with the bundled script (builds, then pushes
-`_build/html` to the `gh-pages` branch):
+Publish to GitHub Pages with the bundled script (renders, then pushes
+`_site` to the `gh-pages` branch):
 
 ```powershell
 .\deploy.ps1
