@@ -17,7 +17,7 @@ dev = [
     "diive",
     "ghp-import>=2.1.0",
     "rich>=13.0.0",
-    "jupyter-book>=2.0.0",
+    "quarto-cli>=1.6.0",
 ]
 
 [tool.uv.sources]

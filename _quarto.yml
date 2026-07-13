@@ -1,0 +1,85 @@
+project:
+  type: website
+  output-dir: _site
+  # Render only these files, in this order (the old myst.yml TOC). Keeps stray
+  # markdown like README.md out of the built site.
+  render:
+    - index.md
+    - docs/site.md
+    - docs/processing-versions.md
+    - docs/time-lag-options.qmd
+    - docs/processing-steps.md
+    - docs/data.md
+    - notebooks/00_inventory.ipynb
+    - docs/building-the-book.md
+    - docs/notebooks.md
+    - notebooks/01_read_fluxes_to_parquet.ipynb
+    - notebooks/02_subset_flux_columns.ipynb
+    - notebooks/05_flux_processing_chain.ipynb
+    - notebooks/08_merged_analyzers_full_year.ipynb
+    - notebooks/09_cumulative_qc_fluxes.ipynb
+    - docs/figure-gallery.md
+
+website:
+  title: "Time-lag settings & N₂O/CH₄ EC fluxes"
+  description: >-
+    Impact of different time-lag settings on eddy covariance fluxes of N₂O and CH₄.
+  site-url: https://holukas.github.io/ms-timelag-comparison/
+  repo-url: https://github.com/holukas/ms-timelag-comparison
+  repo-actions: [source, issue]
+  page-navigation: true
+  back-to-top-navigation: true
+  navbar:
+    right:
+      - icon: github
+        href: https://github.com/holukas/ms-timelag-comparison
+        aria-label: GitHub
+  sidebar:
+    style: docked
+    search: true
+    collapse-level: 1
+    contents:
+      - index.md
+      - section: "Background & methods"
+        contents:
+          - docs/site.md
+          - docs/processing-versions.md
+          - docs/time-lag-options.qmd
+          - docs/processing-steps.md
+          - docs/data.md
+          - notebooks/00_inventory.ipynb
+      - section: "The book"
+        contents:
+          - docs/building-the-book.md
+          - docs/notebooks.md
+      - section: "Analysis notebooks"
+        contents:
+          - notebooks/01_read_fluxes_to_parquet.ipynb
+          - notebooks/02_subset_flux_columns.ipynb
+          - notebooks/05_flux_processing_chain.ipynb
+          - notebooks/08_merged_analyzers_full_year.ipynb
+          - notebooks/09_cumulative_qc_fluxes.ipynb
+      - docs/figure-gallery.md
+  page-footer:
+    center: "Lukas Hörtnagl, ETH Zürich"
+
+# Applied as default metadata to every page. `last-modified` reads each file's
+# git commit date, so every page shows its own "last updated" date (this is the
+# native feature Jupyter Book 2 lacked).
+date: last-modified
+date-format: "D MMMM YYYY"
+
+bibliography: docs/references.bib
+
+format:
+  html:
+    theme:
+      light: flatly
+      dark: darkly
+    toc: true
+    toc-expand: true
+
+# Never run notebook code at render time: use the outputs already committed in
+# each .ipynb. The user runs the notebooks; Quarto only renders them.
+execute:
+  enabled: false
