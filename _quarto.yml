@@ -73,6 +73,11 @@ date-format: "D MMMM YYYY"
 
 bibliography: docs/references.bib
 
+# Click any figure to open it zoomed in an overlay (lightbox). Applies to every
+# image on the site, including the notebook output figures. Requires the
+# quarto-ext/lightbox extension: run `quarto add quarto-ext/lightbox` once.
+lightbox: auto
+
 format:
   html:
     theme:

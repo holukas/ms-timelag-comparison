@@ -22,14 +22,14 @@ lags in its corner. Shown for the `CUT_50` USTAR scenario.
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
-[![Merged N₂O](../figures/08_cut_50_merged_n2o.png)](../figures/08_cut_50_merged_n2o.png)
+![Merged N₂O](../figures/08_cut_50_merged_n2o.png){group="qc-merged"}
 
 Merged QCL + LGR, full-year 2021 N₂O QC flux, time lag, and lag histogram by
 variant (CUT_50).
 :::
 
 ::: {.g-col-12 .g-col-md-6}
-[![Merged CH₄](../figures/08_cut_50_merged_ch4.png)](../figures/08_cut_50_merged_ch4.png)
+![Merged CH₄](../figures/08_cut_50_merged_ch4.png){group="qc-merged"}
 
 Merged QCL + LGR, full-year 2021 CH₄ QC flux, time lag, and lag histogram by
 variant (CUT_50).
@@ -52,13 +52,13 @@ left and the LGR campaign (2021_2) on the right.
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
-[![N₂O cumulative](../figures/09_cumulative_cut_50_n2o.png)](../figures/09_cumulative_cut_50_n2o.png)
+![N₂O cumulative](../figures/09_cumulative_cut_50_n2o.png){group="qc-cumulative"}
 
 N₂O cumulative QC flux by variant (kg N₂O-N ha⁻¹), QCL and LGR (CUT_50).
 :::
 
 ::: {.g-col-12 .g-col-md-6}
-[![CH₄ cumulative](../figures/09_cumulative_cut_50_ch4.png)](../figures/09_cumulative_cut_50_ch4.png)
+![CH₄ cumulative](../figures/09_cumulative_cut_50_ch4.png){group="qc-cumulative"}
 
 CH₄ cumulative QC flux by variant (g CH₄-C m⁻²), QCL and LGR (CUT_50).
 :::
@@ -76,14 +76,14 @@ the five variants as columns.
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
-[![Level-1 merged N₂O](../figures/02_merged_n2o.png)](../figures/02_merged_n2o.png)
+![Level-1 merged N₂O](../figures/02_merged_n2o.png){group="l1-merged"}
 
 Merged QCL + LGR, full-year 2021 N₂O raw flux, time lag, and lag histogram by
 variant (Level-1, before quality control).
 :::
 
 ::: {.g-col-12 .g-col-md-6}
-[![Level-1 merged CH₄](../figures/02_merged_ch4.png)](../figures/02_merged_ch4.png)
+![Level-1 merged CH₄](../figures/02_merged_ch4.png){group="l1-merged"}
 
 Merged QCL + LGR, full-year 2021 CH₄ raw flux, time lag, and lag histogram by
 variant (Level-1, before quality control).
@@ -101,14 +101,14 @@ figure per gas: the flux density distribution (top) and the cumulative budget
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-6}
-[![Level-1 N₂O cumulative](../figures/03_cumulative_n2o.png)](../figures/03_cumulative_n2o.png)
+![Level-1 N₂O cumulative](../figures/03_cumulative_n2o.png){group="l1-cumulative"}
 
 N₂O raw-flux distribution and cumulative budget by variant (kg N₂O-N ha⁻¹), QCL and
 LGR (Level-1, before quality control).
 :::
 
 ::: {.g-col-12 .g-col-md-6}
-[![Level-1 CH₄ cumulative](../figures/03_cumulative_ch4.png)](../figures/03_cumulative_ch4.png)
+![Level-1 CH₄ cumulative](../figures/03_cumulative_ch4.png){group="l1-cumulative"}
 
 CH₄ raw-flux distribution and cumulative budget by variant (g CH₄-C m⁻²), QCL and
 LGR (Level-1, before quality control).
