@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-07-14">
 
-<title>08 · Merged analyzers: full-year QC fluxes – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
+<title>02 · Level-1 merged analyzers: full-year raw fluxes – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,8 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../notebooks/09_cumulative_qc_fluxes.html" rel="next">
-<link href="../notebooks/05_flux_processing_chain.html" rel="prev">
+<link href="../notebooks/03_level1_cumulative_fluxes.html" rel="next">
+<link href="../notebooks/01_read_fluxes_to_parquet.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -347,7 +347,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/01_read_fluxes_to_parquet.html">Analysis notebooks</a></li><li class="breadcrumb-item"><a href="../notebooks/08_merged_analyzers_full_year.html">08 · Merged analyzers: full-year QC fluxes</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/01_read_fluxes_to_parquet.html">Analysis notebooks</a></li><li class="breadcrumb-item"><a href="../notebooks/02_level1_merged_analyzers.html">02 · Level-1 merged analyzers: full-year raw fluxes</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -460,7 +460,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/02_level1_merged_analyzers.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/02_level1_merged_analyzers.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">02 · Level-1 merged analyzers: full-year raw fluxes</span></a>
   </div>
 </li>
@@ -478,7 +478,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/08_merged_analyzers_full_year.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notebooks/08_merged_analyzers_full_year.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">08 · Merged analyzers: full-year QC fluxes</span></a>
   </div>
 </li>
@@ -508,19 +508,19 @@ window.Quarto = {
   <ul>
   <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">Imports</a></li>
   <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
-  <li><a href="#load-and-merge-the-qc-fluxes-and-the-time-lag" id="toc-load-and-merge-the-qc-fluxes-and-the-time-lag" class="nav-link" data-scroll-target="#load-and-merge-the-qc-fluxes-and-the-time-lag">Load and merge the QC fluxes and the time lag</a></li>
+  <li><a href="#load-and-merge-the-raw-fluxes-and-the-time-lag" id="toc-load-and-merge-the-raw-fluxes-and-the-time-lag" class="nav-link" data-scroll-target="#load-and-merge-the-raw-fluxes-and-the-time-lag">Load and merge the raw fluxes and the time lag</a></li>
   <li><a href="#figures-merged-full-year-qc-flux-time-lag-lag-histogram" id="toc-figures-merged-full-year-qc-flux-time-lag-lag-histogram" class="nav-link" data-scroll-target="#figures-merged-full-year-qc-flux-time-lag-lag-histogram">Figures: merged full-year QC flux, time lag, lag histogram</a></li>
   <li><a href="#runtime" id="toc-runtime" class="nav-link" data-scroll-target="#runtime">Runtime</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/notebooks/08_merged_analyzers_full_year.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/notebooks/02_level1_merged_analyzers.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/01_read_fluxes_to_parquet.html">Analysis notebooks</a></li><li class="breadcrumb-item"><a href="../notebooks/08_merged_analyzers_full_year.html">08 · Merged analyzers: full-year QC fluxes</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/01_read_fluxes_to_parquet.html">Analysis notebooks</a></li><li class="breadcrumb-item"><a href="../notebooks/02_level1_merged_analyzers.html">02 · Level-1 merged analyzers: full-year raw fluxes</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">08 · Merged analyzers: full-year QC fluxes</h1>
+<h1 class="title">02 · Level-1 merged analyzers: full-year raw fluxes</h1>
 </div>
 
 
@@ -543,17 +543,17 @@ window.Quarto = {
 </header>
 
 
-<p>The two analyzers cover complementary halves of 2021: the QCL runs in campaign 2021_1 (January to 20 July) and the LGR in campaign 2021_2 (22 July to December). Concatenating them over time gives one continuous <strong>full-year</strong> series per variant. This notebook merges the two and plots the merged, quality-controlled flux for the whole of 2021.</p>
-<p>Fluxes are the USTAR-filtered QC fluxes from the flux processing chain (<a href="../notebooks/05_flux_processing_chain.html">notebook 05</a>); the merge just stitches the QCL and LGR halves together at the campaign boundary (a light dashed line marks the handover).</p>
+<p>The same merged full-year view as <a href="../notebooks/08_merged_analyzers_full_year.html">notebook 08</a>, but built directly on the <strong>Level-1 EddyPro fluxes</strong>, before the flux processing chain (no L2 quality flags, no storage term, no outlier removal, no USTAR filtering). It is the pre-quality-control counterpart: what the raw flux and the time lag look like straight out of EddyPro, on every reported half hour.</p>
+<p>The two analyzers cover complementary halves of 2021: the QCL runs in campaign 2021_1 (January to 20 July) and the LGR in campaign 2021_2 (22 July to December). Concatenating them over time gives one continuous <strong>full-year</strong> series per variant.</p>
 <p>Two figures are produced, one per gas:</p>
 <ul>
-<li><strong>N2O:</strong> the five variants as columns, each a merged full-year series, with the QC flux (top), the merged time lag used (middle), and a histogram of that lag with its mode highlighted (bottom). Saved as <code>figures/08_{scenario}_merged_n2o.png</code>.</li>
-<li><strong>CH4:</strong> the same, for methane. Saved as <code>figures/08_{scenario}_merged_ch4.png</code>.</li>
+<li><strong>N2O:</strong> the five variants as columns, each a merged full-year series, with the raw flux (top), the merged time lag used (middle), and a histogram of that lag with its mode highlighted (bottom). Saved as <code>figures/02_merged_n2o.png</code>.</li>
+<li><strong>CH4:</strong> the same, for methane. Saved as <code>figures/02_merged_ch4.png</code>.</li>
 </ul>
-<p>Inputs: - <code>data/05-flux_processing_chain_parquet/</code> for the QC fluxes. - <code>data/01-eddypro_fluxes_level-1_parquet/</code> and <code>data/01-pwb_tlag_summary_parquet/</code> for the time lag (the chain output does not carry it).</p>
+<p>Inputs: - <code>data/01-eddypro_fluxes_level-1_parquet/</code> for the raw flux and the time lag (<code>*-1</code> to <code>*-4</code>). - <code>data/01-pwb_tlag_summary_parquet/</code> for the PWB<span class="math inline">\(_{OPT}\)</span> lag (<code>*-5</code>).</p>
 <section id="imports" class="level2">
 <h2 class="anchored" data-anchor-id="imports">Imports</h2>
-<div id="a2" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:20:12.336954Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:20:12.292768800Z&quot;}}" data-execution_count="11">
+<div id="a2" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:24:13.095293600Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:24:13.044994700Z&quot;}}" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -576,221 +576,150 @@ window.Quarto = {
 </section>
 <section id="configuration" class="level2">
 <h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
-<p><code>USTAR_SCENARIO</code> selects which of the three USTAR-filtered fluxes to plot. The five variants are the columns; each column is the QCL half and the LGR half of that variant merged into one full-year series. The lag for variants <code>*-1</code> to <code>*-4</code> is the EddyPro time lag used, while the PWB<span class="math inline">\(_{OPT}\)</span> column (<code>*-5</code>) uses its optimised lag (the PWB estimate after the S1/S2/S3 decision rule). The constant-lag variant (<code>*-4</code>) carries two constants here, one per campaign, so its histogram row shows a single filled bin at each constant rather than a spread.</p>
+<p>The five variants are the columns; each column is the QCL half and the LGR half of that variant merged into one full-year series. The lag for variants <code>*-1</code> to <code>*-4</code> is the EddyPro time lag used, while the PWB<span class="math inline">\(_{OPT}\)</span> column (<code>*-5</code>) uses its optimised lag (the PWB estimate after the S1/S2/S3 decision rule). The constant-lag variant (<code>*-4</code>) carries two constants here, one per campaign, so its histogram row shows a single filled bin at each constant rather than a spread.</p>
 <p>Method abbreviations follow Vitale et al.&nbsp;(2024): CM = covariance maximisation, CM<span class="math inline">\(_{CTR}\)</span> = constrained CM (narrow window), PWB<span class="math inline">\(_{OPT}\)</span> = optimised pre-whitening with block-bootstrap.</p>
-<div id="a4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:20:12.400001100Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:20:12.338954100Z&quot;}}" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FPCDIR <span class="op">=</span> Path(<span class="st">"../data/05-flux_processing_chain_parquet"</span>)              <span class="co"># QC fluxes</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>LEVEL1DIR <span class="op">=</span> Path(<span class="st">"../data/01-eddypro_fluxes_level-1_parquet"</span>)          <span class="co"># lag, *-1..*-4</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>PWBDIR <span class="op">=</span> Path(<span class="st">"../data/01-pwb_tlag_summary_parquet"</span>)                   <span class="co"># lag, *-5</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>FIGDIR <span class="op">=</span> Path(<span class="st">"../figures"</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>FIGDIR.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>YEAR <span class="op">=</span> <span class="dv">2021</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>USTAR_SCENARIO <span class="op">=</span> <span class="st">"CUT_50"</span>  <span class="co"># one of CUT_16 / CUT_50 / CUT_84</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>FIGSIZE <span class="op">=</span> (<span class="dv">16</span>, <span class="dv">9</span>)</span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>DPI <span class="op">=</span> <span class="dv">300</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># The two analyzers cover complementary halves of the year; QCL is the earlier</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># campaign (plotted first), LGR the later one.</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>ANALYZERS <span class="op">=</span> [<span class="st">"QCL"</span>, <span class="st">"LGR"</span>]</span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Columns = the five time-lag variants; each is merged across both analyzers.</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>VARIANTS <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>PWB_VARIANT <span class="op">=</span> <span class="dv">5</span>  <span class="co"># the PWB variant uses its detected lag, not the EddyPro lag</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Column titles describe each variant's time-lag method (see</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># docs/processing-versions.md). CM-W = covariance maximisation of the gas against</span></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># the vertical wind speed w (0 to 10 s search window, |cov| max criterion). The</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># upright DEF superscript marks the fallback to the nominal/default lag when the</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># peak search fails (variants *-2 and *-3); the CTR superscript marks the</span></span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># constrained (narrow-window) CM (variant *-3). PWB^OPT is the optimised</span></span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># pre-whitening lag (S1/S2/S3 decision rule applied to the PWB estimates; the lag</span></span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># column read below, *_tlag_final_pf_s, is exactly that lag). These map to the</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Vitale et al. (2024) abbreviations CM, CM_CTR and PWB_OPT.</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>VARIANT_NAMES <span class="op">=</span> {</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>: <span class="st">"CM-W"</span>,</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>: <span class="vs">r"CM-W</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{DEF}}</span><span class="dv">$</span><span class="vs">"</span>,</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="vs">r"CM-W</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{CTR,</span><span class="ch">\ </span><span class="vs">DEF}}</span><span class="dv">$</span><span class="vs">"</span>,</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>: <span class="st">"Constant time lag"</span>,</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="dv">5</span>: <span class="vs">r"PWB</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{OPT}}</span><span class="dv">$</span><span class="vs">"</span>,</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Per gas: the flux variable, the EddyPro time-lag-used variable, and the PWB_OPT</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># optimised-lag column.</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>GASES <span class="op">=</span> {</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"N2O"</span>: {<span class="st">"flux"</span>: <span class="st">"FN2O"</span>, <span class="st">"lag"</span>: <span class="st">"N2O_TLAG_USED"</span>, <span class="st">"pwb_lag"</span>: <span class="st">"n2o_tlag_final_pf_s"</span>},</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CH4"</span>: {<span class="st">"flux"</span>: <span class="st">"FCH4"</span>, <span class="st">"lag"</span>: <span class="st">"CH4_TLAG_USED"</span>, <span class="st">"pwb_lag"</span>: <span class="st">"ch4_tlag_final_pf_s"</span>},</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># One color per instrument, used across all three rows (flux, lag, histogram).</span></span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Distinct but from neighbouring hues, so the figure stays cohesive.</span></span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>INSTRUMENT_COLORS <span class="op">=</span> {<span class="st">"QCL"</span>: <span class="st">"#3182bd"</span>, <span class="st">"LGR"</span>: <span class="st">"#e67e22"</span>}  <span class="co"># blue, orange</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty gas labels for axis text and titles.</span></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>GAS_LABEL <span class="op">=</span> {<span class="st">"N2O"</span>: <span class="st">"N$_2$O"</span>, <span class="st">"CH4"</span>: <span class="st">"CH$_4$"</span>}</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>BIN_S <span class="op">=</span> <span class="fl">0.05</span>                 <span class="co"># tlag raster (s); the mode is snapped to this grid</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>PCTL <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">99</span>)              <span class="co"># robust flux y-range percentiles</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>SEARCH_WINDOW <span class="op">=</span> (<span class="fl">0.0</span>, <span class="fl">10.0</span>)  <span class="co"># covariance-maximization search window (s)</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>FRINGE_MARGIN <span class="op">=</span> <span class="fl">0.1</span>          <span class="co"># peak search ignores lags within this of the rails</span></span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> qc_col(fluxvar, scenario):</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Name of the USTAR-filtered, QCF-accepted flux column in the fpc output."""</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>fluxvar<span class="sc">}</span><span class="ss">_L3.1_L3.3_</span><span class="sc">{</span>scenario<span class="sc">}</span><span class="ss">_QCF"</span></span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Merging </span><span class="sc">{</span>ANALYZERS<span class="sc">}</span><span class="ss"> into full-year series, USTAR scenario: </span><span class="sc">{</span>USTAR_SCENARIO<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="a4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:24:13.125819100Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:24:13.096293800Z&quot;}}" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LEVEL1DIR <span class="op">=</span> Path(<span class="st">"../data/01-eddypro_fluxes_level-1_parquet"</span>)  <span class="co"># raw flux + lag, *-1..*-4</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>PWBDIR <span class="op">=</span> Path(<span class="st">"../data/01-pwb_tlag_summary_parquet"</span>)           <span class="co"># lag, *-5</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FIGDIR <span class="op">=</span> Path(<span class="st">"../figures"</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>FIGDIR.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>YEAR <span class="op">=</span> <span class="dv">2021</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>FIGSIZE <span class="op">=</span> (<span class="dv">16</span>, <span class="dv">9</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>DPI <span class="op">=</span> <span class="dv">300</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># The two analyzers cover complementary halves of the year; QCL is the earlier</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># campaign (plotted first), LGR the later one.</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>ANALYZERS <span class="op">=</span> [<span class="st">"QCL"</span>, <span class="st">"LGR"</span>]</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Columns = the five time-lag variants; each is merged across both analyzers.</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>VARIANTS <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>PWB_VARIANT <span class="op">=</span> <span class="dv">5</span>  <span class="co"># the PWB variant uses its detected lag, not the EddyPro lag</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Column titles describe each variant's time-lag method (see</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a><span class="co"># docs/processing-versions.md). CM-W = covariance maximisation of the gas against</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a><span class="co"># the vertical wind speed w (0 to 10 s search window, |cov| max criterion). The</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># upright DEF superscript marks the fallback to the nominal/default lag when the</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># peak search fails (variants *-2 and *-3); the CTR superscript marks the</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a><span class="co"># constrained (narrow-window) CM (variant *-3). PWB^OPT is the optimised</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># pre-whitening lag (S1/S2/S3 decision rule applied to the PWB estimates; the lag</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># column read below, *_tlag_final_pf_s, is exactly that lag). These map to the</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Vitale et al. (2024) abbreviations CM, CM_CTR and PWB_OPT.</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>VARIANT_NAMES <span class="op">=</span> {</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>: <span class="st">"CM-W"</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>: <span class="vs">r"CM-W</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{DEF}}</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="vs">r"CM-W</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{CTR,</span><span class="ch">\ </span><span class="vs">DEF}}</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>: <span class="st">"Constant time lag"</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="dv">5</span>: <span class="vs">r"PWB</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{OPT}}</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Per gas: the flux variable, the EddyPro time-lag-used variable, and the PWB_OPT</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># optimised-lag column.</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>GASES <span class="op">=</span> {</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"N2O"</span>: {<span class="st">"flux"</span>: <span class="st">"FN2O"</span>, <span class="st">"lag"</span>: <span class="st">"N2O_TLAG_USED"</span>, <span class="st">"pwb_lag"</span>: <span class="st">"n2o_tlag_final_pf_s"</span>},</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CH4"</span>: {<span class="st">"flux"</span>: <span class="st">"FCH4"</span>, <span class="st">"lag"</span>: <span class="st">"CH4_TLAG_USED"</span>, <span class="st">"pwb_lag"</span>: <span class="st">"ch4_tlag_final_pf_s"</span>},</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co"># One color per instrument, used across all three rows (flux, lag, histogram).</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Distinct but from neighbouring hues, so the figure stays cohesive.</span></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>INSTRUMENT_COLORS <span class="op">=</span> {<span class="st">"QCL"</span>: <span class="st">"#3182bd"</span>, <span class="st">"LGR"</span>: <span class="st">"#e67e22"</span>}  <span class="co"># blue, orange</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty gas labels for axis text and titles.</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>GAS_LABEL <span class="op">=</span> {<span class="st">"N2O"</span>: <span class="st">"N$_2$O"</span>, <span class="st">"CH4"</span>: <span class="st">"CH$_4$"</span>}</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>BIN_S <span class="op">=</span> <span class="fl">0.05</span>                 <span class="co"># tlag raster (s); the mode is snapped to this grid</span></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>PCTL <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">99</span>)               <span class="co"># robust flux y-range percentiles</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>SEARCH_WINDOW <span class="op">=</span> (<span class="fl">0.0</span>, <span class="fl">10.0</span>)  <span class="co"># covariance-maximization search window (s)</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>FRINGE_MARGIN <span class="op">=</span> <span class="fl">0.1</span>          <span class="co"># peak search ignores lags within this of the rails</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Merging </span><span class="sc">{</span>ANALYZERS<span class="sc">}</span><span class="ss"> into full-year series (Level-1 raw fluxes)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Merging ['QCL', 'LGR'] into full-year series, USTAR scenario: CUT_50</code></pre>
+<pre><code>Merging ['QCL', 'LGR'] into full-year series (Level-1 raw fluxes)</code></pre>
 </div>
 </div>
 </section>
-<section id="load-and-merge-the-qc-fluxes-and-the-time-lag" class="level2">
-<h2 class="anchored" data-anchor-id="load-and-merge-the-qc-fluxes-and-the-time-lag">Load and merge the QC fluxes and the time lag</h2>
-<p>For each analyzer, variant and gas the QC flux is pulled from its <code>*_fpc.parquet</code> (the single <code>USTAR_SCENARIO</code> column) and the time lag from the level-1 tables (<code>*-1</code> to <code>*-4</code>) or the PWB summaries (<code>*-5</code>). The time lag is then <strong>masked to the records where the QC flux survives</strong>: quality control removes many half-hours, so only the lags that back a plotted flux are kept (the lag row, histogram and mode then describe exactly the records shown in the flux row). The two analyzers are then concatenated over time per variant. Because the campaigns do not overlap, this is a clean stitch: no timestamp appears in both halves.</p>
-<div id="a6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:20:13.478522600Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:20:12.402505600Z&quot;}}" data-execution_count="13">
+<section id="load-and-merge-the-raw-fluxes-and-the-time-lag" class="level2">
+<h2 class="anchored" data-anchor-id="load-and-merge-the-raw-fluxes-and-the-time-lag">Load and merge the raw fluxes and the time lag</h2>
+<p>For each analyzer, variant and gas the raw Level-1 flux and the time lag are read from the same EddyPro table (<code>*-1</code> to <code>*-4</code>); the PWB<span class="math inline">\(_{OPT}\)</span> lag (<code>*-5</code>) comes from the PWB summaries. The time lag is then <strong>masked to the records where the raw flux is present</strong>, so the lag row, histogram and mode describe exactly the records shown in the flux row. The two analyzers are then concatenated over time per variant. Because the campaigns do not overlap, this is a clean stitch: no timestamp appears in both halves.</p>
+<div id="a6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:24:13.963601100Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:24:13.126819400Z&quot;}}" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> _yr(df):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> df.loc[df.index.year <span class="op">==</span> YEAR]</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Per-analyzer QC flux and lag, then merged full-year series keyed by (variant, gas).</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>qcflux, lag_used <span class="op">=</span> {}, {}          <span class="co"># per (analyzer, variant, gas)</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>merged_flux, merged_lag <span class="op">=</span> {}, {}   <span class="co"># per (variant, gas): full-year series</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>boundary <span class="op">=</span> {}                       <span class="co"># campaign handover per analyzer pair</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> var <span class="kw">in</span> VARIANTS:</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> analyzer <span class="kw">in</span> ANALYZERS:</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        code <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>analyzer<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>var<span class="sc">}</span><span class="ss">"</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Lag source: PWB summary for the PWB variant, level-1 table otherwise.</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> var <span class="op">==</span> PWB_VARIANT:</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            lagdf <span class="op">=</span> _yr(load_parquet(filepath<span class="op">=</span><span class="bu">str</span>(PWBDIR <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>code<span class="sc">}</span><span class="ss">_pwb_tlag.parquet"</span>)))</span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>            lagdf <span class="op">=</span> _yr(load_parquet(filepath<span class="op">=</span><span class="bu">str</span>(LEVEL1DIR <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>code<span class="sc">}</span><span class="ss">.parquet"</span>)))</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> gas, v <span class="kw">in</span> GASES.items():</span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>            df <span class="op">=</span> _yr(load_parquet(filepath<span class="op">=</span><span class="bu">str</span>(FPCDIR <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>code<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>v[<span class="st">'flux'</span>]<span class="sc">}</span><span class="ss">_fpc.parquet"</span>)))</span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            fluxseries <span class="op">=</span> df[qc_col(v[<span class="st">"flux"</span>], USTAR_SCENARIO)]</span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            qcflux[(analyzer, var, gas)] <span class="op">=</span> fluxseries</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Per-analyzer raw flux and lag, then merged full-year series keyed by (variant, gas).</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>rawflux, lag_used <span class="op">=</span> {}, {}          <span class="co"># per (analyzer, variant, gas)</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>merged_flux, merged_lag <span class="op">=</span> {}, {}    <span class="co"># per (variant, gas): full-year series</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> var <span class="kw">in</span> VARIANTS:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> analyzer <span class="kw">in</span> ANALYZERS:</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        code <span class="op">=</span> <span class="ss">f"</span><span class="sc">{</span>analyzer<span class="sc">}</span><span class="ss">-</span><span class="sc">{</span>var<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Level-1 EddyPro table: carries both the raw fluxes and the EddyPro lag.</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        l1 <span class="op">=</span> _yr(load_parquet(filepath<span class="op">=</span><span class="bu">str</span>(LEVEL1DIR <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>code<span class="sc">}</span><span class="ss">.parquet"</span>)))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Lag source: PWB summary for the PWB variant, the Level-1 table otherwise.</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> var <span class="op">==</span> PWB_VARIANT:</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>            lagdf <span class="op">=</span> _yr(load_parquet(filepath<span class="op">=</span><span class="bu">str</span>(PWBDIR <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>code<span class="sc">}</span><span class="ss">_pwb_tlag.parquet"</span>)))</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            lagdf <span class="op">=</span> l1</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> gas, v <span class="kw">in</span> GASES.items():</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>            fluxseries <span class="op">=</span> l1[v[<span class="st">"flux"</span>]]</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>            rawflux[(analyzer, var, gas)] <span class="op">=</span> fluxseries</span>
 <span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>            lagcol <span class="op">=</span> v[<span class="st">"pwb_lag"</span>] <span class="cf">if</span> var <span class="op">==</span> PWB_VARIANT <span class="cf">else</span> v[<span class="st">"lag"</span>]</span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Keep the time lag only where the QC flux survives: quality control</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>            <span class="co"># drops many half-hours, and a lag without a plotted flux would be</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            <span class="co"># misleading. Align the lag to the flux index and mask out timestamps</span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>            <span class="co"># where the flux is NaN, so the lag row, histogram and mode describe</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>            <span class="co"># exactly the records shown in the flux row.</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>            lag <span class="op">=</span> lagdf[lagcol].reindex(fluxseries.index)</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>            lag_used[(analyzer, var, gas)] <span class="op">=</span> lag.where(fluxseries.notna())</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> gas <span class="kw">in</span> GASES:</span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>        merged_flux[(var, gas)] <span class="op">=</span> pd.concat(</span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>            [qcflux[(a, var, gas)] <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS]).sort_index()</span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>        merged_lag[(var, gas)] <span class="op">=</span> pd.concat(</span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>            [lag_used[(a, var, gas)] <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS]).sort_index()</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a><span class="co"># Campaign handover: midpoint between the last QCL and first LGR timestamp</span></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co"># (identical across variants/gases; take it from variant 1, N2O).</span></span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>_qcl_end <span class="op">=</span> qcflux[(<span class="st">"QCL"</span>, <span class="dv">1</span>, <span class="st">"N2O"</span>)].index.<span class="bu">max</span>()</span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>_lgr_start <span class="op">=</span> qcflux[(<span class="st">"LGR"</span>, <span class="dv">1</span>, <span class="st">"N2O"</span>)].index.<span class="bu">min</span>()</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>HANDOVER <span class="op">=</span> _qcl_end <span class="op">+</span> (_lgr_start <span class="op">-</span> _qcl_end) <span class="op">/</span> <span class="dv">2</span></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> var <span class="kw">in</span> VARIANTS:</span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> merged_flux[(var, <span class="st">"N2O"</span>)]</span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"variant -</span><span class="sc">{</span>var<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">int</span>(s.notna().<span class="bu">sum</span>())<span class="sc">}</span><span class="ss"> valid merged QC N2O "</span></span>
-<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>          <span class="ss">f"(</span><span class="sc">{</span>s<span class="sc">.</span>index<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>s<span class="sc">.</span>index<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"campaign handover marked at </span><span class="sc">{</span>HANDOVER<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d <span class="op">%</span>H<span class="sc">:</span><span class="op">%</span>M<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Keep the time lag only where the raw flux is present, so the lag row,</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>            <span class="co"># histogram and mode describe exactly the records shown in the flux row.</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>            lag <span class="op">=</span> lagdf[lagcol].reindex(fluxseries.index)</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>            lag_used[(analyzer, var, gas)] <span class="op">=</span> lag.where(fluxseries.notna())</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> gas <span class="kw">in</span> GASES:</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>        merged_flux[(var, gas)] <span class="op">=</span> pd.concat(</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>            [rawflux[(a, var, gas)] <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS]).sort_index()</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>        merged_lag[(var, gas)] <span class="op">=</span> pd.concat(</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>            [lag_used[(a, var, gas)] <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS]).sort_index()</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Campaign handover: midpoint between the last QCL and first LGR timestamp</span></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a><span class="co"># (identical across variants/gases; take it from variant 1, N2O).</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>_qcl_end <span class="op">=</span> rawflux[(<span class="st">"QCL"</span>, <span class="dv">1</span>, <span class="st">"N2O"</span>)].index.<span class="bu">max</span>()</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>_lgr_start <span class="op">=</span> rawflux[(<span class="st">"LGR"</span>, <span class="dv">1</span>, <span class="st">"N2O"</span>)].index.<span class="bu">min</span>()</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>HANDOVER <span class="op">=</span> _qcl_end <span class="op">+</span> (_lgr_start <span class="op">-</span> _qcl_end) <span class="op">/</span> <span class="dv">2</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> var <span class="kw">in</span> VARIANTS:</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> merged_flux[(var, <span class="st">"N2O"</span>)]</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"variant -</span><span class="sc">{</span>var<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">int</span>(s.notna().<span class="bu">sum</span>())<span class="sc">}</span><span class="ss"> valid merged raw N2O "</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>          <span class="ss">f"(</span><span class="sc">{</span>s<span class="sc">.</span>index<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>s<span class="sc">.</span>index<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"campaign handover marked at </span><span class="sc">{</span>HANDOVER<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d <span class="op">%</span>H<span class="sc">:</span><span class="op">%</span>M<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-1.parquet (0.035 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-1.parquet (0.031 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-1_FN2O_fpc.parquet (0.009 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-1.parquet (0.026 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-1_FCH4_fpc.parquet (0.005 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-2.parquet (0.031 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-1.parquet (0.032 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-2.parquet (0.028 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-1_FN2O_fpc.parquet (0.005 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-3.parquet (0.038 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-1_FCH4_fpc.parquet (0.005 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-3.parquet (0.035 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-2.parquet (0.040 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-4.parquet (0.035 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-2_FN2O_fpc.parquet (0.006 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-4.parquet (0.029 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-2_FCH4_fpc.parquet (0.005 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-2.parquet (0.038 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-2_FN2O_fpc.parquet (0.004 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-2_FCH4_fpc.parquet (0.007 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-3.parquet (0.040 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-3_FN2O_fpc.parquet (0.006 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-3_FCH4_fpc.parquet (0.005 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-3.parquet (0.033 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-3_FN2O_fpc.parquet (0.006 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-3_FCH4_fpc.parquet (0.007 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-4.parquet (0.040 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-4_FN2O_fpc.parquet (0.007 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-4_FCH4_fpc.parquet (0.008 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-4.parquet (0.032 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-4_FN2O_fpc.parquet (0.007 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-4_FCH4_fpc.parquet (0.005 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-5.parquet (0.035 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
@@ -798,40 +727,28 @@ window.Quarto = {
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-5_FN2O_fpc.parquet (0.004 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-5.parquet (0.027 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-5_FCH4_fpc.parquet (0.010 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-pwb_tlag_summary_parquet\LGR-5_pwb_tlag.parquet (0.006 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-5_FN2O_fpc.parquet (0.004 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-5_FCH4_fpc.parquet (0.006 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-pwb_tlag_summary_parquet\LGR-5_pwb_tlag.parquet (0.007 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>variant -1: 4787 valid merged QC N2O (2021-01-01 to 2021-12-31)
-variant -2: 4767 valid merged QC N2O (2021-01-01 to 2021-12-31)
-variant -3: 4295 valid merged QC N2O (2021-01-01 to 2021-12-31)
-variant -4: 3975 valid merged QC N2O (2021-01-01 to 2021-12-31)
-variant -5: 3993 valid merged QC N2O (2021-01-01 to 2021-12-31)
+<pre><code>variant -1: 17181 valid merged raw N2O (2021-01-01 to 2021-12-31)
+variant -2: 17181 valid merged raw N2O (2021-01-01 to 2021-12-31)
+variant -3: 17181 valid merged raw N2O (2021-01-01 to 2021-12-31)
+variant -4: 17181 valid merged raw N2O (2021-01-01 to 2021-12-31)
+variant -5: 17182 valid merged raw N2O (2021-01-01 to 2021-12-31)
 campaign handover marked at 2021-07-21 13:15</code></pre>
 </div>
 </div>
 </section>
 <section id="figures-merged-full-year-qc-flux-time-lag-lag-histogram" class="level2">
 <h2 class="anchored" data-anchor-id="figures-merged-full-year-qc-flux-time-lag-lag-histogram">Figures: merged full-year QC flux, time lag, lag histogram</h2>
-<p>One figure per gas. Three rows (QC flux over time, time lag used over time, lag histogram) with the five variants as columns. The two instruments carry one color each (QCL blue, LGR yellow-orange), used consistently across all three rows; the top-left flux panel carries the instrument legend, and a light dashed line marks the QCL to LGR handover in the top two rows.</p>
+<p>One figure per gas. Three rows (raw flux over time, time lag used over time, lag histogram) with the five variants as columns. The two instruments carry one color each (QCL blue, LGR yellow-orange), used consistently across all three rows; the top-left flux panel carries the instrument legend, and a light dashed line marks the QCL to LGR handover in the top two rows.</p>
 <p>The bottom row overlays the two instruments’ lag histograms, binned on the EddyPro tlag raster (0.05 s bins, one bar per reported lag value), drawn with time lag on the vertical axis and count on the horizontal axis, so it reads as a rotated histogram aligned with the lag row above it. The two instruments’ bars are overlaid (not stacked) and semi-transparent, so both stay visible where they overlap. Within each row the y-axis is shared across the columns (only the first column shows y tick labels): flux, time lag, and now also the histogram row’s time-lag axis. The shared count axis is scaled to the PWB<span class="math inline">\(_{OPT}\)</span> variant’s tallest bar, so every column is read against the PWB method’s peak count; the more concentrated variants (the narrow-window CM, and the single-bin constant lag) have taller bars that run past the right edge. Each instrument’s modal lag is printed in the upper-right corner of the panel, coloured by instrument (<code>Mode QCL</code> above, <code>Mode LGR</code> below). The mode is the peak 0.05 s bin of the non-fringe lags, so it lands on the grid (e.g.&nbsp;0.65 s) and the 0 s / 10 s search window rails (mostly <code>*-1</code>) cannot be mistaken for it. The constant-lag variant (<code>*-4</code>) is single-valued per campaign, so its whole record falls into one 0.05 s bin (that bar overshoots the count axis and reaches the right edge).</p>
-<div id="a8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:20:21.314184Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:20:13.499530900Z&quot;}}" data-execution_count="14">
+<div id="a8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:24:23.327488300Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:24:13.984622400Z&quot;}}" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> robust_ylim(values, pctl<span class="op">=</span>PCTL, pad_frac<span class="op">=</span><span class="fl">0.05</span>):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Percentile-based y-limits with a small symmetric pad."""</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    lo, hi <span class="op">=</span> np.nanpercentile(values, pctl)</span>
@@ -842,7 +759,7 @@ campaign handover marked at 2021-07-21 13:15</code></pre>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>LAG_YLIM <span class="op">=</span> (<span class="op">-</span><span class="fl">0.2</span>, <span class="fl">10.2</span>)  <span class="co"># full 0 to 10 s search window with a small pad</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>LO_EDGE <span class="op">=</span> SEARCH_WINDOW[<span class="dv">0</span>] <span class="op">+</span> FRINGE_MARGIN</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>HI_EDGE <span class="op">=</span> SEARCH_WINDOW[<span class="dv">1</span>] <span class="op">-</span> FRINGE_MARGIN</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>MARKER_S <span class="op">=</span> <span class="dv">4</span>       <span class="co"># scatter marker size for the flux and lag rows</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>MARKER_S <span class="op">=</span> <span class="dv">1</span>       <span class="co"># scatter marker size for the flux and lag rows</span></span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>LETTERS <span class="op">=</span> <span class="st">"abcdefghijklmnopqrstuvwxyz"</span></span>
 <span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Histogram bins match the EddyPro tlag raster (BIN_S = 0.05 s) and are centred on</span></span>
 <span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="co"># the raster multiples, so each bar sits exactly on a reported lag value.</span></span>
@@ -972,11 +889,11 @@ campaign handover marked at 2021-07-21 13:15</code></pre>
 <span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a>            panel_letter(ax, LETTERS[r <span class="op">*</span> ncols <span class="op">+</span> ci])</span>
 <span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>        ax_flux.set_title(VARIANT_NAMES[var], fontweight<span class="op">=</span><span class="st">"bold"</span>, fontsize<span class="op">=</span><span class="dv">10</span>)</span>
 <span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Rows 1 and 2: QC flux and time lag over time, one color per instrument.</span></span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Rows 1 and 2: raw flux and time lag over time, one color per instrument.</span></span>
 <span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>        ax_flux.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"0.55"</span>, lw<span class="op">=</span><span class="fl">0.8</span>, zorder<span class="op">=</span><span class="fl">0.5</span>)  <span class="co"># zero reference</span></span>
 <span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS:</span>
 <span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>            c <span class="op">=</span> INSTRUMENT_COLORS[a]</span>
-<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>            f <span class="op">=</span> qcflux[(a, var, gas)].dropna()</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>            f <span class="op">=</span> rawflux[(a, var, gas)].dropna()</span>
 <span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>            ax_flux.scatter(f.index, f, s<span class="op">=</span>MARKER_S, alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span>c, edgecolors<span class="op">=</span><span class="st">"none"</span>)</span>
 <span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>            lg <span class="op">=</span> lag_used[(a, var, gas)].dropna()</span>
 <span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>            ax_lag.scatter(lg.index, lg, s<span class="op">=</span>MARKER_S, alpha<span class="op">=</span><span class="fl">0.5</span>, color<span class="op">=</span>c, edgecolors<span class="op">=</span><span class="st">"none"</span>)</span>
@@ -1030,27 +947,27 @@ campaign handover marked at 2021-07-21 13:15</code></pre>
 <span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>                      bbox_to_anchor<span class="op">=</span>(<span class="fl">0.02</span>, <span class="fl">0.88</span>), fontsize<span class="op">=</span><span class="dv">8</span>, framealpha<span class="op">=</span><span class="fl">0.9</span>,</span>
 <span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a>                      handletextpad<span class="op">=</span><span class="fl">0.4</span>, borderpad<span class="op">=</span><span class="fl">0.3</span>)</span>
 <span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> FIGDIR <span class="op">/</span> <span class="ss">f"08_</span><span class="sc">{</span>USTAR_SCENARIO<span class="sc">.</span>lower()<span class="sc">}</span><span class="ss">_merged_</span><span class="sc">{</span>gas<span class="sc">.</span>lower()<span class="sc">}</span><span class="ss">.png"</span></span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> FIGDIR <span class="op">/</span> <span class="ss">f"02_merged_</span><span class="sc">{</span>gas<span class="sc">.</span>lower()<span class="sc">}</span><span class="ss">.png"</span></span>
 <span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>    fig.savefig(out, dpi<span class="op">=</span>DPI, bbox_inches<span class="op">=</span><span class="st">"tight"</span>)</span>
 <span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Saved </span><span class="sc">{</span>out<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Saved ..\figures\08_cut_50_merged_n2o.png</code></pre>
+<pre><code>Saved ..\figures\02_merged_n2o.png</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="08_merged_analyzers_full_year_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="08_merged_analyzers_full_year_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></a></p>
+<p><a href="02_level1_merged_analyzers_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="02_level1_merged_analyzers_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Saved ..\figures\08_cut_50_merged_ch4.png</code></pre>
+<pre><code>Saved ..\figures\02_merged_ch4.png</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="08_merged_analyzers_full_year_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="08_merged_analyzers_full_year_files/figure-html/cell-5-output-4.png" class="img-fluid figure-img"></a></p>
+<p><a href="02_level1_merged_analyzers_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="02_level1_merged_analyzers_files/figure-html/cell-5-output-4.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -1058,15 +975,15 @@ campaign handover marked at 2021-07-21 13:15</code></pre>
 </section>
 <section id="runtime" class="level2">
 <h2 class="anchored" data-anchor-id="runtime">Runtime</h2>
-<div id="a10" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:20:21.450784400Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:20:21.360226100Z&quot;}}" data-execution_count="15">
+<div id="a10" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:24:23.410871200Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:24:23.363983700Z&quot;}}" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>NB_END <span class="op">=</span> datetime.now()</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Start:    </span><span class="sc">{</span>NB_START<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d <span class="op">%</span>H<span class="sc">:</span><span class="op">%</span>M<span class="sc">:</span><span class="op">%</span>S<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"End:      </span><span class="sc">{</span>NB_END<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d <span class="op">%</span>H<span class="sc">:</span><span class="op">%</span>M<span class="sc">:</span><span class="op">%</span>S<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Runtime:  </span><span class="sc">{</span>NB_END <span class="op">-</span> NB_START<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Start:    2026-07-14 01:20:12
-End:      2026-07-14 01:20:21
-Runtime:  0:00:09.065455</code></pre>
+<pre><code>Start:    2026-07-14 01:24:13
+End:      2026-07-14 01:24:23
+Runtime:  0:00:10.317988</code></pre>
 </div>
 </div>
 
@@ -1489,13 +1406,13 @@ Runtime:  0:00:09.065455</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../notebooks/05_flux_processing_chain.html" class="pagination-link" aria-label="05 · Apply the flux processing chain to each variant">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">05 · Apply the flux processing chain to each variant</span>
+      <a href="../notebooks/01_read_fluxes_to_parquet.html" class="pagination-link" aria-label="01 · Read flux CSVs and PWB tlag summaries → Parquet">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">01 · Read flux CSVs and PWB tlag summaries → Parquet</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../notebooks/09_cumulative_qc_fluxes.html" class="pagination-link" aria-label="09 · Flux distribution and cumulative budget by variant">
-        <span class="nav-page-text">09 · Flux distribution and cumulative budget by variant</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notebooks/03_level1_cumulative_fluxes.html" class="pagination-link" aria-label="03 · Level-1 flux distribution and cumulative budget by variant">
+        <span class="nav-page-text">03 · Level-1 flux distribution and cumulative budget by variant</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1507,7 +1424,7 @@ Runtime:  0:00:09.065455</code></pre>
     </div>   
     <div class="nav-footer-center">
 <p>Lukas Hörtnagl, ETH Zürich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/notebooks/08_merged_analyzers_full_year.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/notebooks/02_level1_merged_analyzers.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

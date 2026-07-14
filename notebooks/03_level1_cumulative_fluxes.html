@@ -8,7 +8,7 @@
 
 <meta name="dcterms.date" content="2026-07-14">
 
-<title>09 · Flux distribution and cumulative budget by variant – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
+<title>03 · Level-1 flux distribution and cumulative budget by variant – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -69,8 +69,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../docs/figure-gallery.html" rel="next">
-<link href="../notebooks/08_merged_analyzers_full_year.html" rel="prev">
+<link href="../notebooks/05_flux_processing_chain.html" rel="next">
+<link href="../notebooks/02_level1_merged_analyzers.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -347,7 +347,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/01_read_fluxes_to_parquet.html">Analysis notebooks</a></li><li class="breadcrumb-item"><a href="../notebooks/09_cumulative_qc_fluxes.html">09 · Flux distribution and cumulative budget by variant</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/01_read_fluxes_to_parquet.html">Analysis notebooks</a></li><li class="breadcrumb-item"><a href="../notebooks/03_level1_cumulative_fluxes.html">03 · Level-1 flux distribution and cumulative budget by variant</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -466,7 +466,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/03_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
+  <a href="../notebooks/03_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">03 · Level-1 flux distribution and cumulative budget by variant</span></a>
   </div>
 </li>
@@ -484,7 +484,7 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/09_cumulative_qc_fluxes.html" class="sidebar-item-text sidebar-link active">
+  <a href="../notebooks/09_cumulative_qc_fluxes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">09 · Flux distribution and cumulative budget by variant</span></a>
   </div>
 </li>
@@ -508,19 +508,19 @@ window.Quarto = {
   <ul>
   <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">Imports</a></li>
   <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
-  <li><a href="#load-the-qc-fluxes" id="toc-load-the-qc-fluxes" class="nav-link" data-scroll-target="#load-the-qc-fluxes">Load the QC fluxes</a></li>
+  <li><a href="#load-the-raw-fluxes" id="toc-load-the-raw-fluxes" class="nav-link" data-scroll-target="#load-the-raw-fluxes">Load the raw fluxes</a></li>
   <li><a href="#flux-distribution-and-cumulative-budget-over-common-samples" id="toc-flux-distribution-and-cumulative-budget-over-common-samples" class="nav-link" data-scroll-target="#flux-distribution-and-cumulative-budget-over-common-samples">Flux distribution and cumulative budget over common samples</a></li>
   <li><a href="#runtime" id="toc-runtime" class="nav-link" data-scroll-target="#runtime">Runtime</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/notebooks/09_cumulative_qc_fluxes.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/notebooks/03_level1_cumulative_fluxes.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/01_read_fluxes_to_parquet.html">Analysis notebooks</a></li><li class="breadcrumb-item"><a href="../notebooks/09_cumulative_qc_fluxes.html">09 · Flux distribution and cumulative budget by variant</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/01_read_fluxes_to_parquet.html">Analysis notebooks</a></li><li class="breadcrumb-item"><a href="../notebooks/03_level1_cumulative_fluxes.html">03 · Level-1 flux distribution and cumulative budget by variant</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">09 · Flux distribution and cumulative budget by variant</h1>
+<h1 class="title">03 · Level-1 flux distribution and cumulative budget by variant</h1>
 </div>
 
 
@@ -543,17 +543,18 @@ window.Quarto = {
 </header>
 
 
-<p>The half-hourly flux distribution and the running (cumulative) budget of the quality-controlled flux per variant, the single place this comparison is produced. It reads the flux processing chain output (<a href="../notebooks/05_flux_processing_chain.html">notebook 05</a>) and draws, per gas, one figure with two rows and two panels: the QCL campaign (2021_1) on the left and the LGR campaign (2021_2) on the right.</p>
+<p>The same flux distribution and running (cumulative) budget as <a href="../notebooks/09_cumulative_qc_fluxes.html">notebook 09</a>, but built directly on the <strong>Level-1 EddyPro fluxes</strong>, before the flux processing chain (no quality flags, no storage term, no outlier removal, no USTAR filtering). It is the pre-quality-control counterpart of the cumulative comparison.</p>
+<p>Per gas, one figure with two rows and two panels: the QCL campaign (2021_1) on the left and the LGR campaign (2021_2) on the right.</p>
 <ul>
-<li><strong>Top row, flux density distribution.</strong> A lightly smoothed kernel density line of the half-hourly QC flux for each variant, with a dashed line at zero flux (after Vitale et al.&nbsp;2024, Fig. 7). The covariance-maximization variants lose mass around zero, the “mirroring” bias (a bimodal dip); the PWB<span class="math inline">\(_{OPT}\)</span> variant, drawn filled as the reference, keeps it.</li>
-<li><strong>Bottom row, cumulative budget.</strong> The running sum of the flux integrated into a cumulative mass; lines that fan apart mean the time-lag setting accumulates into a different total even after quality control.</li>
+<li><strong>Top row, flux density distribution.</strong> A lightly smoothed kernel density line of the half-hourly raw flux for each variant, with a dashed line at zero flux (after Vitale et al.&nbsp;2024, Fig. 7). The covariance-maximization variants lose mass around zero, the “mirroring” bias (a bimodal dip); the PWB<span class="math inline">\(_{OPT}\)</span> variant, drawn filled as the reference, keeps it.</li>
+<li><strong>Bottom row, cumulative budget.</strong> The running sum of the raw flux integrated into a cumulative mass; lines that fan apart mean the time-lag setting accumulates into a different total.</li>
 </ul>
-<p>The comparison is <strong>paired</strong>: within each analyzer the variants are aligned on the timestamp index and only the half-hours where <em>every</em> variant has a quality-controlled flux are kept, so both rows describe exactly the same samples. Quality control removes a different set of half-hours per variant, so this common-sample step is what makes the variants comparable. The panel title reports the common-sample count (<code>n</code>).</p>
-<p>One USTAR scenario is shown, <code>USTAR_SCENARIO</code>; re-run with a different value to compare scenarios. Two figures are produced, one per gas, saved as <code>figures/09_cumulative_{scenario}_{gas}.png</code>.</p>
-<p>Inputs: - <code>data/05-flux_processing_chain_parquet/</code> for the QC fluxes.</p>
+<p>The comparison is <strong>paired</strong>: within each analyzer the variants are aligned on the timestamp index and only the half-hours where <em>every</em> variant has a flux are kept, so both rows describe exactly the same samples. The panel title reports the common-sample count (<code>n</code>).</p>
+<p>Two figures are produced, one per gas, saved as <code>figures/03_cumulative_{gas}.png</code>.</p>
+<p>Inputs: - <code>data/01-eddypro_fluxes_level-1_parquet/</code> for the raw fluxes.</p>
 <section id="imports" class="level2">
 <h2 class="anchored" data-anchor-id="imports">Imports</h2>
-<div id="a2" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:20:14.645978800Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:20:14.552877Z&quot;}}" data-execution_count="11">
+<div id="a2" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:12:05.958096900Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:12:04.092882700Z&quot;}}" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -574,187 +575,141 @@ window.Quarto = {
 </section>
 <section id="configuration" class="level2">
 <h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
-<p><code>USTAR_SCENARIO</code> selects which of the three USTAR-filtered fluxes to sum. The QC flux column in each <code>*_fpc.parquet</code> follows the chain’s naming convention, <code>{gas}_L3.1_L3.3_{scenario}_QCF</code>. All five variants per analyzer are summed, including the PWB<span class="math inline">\(_{OPT}\)</span> variant (<code>*-5</code>).</p>
-<div id="a4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:20:14.739964500Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:20:14.648979500Z&quot;}}" data-execution_count="12">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>FPCDIR <span class="op">=</span> Path(<span class="st">"../data/05-flux_processing_chain_parquet"</span>)  <span class="co"># QC fluxes</span></span>
+<p>All five variants per analyzer are summed, including the PWB<span class="math inline">\(_{OPT}\)</span> variant (<code>*-5</code>). The raw flux column read from each Level-1 table is <code>FN2O</code> / <code>FCH4</code>.</p>
+<div id="a4" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:12:06.000141900Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:12:05.960095600Z&quot;}}" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LEVEL1DIR <span class="op">=</span> Path(<span class="st">"../data/01-eddypro_fluxes_level-1_parquet"</span>)  <span class="co"># raw Level-1 fluxes</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FIGDIR <span class="op">=</span> Path(<span class="st">"../figures"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FIGDIR.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>YEAR <span class="op">=</span> <span class="dv">2021</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>USTAR_SCENARIO <span class="op">=</span> <span class="st">"CUT_50"</span>  <span class="co"># one of CUT_16 / CUT_50 / CUT_84</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>DPI <span class="op">=</span> <span class="dv">300</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Cumulative-mass conversion. The fluxes are half-hourly in nmol m-2 s-1, so each</span></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># record integrates over RECORD_SECONDS. The per-record factor turns one</span></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># nmol m-2 s-1 value into cumulative mass of the reported element:</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   nmol m-2 s-1  * RECORD_SECONDS  -&gt; nmol m-2   (per 30-min record)</span></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#                 * 1e-9            -&gt; mol m-2</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#                 * molar mass      -&gt; g (element) m-2</span></span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># N2O is reported as N2O-N (two N atoms per molecule) and taken to kg ha-1;</span></span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="co"># CH4 is reported as CH4-C and kept in g m-2.</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>RECORD_SECONDS <span class="op">=</span> <span class="dv">1800</span>     <span class="co"># 30-min flux averaging interval</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>M_N <span class="op">=</span> <span class="fl">14.0067</span>             <span class="co"># g mol-1, nitrogen</span></span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>M_C <span class="op">=</span> <span class="fl">12.011</span>              <span class="co"># g mol-1, carbon</span></span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>G_M2_TO_KG_HA <span class="op">=</span> <span class="fl">10.0</span>      <span class="co"># (g m-2) -&gt; (kg ha-1): / 1000 g * 10000 m2</span></span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># The five time-lag variants per analyzer (the study variable).</span></span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>ANALYZERS <span class="op">=</span> {</span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"QCL"</span>: [<span class="st">"QCL-1"</span>, <span class="st">"QCL-2"</span>, <span class="st">"QCL-3"</span>, <span class="st">"QCL-4"</span>, <span class="st">"QCL-5"</span>],</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"LGR"</span>: [<span class="st">"LGR-1"</span>, <span class="st">"LGR-2"</span>, <span class="st">"LGR-3"</span>, <span class="st">"LGR-4"</span>, <span class="st">"LGR-5"</span>],</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Per gas: flux column, pretty label, the cumulative-mass factor, and the unit of</span></span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># the cumulative series.</span></span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>GASES <span class="op">=</span> {</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"N2O"</span>: {<span class="st">"flux"</span>: <span class="st">"FN2O"</span>, <span class="st">"label"</span>: <span class="st">"N$_2$O"</span>,</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">"factor"</span>: RECORD_SECONDS <span class="op">*</span> <span class="fl">1e-9</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> M_N) <span class="op">*</span> G_M2_TO_KG_HA,</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cum_unit"</span>: <span class="st">"kg N$_2$O-N ha$^{-1}$"</span>},</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CH4"</span>: {<span class="st">"flux"</span>: <span class="st">"FCH4"</span>, <span class="st">"label"</span>: <span class="st">"CH$_4$"</span>,</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">"factor"</span>: RECORD_SECONDS <span class="op">*</span> <span class="fl">1e-9</span> <span class="op">*</span> M_C,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cum_unit"</span>: <span class="st">"g CH$_4$-C m$^{-2}$"</span>},</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Meaningful variant names (by suffix number), matching notebook 08. Used as the</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># legend labels instead of the bare codes. Method abbreviations follow Vitale</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># et al. (2024): CM = covariance maximisation, CTR = constrained (narrow window),</span></span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a><span class="co"># PWB_OPT = optimised pre-whitening with block-bootstrap.</span></span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>VARIANT_NAMES <span class="op">=</span> {</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>: <span class="st">"CM, wide, no default"</span>,</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>: <span class="st">"CM, wide, default"</span>,</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="st">"CM$_</span><span class="sc">{CTR}</span><span class="st">$, narrow, default"</span>,</span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>: <span class="st">"Constant lag"</span>,</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="dv">5</span>: <span class="st">"PWB$_</span><span class="sc">{OPT}</span><span class="st">$"</span>,</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co"># One color per variant suffix, shared across analyzers and gases. Okabe-Ito</span></span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co"># colorblind-safe palette for variants 1 to 4 (blue, vermillion, bluish green,</span></span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="co"># reddish purple); variant 5 (PWB_OPT reference) is drawn grey.</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>VAR_COLORS <span class="op">=</span> {<span class="dv">1</span>: <span class="st">"#0072B2"</span>, <span class="dv">2</span>: <span class="st">"#D55E00"</span>, <span class="dv">3</span>: <span class="st">"#009E73"</span>, <span class="dv">4</span>: <span class="st">"#CC79A7"</span>, <span class="dv">5</span>: <span class="st">"#7F7F7F"</span>}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>DPI <span class="op">=</span> <span class="dv">300</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Cumulative-mass conversion. The fluxes are half-hourly in nmol m-2 s-1, so each</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># record integrates over RECORD_SECONDS. The per-record factor turns one</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co"># nmol m-2 s-1 value into cumulative mass of the reported element:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   nmol m-2 s-1  * RECORD_SECONDS  -&gt; nmol m-2   (per 30-min record)</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">#                 * 1e-9            -&gt; mol m-2</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#                 * molar mass      -&gt; g (element) m-2</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># N2O is reported as N2O-N (two N atoms per molecule) and taken to kg ha-1;</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co"># CH4 is reported as CH4-C and kept in g m-2.</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>RECORD_SECONDS <span class="op">=</span> <span class="dv">1800</span>     <span class="co"># 30-min flux averaging interval</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>M_N <span class="op">=</span> <span class="fl">14.0067</span>             <span class="co"># g mol-1, nitrogen</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>M_C <span class="op">=</span> <span class="fl">12.011</span>              <span class="co"># g mol-1, carbon</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>G_M2_TO_KG_HA <span class="op">=</span> <span class="fl">10.0</span>      <span class="co"># (g m-2) -&gt; (kg ha-1): / 1000 g * 10000 m2</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># The five time-lag variants per analyzer (the study variable).</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>ANALYZERS <span class="op">=</span> {</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"QCL"</span>: [<span class="st">"QCL-1"</span>, <span class="st">"QCL-2"</span>, <span class="st">"QCL-3"</span>, <span class="st">"QCL-4"</span>, <span class="st">"QCL-5"</span>],</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"LGR"</span>: [<span class="st">"LGR-1"</span>, <span class="st">"LGR-2"</span>, <span class="st">"LGR-3"</span>, <span class="st">"LGR-4"</span>, <span class="st">"LGR-5"</span>],</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Per gas: flux column, pretty label, the cumulative-mass factor, and the unit of</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># the cumulative series.</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>GASES <span class="op">=</span> {</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"N2O"</span>: {<span class="st">"flux"</span>: <span class="st">"FN2O"</span>, <span class="st">"label"</span>: <span class="st">"N$_2$O"</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>            <span class="st">"factor"</span>: RECORD_SECONDS <span class="op">*</span> <span class="fl">1e-9</span> <span class="op">*</span> (<span class="dv">2</span> <span class="op">*</span> M_N) <span class="op">*</span> G_M2_TO_KG_HA,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cum_unit"</span>: <span class="st">"kg N$_2$O-N ha$^{-1}$"</span>},</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CH4"</span>: {<span class="st">"flux"</span>: <span class="st">"FCH4"</span>, <span class="st">"label"</span>: <span class="st">"CH$_4$"</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>            <span class="st">"factor"</span>: RECORD_SECONDS <span class="op">*</span> <span class="fl">1e-9</span> <span class="op">*</span> M_C,</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            <span class="st">"cum_unit"</span>: <span class="st">"g CH$_4$-C m$^{-2}$"</span>},</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Meaningful variant names (by suffix number), matching notebook 09. Used as the</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># legend labels instead of the bare codes. Method abbreviations follow Vitale</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># et al. (2024): CM = covariance maximisation, CTR = constrained (narrow window),</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a><span class="co"># PWB_OPT = optimised pre-whitening with block-bootstrap.</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>VARIANT_NAMES <span class="op">=</span> {</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>: <span class="st">"CM, wide, no default"</span>,</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>: <span class="st">"CM, wide, default"</span>,</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="st">"CM$_</span><span class="sc">{CTR}</span><span class="st">$, narrow, default"</span>,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>: <span class="st">"Constant lag"</span>,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="dv">5</span>: <span class="st">"PWB$_</span><span class="sc">{OPT}</span><span class="st">$"</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co"># One color per variant suffix, shared across analyzers and gases. Okabe-Ito</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a><span class="co"># colorblind-safe palette for variants 1 to 4 (blue, vermillion, bluish green,</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a><span class="co"># reddish purple); variant 5 (PWB_OPT reference) is drawn grey.</span></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>VAR_COLORS <span class="op">=</span> {<span class="dv">1</span>: <span class="st">"#0072B2"</span>, <span class="dv">2</span>: <span class="st">"#D55E00"</span>, <span class="dv">3</span>: <span class="st">"#009E73"</span>, <span class="dv">4</span>: <span class="st">"#CC79A7"</span>, <span class="dv">5</span>: <span class="st">"#7F7F7F"</span>}</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> qc_col(fluxvar, scenario):</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Name of the USTAR-filtered, QCF-accepted flux column in the fpc output."""</span></span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>fluxvar<span class="sc">}</span><span class="ss">_L3.1_L3.3_</span><span class="sc">{</span>scenario<span class="sc">}</span><span class="ss">_QCF"</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> variant_num(code):</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Trailing variant number of a code, e.g. 'QCL-3' -&gt; 3.</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">int</span>(code.split(<span class="st">"-"</span>, <span class="dv">1</span>)[<span class="dv">1</span>])</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> variant_num(code):</span>
-<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Trailing variant number of a code, e.g. 'QCL-3' -&gt; 3."""</span></span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">int</span>(code.split(<span class="st">"-"</span>, <span class="dv">1</span>)[<span class="dv">1</span>])</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cumulative QC flux, USTAR scenario: </span><span class="sc">{</span>USTAR_SCENARIO<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Cumulative Level-1 raw flux by variant (before quality control)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Cumulative QC flux, USTAR scenario: CUT_50</code></pre>
+<pre><code>Cumulative Level-1 raw flux by variant (before quality control)</code></pre>
 </div>
 </div>
 </section>
-<section id="load-the-qc-fluxes" class="level2">
-<h2 class="anchored" data-anchor-id="load-the-qc-fluxes">Load the QC fluxes</h2>
-<p>For each variant and gas, the QC flux is pulled from its <code>*_fpc.parquet</code> (the single <code>USTAR_SCENARIO</code> column), restricted to the analysis year.</p>
-<div id="a6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:20:15.277896300Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:20:14.741962800Z&quot;}}" data-execution_count="13">
+<section id="load-the-raw-fluxes" class="level2">
+<h2 class="anchored" data-anchor-id="load-the-raw-fluxes">Load the raw fluxes</h2>
+<p>For each variant and gas, the raw flux is pulled from the Level-1 EddyPro table (<code>FN2O</code> / <code>FCH4</code>), restricted to the analysis year.</p>
+<div id="a6" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:12:06.703770300Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:12:06.009810900Z&quot;}}" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>all_codes <span class="op">=</span> [c <span class="cf">for</span> codes <span class="kw">in</span> ANALYZERS.values() <span class="cf">for</span> c <span class="kw">in</span> codes]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>qcflux <span class="op">=</span> {}  <span class="co"># (code, gas-name) -&gt; QC flux series for the chosen USTAR scenario</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>rawflux <span class="op">=</span> {}  <span class="co"># (code, gas-name) -&gt; raw Level-1 flux series</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> code <span class="kw">in</span> all_codes:</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> gas, v <span class="kw">in</span> GASES.items():</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> load_parquet(filepath<span class="op">=</span><span class="bu">str</span>(FPCDIR <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>code<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>v[<span class="st">'flux'</span>]<span class="sc">}</span><span class="ss">_fpc.parquet"</span>))</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        df <span class="op">=</span> df.loc[df.index.year <span class="op">==</span> YEAR]</span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        qcflux[(code, gas)] <span class="op">=</span> df[qc_col(v[<span class="st">"flux"</span>], USTAR_SCENARIO)]</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> load_parquet(filepath<span class="op">=</span><span class="bu">str</span>(LEVEL1DIR <span class="op">/</span> <span class="ss">f"</span><span class="sc">{</span>code<span class="sc">}</span><span class="ss">.parquet"</span>))</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    df <span class="op">=</span> df.loc[df.index.year <span class="op">==</span> YEAR]</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> gas, v <span class="kw">in</span> GASES.items():</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>        rawflux[(code, gas)] <span class="op">=</span> df[v[<span class="st">"flux"</span>]]</span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> code <span class="kw">in</span> all_codes:</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">int</span>(qcflux[(code, <span class="st">"N2O"</span>)].notna().<span class="bu">sum</span>())</span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>code<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> valid QC N2O (</span><span class="sc">{</span>USTAR_SCENARIO<span class="sc">}</span><span class="ss">)"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">int</span>(rawflux[(code, <span class="st">"N2O"</span>)].notna().<span class="bu">sum</span>())</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>code<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>n<span class="sc">}</span><span class="ss"> valid raw N2O"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-1_FN2O_fpc.parquet (0.010 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-1.parquet (0.060 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-1_FCH4_fpc.parquet (0.009 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-2.parquet (0.054 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-2_FN2O_fpc.parquet (0.007 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-3.parquet (0.034 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-2_FCH4_fpc.parquet (0.007 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-4.parquet (0.043 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-3_FN2O_fpc.parquet (0.006 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\QCL-5.parquet (0.029 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-3_FCH4_fpc.parquet (0.007 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-1.parquet (0.026 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-4_FN2O_fpc.parquet (0.005 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-2.parquet (0.028 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-4_FCH4_fpc.parquet (0.008 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-3.parquet (0.029 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-5_FN2O_fpc.parquet (0.005 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-4.parquet (0.027 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\QCL-5_FCH4_fpc.parquet (0.005 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-1_FN2O_fpc.parquet (0.007 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-1_FCH4_fpc.parquet (0.007 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-2_FN2O_fpc.parquet (0.004 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-2_FCH4_fpc.parquet (0.003 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-3_FN2O_fpc.parquet (0.005 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-3_FCH4_fpc.parquet (0.007 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-4_FN2O_fpc.parquet (0.006 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-4_FCH4_fpc.parquet (0.006 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-5_FN2O_fpc.parquet (0.005 seconds).
-</pre>
-</div>
-<div class="cell-output cell-output-display">
-<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\05-flux_processing_chain_parquet\LGR-5_FCH4_fpc.parquet (0.006 seconds).
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\01-eddypro_fluxes_level-1_parquet\LGR-5.parquet (0.028 seconds).
 </pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>QCL-1: 2864 valid QC N2O (CUT_50)
-QCL-2: 2848 valid QC N2O (CUT_50)
-QCL-3: 2475 valid QC N2O (CUT_50)
-QCL-4: 2359 valid QC N2O (CUT_50)
-QCL-5: 2386 valid QC N2O (CUT_50)
-LGR-1: 1923 valid QC N2O (CUT_50)
-LGR-2: 1919 valid QC N2O (CUT_50)
-LGR-3: 1820 valid QC N2O (CUT_50)
-LGR-4: 1616 valid QC N2O (CUT_50)
-LGR-5: 1607 valid QC N2O (CUT_50)</code></pre>
+<pre><code>QCL-1: 9452 valid raw N2O
+QCL-2: 9452 valid raw N2O
+QCL-3: 9452 valid raw N2O
+QCL-4: 9452 valid raw N2O
+QCL-5: 9455 valid raw N2O
+LGR-1: 7729 valid raw N2O
+LGR-2: 7729 valid raw N2O
+LGR-3: 7729 valid raw N2O
+LGR-4: 7729 valid raw N2O
+LGR-5: 7727 valid raw N2O</code></pre>
 </div>
 </div>
 </section>
@@ -763,7 +718,7 @@ LGR-5: 1607 valid QC N2O (CUT_50)</code></pre>
 <p>One figure per gas, two rows by two panels: QCL (left) and LGR (right). Within each analyzer the variants are aligned and reduced to their common samples, and both rows are drawn from that same paired set.</p>
 <p>The <strong>top row</strong> shows the half-hourly flux density distribution per variant, a lightly smoothed kernel density line (robust, undersmoothed bandwidth) over a fixed per-gas flux range (<code>DENS_XLIM</code>); watch for the covariance-maximization variants losing mass around zero relative to the filled PWB<span class="math inline">\(_{OPT}\)</span> reference. The <strong>bottom row</strong> integrates the same half-hourly flux over time into a cumulative mass (N2O as kg N2O-N ha⁻¹, CH4 as g CH4-C m⁻²); each variant’s <strong>overall total</strong> (the final cumulative value) is shown in the legend, so the budget differences are read directly.</p>
 <p>Two tuning knobs on the density row: <code>DENS_XLIM</code> sets the fixed x-range per gas, and <code>KDE_BW_FACTOR</code> sets the smoothing (smaller = sharper; lower it further if the near-zero dip is still smeared).</p>
-<div id="a8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:20:17.721867400Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:20:15.304166100Z&quot;}}" data-execution_count="14">
+<div id="a8" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:12:11.448999200Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:12:06.746036800Z&quot;}}" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> style_axes(ax):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Black spines, short outward ticks, no grid."""</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    ax.grid(<span class="va">False</span>)</span>
@@ -804,7 +759,7 @@ LGR-5: 1607 valid QC N2O (CUT_50)</code></pre>
 <span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Align the variants and keep only the common (paired) samples, so the</span></span>
 <span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>        <span class="co"># density distributions (top) and the cumulative budgets (bottom) describe</span></span>
 <span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>        <span class="co"># exactly the same set of half-hours.</span></span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        frame <span class="op">=</span> pd.DataFrame({code: qcflux[(code, gas)] <span class="cf">for</span> code <span class="kw">in</span> codes})</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>        frame <span class="op">=</span> pd.DataFrame({code: rawflux[(code, gas)] <span class="cf">for</span> code <span class="kw">in</span> codes})</span>
 <span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>        common <span class="op">=</span> frame.dropna(how<span class="op">=</span><span class="st">"any"</span>)</span>
 <span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Row 1: flux density distribution per variant, a lightly smoothed kernel</span></span>
@@ -855,27 +810,27 @@ LGR-5: 1607 valid QC N2O (CUT_50)</code></pre>
 <span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].set_ylabel(<span class="st">"Density"</span>)</span>
 <span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>, <span class="dv">0</span>].legend(fontsize<span class="op">=</span><span class="dv">8</span>, loc<span class="op">=</span><span class="st">"upper right"</span>, title<span class="op">=</span><span class="st">"Variant"</span>)</span>
 <span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">1</span>, <span class="dv">0</span>].set_ylabel(<span class="ss">f"Cumulative flux (</span><span class="sc">{</span>cum_unit<span class="sc">}</span><span class="ss">)"</span>)</span>
-<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> FIGDIR <span class="op">/</span> <span class="ss">f"09_cumulative_</span><span class="sc">{</span>USTAR_SCENARIO<span class="sc">.</span>lower()<span class="sc">}</span><span class="ss">_</span><span class="sc">{</span>gas<span class="sc">.</span>lower()<span class="sc">}</span><span class="ss">.png"</span></span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> FIGDIR <span class="op">/</span> <span class="ss">f"03_cumulative_</span><span class="sc">{</span>gas<span class="sc">.</span>lower()<span class="sc">}</span><span class="ss">.png"</span></span>
 <span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>    fig.savefig(out, dpi<span class="op">=</span>DPI, bbox_inches<span class="op">=</span><span class="st">"tight"</span>)</span>
 <span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Saved </span><span class="sc">{</span>out<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Saved ..\figures\09_cumulative_cut_50_n2o.png</code></pre>
+<pre><code>Saved ..\figures\03_cumulative_n2o.png</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="09_cumulative_qc_fluxes_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="09_cumulative_qc_fluxes_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></a></p>
+<p><a href="03_level1_cumulative_fluxes_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="03_level1_cumulative_fluxes_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Saved ..\figures\09_cumulative_cut_50_ch4.png</code></pre>
+<pre><code>Saved ..\figures\03_cumulative_ch4.png</code></pre>
 </div>
 <div class="cell-output cell-output-display">
 <div>
 <figure class="figure">
-<p><a href="09_cumulative_qc_fluxes_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="09_cumulative_qc_fluxes_files/figure-html/cell-5-output-4.png" class="img-fluid figure-img"></a></p>
+<p><a href="03_level1_cumulative_fluxes_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="03_level1_cumulative_fluxes_files/figure-html/cell-5-output-4.png" class="img-fluid figure-img"></a></p>
 </figure>
 </div>
 </div>
@@ -883,15 +838,15 @@ LGR-5: 1607 valid QC N2O (CUT_50)</code></pre>
 </section>
 <section id="runtime" class="level2">
 <h2 class="anchored" data-anchor-id="runtime">Runtime</h2>
-<div id="a10" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:20:17.870119700Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:20:17.778698900Z&quot;}}" data-execution_count="15">
+<div id="a10" class="cell" data-quarto-private-1="{&quot;key&quot;:&quot;ExecuteTime&quot;,&quot;value&quot;:{&quot;end_time&quot;:&quot;2026-07-13T23:12:11.513531800Z&quot;,&quot;start_time&quot;:&quot;2026-07-13T23:12:11.477132400Z&quot;}}" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>NB_END <span class="op">=</span> datetime.now()</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Start:    </span><span class="sc">{</span>NB_START<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d <span class="op">%</span>H<span class="sc">:</span><span class="op">%</span>M<span class="sc">:</span><span class="op">%</span>S<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"End:      </span><span class="sc">{</span>NB_END<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d <span class="op">%</span>H<span class="sc">:</span><span class="op">%</span>M<span class="sc">:</span><span class="op">%</span>S<span class="sc">}</span><span class="ss">"</span>)</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Runtime:  </span><span class="sc">{</span>NB_END <span class="op">-</span> NB_START<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Start:    2026-07-14 01:20:14
-End:      2026-07-14 01:20:17
-Runtime:  0:00:03.218808</code></pre>
+<pre><code>Start:    2026-07-14 01:12:05
+End:      2026-07-14 01:12:11
+Runtime:  0:00:05.525314</code></pre>
 </div>
 </div>
 
@@ -1314,13 +1269,13 @@ Runtime:  0:00:03.218808</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../notebooks/08_merged_analyzers_full_year.html" class="pagination-link" aria-label="08 · Merged analyzers: full-year QC fluxes">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">08 · Merged analyzers: full-year QC fluxes</span>
+      <a href="../notebooks/02_level1_merged_analyzers.html" class="pagination-link" aria-label="02 · Level-1 merged analyzers: full-year raw fluxes">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">02 · Level-1 merged analyzers: full-year raw fluxes</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/figure-gallery.html" class="pagination-link" aria-label="Figure gallery">
-        <span class="nav-page-text">Figure gallery</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notebooks/05_flux_processing_chain.html" class="pagination-link" aria-label="05 · Apply the flux processing chain to each variant">
+        <span class="nav-page-text">05 · Apply the flux processing chain to each variant</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1332,7 +1287,7 @@ Runtime:  0:00:03.218808</code></pre>
     </div>   
     <div class="nav-footer-center">
 <p>Lukas Hörtnagl, ETH Zürich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/notebooks/09_cumulative_qc_fluxes.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/notebooks/03_level1_cumulative_fluxes.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>

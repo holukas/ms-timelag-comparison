@@ -2,62 +2,66 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://holukas.github.io/ms-timelag-comparison/docs/figure-gallery.html</loc>
-    <lastmod>2026-07-13T17:46:35.110Z</lastmod>
+    <lastmod>2026-07-13T23:55:37.349Z</lastmod>
   </url>
   <url>
     <loc>https://holukas.github.io/ms-timelag-comparison/notebooks/08_merged_analyzers_full_year.html</loc>
-    <lastmod>2026-07-13T18:03:49.854Z</lastmod>
+    <lastmod>2026-07-13T23:21:56.113Z</lastmod>
   </url>
   <url>
-    <loc>https://holukas.github.io/ms-timelag-comparison/notebooks/02_subset_flux_columns.html</loc>
-    <lastmod>2026-07-13T18:03:49.777Z</lastmod>
-  </url>
-  <url>
-    <loc>https://holukas.github.io/ms-timelag-comparison/docs/notebooks.html</loc>
-    <lastmod>2026-07-13T17:21:07.715Z</lastmod>
-  </url>
-  <url>
-    <loc>https://holukas.github.io/ms-timelag-comparison/notebooks/00_inventory.html</loc>
-    <lastmod>2026-07-13T18:03:49.760Z</lastmod>
-  </url>
-  <url>
-    <loc>https://holukas.github.io/ms-timelag-comparison/docs/processing-steps.html</loc>
-    <lastmod>2026-06-22T13:50:40.010Z</lastmod>
-  </url>
-  <url>
-    <loc>https://holukas.github.io/ms-timelag-comparison/docs/processing-versions.html</loc>
-    <lastmod>2026-07-13T12:24:18.490Z</lastmod>
-  </url>
-  <url>
-    <loc>https://holukas.github.io/ms-timelag-comparison/index.html</loc>
-    <lastmod>2026-07-13T17:46:18.561Z</lastmod>
-  </url>
-  <url>
-    <loc>https://holukas.github.io/ms-timelag-comparison/docs/site.html</loc>
-    <lastmod>2026-06-05T17:48:31.505Z</lastmod>
-  </url>
-  <url>
-    <loc>https://holukas.github.io/ms-timelag-comparison/docs/time-lag-options.html</loc>
-    <lastmod>2026-07-13T17:46:22.355Z</lastmod>
-  </url>
-  <url>
-    <loc>https://holukas.github.io/ms-timelag-comparison/docs/data.html</loc>
-    <lastmod>2026-07-01T16:57:24.712Z</lastmod>
-  </url>
-  <url>
-    <loc>https://holukas.github.io/ms-timelag-comparison/docs/building-the-book.html</loc>
-    <lastmod>2026-07-13T17:49:08.040Z</lastmod>
+    <loc>https://holukas.github.io/ms-timelag-comparison/notebooks/03_level1_cumulative_fluxes.html</loc>
+    <lastmod>2026-07-13T23:16:42.274Z</lastmod>
   </url>
   <url>
     <loc>https://holukas.github.io/ms-timelag-comparison/notebooks/01_read_fluxes_to_parquet.html</loc>
-    <lastmod>2026-07-13T18:03:49.771Z</lastmod>
+    <lastmod>2026-07-13T22:01:49.252Z</lastmod>
+  </url>
+  <url>
+    <loc>https://holukas.github.io/ms-timelag-comparison/docs/building-the-book.html</loc>
+    <lastmod>2026-07-13T22:01:49.015Z</lastmod>
+  </url>
+  <url>
+    <loc>https://holukas.github.io/ms-timelag-comparison/docs/data.html</loc>
+    <lastmod>2026-07-13T22:45:52.765Z</lastmod>
+  </url>
+  <url>
+    <loc>https://holukas.github.io/ms-timelag-comparison/docs/time-lag-options.html</loc>
+    <lastmod>2026-07-13T22:01:49.035Z</lastmod>
+  </url>
+  <url>
+    <loc>https://holukas.github.io/ms-timelag-comparison/docs/site.html</loc>
+    <lastmod>2026-06-04T19:42:24.736Z</lastmod>
+  </url>
+  <url>
+    <loc>https://holukas.github.io/ms-timelag-comparison/index.html</loc>
+    <lastmod>2026-07-13T23:46:13.929Z</lastmod>
+  </url>
+  <url>
+    <loc>https://holukas.github.io/ms-timelag-comparison/docs/processing-versions.html</loc>
+    <lastmod>2026-07-11T23:38:44.723Z</lastmod>
+  </url>
+  <url>
+    <loc>https://holukas.github.io/ms-timelag-comparison/docs/processing-steps.html</loc>
+    <lastmod>2026-06-23T07:20:16.431Z</lastmod>
+  </url>
+  <url>
+    <loc>https://holukas.github.io/ms-timelag-comparison/notebooks/00_inventory.html</loc>
+    <lastmod>2026-07-13T23:47:58.085Z</lastmod>
+  </url>
+  <url>
+    <loc>https://holukas.github.io/ms-timelag-comparison/docs/notebooks.html</loc>
+    <lastmod>2026-07-13T23:00:34.986Z</lastmod>
+  </url>
+  <url>
+    <loc>https://holukas.github.io/ms-timelag-comparison/notebooks/02_level1_merged_analyzers.html</loc>
+    <lastmod>2026-07-13T23:24:48.349Z</lastmod>
   </url>
   <url>
     <loc>https://holukas.github.io/ms-timelag-comparison/notebooks/05_flux_processing_chain.html</loc>
-    <lastmod>2026-07-13T18:03:49.827Z</lastmod>
+    <lastmod>2026-07-13T23:20:12.288Z</lastmod>
   </url>
   <url>
     <loc>https://holukas.github.io/ms-timelag-comparison/notebooks/09_cumulative_qc_fluxes.html</loc>
-    <lastmod>2026-07-13T18:03:49.875Z</lastmod>
+    <lastmod>2026-07-13T23:21:56.097Z</lastmod>
   </url>
 </urlset>

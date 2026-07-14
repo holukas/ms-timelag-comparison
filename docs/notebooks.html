@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-07-13">
+<meta name="dcterms.date" content="2026-07-14">
 
 <title>notebooks – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
 <style>
@@ -47,9 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-abc8d05d46af1384937a7dca9ae4bb04.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-314a0a95d22abaef64a43eaffdb7cdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-abc8d05d46af1384937a7dca9ae4bb04.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -390,8 +390,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/02_subset_flux_columns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 · Subset flux columns</span></a>
+  <a href="../notebooks/02_level1_merged_analyzers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 · Level-1 merged analyzers: full-year raw fluxes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 · Level-1 flux distribution and cumulative budget by variant</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -453,7 +459,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">13 July 2026</p>
+      <p class="date">14 July 2026</p>
     </div>
   </div>
   
@@ -470,15 +476,13 @@ ul.task-list li input[type="checkbox"] {
 <p>The analysis pipeline, in order. Each notebook reads the previous stage’s output and writes the next (see <a href="../docs/data.html">Data</a> for the folder layout). Click through to the rendered notebook.</p>
 <ol type="1">
 <li><a href="../notebooks/01_read_fluxes_to_parquet.html">01 · Read flux CSVs and PWB tlag summaries → Parquet</a>. Reads each EddyPro FLUXNET CSV with <code>diive</code> and saves it as Parquet, and converts the PWB (<code>*-5</code>) tlag summaries to Parquet (<code>00- → 01-</code>).</li>
-<li><a href="../notebooks/02_subset_flux_columns.html">02 · Subset flux columns</a>. Keeps a defined column list (fluxes, time-lag diagnostics, and <code>SW_IN_POT</code>, potential shortwave radiation) and restricts the rows to the analysis year
-<ol start="2021" type="1">
-<li>(<code>01- → 02-</code>).</li>
-</ol></li>
+<li><a href="../notebooks/02_level1_merged_analyzers.html">02 · Level-1 merged analyzers, full-year raw fluxes</a>. The pre-quality-control counterpart of notebook 08: the same merged full-year view, but built directly on the Level-1 EddyPro fluxes (<code>01-</code>), before the flux processing chain. Plots, per gas, the merged raw flux, the time lag used, and a per-instrument lag histogram, with the five variants as columns. Writes <code>figures/02_merged_{gas}.png</code>.</li>
+<li><a href="../notebooks/03_level1_cumulative_fluxes.html">03 · Level-1 flux distribution and cumulative budget</a>. The pre-quality-control counterpart of notebook 09: the half-hourly flux density distribution and the running cumulative budget per variant, over the paired common samples, read straight from the Level-1 fluxes (<code>01-</code>). Writes <code>figures/03_cumulative_{gas}.png</code>.</li>
 <li><a href="../notebooks/05_flux_processing_chain.html">05 · Apply the flux processing chain to each variant</a>. Runs <code>diive</code>’s post-processing chain (L2 quality flags, L3.1 storage, L3.2 outlier removal, L3.3 USTAR filtering) on every variant and gas, so the comparison can be repeated on quality-controlled fluxes. Reads the full per-variant tables (<code>01-</code>) and writes <code>05-flux_processing_chain_parquet/</code>. It saves no figure files, but at the end it renders an inline overview per gas: a date/time heatmap grid and a time-series grid of the CUT_50 QC flux for every variant (both analyzers), shown in the notebook only. The saved figures that use this stage are built downstream (08, 09).</li>
-<li><a href="../notebooks/08_merged_analyzers_full_year.html">08 · Merged analyzers, full-year QC flux figures</a>. The two analyzers cover complementary halves of 2021 (QCL runs January to July, LGR July to December), so stitching them per variant gives one continuous full-year series. Reads the chain output (<code>05-</code>) for the QC flux and the <code>02-</code> / <code>01-</code> subsets for the lag, then plots, per gas, the merged flux, the time lag used, and a per-instrument lag histogram (0.05 s EddyPro tlag raster, the two instruments overlaid), with the five variants as columns. The time lag is masked to the records where the QC flux survives, so the lag row, histogram, and mode describe exactly the records shown in the flux row. Writes <code>figures/08_{scenario}_merged_{gas}.png</code>.</li>
+<li><a href="../notebooks/08_merged_analyzers_full_year.html">08 · Merged analyzers, full-year QC flux figures</a>. The two analyzers cover complementary halves of 2021 (QCL runs January to July, LGR July to December), so stitching them per variant gives one continuous full-year series. Reads the chain output (<code>05-</code>) for the QC flux and the <code>01-</code> level-1 tables for the lag, then plots, per gas, the merged flux, the time lag used, and a per-instrument lag histogram (0.05 s EddyPro tlag raster, the two instruments overlaid), with the five variants as columns. The time lag is masked to the records where the QC flux survives, so the lag row, histogram, and mode describe exactly the records shown in the flux row. Writes <code>figures/08_{scenario}_merged_{gas}.png</code>.</li>
 <li><a href="../notebooks/09_cumulative_qc_fluxes.html">09 · Cumulative quality-controlled flux by variant</a>. The single place the cumulative comparison is produced. Reads the chain output (<code>05-</code>) and draws, per gas, two rows. The top row shows the half-hourly flux density distribution per variant (a kernel-density line, with PWB_OPT drawn as a grey shaded reference area). The bottom row shows the running cumulative QC-flux budget of each variant over the paired common samples, in two panels (QCL and LGR), integrated to a cumulative mass (N₂O in kg N₂O-N ha⁻¹, CH₄ in g CH₄-C m⁻²) with each variant’s total in the legend and PWB_OPT again as a grey shaded area. Writes <code>figures/09_cumulative_{scenario}_{gas}.png</code>.</li>
 </ol>
-<p>Notebook numbers 03, 04, 06 and 07 are intentionally unused: 03, 04 and 06 produced earlier plots (the raw-Level-1 intermediates and the per-analyzer QC figures) and were removed once figure creation was consolidated into notebooks 08 and 09.</p>
+<p>Notebooks 02 and 03 mirror the figures of 08 and 09 on the Level-1 fluxes (before quality control); 08 and 09 are the quality-controlled versions. Notebook numbers 04, 06 and 07 are intentionally unused: they held earlier plots (per-analyzer QC figures and other intermediates) that were removed once figure creation was consolidated.</p>
 <section id="parked-notebooks" class="level2">
 <h2 class="anchored" data-anchor-id="parked-notebooks">Parked notebooks</h2>
 <p>These ran against the earlier setup and are parked (<code>x-</code> prefix) pending rework for the PWB (<code>*-5</code>) scenario. They are not part of the active pipeline and are not built into the book.</p>

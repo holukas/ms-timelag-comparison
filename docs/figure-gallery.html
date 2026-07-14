@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-07-13">
+<meta name="dcterms.date" content="2026-07-14">
 
 <title>figure-gallery – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
 <style>
@@ -46,9 +46,12 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-abc8d05d46af1384937a7dca9ae4bb04.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-314a0a95d22abaef64a43eaffdb7cdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-d0eb33a73c8de335a1b0e6ed1df1adc0.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-abc8d05d46af1384937a7dca9ae4bb04.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -418,8 +421,14 @@ window.Quarto = {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/02_subset_flux_columns.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 · Subset flux columns</span></a>
+  <a href="../notebooks/02_level1_merged_analyzers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 · Level-1 merged analyzers: full-year raw fluxes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 · Level-1 flux distribution and cumulative budget by variant</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -462,6 +471,8 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#merged-full-year-flux-and-time-lag-notebook-08" id="toc-merged-full-year-flux-and-time-lag-notebook-08" class="nav-link" data-scroll-target="#merged-full-year-flux-and-time-lag-notebook-08">Merged full-year flux and time lag (notebook 08)</a></li>
   <li><a href="#cumulative-flux-comparison-notebook-09" id="toc-cumulative-flux-comparison-notebook-09" class="nav-link" data-scroll-target="#cumulative-flux-comparison-notebook-09">Cumulative flux comparison (notebook 09)</a></li>
+  <li><a href="#level-1-merged-full-year-raw-flux-notebook-02" id="toc-level-1-merged-full-year-raw-flux-notebook-02" class="nav-link" data-scroll-target="#level-1-merged-full-year-raw-flux-notebook-02">Level-1 merged full-year raw flux (notebook 02)</a></li>
+  <li><a href="#level-1-cumulative-raw-flux-notebook-03" id="toc-level-1-cumulative-raw-flux-notebook-03" class="nav-link" data-scroll-target="#level-1-cumulative-raw-flux-notebook-03">Level-1 cumulative raw flux (notebook 03)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/docs/figure-gallery.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -482,7 +493,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">13 July 2026</p>
+      <p class="date">14 July 2026</p>
     </div>
   </div>
   
@@ -496,7 +507,7 @@ window.Quarto = {
 
 <section id="figure-gallery" class="level1">
 <h1>Figure gallery</h1>
-<p>The manuscript record of the plots produced by the analysis notebooks. All figures are built on the <strong>quality-controlled</strong> fluxes from the flux processing chain (<a href="../notebooks/05_flux_processing_chain.html">notebook 05</a>, L2 to L3.3 with USTAR filtering) applied to every variant, shown here for the <code>CUT_50</code> USTAR scenario. Click any figure to open it full size.</p>
+<p>The manuscript record of the plots produced by the analysis notebooks. The main figures are built on the <strong>quality-controlled</strong> fluxes from the flux processing chain (<a href="../notebooks/05_flux_processing_chain.html">notebook 05</a>, L2 to L3.3 with USTAR filtering) applied to every variant, shown here for the <code>CUT_50</code> USTAR scenario. The Level-1 sections at the bottom are the same figures on the <strong>raw</strong> fluxes, before quality control (notebooks 02 and 03). Click any figure to open it full size.</p>
 <section id="merged-full-year-flux-and-time-lag-notebook-08" class="level2">
 <h2 class="anchored" data-anchor-id="merged-full-year-flux-and-time-lag-notebook-08">Merged full-year flux and time lag (notebook 08)</h2>
 <p>The QCL and LGR halves of each variant stitched into one continuous 2021 series (<a href="../notebooks/08_merged_analyzers_full_year.html">notebook 08</a>), one figure per gas. Each shows the merged quality-controlled flux, the time lag used (over the records where the QC flux survives), and a per-instrument lag histogram (0.05 s bins on the EddyPro tlag raster, the two instruments overlaid), with the five variants as columns; the dashed line marks the QCL to LGR handover in July, and each panel prints the two instruments’ modal lags in its corner. Shown for the <code>CUT_50</code> USTAR scenario.</p>
@@ -504,7 +515,7 @@ window.Quarto = {
 <div class="g-col-12 g-col-md-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../figures/08_cut_50_merged_n2o.png"><img src="../figures/08_cut_50_merged_n2o.png" class="img-fluid figure-img"></a></p>
+<p><a href="../figures/08_cut_50_merged_n2o.png" class="lightbox" data-gallery="qc-merged" title="Merged N₂O"><img src="../figures/08_cut_50_merged_n2o.png" class="img-fluid figure-img" alt="Merged N₂O"></a></p>
 <figcaption>Merged N₂O</figcaption>
 </figure>
 </div>
@@ -513,7 +524,7 @@ window.Quarto = {
 <div class="g-col-12 g-col-md-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../figures/08_cut_50_merged_ch4.png"><img src="../figures/08_cut_50_merged_ch4.png" class="img-fluid figure-img"></a></p>
+<p><a href="../figures/08_cut_50_merged_ch4.png" class="lightbox" data-gallery="qc-merged" title="Merged CH₄"><img src="../figures/08_cut_50_merged_ch4.png" class="img-fluid figure-img" alt="Merged CH₄"></a></p>
 <figcaption>Merged CH₄</figcaption>
 </figure>
 </div>
@@ -528,7 +539,7 @@ window.Quarto = {
 <div class="g-col-12 g-col-md-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../figures/09_cumulative_cut_50_n2o.png"><img src="../figures/09_cumulative_cut_50_n2o.png" class="img-fluid figure-img"></a></p>
+<p><a href="../figures/09_cumulative_cut_50_n2o.png" class="lightbox" data-gallery="qc-cumulative" title="N₂O cumulative"><img src="../figures/09_cumulative_cut_50_n2o.png" class="img-fluid figure-img" alt="N₂O cumulative"></a></p>
 <figcaption>N₂O cumulative</figcaption>
 </figure>
 </div>
@@ -537,11 +548,59 @@ window.Quarto = {
 <div class="g-col-12 g-col-md-6">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="../figures/09_cumulative_cut_50_ch4.png"><img src="../figures/09_cumulative_cut_50_ch4.png" class="img-fluid figure-img"></a></p>
+<p><a href="../figures/09_cumulative_cut_50_ch4.png" class="lightbox" data-gallery="qc-cumulative" title="CH₄ cumulative"><img src="../figures/09_cumulative_cut_50_ch4.png" class="img-fluid figure-img" alt="CH₄ cumulative"></a></p>
 <figcaption>CH₄ cumulative</figcaption>
 </figure>
 </div>
 <p>CH₄ cumulative QC flux by variant (g CH₄-C m⁻²), QCL and LGR (CUT_50).</p>
+</div>
+</div>
+</section>
+<section id="level-1-merged-full-year-raw-flux-notebook-02" class="level2">
+<h2 class="anchored" data-anchor-id="level-1-merged-full-year-raw-flux-notebook-02">Level-1 merged full-year raw flux (notebook 02)</h2>
+<p>The pre-quality-control counterpart of the merged figure above, built directly on the Level-1 EddyPro fluxes (<a href="../notebooks/02_level1_merged_analyzers.html">notebook 02</a>), one figure per gas: the merged raw flux, the time lag used, and the per-instrument lag histogram, with the five variants as columns.</p>
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/02_merged_n2o.png" class="lightbox" data-gallery="l1-merged" title="Level-1 merged N₂O"><img src="../figures/02_merged_n2o.png" class="img-fluid figure-img" alt="Level-1 merged N₂O"></a></p>
+<figcaption>Level-1 merged N₂O</figcaption>
+</figure>
+</div>
+<p>Merged QCL + LGR, full-year 2021 N₂O raw flux, time lag, and lag histogram by variant (Level-1, before quality control).</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/02_merged_ch4.png" class="lightbox" data-gallery="l1-merged" title="Level-1 merged CH₄"><img src="../figures/02_merged_ch4.png" class="img-fluid figure-img" alt="Level-1 merged CH₄"></a></p>
+<figcaption>Level-1 merged CH₄</figcaption>
+</figure>
+</div>
+<p>Merged QCL + LGR, full-year 2021 CH₄ raw flux, time lag, and lag histogram by variant (Level-1, before quality control).</p>
+</div>
+</div>
+</section>
+<section id="level-1-cumulative-raw-flux-notebook-03" class="level2">
+<h2 class="anchored" data-anchor-id="level-1-cumulative-raw-flux-notebook-03">Level-1 cumulative raw flux (notebook 03)</h2>
+<p>The pre-quality-control counterpart of the cumulative figure above, built on the Level-1 fluxes (<a href="../notebooks/03_level1_cumulative_fluxes.html">notebook 03</a>), one figure per gas: the flux density distribution (top) and the cumulative budget (bottom) per variant, QCL on the left and LGR on the right.</p>
+<div class="grid">
+<div class="g-col-12 g-col-md-6">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/03_cumulative_n2o.png" class="lightbox" data-gallery="l1-cumulative" title="Level-1 N₂O cumulative"><img src="../figures/03_cumulative_n2o.png" class="img-fluid figure-img" alt="Level-1 N₂O cumulative"></a></p>
+<figcaption>Level-1 N₂O cumulative</figcaption>
+</figure>
+</div>
+<p>N₂O raw-flux distribution and cumulative budget by variant (kg N₂O-N ha⁻¹), QCL and LGR (Level-1, before quality control).</p>
+</div>
+<div class="g-col-12 g-col-md-6">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="../figures/03_cumulative_ch4.png" class="lightbox" data-gallery="l1-cumulative" title="Level-1 CH₄ cumulative"><img src="../figures/03_cumulative_ch4.png" class="img-fluid figure-img" alt="Level-1 CH₄ cumulative"></a></p>
+<figcaption>Level-1 CH₄ cumulative</figcaption>
+</figure>
+</div>
+<p>CH₄ raw-flux distribution and cumulative budget by variant (g CH₄-C m⁻²), QCL and LGR (Level-1, before quality control).</p>
 </div>
 </div>
 
@@ -986,6 +1045,38 @@ window.Quarto = {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 
