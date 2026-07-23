@@ -29,6 +29,10 @@ S1/S2/S3 decision rule applied to the per-period PWB estimates).
 | `-4`    | Constant lag                 | n/a                   | fixed at the nominal lag     | EddyPro constant-lag run (`tlag_meth=1`); no paper acronym. |
 | `-5`    | PWB$_{OPT}$                  | n/a                   | n/a                          | Pre-whitening with block-bootstrap (Vitale et al. 2024).    |
 
+: The five processing versions, the study variable. Every other EddyPro setting is
+held identical across them, so any difference in the resulting flux is
+attributable to the time-lag treatment alone. {#tbl-versions}
+
 Implementation status: all five versions (`-1` through `-5`) are produced for
 both campaigns. For `-5` (PWB) the lag is detected and removed from the raw data
 before the EddyPro run, so that run applies no lag compensation; its per-chunk
@@ -52,6 +56,10 @@ covering these campaigns are reproduced here.
 | CH₄ | 0.65            | 0.45 to 0.90      |
 | H₂O | 0.70            | 0.60 to 2.00      |
 
+: Nominal lag and narrow search window per gas for the QCL campaign (2021_1). The
+nominal lag is the fallback for `-2` and `-3` and the fixed lag for `-4`; the
+narrow window is the search range for `-3`. {#tbl-lags-qcl}
+
 ### 2021_2 (LGR), source period `2021_2_2022_1`
 
 | Gas | Nominal lag (s) | Narrow window (s) |
@@ -59,5 +67,8 @@ covering these campaigns are reproduced here.
 | N₂O | 1.75            | 1.50 to 3.30      |
 | CH₄ | 1.75            | 1.50 to 3.30      |
 | H₂O | 1.80            | 1.65 to 6.00      |
+
+: Nominal lag and narrow search window per gas for the LGR campaign (2021_2), used
+the same way as in @tbl-lags-qcl. {#tbl-lags-lgr}
 
 For the LGR campaign the lag fluctuates within these ranges across the period.

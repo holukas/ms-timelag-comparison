@@ -20,7 +20,10 @@ different time-lag settings on eddy covariance fluxes of N₂O and CH₄**.
 - **Documentation = Quarto website**, published to GitHub Pages. Config and
   table of contents live in `_quarto.yml` at the repo root; `index.md` is the
   landing page. Quarto renders notebooks from their committed outputs
-  (`execute.enabled: false`), so building never re-runs them.
+  (`execute.enabled: false`), so building never re-runs them. A page has to be
+  listed **twice** in `_quarto.yml` to show up: once under `project.render`
+  (what gets built) and once under `website.sidebar.contents` (where it appears
+  in the TOC). Anything not in `project.render` stays out of the site.
 
 ## Layout
 
@@ -32,8 +35,14 @@ data/        datasets, organized by processing stage (00-* = raw inputs)
 figures/     exported figures (manuscript record)
 tables/      exported tables (manuscript record)
 _quarto.yml  Quarto website config + TOC
+_extensions/ vendored Quarto extensions (lightbox), tracked, do not edit by hand
 deploy.ps1   build + publish the site to GitHub Pages
 ```
+
+Every notebook in `notebooks/` is part of the active pipeline. An earlier `x-`
+prefix marked parked notebooks; those have been removed, and only the data folders
+they wrote survive (see below). Do not reintroduce that prefix: retire a notebook
+by deleting it, and say so in `docs/notebooks.md`.
 
 ### Data stages
 
@@ -47,7 +56,16 @@ data/00-meteo/                                    meteo data
 data/00-pwb_tlag_summary/                        PWB (*-5) tlag summary CSVs
 data/01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet  (notebook 01)
 data/01-pwb_tlag_summary_parquet/                PWB tlag as Parquet   (notebook 01)
+data/02-level1_merged_parquet/                   both analyzers merged into one Level-1
+                                                 table (notebook 02, level1_merged.parquet)
+data/05-flux_processing_chain_parquet/           QC fluxes, one file per variant and gas
+                                                 (notebook 05, e.g. QCL-3_FN2O_fpc.parquet)
+data/04-flux-product-2025.3_subset_2024/         retired, from the removed x-04
+data/05-merged_variants_fluxproduct/             retired, from the removed x-05
 ```
+
+The two retired folders come from notebooks that no longer exist and are outside
+the current pipeline. They are kept for provenance; nothing downstream reads them.
 
 **Version control:** everything under `data/` is **tracked**, both the raw `00-*`
 inputs (provenance) and the derived `*.parquet` stages (a committed snapshot of
@@ -98,13 +116,22 @@ Keep this list defined in one place. It lives in
 ## Analysis pipeline
 
 The manuscript figures are built on the quality-controlled fluxes (`08`, `09`);
-`02` and `03` mirror those same figures on the Level-1 fluxes, before the chain, as
+`03` and `04` mirror those same figures on the Level-1 fluxes, before the chain, as
 the pre-quality-control counterpart. Notebooks run in order, each stage feeding the
-next: `01` read CSV → Parquet. `02` and `03` read the Level-1 tables (`01-`)
-directly and write the raw-flux figures (`figures/02_*.png`, `figures/03_*.png`):
-`02` is the Level-1 version of `08` (merged full-year raw flux, time lag, lag
-histogram), `03` the Level-1 version of `09` (raw flux distribution and cumulative
-budget). They apply no quality control.
+next: `01` read CSV → Parquet. On the Level-1 side the merge and the plotting are
+deliberately separate steps: `02` only merges, `03` only plots. `02` reads the
+Level-1 tables (`01-`), stitches the two analyzers into one continuous full-year
+series per variant, and writes a single file,
+`data/02-level1_merged_parquet/level1_merged.parquet` (an `ANALYZER` column plus,
+per variant and gas, a merged flux column `FN2O_V1` … and a merged lag column
+`N2O_TLAG_USED_V1` …, the lag masked to the records that carry a flux). `03` reads
+only that file and writes the raw-flux figures (`figures/03_merged_*.png`), the
+Level-1 version of `08` (merged full-year raw flux, time lag, lag histogram). `04`
+is the Level-1 version of `09` (raw flux distribution and cumulative budget); it
+reads the same merged file, splitting the campaigns apart again on the `ANALYZER`
+column because its budgets are paired within an analyzer, and writes
+`figures/04_cumulative_*.png`. So `02` is the only reader of `01-` on this side,
+and none of the three applies quality control.
 `05` applies diive's flux processing chain (L2 quality flags, L3.1 storage, L3.2
 outlier removal, L3.3 USTAR filtering, CUT_16/CUT_50/CUT_84) to every variant and
 gas so the comparison runs on quality-controlled fluxes; it reads the full `01-`
@@ -125,7 +152,7 @@ figure per gas with two rows: the half-hourly flux density distribution per
 variant on top (kernel-density line, fixed x-range per gas, PWB$_{OPT}$ drawn as a
 grey shaded reference area), and the running QC-flux budget per variant over the
 paired common samples below (QCL and LGR panels, PWB$_{OPT}$ again a grey shaded
-area), writing `figures/09_cumulative_*.png`. Notebook numbers `04`, `06` and `07`
+area), writing `figures/09_cumulative_*.png`. Notebook numbers `06` and `07`
 are intentionally unused (earlier retired plots: the per-analyzer QC figures and
 other intermediates). The chain
 (L2 to L4) is post-processing on top of the Level-1 EddyPro fluxes.
@@ -138,6 +165,31 @@ other intermediates). The chain
   `diive.core.io.files.save_parquet` / `load_parquet` for Parquet.
 - Figure notebooks expose `FIGSIZE` / `DPI` constants; keep `DPI` high (300) for
   publication-ready output.
+
+## Captions (always)
+
+**Every figure and every table gets a caption. Table captions go above the table,
+figure captions below the figure.** No exceptions: this holds for the prose pages,
+the notebooks, and anything added later. `_quarto.yml` sets `tbl-cap-location:
+top` and `fig-cap-location: bottom`, and `styles.css` pins `caption-side: top`
+because Bootstrap would otherwise drop a plain HTML table's caption to the bottom.
+
+How to write them:
+
+- **Notebooks use a plain markdown cell**, not Quarto `#|` cell options: a caption
+  cell right *after* the cell that draws the figure, right *before* the cell that
+  shows the table. Cell options were tried and dropped, because they are invisible
+  in JupyterLab (they render only on the built site), and these notebooks are read
+  in both places. Start the cell with `**Figure.**` / `**Table.**` and, when the
+  cell emits one figure per gas, say which comes first ("N₂O first, then CH₄").
+  The trade-off is deliberate: no automatic "Figure 1:" numbering and no `@fig-`
+  cross-references for notebook output.
+- **Captions built in code** (a loop that displays several tables) print the
+  caption line right before the table with `display(Markdown(...))`.
+- **Markdown pages** do use Quarto's own captions, so they are numbered: a figure
+  is `![Caption text](path){#fig-id}`, caption in the image's text slot, never as a
+  loose paragraph underneath. A table caption is a `: Caption text {#tbl-id}` line
+  directly after the table; Quarto renders it above.
 
 ## Environment
 
@@ -152,6 +204,11 @@ other intermediates). The chain
   emits page-relative asset links, so no `BASE_URL` is needed (the old Jupyter
   Book footgun is gone). Publish with `.\deploy.ps1` (renders, then
   `ghp-import` to `gh-pages`).
+- **Site look:** bootswatch `cosmo` (light) / `darkly` (dark), and `lightbox:
+  auto`, so every figure on the site, notebook output included, opens zoomed in
+  an overlay. The lightbox needs the vendored `_extensions/quarto-ext/lightbox`
+  (added once with `quarto add quarto-ext/lightbox`); it is committed, so a
+  fresh clone renders without extra setup.
 
 ## Conventions
 

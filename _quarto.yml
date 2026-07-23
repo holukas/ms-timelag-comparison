@@ -15,7 +15,8 @@ project:
     - docs/notebooks.md
     - notebooks/01_read_fluxes_to_parquet.ipynb
     - notebooks/02_level1_merged_analyzers.ipynb
-    - notebooks/03_level1_cumulative_fluxes.ipynb
+    - notebooks/03_level1_merged_figures.ipynb
+    - notebooks/04_level1_cumulative_fluxes.ipynb
     - notebooks/05_flux_processing_chain.ipynb
     - notebooks/08_merged_analyzers_full_year.ipynb
     - notebooks/09_cumulative_qc_fluxes.ipynb
@@ -57,7 +58,8 @@ website:
         contents:
           - notebooks/01_read_fluxes_to_parquet.ipynb
           - notebooks/02_level1_merged_analyzers.ipynb
-          - notebooks/03_level1_cumulative_fluxes.ipynb
+          - notebooks/03_level1_merged_figures.ipynb
+          - notebooks/04_level1_cumulative_fluxes.ipynb
           - notebooks/05_flux_processing_chain.ipynb
           - notebooks/08_merged_analyzers_full_year.ipynb
           - notebooks/09_cumulative_qc_fluxes.ipynb
@@ -78,11 +80,19 @@ bibliography: docs/references.bib
 # quarto-ext/lightbox extension: run `quarto add quarto-ext/lightbox` once.
 lightbox: auto
 
+# Caption convention, applied to every page and every notebook output: table
+# captions go above the table, figure captions below the figure. Bootstrap's own
+# default puts <caption> at the bottom, so styles.css pins it back to the top for
+# the raw HTML tables that come out of the notebooks.
+fig-cap-location: bottom
+tbl-cap-location: top
+
 format:
   html:
     theme:
       light: cosmo
       dark: darkly
+    css: styles.css
     toc: true
     toc-expand: true
 
