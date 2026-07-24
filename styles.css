@@ -1,0 +1,18 @@
+/* Caption convention for the whole site: table captions above the table, figure
+   captions below the figure (see fig-cap-location / tbl-cap-location in
+   _quarto.yml). Bootstrap sets caption-side: bottom by default, which would put
+   the caption of a plain HTML table (the ones pandas writes into the notebook
+   outputs) underneath it, so pin it back to the top here. */
+caption,
+.table caption,
+table caption {
+  caption-side: top;
+  text-align: left;
+}
+
+/* Figure captions: keep them readable but visibly secondary to body text. */
+figure figcaption,
+.figure-caption {
+  font-size: 0.9em;
+  text-align: left;
+}

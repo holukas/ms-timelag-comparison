@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-07-14">
+<meta name="dcterms.date" content="2026-07-24">
 
 <title>data – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
 <style>
@@ -35,7 +35,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../notebooks/00_inventory.html" rel="next">
-<link href="../docs/processing-steps.html" rel="prev">
+<link href="../docs/time-lag.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -78,7 +78,37 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -277,7 +307,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/site.html">Background &amp; methods</a></li><li class="breadcrumb-item"><a href="../docs/data.html">Data</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/time-lag.html">Background &amp; methods</a></li><li class="breadcrumb-item"><a href="../docs/data.html">Data</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -314,26 +344,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/site.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Study site</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/processing-versions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Processing versions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/time-lag-options.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Choosing a time-lag option</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/processing-steps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Processing steps</span></a>
+  <a href="../docs/time-lag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Time lag</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -353,35 +365,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">The book</span></a>
+ <span class="menu-text">Analysis notebooks</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/building-the-book.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Building the book</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Notebooks</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Analysis notebooks</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/01_read_fluxes_to_parquet.html" class="sidebar-item-text sidebar-link">
@@ -391,13 +380,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/02_level1_merged_analyzers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 · Level-1 merged analyzers: full-year raw fluxes</span></a>
+ <span class="menu-text">02 · Level-1 merged analyzers: one full-year table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/03_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 · Level-1 flux distribution and cumulative budget by variant</span></a>
+  <a href="../notebooks/03_level1_merged_figures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 · Level-1 merged analyzers: full-year figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 · Level-1 flux distribution and cumulative budget by variant</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -416,6 +411,23 @@ ul.task-list li input[type="checkbox"] {
   <div class="sidebar-item-container"> 
   <a href="../notebooks/09_cumulative_qc_fluxes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">09 · Flux distribution and cumulative budget by variant</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Supplement</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/SUPPL_level1_lag_diagnostics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SUPPL · Level-1 time-lag diagnostics</span></a>
   </div>
 </li>
       </ul>
@@ -442,7 +454,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#eddypro_settings" id="toc-eddypro_settings" class="nav-link" data-scroll-target="#eddypro_settings"><code>00-eddypro_settings/</code></a></li>
   <li><a href="#meteo" id="toc-meteo" class="nav-link" data-scroll-target="#meteo"><code>00-meteo/</code></a></li>
   <li><a href="#pwb_tlag_summary" id="toc-pwb_tlag_summary" class="nav-link" data-scroll-target="#pwb_tlag_summary"><code>00-pwb_tlag_summary/</code></a></li>
-  <li><a href="#derived-stages-01--04--05-" id="toc-derived-stages-01--04--05-" class="nav-link" data-scroll-target="#derived-stages-01--04--05-">Derived stages (<code>01-…</code>, <code>04-…</code>, <code>05-…</code>)</a></li>
+  <li><a href="#derived-stages-01--02--04--05-" id="toc-derived-stages-01--02--04--05-" class="nav-link" data-scroll-target="#derived-stages-01--02--04--05-">Derived stages (<code>01-…</code>, <code>02-…</code>, <code>04-…</code>, <code>05-…</code>)</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/docs/data.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -451,7 +463,7 @@ ul.task-list li input[type="checkbox"] {
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/site.html">Background &amp; methods</a></li><li class="breadcrumb-item"><a href="../docs/data.html">Data</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/time-lag.html">Background &amp; methods</a></li><li class="breadcrumb-item"><a href="../docs/data.html">Data</a></li></ol></nav>
 <div class="quarto-title">
 </div>
 
@@ -463,7 +475,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">14 July 2026</p>
+      <p class="date">24 July 2026</p>
     </div>
   </div>
   
@@ -477,7 +489,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="data" class="level1">
 <h1>Data</h1>
-<p>All datasets live under <code>data/</code> at the repository root, organized by processing stage. Everything under <code>data/</code> is tracked in git: the raw <code>00-*</code> inputs for provenance and the derived <code>*.parquet</code> stages as a committed snapshot (they are regenerable from the inputs). This page documents what the directory contains and how it maps onto the <a href="../docs/processing-versions.html">processing versions</a> being compared; for the concrete file-by-file manifest (data and figures) see the <a href="../notebooks/00_inventory.html">Repository inventory</a>.</p>
+<p>All datasets are stored under <code>data/</code> at the repository root, organized by processing stage. Everything under <code>data/</code> is tracked in git: the raw <code>00-*</code> inputs for provenance and the derived <code>*.parquet</code> stages as a committed snapshot (they are regenerable from the inputs). This page documents what the directory contains and how it maps onto the <a href="../docs/time-lag.html">time-lag versions</a> being compared; for the concrete file-by-file manifest (data and figures) see the <a href="../notebooks/00_inventory.html">Repository inventory</a>.</p>
 <p>Folders are numbered by processing stage. <code>00-*</code> holds the raw inputs and is never written to; every higher-numbered folder is derived from it and can be regenerated by re-running the notebooks.</p>
 <pre><code>data/
   00-eddypro_fluxes_level-1/                  raw EddyPro flux output (input)
@@ -486,13 +498,21 @@ ul.task-list li input[type="checkbox"] {
   00-pwb_tlag_summary/                        PWB (*-5) tlag summaries (input)
   01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet         (notebook 01)
   01-pwb_tlag_summary_parquet/                PWB tlag summaries as Parquet (notebook 01)
+  02-level1_merged_parquet/                   Level-1 fluxes + lags, both analyzers
+                                              merged into one table       (notebook 02)
   05-flux_processing_chain_parquet/           QC fluxes (chain L2 to L3.3) (notebook 05)
-  04-flux-product-2025.3_subset_2024/         FP2025.3 reference, 2024     (notebook x-04, parked)
-  05-merged_variants_fluxproduct/             variants + product, merged   (notebook x-05, parked)</code></pre>
-<p>The figure notebooks (08, 09) write to <code>figures/</code>, not to a numbered data folder. The <code>04-flux-product-2025.3_subset_2024</code> and <code>05-merged_variants_fluxproduct</code> folders above come from the parked <code>x-04</code> / <code>x-05</code> notebooks (see <a href="../docs/notebooks.html">Notebooks</a>).</p>
+  04-flux-product-2025.3_subset_2024/         FP2025.3 reference, 2024     (retired)
+  05-merged_variants_fluxproduct/             variants + product, merged   (retired)</code></pre>
+<p>The figure notebooks (03, 04, 08, 09) write to <code>figures/</code>, not to a numbered data folder. The <code>04-flux-product-2025.3_subset_2024</code> and <code>05-merged_variants_fluxproduct</code> folders came from the <code>x-04</code> / <code>x-05</code> notebooks, which have been removed (see the <a href="../index.html">analysis pipeline</a>); the data is kept for provenance and nothing in the current pipeline reads it. Neither folder has anything to do with the active notebooks that carry those numbers.</p>
 <section id="eddypro_fluxes_level-1" class="level2">
 <h2 class="anchored" data-anchor-id="eddypro_fluxes_level-1"><code>00-eddypro_fluxes_level-1/</code></h2>
 <p>EddyPro output in FLUXNET format (one row per half hour, ~9,500 records, 483 columns), one file per processing version. The version code is the leading token of each filename (e.g.&nbsp;<code>QCL-1_eddypro_…_fluxnet_…_adv.csv</code>).</p>
+<div id="tbl-level1-files" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-level1-files-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: The ten raw EddyPro flux files, one per processing version and analyzer. The version code is the leading token of the filename; the run year is the year the EddyPro run was made, not the measurement year.
+</figcaption>
+<div aria-describedby="tbl-level1-files-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -565,6 +585,9 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+</div>
+</figure>
+</div>
 <p>The PWB scenario (<code>QCL-5</code>, <code>LGR-5</code>) now has flux output here too. For PWB the lag is detected and removed from the raw data before the EddyPro run, so that run applies no lag compensation; the per-chunk time-lag summaries are kept separately (see <code>00-pwb_tlag_summary/</code> below).</p>
 <p>Columns central to this study:</p>
 <ul>
@@ -581,9 +604,9 @@ ul.task-list li input[type="checkbox"] {
 <li><code>*-2_DEFAULT-10s_*</code>: covariance maximization (0 to 10 s window) with a default fallback lag (versions <code>*-2</code>).</li>
 <li><code>*-3_DEFAULT-NARROW_*</code>: covariance maximization over the narrow per-campaign window, default fallback lag (versions <code>*-3</code>).</li>
 <li><code>*-4_CONSTANT_*</code>: constant-lag runs, the lag fixed at the per-campaign nominal lag (EddyPro <code>tlag_meth=1</code>, versions <code>*-4</code>).</li>
-<li><code>*-5_PWB-LAG-REMOVED_*</code>: the PWB runs (versions <code>*-5</code>). The lag is detected and removed from the raw data with diive’s detect-and-remove workflow (see <a href="../docs/processing-steps.html">processing steps</a>) beforehand, so the EddyPro run itself applies no lag compensation (<code>tlag_meth=0</code>, no covariance maximization).</li>
+<li><code>*-5_PWB-LAG-REMOVED_*</code>: the PWB runs (versions <code>*-5</code>). The lag is detected and removed from the raw data with diive’s detect-and-remove workflow (see <a href="../docs/time-lag.html">processing steps</a>) beforehand, so the EddyPro run itself applies no lag compensation (<code>tlag_meth=0</code>, no covariance maximization).</li>
 </ul>
-<p>These files define each version; keep them in sync with the <a href="../docs/processing-versions.html">processing versions</a> table.</p>
+<p>These files define each version; keep them in sync with the <a href="../docs/time-lag.html">processing versions</a> table.</p>
 </section>
 <section id="meteo" class="level2">
 <h2 class="anchored" data-anchor-id="meteo"><code>00-meteo/</code></h2>
@@ -591,17 +614,18 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="pwb_tlag_summary" class="level2">
 <h2 class="anchored" data-anchor-id="pwb_tlag_summary"><code>00-pwb_tlag_summary/</code></h2>
-<p>The PWB detect-and-remove output for the <code>*-5</code> scenario (<code>LGR-5</code>, <code>QCL-5</code>): one <code>*_detect_and_remove_tlag_summary.csv</code> per analyzer, with one row per processed chunk (see <a href="../docs/processing-steps.html">processing steps</a> for the method). These hold time-lag results only, not fluxes. The applied lag per gas is <code>{gas}_tlag_final_pf_s</code>. Each CSV ships with a <code>*_columns.md</code> describing every column.</p>
+<p>The PWB detect-and-remove output for the <code>*-5</code> scenario (<code>LGR-5</code>, <code>QCL-5</code>): one <code>*_detect_and_remove_tlag_summary.csv</code> per analyzer, with one row per processed chunk (see <a href="../docs/time-lag.html">processing steps</a> for the method). These hold time-lag results only, not fluxes. The applied lag per gas is <code>{gas}_tlag_final_pf_s</code>. Each CSV ships with a <code>*_columns.md</code> describing every column.</p>
 </section>
-<section id="derived-stages-01--04--05-" class="level2">
-<h2 class="anchored" data-anchor-id="derived-stages-01--04--05-">Derived stages (<code>01-…</code>, <code>04-…</code>, <code>05-…</code>)</h2>
+<section id="derived-stages-01--02--04--05-" class="level2">
+<h2 class="anchored" data-anchor-id="derived-stages-01--02--04--05-">Derived stages (<code>01-…</code>, <code>02-…</code>, <code>04-…</code>, <code>05-…</code>)</h2>
 <p>Generated by the notebooks; safe to delete and regenerate. All are tracked Parquet (a committed snapshot, regenerable from the <code>00-*</code> inputs).</p>
 <ul>
 <li><code>01-eddypro_fluxes_level-1_parquet/</code> holds each flux CSV read and re-saved as Parquet, one file per version (<code>LGR-1.parquet</code>, …). Produced by <a href="../notebooks/01_read_fluxes_to_parquet.html">notebook 01</a>.</li>
 <li><code>01-pwb_tlag_summary_parquet/</code> holds the PWB tlag summaries as Parquet (<code>LGR-5_pwb_tlag.parquet</code>, <code>QCL-5_pwb_tlag.parquet</code>). Only chunks on the 30-minute grid are kept, so they align with the flux timestamps. Produced by <a href="../notebooks/01_read_fluxes_to_parquet.html">notebook 01</a>.</li>
+<li><code>02-level1_merged_parquet/</code> holds a single file, <code>level1_merged.parquet</code>: the two analyzers stitched into one continuous full-year series per variant, still at Level-1 (no quality control). Columns are <code>ANALYZER</code> (which instrument each record comes from) plus, per variant and gas, the merged raw flux (<code>FN2O_V1</code> … <code>FCH4_V5</code>) and the merged time lag used (<code>N2O_TLAG_USED_V1</code> … <code>CH4_TLAG_USED_V5</code>); for the PWB variant that lag column carries the PWB<span class="math inline">\(_{OPT}\)</span> lag rather than the EddyPro one. The lag is masked to the records where the raw flux is present. Produced by <a href="../notebooks/02_level1_merged_analyzers.html">notebook 02</a> and read by <a href="../notebooks/03_level1_merged_figures.html">notebook 03</a> and <a href="../notebooks/04_level1_cumulative_fluxes.html">notebook 04</a>, the only consumers of this stage.</li>
 <li><code>05-flux_processing_chain_parquet/</code> holds the flux processing chain output, one <code>*_fpc.parquet</code> per variant and gas (<code>LGR-1_FN2O_fpc.parquet</code>, …): every flag, QCF, and USTAR-filtered series the chain produced (L2 to L3.3). Produced by <a href="../notebooks/05_flux_processing_chain.html">notebook 05</a>.</li>
-<li><code>04-flux-product-2025.3_subset_2024/</code> holds the year-2024 subset of the final flux product FP2025.3 (CH-CHA, 2005 to 2024), loaded from an external location and used as the independent reference. Produced by <a href="../notebooks/x-04_subset_flux_product_2024.ipynb">notebook x-04</a> (parked, pending rework for the PWB scenario (<code>*-5</code>)).</li>
-<li><code>05-merged_variants_fluxproduct/</code> holds the variant subsets merged with the FP2025.3 2024 reference on the timestamp index, each source’s columns suffixed by origin (<code>FN2O_LGR-1</code>, <code>FN2O_FP2025.3</code>, …). Produced by <a href="../notebooks/x-05_merge_variants_and_flux_product.ipynb">notebook x-05</a> (parked, pending rework for the PWB scenario (<code>*-5</code>)).</li>
+<li><code>04-flux-product-2025.3_subset_2024/</code> holds the year-2024 subset of the final flux product FP2025.3 (CH-CHA, 2005 to 2024), loaded from an external location and used as the independent reference. It was produced by the <code>x-04</code> notebook, which has been removed; the data is kept for provenance only.</li>
+<li><code>05-merged_variants_fluxproduct/</code> holds the variant subsets merged with the FP2025.3 2024 reference on the timestamp index, each source’s columns suffixed by origin (<code>FN2O_LGR-1</code>, <code>FN2O_FP2025.3</code>, …). It was produced by the <code>x-05</code> notebook, which has been removed; the data is kept for provenance only.</li>
 </ul>
 
 
@@ -1024,8 +1048,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/processing-steps.html" class="pagination-link" aria-label="Processing steps">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Processing steps</span>
+      <a href="../docs/time-lag.html" class="pagination-link" aria-label="Time lag">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Time lag</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">

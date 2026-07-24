@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-07-14">
+<meta name="dcterms.date" content="2026-07-24">
 
 <title>Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
 <style>
@@ -34,7 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./docs/site.html" rel="next">
+<link href="./docs/time-lag.html" rel="next">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -78,6 +78,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -313,26 +314,8 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./docs/site.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Study site</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/processing-versions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Processing versions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/time-lag-options.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Choosing a time-lag option</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/processing-steps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Processing steps</span></a>
+  <a href="./docs/time-lag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Time lag</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -352,35 +335,12 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">The book</span></a>
+ <span class="menu-text">Analysis notebooks</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/building-the-book.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Building the book</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./docs/notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Notebooks</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Analysis notebooks</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notebooks/01_read_fluxes_to_parquet.html" class="sidebar-item-text sidebar-link">
@@ -390,13 +350,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./notebooks/02_level1_merged_analyzers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 · Level-1 merged analyzers: full-year raw fluxes</span></a>
+ <span class="menu-text">02 · Level-1 merged analyzers: one full-year table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./notebooks/03_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 · Level-1 flux distribution and cumulative budget by variant</span></a>
+  <a href="./notebooks/03_level1_merged_figures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 · Level-1 merged analyzers: full-year figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notebooks/04_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 · Level-1 flux distribution and cumulative budget by variant</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -419,6 +385,23 @@ ul.task-list li input[type="checkbox"] {
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Supplement</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./notebooks/SUPPL_level1_lag_diagnostics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SUPPL · Level-1 time-lag diagnostics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./docs/figure-gallery.html" class="sidebar-item-text sidebar-link">
@@ -437,7 +420,9 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a>
   <ul class="collapse">
+  <li><a href="#measurement-site" id="toc-measurement-site" class="nav-link" data-scroll-target="#measurement-site">Measurement site</a></li>
   <li><a href="#how-to-read-this-site" id="toc-how-to-read-this-site" class="nav-link" data-scroll-target="#how-to-read-this-site">How to read this site</a></li>
+  <li><a href="#the-analysis-pipeline" id="toc-the-analysis-pipeline" class="nav-link" data-scroll-target="#the-analysis-pipeline">The analysis pipeline</a></li>
   <li><a href="#reproducibility" id="toc-reproducibility" class="nav-link" data-scroll-target="#reproducibility">Reproducibility</a></li>
   </ul></li>
   </ul>
@@ -459,7 +444,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">14 July 2026</p>
+      <p class="date">24 July 2026</p>
     </div>
   </div>
   
@@ -473,25 +458,40 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>This site documents the analysis for the manuscript on the impact of different time-lag settings on eddy covariance fluxes of N₂O and CH₄.</p>
-<p>In eddy covariance, the time lag between the vertical wind measured by the sonic anemometer and the gas signal from the analyzer must be determined before fluxes can be computed. How that lag is found can change the resulting flux: a wide covariance-maximization search, a search with a default fallback, a fixed constant lag, and an external detection method do not all give the same answer. This study quantifies that effect by computing the fluxes several times from the same raw data, varying only the time-lag setting, and comparing the results.</p>
-<p>Two measurement campaigns at the CH-CHA grassland site are covered, distinguished by the gas analyzer:</p>
-<ul>
-<li>QCL (quantum cascade laser), campaign 2021_1</li>
-<li>LGR (Los Gatos Research analyzer), campaign 2021_2</li>
-</ul>
+<p>This site documents one analysis: how different time-lag settings change eddy covariance fluxes of N₂O and CH₄. It produces the figures for the time-lag part of a co-authored paper on methodological challenges in CH₄ and N₂O flux measurements (in preparation). The paper itself is written elsewhere, and only the material needed to interpret these figures is documented here.</p>
+<p>In eddy covariance, the time lag between the vertical wind measured by the sonic anemometer and the gas signal from the analyzer must be determined before fluxes can be computed. For N₂O and CH₄ this is more difficult than for CO₂ or H₂O, because the gas-wind cross-covariance is often weak: the peak the lag search looks for can be indistinguishable from noise, and the search then returns a lag that reflects that noise rather than the travel time through the tube. The setting used to determine the lag therefore affects the resulting flux. The analysis computes the fluxes several times from the same raw data, varying only the time-lag setting, and compares the results.</p>
+<section id="measurement-site" class="level2">
+<h2 class="anchored" data-anchor-id="measurement-site">Measurement site</h2>
+<p>The measurements come from Chamau (CH-Cha), an intensively managed grassland in the pre-alpine valley bottom near Zug, Switzerland (47.210227 N, 8.410645 E, 393 m a.s.l.). Mean annual temperature is 10.0 °C (2006 to 2024) and mean annual precipitation about 1134 mm. The sward is a mixture of Italian ryegrass and white clover grown mainly for silage, cut roughly six times a year, with occasional spring and autumn grazing by sheep and cattle, and renewed every 6 to 7 years by ploughing. The soil is a Cambisol/Gleysol on tertiary molasse with postglacial deposits from the Reuss glacier, pH 5.3 in the top 10 cm. Eddy covariance measurements started in July 2005 and cover net ecosystem exchange, evapotranspiration, sensible heat, CH₄ and N₂O. Chamau is one of three grassland sites in the Swiss FluxNet network (site information: <a href="https://www.swissfluxnet.ethz.ch/index.php/sites/site-info-ch-cha/">Swiss FluxNet</a>, <a href="https://gl.ethz.ch/infrastructure/sites/chamau.html">ETH Grassland Sciences</a>).</p>
+<p>Two measurement campaigns in 2021 are covered, distinguished by the gas analyzer: QCL (quantum cascade laser, campaign 2021_1, 1 January to 20 July) and LGR (Los Gatos Research analyzer, campaign 2021_2, 22 July to 31 December).</p>
+</section>
 <section id="how-to-read-this-site" class="level2">
 <h2 class="anchored" data-anchor-id="how-to-read-this-site">How to read this site</h2>
 <ul>
-<li><a href="./docs/processing-versions.html">Processing versions</a> lists the time-lag settings being compared.</li>
-<li><a href="./docs/processing-steps.html">Processing steps</a> describes the PWB lag detection and removal workflow used for the additional variant.</li>
-<li><a href="./docs/data.html">Data</a> covers the datasets and how the <code>data/</code> folder is organized by processing stage.</li>
-<li><a href="./docs/building-the-book.html">Building the book</a> explains how to build and publish this site.</li>
+<li><a href="./docs/time-lag.html">Time lag</a> is the methods page: why the lag is difficult to determine for these two gases, the five settings compared, the values each one was run with, and the PWB method behind the fifth.</li>
+<li><a href="./docs/data.html">Data</a> describes the datasets and the processing stages of the <code>data/</code> folder.</li>
+<li><a href="./docs/figure-gallery.html">Figure gallery</a> collects the resulting figures, including the two that go into the paper.</li>
+<li>The analysis notebooks below the methods pages run the processing and render into this site, and <a href="./notebooks/00_inventory.html">Repository inventory</a> lists the tracked files directly from disk.</li>
 </ul>
+</section>
+<section id="the-analysis-pipeline" class="level2">
+<h2 class="anchored" data-anchor-id="the-analysis-pipeline">The analysis pipeline</h2>
+<p>The notebooks run in order, each stage reading the output of the previous one:</p>
+<ol type="1">
+<li><strong>01</strong> reads the EddyPro FLUXNET CSV files and the PWB time-lag summaries and saves them as Parquet (<code>00-</code> to <code>01-</code>).</li>
+<li><strong>02</strong> merges the two campaigns into one continuous full-year table of Level-1 fluxes and time lags, before quality control (<code>01-</code> to <code>02-</code>).</li>
+<li><strong>03</strong> draws that merged table: raw flux, time lag used, and the lag distribution per instrument, one figure per gas.</li>
+<li><strong>04</strong> derives the flux distribution and the cumulative budget from the same table, one figure per gas.</li>
+<li><strong>05</strong> applies the diive flux processing chain (L2 quality flags, L3.1 storage, L3.2 outlier removal, L3.3 USTAR filtering) to every version and gas (<code>01-</code> to <code>05-</code>).</li>
+<li><strong>08</strong> repeats the figures of notebook 03 on the quality-controlled fluxes.</li>
+<li><strong>09</strong> repeats the figures of notebook 04 on the quality-controlled fluxes.</li>
+<li><strong>SUPPL</strong> supplements notebook 03 by reading the same merged table along the time lag instead of along time.</li>
+</ol>
+<p>Notebooks 03 and 04 are the Level-1 (pre-quality-control) counterparts of 08 and 09. Reading and plotting are kept apart on the Level-1 side: 02 builds the merged table, 03 and 04 only draw it. Numbers 06 and 07 are unused; they held earlier figures that were removed when figure creation was consolidated.</p>
 </section>
 <section id="reproducibility" class="level2">
 <h2 class="anchored" data-anchor-id="reproducibility">Reproducibility</h2>
-<p>The analysis runs in Jupyter notebooks (<code>notebooks/</code>) that use the <a href="https://github.com/holukas/diive"><code>diive</code></a> eddy covariance toolkit. The notebooks both run the processing (read EddyPro output, quality-control, and plot) and render into this site, so the figures and tables you see come from the code shown alongside them. Level-1 (pre-quality-control) figures come from notebooks 02 and 03; the quality-controlled figures come from notebooks 08 and 09.</p>
+<p>The analysis runs in Jupyter notebooks (<code>notebooks/</code>) that use the <a href="https://github.com/holukas/diive"><code>diive</code></a> eddy covariance toolkit. The notebooks both run the processing and render into this site, so every figure shown here comes from the code displayed alongside it.</p>
 <p>Author: Lukas Hörtnagl, ETH Zürich (lukas.hoertnagl@usys.ethz.ch)</p>
 
 
@@ -916,8 +916,8 @@ ul.task-list li input[type="checkbox"] {
   <div class="nav-page nav-page-previous">
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./docs/site.html" class="pagination-link" aria-label="Study site">
-        <span class="nav-page-text">Study site</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./docs/time-lag.html" class="pagination-link" aria-label="Time lag">
+        <span class="nav-page-text">Time lag</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

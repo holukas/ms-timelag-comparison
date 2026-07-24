@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="dcterms.date" content="2026-07-24">
+
+<title>SUPPL · Level-1 time-lag diagnostics – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../docs/figure-gallery.html" rel="next">
+<link href="../notebooks/09_cumulative_qc_fluxes.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-0a6b7249c26820e032cb0bd839ff02b1.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-abc8d05d46af1384937a7dca9ae4bb04.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-314a0a95d22abaef64a43eaffdb7cdde.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-abc8d05d46af1384937a7dca9ae4bb04.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
+
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Time-lag settings &amp; N₂O/CH₄ EC fluxes</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/holukas/ms-timelag-comparison"> <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/SUPPL_level1_lag_diagnostics.html">Supplement</a></li><li class="breadcrumb-item"><a href="../notebooks/SUPPL_level1_lag_diagnostics.html">SUPPL · Level-1 time-lag diagnostics</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
+ <span class="menu-text">Background &amp; methods</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/time-lag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Time lag</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/00_inventory.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Repository inventory</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Analysis notebooks</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/01_read_fluxes_to_parquet.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">01 · Read flux CSVs and PWB tlag summaries → Parquet</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/02_level1_merged_analyzers.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">02 · Level-1 merged analyzers: one full-year table</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/03_level1_merged_figures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 · Level-1 merged analyzers: full-year figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 · Level-1 flux distribution and cumulative budget by variant</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/05_flux_processing_chain.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">05 · Apply the flux processing chain to each variant</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/08_merged_analyzers_full_year.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">08 · Merged analyzers: full-year QC fluxes</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/09_cumulative_qc_fluxes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">09 · Flux distribution and cumulative budget by variant</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+ <span class="menu-text">Supplement</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/SUPPL_level1_lag_diagnostics.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">SUPPL · Level-1 time-lag diagnostics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../docs/figure-gallery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Figure gallery</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#imports" id="toc-imports" class="nav-link active" data-scroll-target="#imports">Imports</a></li>
+  <li><a href="#configuration" id="toc-configuration" class="nav-link" data-scroll-target="#configuration">Configuration</a></li>
+  <li><a href="#load-the-merged-table" id="toc-load-the-merged-table" class="nav-link" data-scroll-target="#load-the-merged-table">Load the merged table</a></li>
+  <li><a href="#figures-where-the-lag-search-wanders-and-what-that-does-to-the-flux" id="toc-figures-where-the-lag-search-wanders-and-what-that-does-to-the-flux" class="nav-link" data-scroll-target="#figures-where-the-lag-search-wanders-and-what-that-does-to-the-flux">Figures: where the lag search wanders, and what that does to the flux</a></li>
+  <li><a href="#runtime" id="toc-runtime" class="nav-link" data-scroll-target="#runtime">Runtime</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/notebooks/SUPPL_level1_lag_diagnostics.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../notebooks/SUPPL_level1_lag_diagnostics.html">Supplement</a></li><li class="breadcrumb-item"><a href="../notebooks/SUPPL_level1_lag_diagnostics.html">SUPPL · Level-1 time-lag diagnostics</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">SUPPL · Level-1 time-lag diagnostics</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">24 July 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Supplement to <a href="../notebooks/03_level1_merged_figures.html">notebook 03</a>. Same data, same five time-lag variants, read along the <strong>time lag</strong> instead of along time: when the lag search left its own modal lag, which flux came out of the lag it picked, and how far the variants end up from each other in lag and in annual budget.</p>
+<p>These are <strong>Level-1 EddyPro fluxes</strong>, before the flux processing chain (no L2 quality flags, no storage term, no outlier removal, no USTAR filtering), so every reported half hour is in.</p>
+<p>Like notebook 03 this notebook only draws figures, and it reads the same single input, the merged table written by <a href="../notebooks/02_level1_merged_analyzers.html">notebook 02</a>. Nothing is loaded from the Level-1 tables a second time.</p>
+<p>Two figures are produced, one per gas, saved as <code>figures/suppl_lagdiag_n2o.png</code> and <code>figures/suppl_lagdiag_ch4.png</code>.</p>
+<p>Input: - <code>data/02-level1_merged_parquet/level1_merged.parquet</code> (notebook 02).</p>
+<section id="imports" class="level2">
+<h2 class="anchored" data-anchor-id="imports">Imports</h2>
+<div id="s2" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.colors <span class="im">import</span> LogNorm</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> diive.core.io.files <span class="im">import</span> load_parquet</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># White figure background (on screen and in saved PNGs).</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"figure.facecolor"</span>] <span class="op">=</span> <span class="st">"white"</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"savefig.facecolor"</span>] <span class="op">=</span> <span class="st">"white"</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>plt.rcParams[<span class="st">"axes.facecolor"</span>] <span class="op">=</span> <span class="st">"white"</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>NB_START <span class="op">=</span> datetime.now()  <span class="co"># notebook start time (reported in the last cell)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="configuration" class="level2">
+<h2 class="anchored" data-anchor-id="configuration">Configuration</h2>
+<p>The five variants and their names, the two instruments, the gas columns and the tlag raster are the same definitions notebook 03 uses (they follow <code>docs/time-lag.qmd</code>); the thresholds below are specific to this supplement.</p>
+<p>Method abbreviations follow Vitale et al.&nbsp;(2024): CM = covariance maximisation, CM<span class="math inline">\(_{CTR}\)</span> = constrained CM (narrow window), PWB<span class="math inline">\(_{OPT}\)</span> = optimised pre-whitening with block-bootstrap.</p>
+<div id="s4" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>MERGEDFILE <span class="op">=</span> Path(<span class="st">"../data/02-level1_merged_parquet/level1_merged.parquet"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>FIGDIR <span class="op">=</span> Path(<span class="st">"../figures"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>FIGDIR.mkdir(parents<span class="op">=</span><span class="va">True</span>, exist_ok<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>DPI <span class="op">=</span> <span class="dv">300</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Font sizes, kept in one place (the same scale notebook 03 uses). Larger than the</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co"># matplotlib defaults so the figures stay readable when scaled down to manuscript</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># column width.</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>FS_TICK <span class="op">=</span> <span class="dv">13</span>    <span class="co"># tick labels</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>FS_LABEL <span class="op">=</span> <span class="dv">15</span>   <span class="co"># axis labels</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>FS_TITLE <span class="op">=</span> <span class="dv">16</span>   <span class="co"># column titles (the variant names)</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>FS_PANEL <span class="op">=</span> <span class="dv">15</span>   <span class="co"># panel letters (a), (b), ...</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>FS_ANNOT <span class="op">=</span> <span class="dv">13</span>   <span class="co"># in-panel text and the legend</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>plt.rcParams.update({</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"font.size"</span>: FS_TICK,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.labelsize"</span>: FS_LABEL,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">"axes.titlesize"</span>: FS_TITLE,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"xtick.labelsize"</span>: FS_TICK,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"ytick.labelsize"</span>: FS_TICK,</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"legend.fontsize"</span>: FS_ANNOT,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># The two analyzers cover complementary halves of the year; QCL is the earlier</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a><span class="co"># campaign, LGR the later one.</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>ANALYZERS <span class="op">=</span> [<span class="st">"QCL"</span>, <span class="st">"LGR"</span>]</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># The five time-lag variants; each is already merged across both analyzers.</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>VARIANTS <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>]</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>PWB_VARIANT <span class="op">=</span> <span class="dv">5</span>  <span class="co"># the PWB variant carries its detected lag, not the EddyPro lag</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Variant names as in notebook 03. CM-W = covariance maximisation of the gas</span></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="co"># against the vertical wind speed w (0 to 10 s search window, |cov| max criterion).</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a><span class="co"># The upright DEF superscript marks the fallback to the nominal/default lag when</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="co"># the peak search fails (variants *-2 and *-3); the CTR superscript marks the</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a><span class="co"># constrained (narrow-window) CM (variant *-3). PWB^OPT is the optimised</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a><span class="co"># pre-whitening lag (S1/S2/S3 decision rule applied to the PWB estimates).</span></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>VARIANT_NAMES <span class="op">=</span> {</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>: <span class="st">"CM: |cov| max, 0-10s"</span>,</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span>: <span class="vs">r"CM-W</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{DEF}}</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="dv">3</span>: <span class="vs">r"CM-W</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{CTR,</span><span class="ch">\ </span><span class="vs">DEF}}</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span>: <span class="st">"Constant time lag"</span>,</span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>    <span class="dv">5</span>: <span class="vs">r"PWB</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{OPT}}</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Per gas: the merged flux variable and the merged time-lag variable, i.e. the</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a><span class="co"># stems notebook 02 built its column names from.</span></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>GASES <span class="op">=</span> {</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="st">"N2O"</span>: {<span class="st">"flux"</span>: <span class="st">"FN2O"</span>, <span class="st">"lag"</span>: <span class="st">"N2O_TLAG_USED"</span>},</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="st">"CH4"</span>: {<span class="st">"flux"</span>: <span class="st">"FCH4"</span>, <span class="st">"lag"</span>: <span class="st">"CH4_TLAG_USED"</span>},</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> flux_col(gas, var):</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Merged flux column name, e.g. ('N2O', 3) -&gt; 'FN2O_V3'."""</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>GASES[gas][<span class="st">'flux'</span>]<span class="sc">}</span><span class="ss">_V</span><span class="sc">{</span>var<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> lag_col(gas, var):</span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Merged time-lag column name, e.g. ('N2O', 3) -&gt; 'N2O_TLAG_USED_V3'."""</span></span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f"</span><span class="sc">{</span>GASES[gas][<span class="st">'lag'</span>]<span class="sc">}</span><span class="ss">_V</span><span class="sc">{</span>var<span class="sc">}</span><span class="ss">"</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="co"># One color per instrument, as in notebook 03.</span></span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>INSTRUMENT_COLORS <span class="op">=</span> {<span class="st">"QCL"</span>: <span class="st">"#3182bd"</span>, <span class="st">"LGR"</span>: <span class="st">"#e67e22"</span>}  <span class="co"># blue, orange</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty gas labels for axis text and titles.</span></span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>GAS_LABEL <span class="op">=</span> {<span class="st">"N2O"</span>: <span class="st">"N$_2$O"</span>, <span class="st">"CH4"</span>: <span class="st">"CH$_4$"</span>}</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>BIN_S <span class="op">=</span> <span class="fl">0.05</span>                 <span class="co"># tlag raster (s); the mode is snapped to this grid</span></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>PCTL <span class="op">=</span> (<span class="dv">1</span>, <span class="dv">99</span>)               <span class="co"># robust flux range percentiles</span></span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>SEARCH_WINDOW <span class="op">=</span> (<span class="fl">0.0</span>, <span class="fl">10.0</span>)  <span class="co"># covariance-maximization search window (s)</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>FRINGE_MARGIN <span class="op">=</span> <span class="fl">0.1</span>          <span class="co"># peak search ignores lags within this of the rails</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>LO_EDGE <span class="op">=</span> SEARCH_WINDOW[<span class="dv">0</span>] <span class="op">+</span> FRINGE_MARGIN</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>HI_EDGE <span class="op">=</span> SEARCH_WINDOW[<span class="dv">1</span>] <span class="op">-</span> FRINGE_MARGIN</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>LETTERS <span class="op">=</span> <span class="st">"abcdefghijklmnopqrstuvwxyz"</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a><span class="co"># Thresholds and bins of the diagnostic figure. OFF_MODE_S is what counts as a lag</span></span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a><span class="co"># that left its own mode, SAME_LAG_S is how close two variants' lags must be to</span></span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a><span class="co"># count as the same lag, and DEV_EDGES bins the distance to the PWB$_{OPT}$ lag.</span></span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>OFF_MODE_S <span class="op">=</span> <span class="fl">0.5</span>       <span class="co"># (s) lag counts as off mode beyond this distance</span></span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>SAME_LAG_S <span class="op">=</span> <span class="fl">0.1</span>       <span class="co"># (s) two variants count as agreeing within this distance</span></span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>MIN_N <span class="op">=</span> <span class="dv">30</span>             <span class="co"># bins with fewer half-hours are not drawn</span></span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>FIGSIZE_DIAG <span class="op">=</span> (<span class="dv">16</span>, <span class="fl">11.5</span>)</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>FS_DENSE <span class="op">=</span> FS_TICK <span class="op">-</span> <span class="dv">3</span>   <span class="co"># month ticks, deviation-bin ticks: many labels per panel</span></span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>DEV_EDGES <span class="op">=</span> np.array([<span class="dv">0</span>, <span class="fl">0.1</span>, <span class="fl">0.25</span>, <span class="fl">0.5</span>, <span class="fl">1.0</span>, <span class="fl">2.0</span>, <span class="fl">5.0</span>, <span class="fl">10.0</span>])</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>LAG_EDGES <span class="op">=</span> np.arange(<span class="dv">0</span>, <span class="fl">10.05</span>, <span class="fl">0.1</span>)          <span class="co"># lag axis of the joint density</span></span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>LAG_CENTERS <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (LAG_EDGES[:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> LAG_EDGES[<span class="dv">1</span>:])</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>COUNT_VMAX <span class="op">=</span> <span class="dv">3000</span>                             <span class="co"># top of the shared density color scale</span></span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a><span class="co"># Short variant labels for the matrix axes (the full names stay in VARIANT_NAMES).</span></span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>VARIANT_SHORT <span class="op">=</span> {<span class="dv">1</span>: <span class="st">"CM"</span>, <span class="dv">2</span>: <span class="vs">r"CM</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{DEF}}</span><span class="dv">$</span><span class="vs">"</span>, <span class="dv">3</span>: <span class="vs">r"CM</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{CTR}}</span><span class="dv">$</span><span class="vs">"</span>,</span>
+<span id="cb2-91"><a href="#cb2-91" aria-hidden="true" tabindex="-1"></a>                 <span class="dv">4</span>: <span class="st">"CONST"</span>, <span class="dv">5</span>: <span class="vs">r"PWB</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{OPT}}</span><span class="dv">$</span><span class="vs">"</span>}</span>
+<span id="cb2-92"><a href="#cb2-92" aria-hidden="true" tabindex="-1"></a><span class="co"># One color per variant, used in the bottom-right panel only (the other panels are</span></span>
+<span id="cb2-93"><a href="#cb2-93" aria-hidden="true" tabindex="-1"></a><span class="co"># either per instrument or a color scale).</span></span>
+<span id="cb2-94"><a href="#cb2-94" aria-hidden="true" tabindex="-1"></a>VARIANT_COLORS <span class="op">=</span> {<span class="dv">1</span>: <span class="st">"#762a83"</span>, <span class="dv">2</span>: <span class="st">"#1b7837"</span>, <span class="dv">3</span>: <span class="st">"#c51b7d"</span>, <span class="dv">4</span>: <span class="st">"#636363"</span>, <span class="dv">5</span>: <span class="st">"#0868ac"</span>}</span>
+<span id="cb2-95"><a href="#cb2-95" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-96"><a href="#cb2-96" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Plotting Level-1 time-lag diagnostics from </span><span class="sc">{</span>MERGEDFILE<span class="sc">.</span>name<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Plotting Level-1 time-lag diagnostics from level1_merged.parquet</code></pre>
+</div>
+</div>
+</section>
+<section id="load-the-merged-table" class="level2">
+<h2 class="anchored" data-anchor-id="load-the-merged-table">Load the merged table</h2>
+<p>One file, written by notebook 02: the merged full-year raw flux and time lag per variant and gas, plus the <code>ANALYZER</code> column. The instrument column splits each merged series back into its QCL and its LGR half, which is what the per-instrument modes, the coloured month labels and the campaign labels are built from.</p>
+<div id="s6" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> load_parquet(filepath<span class="op">=</span><span class="bu">str</span>(MERGEDFILE))</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The merged full-year series, keyed by (variant, gas), plus per-instrument views</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># of them (the campaigns do not overlap, so masking on ANALYZER is an exact split).</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>is_analyzer <span class="op">=</span> {a: merged[<span class="st">"ANALYZER"</span>] <span class="op">==</span> a <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>merged_flux, merged_lag, lag_used <span class="op">=</span> {}, {}, {}</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> var <span class="kw">in</span> VARIANTS:</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> gas <span class="kw">in</span> GASES:</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>        flux <span class="op">=</span> merged[flux_col(gas, var)]</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        lag <span class="op">=</span> merged[lag_col(gas, var)]</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        merged_flux[(var, gas)] <span class="op">=</span> flux</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        merged_lag[(var, gas)] <span class="op">=</span> lag</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS:</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            lag_used[(a, var, gas)] <span class="op">=</span> lag.where(is_analyzer[a])</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>month <span class="op">=</span> merged.index.month</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>hour <span class="op">=</span> merged.index.hour</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Which instrument recorded which month (the campaigns do not overlap), used to</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># color the month tick labels and to place the instrument labels in panel (a).</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>dominant_analyzer <span class="op">=</span> {}</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> mo <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>):</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>    in_month <span class="op">=</span> month <span class="op">==</span> mo</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>    per_a <span class="op">=</span> {a: <span class="bu">int</span>((is_analyzer[a].to_numpy() <span class="op">&amp;</span> in_month).<span class="bu">sum</span>()) <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS}</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>    dominant_analyzer[mo] <span class="op">=</span> <span class="bu">max</span>(per_a, key<span class="op">=</span>per_a.get) <span class="cf">if</span> <span class="bu">max</span>(per_a.values()) <span class="cf">else</span> <span class="va">None</span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>campaign_center <span class="op">=</span> [<span class="bu">float</span>(np.mean([mo <span class="cf">for</span> mo <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>                                  <span class="cf">if</span> dominant_analyzer[mo] <span class="op">==</span> a])) <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS]</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> var <span class="kw">in</span> VARIANTS:</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> merged_flux[(var, <span class="st">"N2O"</span>)]</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"variant -</span><span class="sc">{</span>var<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span><span class="bu">int</span>(s.notna().<span class="bu">sum</span>())<span class="sc">}</span><span class="ss"> valid merged raw N2O "</span></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>          <span class="ss">f"(</span><span class="sc">{</span>s<span class="sc">.</span>index<span class="sc">.</span><span class="bu">min</span>()<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>s<span class="sc">.</span>index<span class="sc">.</span><span class="bu">max</span>()<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d<span class="sc">}</span><span class="ss">)"</span>)</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"months by instrument: "</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>      <span class="op">+</span> <span class="st">", "</span>.join(<span class="ss">f"</span><span class="sc">{</span>mo<span class="sc">}</span><span class="ss">:</span><span class="sc">{</span>dominant_analyzer[mo]<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> mo <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-display">
+<pre style="white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace">  <span style="color: #008080; text-decoration-color: #008080">&gt;</span> Loaded .parquet file ..\data\02-level1_merged_parquet\level1_merged.parquet (0.450 seconds).
+</pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>variant -1: 17181 valid merged raw N2O (2021-01-01 to 2021-12-31)
+variant -2: 17181 valid merged raw N2O (2021-01-01 to 2021-12-31)
+variant -3: 17181 valid merged raw N2O (2021-01-01 to 2021-12-31)
+variant -4: 17181 valid merged raw N2O (2021-01-01 to 2021-12-31)
+variant -5: 17182 valid merged raw N2O (2021-01-01 to 2021-12-31)
+months by instrument: 1:QCL, 2:QCL, 3:QCL, 4:QCL, 5:QCL, 6:QCL, 7:QCL, 8:LGR, 9:LGR, 10:LGR, 11:LGR, 12:LGR</code></pre>
+</div>
+</div>
+</section>
+<section id="figures-where-the-lag-search-wanders-and-what-that-does-to-the-flux" class="level2">
+<h2 class="anchored" data-anchor-id="figures-where-the-lag-search-wanders-and-what-that-does-to-the-flux">Figures: where the lag search wanders, and what that does to the flux</h2>
+<p>One figure per gas, three rows, the five variants as columns in the upper two rows.</p>
+<p>The top row is the seasonal and diel fingerprint of an unstable lag: per month and hour of day, the share of half-hours whose lag sits further than 0.5 s from that variant’s modal lag. The mode is taken per instrument on the 0.05 s raster and ignores the search-window rails (<code>mode_on_grid</code>, the same definition notebook 03 prints next to its lag histograms). Pale means the search kept landing on the mode, dark means it wandered. The constant-lag variant (<code>*-4</code>) is pale everywhere by construction, since it has one lag per campaign. Month tick labels are coloured by the instrument that recorded that month, and panel (a) names the two campaigns.</p>
+<p>The middle row pairs the lag with the flux it produced: a two-dimensional histogram of the half-hourly flux against the lag used, with the median and the quartiles of the flux per 0.1 s lag bin drawn on top, and the two instruments’ modal lags as dashed vertical lines. Variants that search the whole 0 to 10 s window fill the panel; the narrow-window and constant-lag variants sit on one or two stripes.</p>
+<p>The bottom row condenses the comparison into three panels. Panel (k) counts how often two variants picked the same lag (within 0.1 s), panel (l) turns that into the summed-flux (budget) difference between the two, computed on the half-hours both variants report, and panel (m) resolves the flux offset to PWB<span class="math inline">\(_{OPT}\)</span> by how far the variant’s lag sat from the PWB<span class="math inline">\(_{OPT}\)</span> lag in the same half hour. Panel (m) is the covariance-maximization bias per half hour rather than as an annual sum: for N<span class="math inline">\(_2\)</span>O the CM variants sit above PWB<span class="math inline">\(_{OPT}\)</span> and the offset grows as the two lags drift apart, while the constant lag stays slightly below it.</p>
+<div id="s8" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> style_axes(ax):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Black spines, short outward major/minor ticks, no grid."""</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    ax.grid(<span class="va">False</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> spine <span class="kw">in</span> ax.spines.values():</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>        spine.set_color(<span class="st">"black"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        spine.set_linewidth(<span class="fl">0.8</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    ax.tick_params(which<span class="op">=</span><span class="st">"major"</span>, length<span class="op">=</span><span class="fl">3.5</span>, width<span class="op">=</span><span class="fl">0.8</span>, direction<span class="op">=</span><span class="st">"out"</span>, color<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    ax.tick_params(which<span class="op">=</span><span class="st">"minor"</span>, length<span class="op">=</span><span class="fl">2.0</span>, width<span class="op">=</span><span class="fl">0.6</span>, direction<span class="op">=</span><span class="st">"out"</span>, color<span class="op">=</span><span class="st">"black"</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> panel_letter(ax, text):</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Bold panel letter in the top-left corner, over a faint white patch."""</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    ax.text(<span class="fl">0.05</span>, <span class="fl">0.91</span>, <span class="ss">f"(</span><span class="sc">{</span>text<span class="sc">}</span><span class="ss">)"</span>, transform<span class="op">=</span>ax.transAxes, va<span class="op">=</span><span class="st">"top"</span>, ha<span class="op">=</span><span class="st">"left"</span>,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>            fontsize<span class="op">=</span>FS_PANEL, fontweight<span class="op">=</span><span class="st">"bold"</span>,</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>            bbox<span class="op">=</span><span class="bu">dict</span>(boxstyle<span class="op">=</span><span class="st">"square,pad=0.1"</span>, fc<span class="op">=</span><span class="st">"white"</span>, ec<span class="op">=</span><span class="st">"none"</span>, alpha<span class="op">=</span><span class="fl">0.6</span>))</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mode_on_grid(values):</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Modal lag snapped to the BIN_S (0.05 s) tlag raster: the peak 0.05 s bin of</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co">    the non-fringe lags (so the 0 s / 10 s rails cannot be the mode), e.g. 0.65 s.</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co">    Matches how EddyPro reports the lag. Returns None if no non-fringe lag exists."""</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> pd.Series(values).dropna()</span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> s[(s <span class="op">&gt;</span> LO_EDGE) <span class="op">&amp;</span> (s <span class="op">&lt;</span> HI_EDGE)]</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> s.empty:</span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">None</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    lo_k <span class="op">=</span> <span class="bu">int</span>(np.floor(s.<span class="bu">min</span>() <span class="op">/</span> BIN_S))</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    hi_k <span class="op">=</span> <span class="bu">int</span>(np.ceil(s.<span class="bu">max</span>() <span class="op">/</span> BIN_S))</span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    edges <span class="op">=</span> (np.arange(lo_k, hi_k <span class="op">+</span> <span class="dv">2</span>) <span class="op">-</span> <span class="fl">0.5</span>) <span class="op">*</span> BIN_S  <span class="co"># bins centred on k * BIN_S</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    counts, _ <span class="op">=</span> np.histogram(s, bins<span class="op">=</span>edges)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>    centers <span class="op">=</span> <span class="fl">0.5</span> <span class="op">*</span> (edges[:<span class="op">-</span><span class="dv">1</span>] <span class="op">+</span> edges[<span class="dv">1</span>:])</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="bu">float</span>(centers[<span class="bu">int</span>(np.argmax(counts))])</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> corner_letter(ax, text):</span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Panel letter placed above the axes, at its left edge. The bottom row is</span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="co">    filled edge to edge (matrix cells, a legend), so the letter goes outside."""</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    ax.text(<span class="fl">0.0</span>, <span class="fl">1.02</span>, <span class="ss">f"(</span><span class="sc">{</span>text<span class="sc">}</span><span class="ss">)"</span>, transform<span class="op">=</span>ax.transAxes, ha<span class="op">=</span><span class="st">"left"</span>, va<span class="op">=</span><span class="st">"bottom"</span>,</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>            fontsize<span class="op">=</span>FS_PANEL, fontweight<span class="op">=</span><span class="st">"bold"</span>)</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> pairwise(values_by_variant, func):</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Variant by variant matrix of func(series_row, series_column), computed on the</span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="co">    half-hours both variants report."""</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    n <span class="op">=</span> <span class="bu">len</span>(VARIANTS)</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> np.full((n, n), np.nan)</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, vi <span class="kw">in</span> <span class="bu">enumerate</span>(VARIANTS):</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j, vj <span class="kw">in</span> <span class="bu">enumerate</span>(VARIANTS):</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>            pair <span class="op">=</span> pd.DataFrame({<span class="st">"row"</span>: values_by_variant[vi],</span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>                                 <span class="st">"col"</span>: values_by_variant[vj]}).dropna()</span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>            out[i, j] <span class="op">=</span> func(pair[<span class="st">"row"</span>], pair[<span class="st">"col"</span>])</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> out</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> annotate_matrix(ax, mat, fmt, title, cmap, vmin, vmax, dark_above):</span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""Draw a variant by variant matrix with its values printed in the cells."""</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>    ax.imshow(mat, cmap<span class="op">=</span>cmap, vmin<span class="op">=</span>vmin, vmax<span class="op">=</span>vmax, aspect<span class="op">=</span><span class="st">"auto"</span>)</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(mat.shape[<span class="dv">0</span>]):</span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(mat.shape[<span class="dv">1</span>]):</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>            ax.text(j, i, <span class="bu">format</span>(mat[i, j], fmt), ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"center"</span>, fontsize<span class="op">=</span>FS_ANNOT,</span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>                    color<span class="op">=</span><span class="st">"white"</span> <span class="cf">if</span> <span class="bu">abs</span>(mat[i, j]) <span class="op">&gt;</span> dark_above <span class="cf">else</span> <span class="st">"black"</span>)</span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a>    ticks <span class="op">=</span> [VARIANT_SHORT[v] <span class="cf">for</span> v <span class="kw">in</span> VARIANTS]</span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks(<span class="bu">range</span>(<span class="bu">len</span>(VARIANTS)), ticks, fontsize<span class="op">=</span>FS_ANNOT)</span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a>    ax.set_yticks(<span class="bu">range</span>(<span class="bu">len</span>(VARIANTS)), ticks, fontsize<span class="op">=</span>FS_ANNOT)</span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a>    ax.set_title(title, fontsize<span class="op">=</span>FS_LABEL)</span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a>    style_axes(ax)</span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> gas <span class="kw">in</span> GASES:</span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a>    glabel <span class="op">=</span> GAS_LABEL[gas]</span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a>    flux <span class="op">=</span> {v: merged_flux[(v, gas)] <span class="cf">for</span> v <span class="kw">in</span> VARIANTS}</span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a>    lag <span class="op">=</span> {v: merged_lag[(v, gas)] <span class="cf">for</span> v <span class="kw">in</span> VARIANTS}</span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Distance of each half-hour's lag from its own variant and instrument mode.</span></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a>    <span class="co"># The mode is the raster-snapped peak of the non-fringe lags (mode_on_grid), so</span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a>    <span class="co"># the 0 s / 10 s rails of the open search window cannot serve as the reference.</span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a>    modes <span class="op">=</span> {(v, a): mode_on_grid(lag_used[(a, v, gas)])</span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a>             <span class="cf">for</span> v <span class="kw">in</span> VARIANTS <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS}</span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a>    off_mode <span class="op">=</span> {}</span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> v <span class="kw">in</span> VARIANTS:</span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a>        dev <span class="op">=</span> pd.Series(np.nan, index<span class="op">=</span>merged.index)</span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS:</span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> modes[(v, a)] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a>                dev[is_analyzer[a]] <span class="op">=</span> (lag[v][is_analyzer[a]] <span class="op">-</span> modes[(v, a)]).<span class="bu">abs</span>()</span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a>        off_mode[v] <span class="op">=</span> dev</span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Flux axis of the density row: robust range over all variants of this gas.</span></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a>    all_flux <span class="op">=</span> np.concatenate([flux[v].to_numpy() <span class="cf">for</span> v <span class="kw">in</span> VARIANTS])</span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a>    f_lo, f_hi <span class="op">=</span> np.nanpercentile(all_flux, PCTL)</span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a>    f_pad <span class="op">=</span> <span class="fl">0.05</span> <span class="op">*</span> (f_hi <span class="op">-</span> f_lo)</span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a>    flux_lim <span class="op">=</span> (f_lo <span class="op">-</span> f_pad, f_hi <span class="op">+</span> f_pad)</span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a>    flux_edges <span class="op">=</span> np.linspace(<span class="op">*</span>flux_lim, <span class="dv">71</span>)</span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a>    fig <span class="op">=</span> plt.figure(figsize<span class="op">=</span>FIGSIZE_DIAG, constrained_layout<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a>    <span class="co"># One subfigure per row, so each row keeps its own layout and colorbar.</span></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a>    sf_top, sf_mid, sf_bot <span class="op">=</span> fig.subfigures(nrows<span class="op">=</span><span class="dv">3</span>, height_ratios<span class="op">=</span>[<span class="fl">1.0</span>, <span class="fl">1.05</span>, <span class="fl">1.2</span>])</span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a>    gs_top, gs_mid <span class="op">=</span> sf_top.add_gridspec(<span class="dv">1</span>, <span class="dv">5</span>), sf_mid.add_gridspec(<span class="dv">1</span>, <span class="dv">5</span>)</span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a>    gs_bot <span class="op">=</span> sf_bot.add_gridspec(<span class="dv">1</span>, <span class="dv">3</span>)</span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Row 1: how often the lag left its own mode, by month and hour of day.</span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a>    hm_axes <span class="op">=</span> []</span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ci, v <span class="kw">in</span> <span class="bu">enumerate</span>(VARIANTS):</span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> sf_top.add_subplot(gs_top[<span class="dv">0</span>, ci])</span>
+<span id="cb6-103"><a href="#cb6-103" aria-hidden="true" tabindex="-1"></a>        hm_axes.append(ax)</span>
+<span id="cb6-104"><a href="#cb6-104" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> pd.DataFrame({<span class="st">"month"</span>: month, <span class="st">"hour"</span>: hour,</span>
+<span id="cb6-105"><a href="#cb6-105" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"off"</span>: (off_mode[v] <span class="op">&gt;</span> OFF_MODE_S).astype(<span class="bu">float</span>).to_numpy()})</span>
+<span id="cb6-106"><a href="#cb6-106" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> d[off_mode[v].notna().to_numpy()]</span>
+<span id="cb6-107"><a href="#cb6-107" aria-hidden="true" tabindex="-1"></a>        table <span class="op">=</span> d.pivot_table(index<span class="op">=</span><span class="st">"hour"</span>, columns<span class="op">=</span><span class="st">"month"</span>, values<span class="op">=</span><span class="st">"off"</span>, aggfunc<span class="op">=</span><span class="st">"mean"</span>)</span>
+<span id="cb6-108"><a href="#cb6-108" aria-hidden="true" tabindex="-1"></a>        grid <span class="op">=</span> np.full((<span class="dv">24</span>, <span class="dv">12</span>), np.nan)</span>
+<span id="cb6-109"><a href="#cb6-109" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> mo <span class="kw">in</span> table.columns:</span>
+<span id="cb6-110"><a href="#cb6-110" aria-hidden="true" tabindex="-1"></a>            grid[table.index.to_numpy(), <span class="bu">int</span>(mo) <span class="op">-</span> <span class="dv">1</span>] <span class="op">=</span> table[mo].to_numpy() <span class="op">*</span> <span class="dv">100</span></span>
+<span id="cb6-111"><a href="#cb6-111" aria-hidden="true" tabindex="-1"></a>        im_off <span class="op">=</span> ax.pcolormesh(np.arange(<span class="fl">0.5</span>, <span class="fl">13.5</span>), np.arange(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">24.5</span>), grid,</span>
+<span id="cb6-112"><a href="#cb6-112" aria-hidden="true" tabindex="-1"></a>                               cmap<span class="op">=</span><span class="st">"magma_r"</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">100</span>, shading<span class="op">=</span><span class="st">"auto"</span>)</span>
+<span id="cb6-113"><a href="#cb6-113" aria-hidden="true" tabindex="-1"></a>        style_axes(ax)</span>
+<span id="cb6-114"><a href="#cb6-114" aria-hidden="true" tabindex="-1"></a>        panel_letter(ax, LETTERS[ci])</span>
+<span id="cb6-115"><a href="#cb6-115" aria-hidden="true" tabindex="-1"></a>        ax.set_title(VARIANT_NAMES[v], fontweight<span class="op">=</span><span class="st">"bold"</span>, fontsize<span class="op">=</span>FS_TITLE)</span>
+<span id="cb6-116"><a href="#cb6-116" aria-hidden="true" tabindex="-1"></a>        ax.set_xticks(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>), <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>), fontsize<span class="op">=</span>FS_DENSE)</span>
+<span id="cb6-117"><a href="#cb6-117" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> label, mo <span class="kw">in</span> <span class="bu">zip</span>(ax.get_xticklabels(), <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">13</span>)):</span>
+<span id="cb6-118"><a href="#cb6-118" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> dominant_analyzer[mo]:</span>
+<span id="cb6-119"><a href="#cb6-119" aria-hidden="true" tabindex="-1"></a>                label.set_color(INSTRUMENT_COLORS[dominant_analyzer[mo]])</span>
+<span id="cb6-120"><a href="#cb6-120" aria-hidden="true" tabindex="-1"></a>                label.set_fontweight(<span class="st">"bold"</span>)</span>
+<span id="cb6-121"><a href="#cb6-121" aria-hidden="true" tabindex="-1"></a>        ax.set_yticks([<span class="dv">0</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">18</span>])</span>
+<span id="cb6-122"><a href="#cb6-122" aria-hidden="true" tabindex="-1"></a>        ax.set_xlim(<span class="fl">0.5</span>, <span class="fl">12.5</span>)</span>
+<span id="cb6-123"><a href="#cb6-123" aria-hidden="true" tabindex="-1"></a>        ax.set_ylim(<span class="op">-</span><span class="fl">0.5</span>, <span class="fl">23.5</span>)</span>
+<span id="cb6-124"><a href="#cb6-124" aria-hidden="true" tabindex="-1"></a>        ax.set_xlabel(<span class="st">"Month"</span>)</span>
+<span id="cb6-125"><a href="#cb6-125" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ci <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-126"><a href="#cb6-126" aria-hidden="true" tabindex="-1"></a>            ax.set_ylabel(<span class="st">"Hour of day"</span>)</span>
+<span id="cb6-127"><a href="#cb6-127" aria-hidden="true" tabindex="-1"></a>            <span class="co"># Name each campaign where it sits on the month axis; the month tick</span></span>
+<span id="cb6-128"><a href="#cb6-128" aria-hidden="true" tabindex="-1"></a>            <span class="co"># labels carry the same instrument colors in every panel of this row.</span></span>
+<span id="cb6-129"><a href="#cb6-129" aria-hidden="true" tabindex="-1"></a>            <span class="cf">for</span> a, x_center <span class="kw">in</span> <span class="bu">zip</span>(ANALYZERS, campaign_center):</span>
+<span id="cb6-130"><a href="#cb6-130" aria-hidden="true" tabindex="-1"></a>                ax.text(x_center, <span class="fl">23.0</span>, a, color<span class="op">=</span>INSTRUMENT_COLORS[a], fontsize<span class="op">=</span>FS_ANNOT,</span>
+<span id="cb6-131"><a href="#cb6-131" aria-hidden="true" tabindex="-1"></a>                        fontweight<span class="op">=</span><span class="st">"bold"</span>, ha<span class="op">=</span><span class="st">"center"</span>, va<span class="op">=</span><span class="st">"top"</span>,</span>
+<span id="cb6-132"><a href="#cb6-132" aria-hidden="true" tabindex="-1"></a>                        bbox<span class="op">=</span><span class="bu">dict</span>(boxstyle<span class="op">=</span><span class="st">"square,pad=0.15"</span>, fc<span class="op">=</span><span class="st">"white"</span>, ec<span class="op">=</span><span class="st">"none"</span>,</span>
+<span id="cb6-133"><a href="#cb6-133" aria-hidden="true" tabindex="-1"></a>                                  alpha<span class="op">=</span><span class="fl">0.75</span>))</span>
+<span id="cb6-134"><a href="#cb6-134" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-135"><a href="#cb6-135" aria-hidden="true" tabindex="-1"></a>            ax.tick_params(labelleft<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb6-136"><a href="#cb6-136" aria-hidden="true" tabindex="-1"></a>    cb_off <span class="op">=</span> sf_top.colorbar(im_off, ax<span class="op">=</span>hm_axes, location<span class="op">=</span><span class="st">"right"</span>, pad<span class="op">=</span><span class="fl">0.008</span>, fraction<span class="op">=</span><span class="fl">0.02</span>)</span>
+<span id="cb6-137"><a href="#cb6-137" aria-hidden="true" tabindex="-1"></a>    cb_off.set_label(<span class="ss">f"Lag off mode by &gt;</span><span class="sc">{</span>OFF_MODE_S<span class="sc">:g}</span><span class="ss"> s (%)"</span>, fontsize<span class="op">=</span>FS_LABEL)</span>
+<span id="cb6-138"><a href="#cb6-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-139"><a href="#cb6-139" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Row 2: joint density of the lag that was used and the flux it produced.</span></span>
+<span id="cb6-140"><a href="#cb6-140" aria-hidden="true" tabindex="-1"></a>    density_axes <span class="op">=</span> []</span>
+<span id="cb6-141"><a href="#cb6-141" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> ci, v <span class="kw">in</span> <span class="bu">enumerate</span>(VARIANTS):</span>
+<span id="cb6-142"><a href="#cb6-142" aria-hidden="true" tabindex="-1"></a>        ax <span class="op">=</span> sf_mid.add_subplot(gs_mid[<span class="dv">0</span>, ci])</span>
+<span id="cb6-143"><a href="#cb6-143" aria-hidden="true" tabindex="-1"></a>        density_axes.append(ax)</span>
+<span id="cb6-144"><a href="#cb6-144" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> pd.DataFrame({<span class="st">"lag"</span>: lag[v], <span class="st">"flux"</span>: flux[v]}).dropna()</span>
+<span id="cb6-145"><a href="#cb6-145" aria-hidden="true" tabindex="-1"></a>        counts, _, _ <span class="op">=</span> np.histogram2d(d[<span class="st">"lag"</span>], d[<span class="st">"flux"</span>], bins<span class="op">=</span>[LAG_EDGES, flux_edges])</span>
+<span id="cb6-146"><a href="#cb6-146" aria-hidden="true" tabindex="-1"></a>        im_den <span class="op">=</span> ax.pcolormesh(LAG_EDGES, flux_edges, np.where(counts <span class="op">==</span> <span class="dv">0</span>, np.nan, counts).T,</span>
+<span id="cb6-147"><a href="#cb6-147" aria-hidden="true" tabindex="-1"></a>                               cmap<span class="op">=</span><span class="st">"viridis"</span>, shading<span class="op">=</span><span class="st">"flat"</span>,</span>
+<span id="cb6-148"><a href="#cb6-148" aria-hidden="true" tabindex="-1"></a>                               norm<span class="op">=</span>LogNorm(vmin<span class="op">=</span><span class="dv">1</span>, vmax<span class="op">=</span>COUNT_VMAX))</span>
+<span id="cb6-149"><a href="#cb6-149" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Median and quartiles of the flux per lag bin. Thin bins are dropped and</span></span>
+<span id="cb6-150"><a href="#cb6-150" aria-hidden="true" tabindex="-1"></a>        <span class="co"># the lines break there, so the single-valued variants get no line drawn</span></span>
+<span id="cb6-151"><a href="#cb6-151" aria-hidden="true" tabindex="-1"></a>        <span class="co"># across lag space they never visit.</span></span>
+<span id="cb6-152"><a href="#cb6-152" aria-hidden="true" tabindex="-1"></a>        binned <span class="op">=</span> d.groupby(pd.cut(d[<span class="st">"lag"</span>], LAG_EDGES, labels<span class="op">=</span>LAG_CENTERS),</span>
+<span id="cb6-153"><a href="#cb6-153" aria-hidden="true" tabindex="-1"></a>                           observed<span class="op">=</span><span class="va">True</span>)[<span class="st">"flux"</span>].agg(</span>
+<span id="cb6-154"><a href="#cb6-154" aria-hidden="true" tabindex="-1"></a>            n<span class="op">=</span><span class="st">"size"</span>, med<span class="op">=</span><span class="st">"median"</span>, q1<span class="op">=</span><span class="kw">lambda</span> s: s.quantile(<span class="fl">0.25</span>),</span>
+<span id="cb6-155"><a href="#cb6-155" aria-hidden="true" tabindex="-1"></a>            q3<span class="op">=</span><span class="kw">lambda</span> s: s.quantile(<span class="fl">0.75</span>))</span>
+<span id="cb6-156"><a href="#cb6-156" aria-hidden="true" tabindex="-1"></a>        binned <span class="op">=</span> binned.where(binned[<span class="st">"n"</span>] <span class="op">&gt;=</span> MIN_N).reindex(LAG_CENTERS)</span>
+<span id="cb6-157"><a href="#cb6-157" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> stat, lw, ls <span class="kw">in</span> ((<span class="st">"q1"</span>, <span class="fl">0.9</span>, <span class="st">"--"</span>), (<span class="st">"q3"</span>, <span class="fl">0.9</span>, <span class="st">"--"</span>), (<span class="st">"med"</span>, <span class="fl">1.4</span>, <span class="st">"-"</span>)):</span>
+<span id="cb6-158"><a href="#cb6-158" aria-hidden="true" tabindex="-1"></a>            ax.plot(LAG_CENTERS, binned[stat], color<span class="op">=</span><span class="st">"white"</span>, lw<span class="op">=</span>lw <span class="op">+</span> <span class="fl">1.4</span>, ls<span class="op">=</span>ls, zorder<span class="op">=</span><span class="dv">4</span>)</span>
+<span id="cb6-159"><a href="#cb6-159" aria-hidden="true" tabindex="-1"></a>            ax.plot(LAG_CENTERS, binned[stat], color<span class="op">=</span><span class="st">"black"</span>, lw<span class="op">=</span>lw, ls<span class="op">=</span>ls, zorder<span class="op">=</span><span class="dv">5</span>)</span>
+<span id="cb6-160"><a href="#cb6-160" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> a <span class="kw">in</span> ANALYZERS:</span>
+<span id="cb6-161"><a href="#cb6-161" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> modes[(v, a)] <span class="kw">is</span> <span class="kw">not</span> <span class="va">None</span>:</span>
+<span id="cb6-162"><a href="#cb6-162" aria-hidden="true" tabindex="-1"></a>                ax.axvline(modes[(v, a)], color<span class="op">=</span>INSTRUMENT_COLORS[a], lw<span class="op">=</span><span class="fl">1.0</span>, ls<span class="op">=</span><span class="st">"--"</span>,</span>
+<span id="cb6-163"><a href="#cb6-163" aria-hidden="true" tabindex="-1"></a>                           alpha<span class="op">=</span><span class="fl">0.9</span>, zorder<span class="op">=</span><span class="dv">6</span>)</span>
+<span id="cb6-164"><a href="#cb6-164" aria-hidden="true" tabindex="-1"></a>        ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"0.4"</span>, lw<span class="op">=</span><span class="fl">0.8</span>, ls<span class="op">=</span><span class="st">":"</span>, zorder<span class="op">=</span><span class="dv">3</span>)</span>
+<span id="cb6-165"><a href="#cb6-165" aria-hidden="true" tabindex="-1"></a>        ax.set_xlim(<span class="op">*</span>SEARCH_WINDOW)</span>
+<span id="cb6-166"><a href="#cb6-166" aria-hidden="true" tabindex="-1"></a>        ax.set_ylim(<span class="op">*</span>flux_lim)</span>
+<span id="cb6-167"><a href="#cb6-167" aria-hidden="true" tabindex="-1"></a>        style_axes(ax)</span>
+<span id="cb6-168"><a href="#cb6-168" aria-hidden="true" tabindex="-1"></a>        panel_letter(ax, LETTERS[<span class="bu">len</span>(VARIANTS) <span class="op">+</span> ci])</span>
+<span id="cb6-169"><a href="#cb6-169" aria-hidden="true" tabindex="-1"></a>        ax.set_xlabel(<span class="st">"Time lag used (s)"</span>)</span>
+<span id="cb6-170"><a href="#cb6-170" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> ci <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb6-171"><a href="#cb6-171" aria-hidden="true" tabindex="-1"></a>            ax.set_ylabel(<span class="ss">f"</span><span class="sc">{</span>glabel<span class="sc">}</span><span class="ss"> flux (nmol m$^</span><span class="ch">{{</span><span class="ss">-2</span><span class="ch">}}</span><span class="ss">$ s$^</span><span class="ch">{{</span><span class="ss">-1</span><span class="ch">}}</span><span class="ss">$)"</span>)</span>
+<span id="cb6-172"><a href="#cb6-172" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb6-173"><a href="#cb6-173" aria-hidden="true" tabindex="-1"></a>            ax.tick_params(labelleft<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb6-174"><a href="#cb6-174" aria-hidden="true" tabindex="-1"></a>    cb_den <span class="op">=</span> sf_mid.colorbar(im_den, ax<span class="op">=</span>density_axes, location<span class="op">=</span><span class="st">"right"</span>, pad<span class="op">=</span><span class="fl">0.008</span>,</span>
+<span id="cb6-175"><a href="#cb6-175" aria-hidden="true" tabindex="-1"></a>                             fraction<span class="op">=</span><span class="fl">0.02</span>)</span>
+<span id="cb6-176"><a href="#cb6-176" aria-hidden="true" tabindex="-1"></a>    cb_den.set_label(<span class="st">"Half-hours per bin"</span>, fontsize<span class="op">=</span>FS_LABEL)</span>
+<span id="cb6-177"><a href="#cb6-177" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-178"><a href="#cb6-178" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Row 3, left: how often two variants pick the same lag.</span></span>
+<span id="cb6-179"><a href="#cb6-179" aria-hidden="true" tabindex="-1"></a>    same_lag <span class="op">=</span> pairwise(lag, <span class="kw">lambda</span> r, c: <span class="bu">float</span>((r <span class="op">-</span> c).<span class="bu">abs</span>().le(SAME_LAG_S).mean() <span class="op">*</span> <span class="dv">100</span>))</span>
+<span id="cb6-180"><a href="#cb6-180" aria-hidden="true" tabindex="-1"></a>    annotate_matrix(sf_bot.add_subplot(gs_bot[<span class="dv">0</span>, <span class="dv">0</span>]), same_lag, <span class="st">".0f"</span>,</span>
+<span id="cb6-181"><a href="#cb6-181" aria-hidden="true" tabindex="-1"></a>                    <span class="ss">f"Same lag within </span><span class="sc">{</span>SAME_LAG_S<span class="sc">:g}</span><span class="ss"> s</span><span class="ch">\n</span><span class="ss">(% of shared half-hours)"</span>,</span>
+<span id="cb6-182"><a href="#cb6-182" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"YlGnBu"</span>, <span class="dv">0</span>, <span class="dv">100</span>, dark_above<span class="op">=</span><span class="dv">55</span>)</span>
+<span id="cb6-183"><a href="#cb6-183" aria-hidden="true" tabindex="-1"></a>    corner_letter(sf_bot.axes[<span class="op">-</span><span class="dv">1</span>], LETTERS[<span class="dv">2</span> <span class="op">*</span> <span class="bu">len</span>(VARIANTS)])</span>
+<span id="cb6-184"><a href="#cb6-184" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-185"><a href="#cb6-185" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Row 3, middle: what that costs in the summed flux, over the shared half-hours.</span></span>
+<span id="cb6-186"><a href="#cb6-186" aria-hidden="true" tabindex="-1"></a>    budget <span class="op">=</span> pairwise(flux, <span class="kw">lambda</span> r, c: <span class="bu">float</span>((r.<span class="bu">sum</span>() <span class="op">-</span> c.<span class="bu">sum</span>()) <span class="op">/</span> <span class="bu">abs</span>(c.<span class="bu">sum</span>()) <span class="op">*</span> <span class="dv">100</span>))</span>
+<span id="cb6-187"><a href="#cb6-187" aria-hidden="true" tabindex="-1"></a>    b_max <span class="op">=</span> <span class="bu">float</span>(np.nanmax(np.<span class="bu">abs</span>(budget))) <span class="kw">or</span> <span class="fl">1.0</span></span>
+<span id="cb6-188"><a href="#cb6-188" aria-hidden="true" tabindex="-1"></a>    annotate_matrix(sf_bot.add_subplot(gs_bot[<span class="dv">0</span>, <span class="dv">1</span>]), budget, <span class="st">"+.1f"</span>,</span>
+<span id="cb6-189"><a href="#cb6-189" aria-hidden="true" tabindex="-1"></a>                    <span class="ss">f"</span><span class="sc">{</span>glabel<span class="sc">}</span><span class="ss"> budget difference,</span><span class="ch">\n</span><span class="ss">row minus column (%)"</span>,</span>
+<span id="cb6-190"><a href="#cb6-190" aria-hidden="true" tabindex="-1"></a>                    <span class="st">"RdBu_r"</span>, <span class="op">-</span>b_max, b_max, dark_above<span class="op">=</span><span class="fl">0.7</span> <span class="op">*</span> b_max)</span>
+<span id="cb6-191"><a href="#cb6-191" aria-hidden="true" tabindex="-1"></a>    corner_letter(sf_bot.axes[<span class="op">-</span><span class="dv">1</span>], LETTERS[<span class="dv">2</span> <span class="op">*</span> <span class="bu">len</span>(VARIANTS) <span class="op">+</span> <span class="dv">1</span>])</span>
+<span id="cb6-192"><a href="#cb6-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-193"><a href="#cb6-193" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Row 3, right: the same comparison resolved by how far the variant's lag sits</span></span>
+<span id="cb6-194"><a href="#cb6-194" aria-hidden="true" tabindex="-1"></a>    <span class="co"># from the PWB_OPT lag in that half-hour.</span></span>
+<span id="cb6-195"><a href="#cb6-195" aria-hidden="true" tabindex="-1"></a>    ax <span class="op">=</span> sf_bot.add_subplot(gs_bot[<span class="dv">0</span>, <span class="dv">2</span>])</span>
+<span id="cb6-196"><a href="#cb6-196" aria-hidden="true" tabindex="-1"></a>    x_pos <span class="op">=</span> np.arange(<span class="bu">len</span>(DEV_EDGES) <span class="op">-</span> <span class="dv">1</span>)</span>
+<span id="cb6-197"><a href="#cb6-197" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> v <span class="kw">in</span> VARIANTS:</span>
+<span id="cb6-198"><a href="#cb6-198" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> v <span class="op">==</span> PWB_VARIANT:</span>
+<span id="cb6-199"><a href="#cb6-199" aria-hidden="true" tabindex="-1"></a>            <span class="cf">continue</span></span>
+<span id="cb6-200"><a href="#cb6-200" aria-hidden="true" tabindex="-1"></a>        d <span class="op">=</span> pd.DataFrame({<span class="st">"dev"</span>: (lag[v] <span class="op">-</span> lag[PWB_VARIANT]).<span class="bu">abs</span>(),</span>
+<span id="cb6-201"><a href="#cb6-201" aria-hidden="true" tabindex="-1"></a>                          <span class="st">"offset"</span>: flux[v] <span class="op">-</span> flux[PWB_VARIANT]}).dropna()</span>
+<span id="cb6-202"><a href="#cb6-202" aria-hidden="true" tabindex="-1"></a>        binned <span class="op">=</span> d.groupby(pd.cut(d[<span class="st">"dev"</span>], DEV_EDGES, labels<span class="op">=</span>x_pos, include_lowest<span class="op">=</span><span class="va">True</span>),</span>
+<span id="cb6-203"><a href="#cb6-203" aria-hidden="true" tabindex="-1"></a>                           observed<span class="op">=</span><span class="va">True</span>)[<span class="st">"offset"</span>].agg(n<span class="op">=</span><span class="st">"size"</span>, med<span class="op">=</span><span class="st">"median"</span>)</span>
+<span id="cb6-204"><a href="#cb6-204" aria-hidden="true" tabindex="-1"></a>        binned <span class="op">=</span> binned[binned[<span class="st">"n"</span>] <span class="op">&gt;=</span> MIN_N]</span>
+<span id="cb6-205"><a href="#cb6-205" aria-hidden="true" tabindex="-1"></a>        ax.plot(binned.index.astype(<span class="bu">float</span>), binned[<span class="st">"med"</span>], <span class="st">"-o"</span>, ms<span class="op">=</span><span class="dv">5</span>, lw<span class="op">=</span><span class="fl">1.8</span>,</span>
+<span id="cb6-206"><a href="#cb6-206" aria-hidden="true" tabindex="-1"></a>                color<span class="op">=</span>VARIANT_COLORS[v], label<span class="op">=</span>VARIANT_SHORT[v])</span>
+<span id="cb6-207"><a href="#cb6-207" aria-hidden="true" tabindex="-1"></a>    ax.axhline(<span class="dv">0</span>, color<span class="op">=</span><span class="st">"0.3"</span>, lw<span class="op">=</span><span class="fl">0.9</span>, ls<span class="op">=</span><span class="st">":"</span>)</span>
+<span id="cb6-208"><a href="#cb6-208" aria-hidden="true" tabindex="-1"></a>    ax.set_xticks(x_pos, [<span class="ss">f"</span><span class="sc">{</span>DEV_EDGES[i]<span class="sc">:g}</span><span class="ss">-</span><span class="sc">{</span>DEV_EDGES[i <span class="op">+</span> <span class="dv">1</span>]<span class="sc">:g}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> x_pos],</span>
+<span id="cb6-209"><a href="#cb6-209" aria-hidden="true" tabindex="-1"></a>                  fontsize<span class="op">=</span>FS_DENSE)</span>
+<span id="cb6-210"><a href="#cb6-210" aria-hidden="true" tabindex="-1"></a>    ax.set_xlabel(<span class="vs">r"</span><span class="cf">|</span><span class="vs">lag </span><span class="dv">$</span><span class="vs">-</span><span class="dv">$</span><span class="vs"> PWB</span><span class="dv">$^</span><span class="vs">{</span><span class="dv">\m</span><span class="vs">athrm{OPT}}</span><span class="dv">$</span><span class="vs"> lag</span><span class="cf">|</span><span class="vs"> </span><span class="kw">(</span><span class="vs">s</span><span class="kw">)</span><span class="vs">"</span>)</span>
+<span id="cb6-211"><a href="#cb6-211" aria-hidden="true" tabindex="-1"></a>    ax.set_ylabel(<span class="ss">f"Median </span><span class="sc">{</span>glabel<span class="sc">}</span><span class="ss"> flux offset to</span><span class="ch">\n</span><span class="ss">"</span></span>
+<span id="cb6-212"><a href="#cb6-212" aria-hidden="true" tabindex="-1"></a>                  <span class="ss">f"PWB$^</span><span class="ch">{{\\</span><span class="ss">mathrm</span><span class="ch">{{</span><span class="ss">OPT</span><span class="ch">}}}}</span><span class="ss">$ (nmol m$^</span><span class="ch">{{</span><span class="ss">-2</span><span class="ch">}}</span><span class="ss">$ s$^</span><span class="ch">{{</span><span class="ss">-1</span><span class="ch">}}</span><span class="ss">$)"</span>)</span>
+<span id="cb6-213"><a href="#cb6-213" aria-hidden="true" tabindex="-1"></a>    ax.set_title(<span class="st">"Flux offset by lag disagreement"</span>, fontsize<span class="op">=</span>FS_LABEL)</span>
+<span id="cb6-214"><a href="#cb6-214" aria-hidden="true" tabindex="-1"></a>    ax.legend(ncols<span class="op">=</span><span class="dv">2</span>, loc<span class="op">=</span><span class="st">"upper left"</span>, bbox_to_anchor<span class="op">=</span>(<span class="fl">0.02</span>, <span class="fl">0.97</span>),</span>
+<span id="cb6-215"><a href="#cb6-215" aria-hidden="true" tabindex="-1"></a>              framealpha<span class="op">=</span><span class="fl">0.9</span>, handletextpad<span class="op">=</span><span class="fl">0.4</span>, borderpad<span class="op">=</span><span class="fl">0.3</span>, columnspacing<span class="op">=</span><span class="fl">1.0</span>)</span>
+<span id="cb6-216"><a href="#cb6-216" aria-hidden="true" tabindex="-1"></a>    style_axes(ax)</span>
+<span id="cb6-217"><a href="#cb6-217" aria-hidden="true" tabindex="-1"></a>    corner_letter(ax, LETTERS[<span class="dv">2</span> <span class="op">*</span> <span class="bu">len</span>(VARIANTS) <span class="op">+</span> <span class="dv">2</span>])</span>
+<span id="cb6-218"><a href="#cb6-218" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-219"><a href="#cb6-219" aria-hidden="true" tabindex="-1"></a>    out <span class="op">=</span> FIGDIR <span class="op">/</span> <span class="ss">f"suppl_lagdiag_</span><span class="sc">{</span>gas<span class="sc">.</span>lower()<span class="sc">}</span><span class="ss">.png"</span></span>
+<span id="cb6-220"><a href="#cb6-220" aria-hidden="true" tabindex="-1"></a>    fig.savefig(out, dpi<span class="op">=</span>DPI, bbox_inches<span class="op">=</span><span class="st">"tight"</span>)</span>
+<span id="cb6-221"><a href="#cb6-221" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Saved </span><span class="sc">{</span>out<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb6-222"><a href="#cb6-222" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Saved ..\figures\suppl_lagdiag_n2o.png</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="SUPPL_level1_lag_diagnostics_files/figure-html/cell-5-output-2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="SUPPL_level1_lag_diagnostics_files/figure-html/cell-5-output-2.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Saved ..\figures\suppl_lagdiag_ch4.png</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="SUPPL_level1_lag_diagnostics_files/figure-html/cell-5-output-4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="SUPPL_level1_lag_diagnostics_files/figure-html/cell-5-output-4.png" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Figure.</strong> Level-1 (pre-quality-control) time-lag diagnostics, one figure per gas (N₂O first, then CH₄). Top row: share of half-hours whose lag left its own modal lag by more than 0.5 s, by month and hour of day, one panel per variant. Middle row: joint histogram of the half-hourly flux and the lag it was computed with, with the median and quartiles per lag bin and the two instruments’ modal lags (dashed). Bottom row: how often two variants agree on the lag (k), what that means for the summed flux over their shared half-hours (l), and the median flux offset to PWB<span class="math inline">\(_{OPT}\)</span> against the distance between the two lags (m). Saved as <code>figures/suppl_lagdiag_{gas}.png</code>.</p>
+</section>
+<section id="runtime" class="level2">
+<h2 class="anchored" data-anchor-id="runtime">Runtime</h2>
+<div id="s10" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>NB_END <span class="op">=</span> datetime.now()</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Start:    </span><span class="sc">{</span>NB_START<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d <span class="op">%</span>H<span class="sc">:</span><span class="op">%</span>M<span class="sc">:</span><span class="op">%</span>S<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"End:      </span><span class="sc">{</span>NB_END<span class="sc">:</span><span class="op">%</span>Y<span class="op">-%</span>m<span class="op">-%</span>d <span class="op">%</span>H<span class="sc">:</span><span class="op">%</span>M<span class="sc">:</span><span class="op">%</span>S<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Runtime:  </span><span class="sc">{</span>NB_END <span class="op">-</span> NB_START<span class="sc">}</span><span class="ss">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Start:    2026-07-24 15:01:51
+End:      2026-07-24 15:02:00
+Runtime:  0:00:08.944821</code></pre>
+</div>
+</div>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/holukas\.github\.io\/ms-timelag-comparison\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../notebooks/09_cumulative_qc_fluxes.html" class="pagination-link" aria-label="09 · Flux distribution and cumulative budget by variant">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">09 · Flux distribution and cumulative budget by variant</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../docs/figure-gallery.html" class="pagination-link" aria-label="Figure gallery">
+        <span class="nav-page-text">Figure gallery</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Lukas Hörtnagl, ETH Zürich</p>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/notebooks/SUPPL_level1_lag_diagnostics.ipynb" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>

@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-07-14">
+<meta name="dcterms.date" content="2026-07-23">
 
 <title>09 · Flux distribution and cumulative budget by variant – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
 <style>
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../docs/figure-gallery.html" rel="next">
+<link href="../notebooks/SUPPL_level1_lag_diagnostics.html" rel="next">
 <link href="../notebooks/08_merged_analyzers_full_year.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -149,6 +149,7 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -384,26 +385,8 @@ window.Quarto = {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/site.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Study site</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/processing-versions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Processing versions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/time-lag-options.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Choosing a time-lag option</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/processing-steps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Processing steps</span></a>
+  <a href="../docs/time-lag.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Time lag</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -422,36 +405,13 @@ window.Quarto = {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">The book</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/building-the-book.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Building the book</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Notebooks</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
  <span class="menu-text">Analysis notebooks</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/01_read_fluxes_to_parquet.html" class="sidebar-item-text sidebar-link">
@@ -461,13 +421,19 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/02_level1_merged_analyzers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 · Level-1 merged analyzers: full-year raw fluxes</span></a>
+ <span class="menu-text">02 · Level-1 merged analyzers: one full-year table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/03_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 · Level-1 flux distribution and cumulative budget by variant</span></a>
+  <a href="../notebooks/03_level1_merged_figures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 · Level-1 merged analyzers: full-year figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 · Level-1 flux distribution and cumulative budget by variant</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -486,6 +452,23 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="../notebooks/09_cumulative_qc_fluxes.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">09 · Flux distribution and cumulative budget by variant</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Supplement</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/SUPPL_level1_lag_diagnostics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SUPPL · Level-1 time-lag diagnostics</span></a>
   </div>
 </li>
       </ul>
@@ -531,7 +514,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">14 July 2026</p>
+      <p class="date">23 July 2026</p>
     </div>
   </div>
   
@@ -880,6 +863,7 @@ LGR-5: 1607 valid QC N2O (CUT_50)</code></pre>
 </div>
 </div>
 </div>
+<p><strong>Figure.</strong> Quality-controlled flux distribution and cumulative budget per time-lag variant (CUT_50), one figure per gas (N₂O first, then CH₄), with the QCL campaign (2021_1) on the left and the LGR campaign (2021_2) on the right, over the paired common samples. Top row: the half-hourly flux density. Bottom row: the running QC-flux budget, in kg N₂O-N ha⁻¹ for N₂O and g CH₄-C m⁻² for CH₄, each variant’s total in the legend. PWB<span class="math inline">\(_{OPT}\)</span> is the grey shaded reference area. Saved as <code>figures/09_cumulative_{scenario}_{gas}.png</code>.</p>
 </section>
 <section id="runtime" class="level2">
 <h2 class="anchored" data-anchor-id="runtime">Runtime</h2>
@@ -1319,8 +1303,8 @@ Runtime:  0:00:03.218808</code></pre>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../docs/figure-gallery.html" class="pagination-link" aria-label="Figure gallery">
-        <span class="nav-page-text">Figure gallery</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../notebooks/SUPPL_level1_lag_diagnostics.html" class="pagination-link" aria-label="SUPPL · Level-1 time-lag diagnostics">
+        <span class="nav-page-text">SUPPL · Level-1 time-lag diagnostics</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

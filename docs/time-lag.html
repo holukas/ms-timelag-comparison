@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2026-06-23">
+<meta name="dcterms.date" content="2026-07-24">
 
-<title>processing-steps – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
+<title>time-lag – Time-lag settings &amp; N₂O/CH₄ EC fluxes</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -70,7 +70,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../docs/data.html" rel="next">
-<link href="../docs/time-lag-options.html" rel="prev">
+<link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -112,8 +112,41 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -312,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/site.html">Background &amp; methods</a></li><li class="breadcrumb-item"><a href="../docs/processing-steps.html">Processing steps</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/time-lag.html">Background &amp; methods</a></li><li class="breadcrumb-item"><a href="../docs/time-lag.html">Time lag</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -349,26 +382,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../docs/site.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Study site</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/processing-versions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Processing versions</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/time-lag-options.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Choosing a time-lag option</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/processing-steps.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Processing steps</span></a>
+  <a href="../docs/time-lag.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Time lag</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -388,35 +403,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
- <span class="menu-text">The book</span></a>
+ <span class="menu-text">Analysis notebooks</span></a>
           <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/building-the-book.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Building the book</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../docs/notebooks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Notebooks</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-        <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
- <span class="menu-text">Analysis notebooks</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/01_read_fluxes_to_parquet.html" class="sidebar-item-text sidebar-link">
@@ -426,13 +418,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../notebooks/02_level1_merged_analyzers.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">02 · Level-1 merged analyzers: full-year raw fluxes</span></a>
+ <span class="menu-text">02 · Level-1 merged analyzers: one full-year table</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../notebooks/03_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">03 · Level-1 flux distribution and cumulative budget by variant</span></a>
+  <a href="../notebooks/03_level1_merged_figures.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">03 · Level-1 merged analyzers: full-year figures</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/04_level1_cumulative_fluxes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">04 · Level-1 flux distribution and cumulative budget by variant</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -455,6 +453,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
       </ul>
   </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false">
+ <span class="menu-text">Supplement</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../notebooks/SUPPL_level1_lag_diagnostics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SUPPL · Level-1 time-lag diagnostics</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../docs/figure-gallery.html" class="sidebar-item-text sidebar-link">
@@ -471,19 +486,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#processing-steps" id="toc-processing-steps" class="nav-link active" data-scroll-target="#processing-steps">Processing steps</a>
+  <li><a href="#time-lag" id="toc-time-lag" class="nav-link active" data-scroll-target="#time-lag">Time lag</a>
   <ul class="collapse">
-  <li><a href="#the-pwb-time-lag-method" id="toc-the-pwb-time-lag-method" class="nav-link" data-scroll-target="#the-pwb-time-lag-method">The PWB time-lag method</a></li>
-  <li><a href="#workflow" id="toc-workflow" class="nav-link" data-scroll-target="#workflow">Workflow</a></li>
+  <li><a href="#why-the-lag-is-hard-for-n₂o-and-ch₄" id="toc-why-the-lag-is-hard-for-n₂o-and-ch₄" class="nav-link" data-scroll-target="#why-the-lag-is-hard-for-n₂o-and-ch₄">Why the lag is hard for N₂O and CH₄</a></li>
+  <li><a href="#the-five-versions" id="toc-the-five-versions" class="nav-link" data-scroll-target="#the-five-versions">The five versions</a>
+  <ul class="collapse">
+  <li><a href="#settings-of-each-version" id="toc-settings-of-each-version" class="nav-link" data-scroll-target="#settings-of-each-version">Settings of each version</a></li>
+  <li><a href="#nominal-lags-and-narrow-windows" id="toc-nominal-lags-and-narrow-windows" class="nav-link" data-scroll-target="#nominal-lags-and-narrow-windows">Nominal lags and narrow windows</a></li>
+  </ul></li>
+  <li><a href="#applicability-of-each-version" id="toc-applicability-of-each-version" class="nav-link" data-scroll-target="#applicability-of-each-version">Applicability of each version</a>
+  <ul class="collapse">
+  <li><a href="#recommendations" id="toc-recommendations" class="nav-link" data-scroll-target="#recommendations">Recommendations</a></li>
+  </ul></li>
+  <li><a href="#the-pwb-method-in-detail" id="toc-the-pwb-method-in-detail" class="nav-link" data-scroll-target="#the-pwb-method-in-detail">The PWB method in detail</a>
+  <ul class="collapse">
+  <li><a href="#how-pwb-finds-the-lag" id="toc-how-pwb-finds-the-lag" class="nav-link" data-scroll-target="#how-pwb-finds-the-lag">How PWB finds the lag</a></li>
+  <li><a href="#pwb_opt-choosing-the-lag-to-apply" id="toc-pwb_opt-choosing-the-lag-to-apply" class="nav-link" data-scroll-target="#pwb_opt-choosing-the-lag-to-apply">PWB<span class="math inline">\(_{OPT}\)</span>: choosing the lag to apply</a></li>
+  <li><a href="#detect-and-remove-workflow" id="toc-detect-and-remove-workflow" class="nav-link" data-scroll-target="#detect-and-remove-workflow">Detect-and-remove workflow</a></li>
+  </ul></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/docs/processing-steps.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/docs/time-lag.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/site.html">Background &amp; methods</a></li><li class="breadcrumb-item"><a href="../docs/processing-steps.html">Processing steps</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../docs/time-lag.html">Background &amp; methods</a></li><li class="breadcrumb-item"><a href="../docs/time-lag.html">Time lag</a></li></ol></nav>
 <div class="quarto-title">
 </div>
 
@@ -495,7 +524,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">23 June 2026</p>
+      <p class="date">24 July 2026</p>
     </div>
   </div>
   
@@ -507,19 +536,259 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="processing-steps" class="level1">
-<h1>Processing steps</h1>
-<p>This page describes the <strong>PWB</strong> time-lag method used to produce the <code>*-5</code> <a href="../docs/processing-versions.html">processing versions</a>, and the diive workflow that applies it.</p>
-<section id="the-pwb-time-lag-method" class="level2">
-<h2 class="anchored" data-anchor-id="the-pwb-time-lag-method">The PWB time-lag method</h2>
-<p>For reactive and trace gases such as N₂O and CH₄, the gas-wind cross-correlation is often too weak for conventional covariance-maximization (CM) to pinpoint the time lag reliably. The <code>*-5</code> versions instead use the Pre-Whitening with Block-bootstrap (PWB) method (Vitale et al., 2024), as implemented in <code>diive</code>. It works in two stages.</p>
+<section id="time-lag" class="level1">
+<h1>Time lag</h1>
+<p>This page covers the study variable: why the time lag is difficult to determine for N₂O and CH₄, the five versions compared, the settings each one was run with, and the PWB method used by the fifth.</p>
+<p>Fluxes are computed several times from the same raw data, changing only how the time lag between the vertical wind component and each gas (N₂O, CH₄, H₂O) is determined. Each version is identified by a short code (e.g.&nbsp;<code>QCL-3</code>) used throughout the notebooks and figures: the prefix is the campaign (QCL, quantum cascade laser, 2021_1; LGR, Los Gatos Research, 2021_2) and the number is the time-lag version.</p>
+<section id="why-the-lag-is-hard-for-n₂o-and-ch₄" class="level2">
+<h2 class="anchored" data-anchor-id="why-the-lag-is-hard-for-n₂o-and-ch₄">Why the lag is hard for N₂O and CH₄</h2>
+<p>For CO₂ and H₂O the cross-covariance between the gas and the vertical wind has a clear peak, and finding the lag is routine. N₂O and CH₄ fluxes are often small enough that the peak is comparable to the noise in the rest of the search window. The search then fails, in one of two ways that pull the flux in opposite directions.</p>
+<p><strong>The peak is found, but it is a noise peak.</strong> With a low signal-to-noise ratio, the largest absolute covariance in the window can sit anywhere. Picking it inflates the flux away from zero, the mirroring bias. This is the failure the narrow window and the constant lag are meant to prevent.</p>
+<p><strong>No peak is found.</strong> When the cross-covariance contains no usable peak, the maximisation returns the largest value available at the boundary of the search window, and the detected lags accumulate at its 0 s and 10 s limits. A large share of such values indicates a failed search rather than a long lag. The flux resulting from these periods is not an estimate of the mirroring bias, and it can fall below that of the other versions rather than above it.</p>
+<p>Which one dominates depends on the gas, the season and the flux magnitude, so a comparison of lag settings has to be read per gas, not as one rule. The versions below differ mainly in which of the two failures they guard against.</p>
+</section>
+<section id="the-five-versions" class="level2">
+<h2 class="anchored" data-anchor-id="the-five-versions">The five versions</h2>
+<p>Four of the five versions start from one exploratory run, <strong>CM-W</strong>, and use its peak lag distribution to configure themselves; the fifth, <strong>PWB OPT</strong>, is independent of them.</p>
+<p><strong>How the five versions relate.</strong> CM-W (variant 1) is one wide covariance-maximisation run (Nemitz steps 1 to 3): it keeps its own lags and yields the distribution peak (nominal lag) and the distribution range. The peak is the default fallback for variants 2 and 3 and the fixed lag for variant 4; the range sets the narrow window for variant 3. PWB OPT (variant 5) is independent. The Nemitz et al.&nbsp;(2018) fallback hierarchy is shown separately as a reference path:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart TD
+    C1["(1) CM-W (variant 1)&lt;br/&gt;wide covariance maximisation, 0 to 10 s&lt;br/&gt;keep the lags, no fallback"]
+
+    C1 --&gt; PK["(2) Distribution peak&lt;br/&gt;(nominal lag)"]
+    C1 --&gt; RG["(3) Distribution range&lt;br/&gt;(sets the narrow window)"]
+
+    PK --&gt;|"as default"| V2["(4) CM-W + default (variant 2)&lt;br/&gt;wide window + default"]
+    PK --&gt;|"as default"| V3["(5) CM-W CTR + default (variant 3)&lt;br/&gt;narrow window + default"]
+    RG --&gt;|"sets narrow window"| V3
+    PK --&gt;|"as fixed lag"| V4["(6) Constant lag (variant 4)&lt;br/&gt;fix the lag at the peak"]
+
+    P5["(7) PWB OPT (variant 5)&lt;br/&gt;independent,&lt;br/&gt;no distribution needed"]
+
+    NM["(8) Nemitz et al. (2018) fallback:&lt;br/&gt;reference-gas, then interpolate,&lt;br/&gt;then experimental, then theoretical"]
+
+    C1 --&gt; Z(["(9) One lag per record, per variant"])
+    V2 --&gt; Z
+    V3 --&gt; Z
+    V4 --&gt; Z
+    P5 --&gt; Z
+    NM --&gt; Z
+
+    classDef terminal fill:#e9ecef,stroke:#495057,stroke-width:1.5px,color:#212529;
+    classDef proc fill:#eaf1f8,stroke:#4477aa,stroke-width:1.5px,color:#173a5e;
+    classDef method fill:#d6e4f2,stroke:#4477aa,stroke-width:1.5px,color:#173a5e;
+    classDef ref fill:#d9ece2,stroke:#228833,stroke-width:2.5px,color:#12461f;
+    classDef note fill:#f4f4f4,stroke:#9aa0a6,stroke-width:1px,color:#3c4043,stroke-dasharray:4 3;
+
+    class Z terminal;
+    class PK,RG proc;
+    class NM note;
+    class C1,V2,V3,V4 method;
+    class P5 ref;
+
+    linkStyle default stroke:#8a94a0,stroke-width:1.5px;
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<section id="settings-of-each-version" class="level3">
+<h3 class="anchored" data-anchor-id="settings-of-each-version">Settings of each version</h3>
+<p>The same scheme of five versions is applied to each campaign and to each gas (N₂O, CH₄, H₂O). The versions differ only in how the lag is found. The method abbreviations (CM, CM<span class="math inline">\(_{CTR}\)</span>, PWB, PWB<span class="math inline">\(_{OPT}\)</span>) follow Vitale et al.&nbsp;(2024): CM = covariance maximisation, subscript CTR = constrained (narrow window), PWB = pre-whitening with block-bootstrap, PWB<span class="math inline">\(_{OPT}\)</span> = the optimised PWB lag (the S1/S2/S3 decision rule applied to the per-period PWB estimates).</p>
+<div id="tbl-versions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-versions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: The five processing versions, the study variable. Every other EddyPro setting is held identical across them, so any difference in the resulting flux is attributable to the time-lag treatment alone.
+</figcaption>
+<div aria-describedby="tbl-versions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 4%">
+<col style="width: 19%">
+<col style="width: 14%">
+<col style="width: 19%">
+<col style="width: 41%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Version</th>
+<th>Method</th>
+<th>Search window</th>
+<th>Default lag applied</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>-1</code></td>
+<td>CM</td>
+<td>0 to 10 s</td>
+<td>no (OPENLAG)</td>
+<td>Also performs the unzipping of the raw data.</td>
+</tr>
+<tr class="even">
+<td><code>-2</code></td>
+<td>CM</td>
+<td>0 to 10 s</td>
+<td>yes, nominal lag as fallback</td>
+<td>Also exports the rotated time series used by PWB.</td>
+</tr>
+<tr class="odd">
+<td><code>-3</code></td>
+<td>CM<span class="math inline">\(_{CTR}\)</span> (constrained CM)</td>
+<td>narrow (per campaign)</td>
+<td>yes, nominal lag as fallback</td>
+<td>Narrow window is the per-gas range listed below.</td>
+</tr>
+<tr class="even">
+<td><code>-4</code></td>
+<td>Constant lag</td>
+<td>n/a</td>
+<td>fixed at the nominal lag</td>
+<td>EddyPro constant-lag run (<code>tlag_meth=1</code>); no paper acronym.</td>
+</tr>
+<tr class="odd">
+<td><code>-5</code></td>
+<td>PWB<span class="math inline">\(_{OPT}\)</span></td>
+<td>n/a</td>
+<td>n/a</td>
+<td>Pre-whitening with block-bootstrap (Vitale et al.&nbsp;2024).</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>Implementation status: all five versions (<code>-1</code> through <code>-5</code>) are produced for both campaigns. For <code>-5</code> (PWB) the lag is detected and removed from the raw data before the EddyPro run, so that run applies no lag compensation; its per-chunk time-lag summaries are kept alongside the fluxes. The lag applied (and reported in the figures) is the optimised PWB<span class="math inline">\(_{OPT}\)</span> lag, not the raw per-period PWB mode.</p>
+</section>
+<section id="nominal-lags-and-narrow-windows" class="level3">
+<h3 class="anchored" data-anchor-id="nominal-lags-and-narrow-windows">Nominal lags and narrow windows</h3>
+<p>For each campaign and gas, the <strong>nominal lag</strong> is the value used as the default fallback (<code>-2</code>, <code>-3</code>) and as the fixed lag (<code>-4</code>); the <strong>narrow window</strong> is the search range for <code>-3</code>. Values are derived from the per-period lag analysis (provenance: the full 2012 to 2022 per-period lag table); only the two periods covering these campaigns are reproduced here.</p>
+<section id="qcl-source-period-2020_45_2021_1" class="level4">
+<h4 class="anchored" data-anchor-id="qcl-source-period-2020_45_2021_1">2021_1 (QCL), source period <code>2020_4+5_2021_1</code></h4>
+<div id="tbl-lags-qcl" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-lags-qcl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Nominal lag and narrow search window per gas for the QCL campaign (2021_1). The nominal lag is the fallback for <code>-2</code> and <code>-3</code> and the fixed lag for <code>-4</code>; the narrow window is the search range for <code>-3</code>.
+</figcaption>
+<div aria-describedby="tbl-lags-qcl-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Gas</th>
+<th>Nominal lag (s)</th>
+<th>Narrow window (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>N₂O</td>
+<td>0.60</td>
+<td>0.40 to 0.90</td>
+</tr>
+<tr class="even">
+<td>CH₄</td>
+<td>0.65</td>
+<td>0.45 to 0.90</td>
+</tr>
+<tr class="odd">
+<td>H₂O</td>
+<td>0.70</td>
+<td>0.60 to 2.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</section>
+<section id="lgr-source-period-2021_2_2022_1" class="level4">
+<h4 class="anchored" data-anchor-id="lgr-source-period-2021_2_2022_1">2021_2 (LGR), source period <code>2021_2_2022_1</code></h4>
+<div id="tbl-lags-lgr" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-lags-lgr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: Nominal lag and narrow search window per gas for the LGR campaign (2021_2), used the same way as in <a href="#tbl-lags-qcl" class="quarto-xref">Table&nbsp;2</a>.
+</figcaption>
+<div aria-describedby="tbl-lags-lgr-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Gas</th>
+<th>Nominal lag (s)</th>
+<th>Narrow window (s)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>N₂O</td>
+<td>1.75</td>
+<td>1.50 to 3.30</td>
+</tr>
+<tr class="even">
+<td>CH₄</td>
+<td>1.75</td>
+<td>1.50 to 3.30</td>
+</tr>
+<tr class="odd">
+<td>H₂O</td>
+<td>1.80</td>
+<td>1.65 to 6.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+<p>For the LGR campaign the lag fluctuates within these ranges across the period.</p>
+</section>
+</section>
+</section>
+<section id="applicability-of-each-version" class="level2">
+<h2 class="anchored" data-anchor-id="applicability-of-each-version">Applicability of each version</h2>
+<p><strong>1. CM-W (wide window, no default).</strong> The exploratory first pass. It searches the whole 0 to 10 s window every half-hour with no fallback, so its output reveals the lag distribution and its modal peak, which versions 2 to 4 build on. With nothing constraining the search, it is the most exposed to the covariance-maximisation (“mirroring”) bias for low signal-to-noise gases like N₂O: per half-hour the lag that maximises the absolute covariance is picked, inflating the flux away from zero. Covariance can be maximised against the scalar S of interest itself, or against an inert gas on the same analyzer (shared sampling line, so the lag is easier to detect), whose lag is then applied to S. It is intended for characterising the lag and configuring versions 2 to 4 rather than for the final flux. Its flux is an upper bound of the mirroring bias only where the lag distribution shows that the search succeeded in most periods; a distribution dominated by values at the window limits indicates the second failure mode, in which case the resulting budget can fall below that of the other versions.</p>
+<p><strong>2. CM-W + default.</strong> The same wide window, with a fallback to the nominal lag (the CM-W peak) whenever the search is unreliable. It provides a per-half-hour lag while protecting against clearly implausible detections, but it retains most of the mirroring bias, because the search range is unchanged.</p>
+<p><strong>3. CM-W CTR + default.</strong> The search is constrained to a narrow window around the peak, with the same fallback. The narrow window limits the mirroring bias while still allowing the lag to follow real variation within a known range. It is appropriate where the true lag is well constrained and reasonably stable, and is the recommended covariance-maximisation option.</p>
+<p><strong>4. Constant lag.</strong> A single fixed lag at the CM-W peak, applied to every half-hour. It removes the covariance-maximisation bias entirely and is appropriate where the lag is physically stable, for example in a steady closed-path setup. It ignores any real variation of the lag over time, so it is only as reliable as the assumption that the lag is constant over the period.</p>
+<p><strong>5. PWB OPT.</strong> Independent of covariance maximisation and robust to the mirroring bias. It is the reference method (Vitale et al.&nbsp;2024) against which the covariance-maximisation versions are compared. It also searches a window (symmetric ±10 s, wider than the window used for covariance maximisation here), but its lags remain close to the physical lag instead of accumulating at the limits. Where no clear lag can be detected, the optimal lag of the closest preceding period is carried forward, following the S1/S2/S3 rule described below.</p>
+<section id="recommendations" class="level3">
+<h3 class="anchored" data-anchor-id="recommendations">Recommendations</h3>
+<ul>
+<li>Run <strong>CM-W</strong> first, since its lag distribution configures versions 2 to 4. Before its flux is interpreted as a bias estimate, check how often its lags fall on the window limits: a large share indicates a failed search rather than a small or large bias.</li>
+<li>For a covariance-maximisation flux, the constrained <strong>CM-W CTR</strong> is preferable to the wide-window versions, as the narrow window is what limits the bias.</li>
+<li>Apply the <strong>constant lag</strong> only where the lag is stable over the whole period.</li>
+<li>Use <strong>PWB OPT</strong> where a bias-resistant lag is required without manual tuning of a search window, and as the reference for the other versions.</li>
+</ul>
+</section>
+</section>
+<section id="the-pwb-method-in-detail" class="level2">
+<h2 class="anchored" data-anchor-id="the-pwb-method-in-detail">The PWB method in detail</h2>
+<section id="how-pwb-finds-the-lag" class="level3">
+<h3 class="anchored" data-anchor-id="how-pwb-finds-the-lag">How PWB finds the lag</h3>
+<p>For reactive and trace gases such as N₂O and CH₄, the gas-wind cross-correlation is often too weak for conventional covariance-maximization (CM) to determine the time lag reliably. The <code>*-5</code> versions instead use the Pre-Whitening with Block-bootstrap (PWB) method (Vitale et al., 2024), as implemented in <code>diive</code>. It works in two stages.</p>
 <p><strong>Pre-whitening.</strong> An AR(<em>p</em>) filter (order chosen by AIC) removes serial autocorrelation from each series before the cross-correlation function (CCF) is computed. Turbulent wind and trace-gas series are strongly autocorrelated, which broadens and distorts the CCF peak. Whitening the residuals sharpens the peak and gives a cleaner lag estimate.</p>
 <p><strong>Block-bootstrap.</strong> Instead of a single CCF over the whole averaging period, the method draws <em>N</em>ᵦ resampled series by moving-block resampling, where overlapping blocks of length <em>L</em> preserve local autocorrelation. It detects the peak lag in each resample and summarizes the resulting distribution by its mode (the lag estimate) and a 95% Highest Density Interval (HDI). A narrow HDI means resampling consistently finds the same lag, which is the method’s reliability criterion.</p>
 <p>Sonic temperature (T_sonic) is required. Four CCF combinations are evaluated (scalar × W and scalar × T_sonic, each with a scalar, W, or T_sonic AR filter), and the combination with the strongest peak is selected. The T_sonic-based combinations often recover a cleaner lag for gases with a weak scalar × W signal.</p>
-<p>Reference: Vitale D. et al.&nbsp;(2024), <em>Environmental and Ecological Statistics</em> 31, 219-244, <a href="https://doi.org/10.1007/s10651-024-00615-9">doi:10.1007/s10651-024-00615-9</a>.</p>
+<p><strong>PWB also uses a search window.</strong> It is symmetric over ±10 s (the <code>lag_max_s</code> default in diive, matching the broad window of the paper) and therefore wider than the 0 to 10 s window of the covariance-maximization versions. The distinguishing property of PWB is not the absence of a window but that its lags do not accumulate at the window limits. The runs reported here used <em>N</em>ᵦ = 99 bootstrap samples and a block length of 20 s.</p>
 </section>
-<section id="workflow" class="level2">
-<h2 class="anchored" data-anchor-id="workflow">Workflow</h2>
+<section id="pwb_opt-choosing-the-lag-to-apply" class="level3">
+<h3 class="anchored" data-anchor-id="pwb_opt-choosing-the-lag-to-apply">PWB<span class="math inline">\(_{OPT}\)</span>: choosing the lag to apply</h3>
+<p>The per-period PWB mode is not the lag that gets applied. Vitale et al.&nbsp;(2024, Sect. 2.3) define an optimal lag, PWB<span class="math inline">\(_{OPT}\)</span>, through three steps applied to the periods in temporal order:</p>
+<ul>
+<li><strong>S1</strong> a lag whose 95% HDI range is below 0.5 s is reliable and is taken as optimal.</li>
+<li><strong>S2</strong> a lag with a wider HDI is still taken as optimal if it deviates by no more than 0.5 s from the optimal lag of the closest preceding period.</li>
+<li><strong>S3</strong> everything else is unreliable and is replaced by that preceding optimal lag.</li>
+</ul>
+<p>The carry-forward refers to the closest preceding period only, never to later ones. Both thresholds are the 0.5 s recommended in the paper, which is also the value used in these runs: in the summary tables <code>{gas}_is_reliable</code> changes exactly at an HDI range of 0.50 s.</p>
+<p><strong>Implementation.</strong> The RFlux package (v3.2.0) implements the detection only: its exported <code>tlag_detection()</code> works on a single averaging period and returns the PWB lag with its HDI bounds, along with the CM and PW variants. The S1/S2/S3 selection is described in the paper but is not in the package, so <code>diive</code> implements it (<code>diive/flux/hires/lag_pwb.py</code>, <code>apply_pwbopt</code>). diive adds one step of its own on top: periods before the first reliable detection have nothing to carry forward, and are filled by back-filling the first reliable lag, then the median of the raw detected lags, then a constant fallback.</p>
+<p>Reference: Vitale D. et al.&nbsp;(2024), <em>Environmental and Ecological Statistics</em> 31, 219-244, <a href="https://doi.org/10.1007/s10651-024-00615-9">doi:10.1007/s10651-024-00615-9</a>. Chamau (CH-Cha) is one of the four sites in that study, so its published PWB results are directly comparable to the ones here.</p>
+</section>
+<section id="detect-and-remove-workflow" class="level3">
+<h3 class="anchored" data-anchor-id="detect-and-remove-workflow">Detect-and-remove workflow</h3>
 <p>The <code>*-5_PWB</code> versions are produced with diive’s detect-and-remove TUI, an end-to-end pipeline that detects and removes the lag in a single run. There is no longer a separate pre-rotation step or a separate apply step: rotation is done in memory, and the lag-corrected 30-minute files come straight out. Launch it with:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode powershell code-with-copy"><code class="sourceCode powershell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>uv run diive-tlag-pwb-detect-remove-tui</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The form sets the input and output paths, the wind (u, v, w) and sonic-temperature columns, the scalars (CH₄, N₂O), the PWB and chunking parameters, the raw-file format (skip-rows, header rows, separator, file glob), and the per-chunk output naming. Settings persist between sessions in <code>~/.diive/detect_remove_tui.yaml</code>, so you enter them only once. The same pipeline runs headless as <code>uv run diive-tlag-pwb-detect-remove</code>.</p>
@@ -534,6 +803,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><strong>Keep H₂O in the EddyPro settings.</strong> Even though the study only looks at the N₂O and CH₄ fluxes, water vapor must still be included in the run. The high-frequency spectral correction (here EddyPro’s Fratini method) is humidity dependent and uses the H₂O series to characterize the tube attenuation, so dropping H₂O changes the correction applied to N₂O and CH₄ and biases their fluxes low. This matters for a fair comparison: the <code>*-5</code> runs should differ from the other versions only in how the N₂O and CH₄ lag is handled, not in whether H₂O is present. Only the N₂O and CH₄ lag is removed beforehand (that is the study variable); the H₂O lag is left in the raw data and compensated by EddyPro in the normal way, using the same constant H₂O lag as the other versions.</p>
 
 
+</section>
 </section>
 </section>
 
@@ -953,8 +1223,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../docs/time-lag-options.html" class="pagination-link" aria-label="Choosing a time-lag option">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Choosing a time-lag option</span>
+      <a href="../index.html" class="pagination-link" aria-label="Introduction">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Introduction</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -971,7 +1241,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </div>   
     <div class="nav-footer-center">
 <p>Lukas Hörtnagl, ETH Zürich</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/docs/processing-steps.md" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/holukas/ms-timelag-comparison/blob/main/docs/time-lag.qmd" class="toc-action"><i class="bi bi-github"></i>View source</a></li><li><a href="https://github.com/holukas/ms-timelag-comparison/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
       &nbsp;
     </div>
