@@ -4,8 +4,21 @@ Guidance for Claude Code when working in this repository.
 
 ## What this project is
 
-Analysis and documentation for a scientific manuscript on **the impact of
-different time-lag settings on eddy covariance fluxes of N₂O and CH₄**.
+Analysis and figures on **the impact of different time-lag settings on eddy
+covariance fluxes of N₂O and CH₄**.
+
+This repo is **not a paper of its own**. The figures it produces go into the
+time-lag part of the raw-data-processing section of a co-authored, multi-author
+paper on methodological challenges in CH₄ and N₂O eddy covariance (in
+preparation, Lukas contributes the time-lag test). The paper text is written
+elsewhere and is not tracked here. That sets what belongs in `docs/`:
+
+- **Yes:** the theoretical background of the lag problem for low signal-to-noise
+  gases, the time-lag options being compared, how the figures are produced, and
+  the data stages behind them.
+- **No:** the paper's own framing, its other sections and tests, author lists,
+  target journals, and result numbers or interpretation that belong in the paper
+  text. Keep the docs to what a reader needs in order to understand the figures.
 
 ## How the work is organized
 
@@ -32,8 +45,8 @@ notebooks/   executable notebooks → run processing AND render into the site
 docs/        prose-only pages (methods text) + references.bib
 index.md     site landing page (introduction)
 data/        datasets, organized by processing stage (00-* = raw inputs)
-figures/     exported figures (manuscript record)
-tables/      exported tables (manuscript record)
+figures/     exported figures (the deliverable of this repo)
+tables/      exported tables
 _quarto.yml  Quarto website config + TOC
 _extensions/ vendored Quarto extensions (lightbox), tracked, do not edit by hand
 deploy.ps1   build + publish the site to GitHub Pages
@@ -42,7 +55,13 @@ deploy.ps1   build + publish the site to GitHub Pages
 Every notebook in `notebooks/` is part of the active pipeline. An earlier `x-`
 prefix marked parked notebooks; those have been removed, and only the data folders
 they wrote survive (see below). Do not reintroduce that prefix: retire a notebook
-by deleting it, and say so in `docs/notebooks.md`.
+by deleting it, and say so in `index.md`.
+
+Numbered notebooks are the pipeline itself. A `SUPPL_` prefix marks a supplementary
+notebook: it hangs off a numbered one, reads a stage that already exists and writes
+only figures, so it never takes a stage number of its own. Its figures carry a
+matching `suppl_` filename prefix. There is one so far,
+`SUPPL_level1_lag_diagnostics.ipynb` (supplement to `03`).
 
 ### Data stages
 
@@ -70,7 +89,7 @@ the current pipeline. They are kept for provenance; nothing downstream reads the
 **Version control:** everything under `data/` is **tracked**, both the raw `00-*`
 inputs (provenance) and the derived `*.parquet` stages (a committed snapshot of
 every stage, regenerable from the inputs). `figures/` is committed too
-(manuscript record). The live file manifest is the `00_inventory` notebook,
+(the deliverable). The live file manifest is the `00_inventory` notebook,
 which lists `data/` and `figures/` straight from disk.
 
 ## Processing versions (the study variable)
@@ -89,7 +108,7 @@ Gatos Research, campaign 2021_2), the five variants share one scheme:
 - `*-5`: PWB. Detect and remove the lag from the raw data in one run via diive's
   detect-and-remove TUI (`diive-tlag-pwb-detect-remove-tui`; rotation is
   in-memory, no separate apply step), then process fluxes with EC maximization
-  disabled (see `docs/processing-steps.md`). The lag applied is the optimised
+  disabled (see `docs/time-lag.qmd`). The lag applied is the optimised
   PWB$_{OPT}$ lag (`PWB$_{OPT}$`).
 
 The `OPENLAG` / `DEFAULT` / `CONSTANT` / `PWB` tokens are the EddyPro/diive
@@ -103,19 +122,72 @@ both analyzers. The `*-5` (PWB) EddyPro run uses `tlag_meth=0` (no lag
 compensation), since the lag was already removed from the raw data; its per-chunk
 time-lag summaries are kept alongside the fluxes.
 
-A note on reading the comparison: `*-4` (constant lag) systematically yields a
-lower flux budget than the covariance-maximization variants (`*-1` to `*-3`),
-strongest for N₂O. This is the covariance-maximization bias (per half-hour, the
-lag that maximizes |covariance| is selected, inflating the flux of a low
-signal-to-noise gas), not a processing error; it is a core result of the study.
+### Campaign settings
+
+The nominal lags and the `*-3` narrow windows per campaign and gas are tabulated
+in `docs/time-lag.qmd`; they match the `.metadata` files of the EddyPro
+runs (`col_19` is CH₄, `col_20` is N₂O), which is where to check them against what
+was actually run. The campaigns do not overlap: the QCL half runs 1 Jan to
+20 Jul 2021, the LGR half 22 Jul to 31 Dec 2021 (first and last reported flux).
+
+### Reading the comparison
+
+Two failure modes drive the differences between the variants, and they push the
+flux in opposite directions (both are described in
+`docs/time-lag.qmd`): the maximization locks onto a noise peak and
+inflates the flux, or it finds no peak at all and the lags pile up at the 0 s and
+10 s rails of the search window.
+
+Which one dominates **differs between the gases**, so never state the comparison
+as one rule for both. For N₂O the covariance-maximization variants come out above
+`*-5` and the constant lag below it; for CH₄ the wide search mostly fails (a large
+share of rail values, the raw modal bin sitting on the 10 s rail), and its budget
+lands below the constant lag instead. The post-chain numbers do not always keep
+the sign of the Level-1 ones either.
+
+Numbers belong in the figures and in the paper text, not in this file or in
+`docs/`: recompute them from the parquet stages when they are needed, per gas and
+per campaign.
 
 Keep this list defined in one place. It lives in
-`docs/processing-versions.md` and the notebooks' config cells (`ANALYZERS`,
+`docs/time-lag.qmd` and the notebooks' config cells (`ANALYZERS`,
 `GASES`, `KEEP_COLS`), never hardcoded ad hoc.
+
+### The PWB method, and what belongs to whom
+
+Local copies of the two sources, outside this repo:
+
+```
+F:\Sync\luhk_work\dev-data\diive-data\references\VITALE_2024_TIME-LAG-DETECTION\
+    Vitale et al. - 2024 - A pre-whitening with block-bootstrap ....pdf   the paper
+    RFlux-master-v3.2.0\                                                 the R package
+```
+
+Facts worth not re-deriving:
+
+- **PWB$_{OPT}$ is the paper's, not diive's.** The S1/S2/S3 rule is Sect. 2.3 of
+  Vitale et al. (2024): S1 accepts a lag whose 95 % HDI range is below 0.5 s, S2
+  accepts a wider-HDI lag if it deviates by no more than 0.5 s from the optimal
+  lag of the closest preceding averaging period, S3 replaces the rest with that
+  preceding optimal lag. The carry-forward looks **backward only**.
+- **RFlux v3.2.0 does not implement the selection.** The package exports one
+  time-lag function, `tlag_detection()`, which works on a single averaging period
+  and returns the PWB lag with its HDI bounds. Nothing in the package does S1/S2/S3
+  (grep for "optimal" finds nothing). diive implements it in
+  `diive/flux/hires/lag_pwb.py` (`apply_pwbopt`), plus a gap filler for periods
+  before the first reliable detection (back-fill, then median of the raw lags,
+  then a constant), which is diive's addition, not the paper's.
+- **PWB searches a window too.** diive defaults to a symmetric ±10 s
+  (`lag_max_s = 10.0`), matching the paper's broad window; the study's runs use
+  99 bootstrap samples and a 20 s block length. So never write that PWB uses no
+  search window; what distinguishes it is that its lags do not pile up at the
+  limits.
+- **CH-Cha is one of the paper's own four sites**, so their PWB results at Chamau
+  are directly comparable to the ones produced here.
 
 ## Analysis pipeline
 
-The manuscript figures are built on the quality-controlled fluxes (`08`, `09`);
+The main figures are built on the quality-controlled fluxes (`08`, `09`);
 `03` and `04` mirror those same figures on the Level-1 fluxes, before the chain, as
 the pre-quality-control counterpart. Notebooks run in order, each stage feeding the
 next: `01` read CSV → Parquet. On the Level-1 side the merge and the plotting are
@@ -139,7 +211,7 @@ tables (the chain needs the EddyPro flag and `USTAR` columns) and writes
 `data/05-flux_processing_chain_parquet/`. It writes only data files, but at the
 end it also renders inline overview figures per gas (a date/time heatmap grid and
 a time-series grid of the CUT_50 QC flux for every variant, both analyzers); those
-overviews are shown inline only and are not saved to `figures/`. Figure creation for the manuscript is
+overviews are shown inline only and are not saved to `figures/`. Figure creation is
 consolidated into two notebooks that both read the chain output. `08` merges the
 two analyzers' QC fluxes, which cover complementary halves of 2021 (QCL is
 campaign 2021_1, LGR is 2021_2), into one continuous full-year series per variant,
@@ -152,7 +224,12 @@ figure per gas with two rows: the half-hourly flux density distribution per
 variant on top (kernel-density line, fixed x-range per gas, PWB$_{OPT}$ drawn as a
 grey shaded reference area), and the running QC-flux budget per variant over the
 paired common samples below (QCL and LGR panels, PWB$_{OPT}$ again a grey shaded
-area), writing `figures/09_cumulative_*.png`. Notebook numbers `06` and `07`
+area), writing `figures/09_cumulative_*.png`. `SUPPL_level1_lag_diagnostics` sits
+beside `03` rather than in the numbered chain: it reads the same merged file
+(`02-`) along the time lag instead of along time (off-mode share of the lag by
+month and hour, joint density of flux and lag used, pairwise lag-agreement and
+budget-difference matrices) and writes `figures/suppl_lagdiag_*.png`.
+Notebook numbers `06` and `07`
 are intentionally unused (earlier retired plots: the per-analyzer QC figures and
 other intermediates). The chain
 (L2 to L4) is post-processing on top of the Level-1 EddyPro fluxes.

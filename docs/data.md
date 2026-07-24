@@ -1,10 +1,10 @@
 # Data
 
-All datasets live under `data/` at the repository root, organized by processing
+All datasets are stored under `data/` at the repository root, organized by processing
 stage. Everything under `data/` is tracked in git: the raw `00-*` inputs for
 provenance and the derived `*.parquet` stages as a committed snapshot (they are
 regenerable from the inputs). This page documents what the directory contains and
-how it maps onto the [processing versions](processing-versions.md) being
+how it maps onto the [time-lag versions](time-lag.qmd) being
 compared; for the concrete file-by-file manifest (data and figures) see the
 [Repository inventory](../notebooks/00_inventory.ipynb).
 
@@ -29,8 +29,8 @@ data/
 
 The figure notebooks (03, 04, 08, 09) write to `figures/`, not to a numbered data
 folder. The `04-flux-product-2025.3_subset_2024` and `05-merged_variants_fluxproduct`
-folders came from the `x-04` / `x-05` notebooks, which have been removed (see
-[Notebooks](notebooks.md)); the data is kept for provenance and nothing in the
+folders came from the `x-04` / `x-05` notebooks, which have been removed (see the
+[analysis pipeline](../index.md)); the data is kept for provenance and nothing in the
 current pipeline reads it. Neither folder has anything to do with the active
 notebooks that carry those numbers.
 
@@ -88,11 +88,11 @@ strategy:
   lag (EddyPro `tlag_meth=1`, versions `*-4`).
 - `*-5_PWB-LAG-REMOVED_*`: the PWB runs (versions `*-5`). The lag is detected and
   removed from the raw data with diive's detect-and-remove workflow (see
-  [processing steps](processing-steps.md)) beforehand, so the EddyPro run itself
+  [processing steps](time-lag.qmd)) beforehand, so the EddyPro run itself
   applies no lag compensation (`tlag_meth=0`, no covariance maximization).
 
 These files define each version; keep them in sync with the
-[processing versions](processing-versions.md) table.
+[processing versions](time-lag.qmd) table.
 
 ## `00-meteo/`
 
@@ -102,7 +102,7 @@ Meteorological data used as supporting context. To be documented once populated.
 
 The PWB detect-and-remove output for the `*-5` scenario (`LGR-5`, `QCL-5`): one
 `*_detect_and_remove_tlag_summary.csv` per analyzer, with one row per processed
-chunk (see [processing steps](processing-steps.md) for the method). These hold
+chunk (see [processing steps](time-lag.qmd) for the method). These hold
 time-lag results only, not fluxes. The applied lag per gas is
 `{gas}_tlag_final_pf_s`. Each CSV ships with a `*_columns.md` describing every
 column.

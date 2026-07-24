@@ -1,7 +1,10 @@
 # ms-timelag-comparison
 
-Analysis and documentation for a scientific manuscript on the impact of
-different time-lag settings on eddy covariance fluxes of N₂O and CH₄.
+Analysis and figures on the impact of different time-lag settings on eddy
+covariance fluxes of N₂O and CH₄. The figures go into the time-lag part of a
+co-authored paper on methodological challenges in CH₄ and N₂O flux measurements
+(in preparation); the paper text lives elsewhere, this repository covers only the
+analysis behind those figures.
 
 The processing runs in Jupyter notebooks that use the
 [`diive`](../../diive) eddy covariance toolkit, and is published as a
@@ -46,7 +49,7 @@ the current pipeline; they are kept for provenance only.
 
 Version control: everything under `data/` is tracked, both the raw `00-*` inputs
 (for provenance) and the derived `*.parquet` stages (a committed snapshot,
-regenerable from the inputs). `figures/` is tracked as well, as the manuscript
+regenerable from the inputs). `figures/` is tracked as well, as the figure
 record.
 
 ## Analysis pipeline
@@ -81,13 +84,19 @@ The notebooks run in order; each stage feeds the next:
    quality-controlled budget per variant below (QCL and LGR panels), as a
    cumulative mass (N₂O in kg N₂O-N ha⁻¹, CH₄ in g CH₄-C m⁻²), into
    `figures/09_*.png`.
+8. `SUPPL_level1_lag_diagnostics.ipynb` is the supplement to notebook 03: the same
+   merged table (`02-`) read along the time lag instead of along time (when the lag
+   search left its own mode, the joint distribution of flux and lag used, and the
+   pairwise lag and budget differences), one figure per gas
+   (`figures/suppl_lagdiag_*.png`).
 
 Notebooks 03 and 04 are the Level-1 (pre-quality-control) mirrors of 08 and 09.
 On the Level-1 side the reading and the plotting are kept as separate steps: 02
 builds the merged table, 03 and 04 only draw it.
 
-`00_inventory.ipynb` is a standalone page: it lists the `data/` and `figures/`
-manifest straight from disk and renders the figure gallery. Notebook numbers 06
+`00_inventory.ipynb` is a standalone page: it lists the tracked `data/` and
+`figures/` files directly from disk. The figures themselves are shown, with their
+captions, in `docs/figure-gallery.md`. Notebook numbers 06
 and 07 are unused (earlier plots that were removed once figure creation was
 consolidated). The former `x-04` / `x-05` notebooks (flux-product reference and
 merge) have been removed; the `04-…` and `05-merged…` data folders are their
@@ -151,6 +160,27 @@ Publish to GitHub Pages with the bundled script (renders, then pushes
 One-time setup in the browser: repo **Settings → Pages → Source: Deploy from a
 branch → `gh-pages` / `/ (root)`**. The site is then served at
 <https://holukas.github.io/ms-timelag-comparison/>.
+
+GitHub's CDN caches aggressively, so a deploy takes a minute or two to appear;
+hard-refresh with Ctrl+Shift+R, since a normal reload can serve the cached
+version. To check the state of a deploy:
+
+```powershell
+# Pages enabled? (404 = off, JSON with "status":"built" = on)
+curl.exe -s https://api.github.com/repos/holukas/ms-timelag-comparison/pages
+# Live site responding?
+curl.exe -s -o $null -w "%{http_code}`n" https://holukas.github.io/ms-timelag-comparison/
+```
+
+Three further details:
+
+- Each page shows its own "last updated" date, taken from the file's last git
+  commit (`date: last-modified` in `_quarto.yml`), so nothing needs maintaining
+  by hand.
+- `PYTHONUTF8` is worth setting on Windows, so that emoji in notebook output
+  cannot trigger a cp1252 `UnicodeEncodeError`. `deploy.ps1` sets it already.
+- `docs/references.bib` has no entries yet, which is harmless. Citations use
+  Pandoc syntax (`[@key]`) once entries are added.
 
 ## Author
 
