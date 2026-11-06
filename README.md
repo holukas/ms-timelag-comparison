@@ -14,7 +14,7 @@ The processing runs in Jupyter notebooks that use the
 
 ```
 notebooks/   executable notebooks: run the processing and render into the site
-docs/        prose-only pages (intro, methods) + references.bib
+docs/        prose-only pages (methods, data, figure gallery) + references.bib
 index.md     site landing page (introduction)
 data/        datasets, organized by processing stage (see below)
 figures/     exported figures
@@ -33,6 +33,7 @@ never written to; higher-numbered folders are derived and regenerable.
 data/
   00-eddypro_fluxes_level-1/                  raw EddyPro flux output (FLUXNET CSV)
   00-eddypro_settings/                        EddyPro project + metadata files
+  00-management/                              CH-Cha management record
   00-meteo/                                    meteorological data
   00-pwb_tlag_summary/                        PWB (*-5) tlag summaries
   01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet      (notebook 01)
@@ -179,8 +180,9 @@ Three further details:
   by hand.
 - `PYTHONUTF8` is worth setting on Windows, so that emoji in notebook output
   cannot trigger a cp1252 `UnicodeEncodeError`. `deploy.ps1` sets it already.
-- `docs/references.bib` has no entries yet, which is harmless. Citations use
-  Pandoc syntax (`[@key]`) once entries are added.
+- `docs/references.bib` holds three entries (Vitale et al. 2024, Langford et
+  al. 2015, Nemitz et al. 2018). The pages cite them in plain text so far;
+  Pandoc syntax (`[@vitale2024]`) would link them to the bibliography.
 
 ## Author
 

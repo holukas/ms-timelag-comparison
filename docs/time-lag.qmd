@@ -38,13 +38,13 @@ below differ mainly in which of the two failures they guard against.
 ## The five versions
 
 Four of the five versions start from one exploratory run, **CM-W**, and use its peak lag
-distribution to configure themselves; the fifth, **PWB OPT**, is independent of them.
+distribution to configure themselves; the fifth, **PWB$^{OPT}$**, is independent of them.
 
 **How the five versions relate.** CM-W (variant 1) is one wide
 covariance-maximisation run (Nemitz steps 1 to 3): it keeps its own lags and
 yields the distribution peak (nominal lag) and the distribution range. The peak
 is the default fallback for variants 2 and 3 and the fixed lag for variant 4; the
-range sets the narrow window for variant 3. PWB OPT (variant 5) is independent.
+range sets the narrow window for variant 3. PWB$^{OPT}$ (variant 5) is independent.
 The Nemitz et al. (2018) fallback hierarchy is shown separately as a reference
 path:
 
@@ -90,18 +90,18 @@ flowchart TD
 
 The same scheme of five versions is applied to each campaign and to each gas
 (N₂O, CH₄, H₂O). The versions differ only in how the lag is found. The method
-abbreviations (CM, CM$_{CTR}$, PWB, PWB$_{OPT}$) follow Vitale et al. (2024):
+abbreviations (CM, CM$^{CTR}$, PWB, PWB$^{OPT}$) follow Vitale et al. (2024):
 CM = covariance maximisation, subscript CTR = constrained (narrow window), PWB =
-pre-whitening with block-bootstrap, PWB$_{OPT}$ = the optimised PWB lag (the
+pre-whitening with block-bootstrap, PWB$^{OPT}$ = the optimised PWB lag (the
 S1/S2/S3 decision rule applied to the per-period PWB estimates).
 
-| Version | Method                       | Search window         | Default lag applied          | Notes                                                       |
-| ------- | ---------------------------- | --------------------- | ---------------------------- | ----------------------------------------------------------- |
-| `-1`    | CM                           | 0 to 10 s             | no (OPENLAG)                 | Also performs the unzipping of the raw data.                |
-| `-2`    | CM                           | 0 to 10 s             | yes, nominal lag as fallback | Also exports the rotated time series used by PWB.           |
-| `-3`    | CM$_{CTR}$ (constrained CM)  | narrow (per campaign) | yes, nominal lag as fallback | Narrow window is the per-gas range listed below.            |
-| `-4`    | Constant lag                 | n/a                   | fixed at the nominal lag     | EddyPro constant-lag run (`tlag_meth=1`); no paper acronym. |
-| `-5`    | PWB$_{OPT}$                  | n/a                   | n/a                          | Pre-whitening with block-bootstrap (Vitale et al. 2024).    |
+| Version | Method                       | Search window         | Default lag applied             | Notes                                                                       |
+| ------- | ---------------------------- | --------------------- | ------------------------------- | --------------------------------------------------------------------------- |
+| `-1`    | CM                           | 0 to 10 s             | no (OPENLAG)                    | Also performs the unzipping of the raw data. EddyPro searches from -0.05 s. |
+| `-2`    | CM                           | 0 to 10 s             | yes, nominal lag as fallback    | Also exports the rotated time series used by PWB.                           |
+| `-3`    | CM$^{CTR}$ (constrained CM)  | narrow (per campaign) | yes, nominal lag as fallback    | Narrow window is the per-gas range listed below.                            |
+| `-4`    | Constant lag                 | n/a                   | fixed at the nominal lag        | EddyPro constant-lag run (`tlag_meth=1`); no paper acronym.                 |
+| `-5`    | PWB$^{OPT}$                  | ±10 s (symmetric)     | no, preceding optimal lag (S3)  | Pre-whitening with block-bootstrap (Vitale et al. 2024).                    |
 
 : The five processing versions, the study variable. Every other EddyPro setting is
 held identical across them, so any difference in the resulting flux is
@@ -111,18 +111,18 @@ Implementation status: all five versions (`-1` through `-5`) are produced for
 both campaigns. For `-5` (PWB) the lag is detected and removed from the raw data
 before the EddyPro run, so that run applies no lag compensation; its per-chunk
 time-lag summaries are kept alongside the fluxes. The lag applied (and reported
-in the figures) is the optimised PWB$_{OPT}$ lag, not the raw per-period PWB
+in the figures) is the optimised PWB$^{OPT}$ lag, not the raw per-period PWB
 mode.
 
 ### Nominal lags and narrow windows
 
 For each campaign and gas, the **nominal lag** is the value used as the default
 fallback (`-2`, `-3`) and as the fixed lag (`-4`); the **narrow window** is the
-search range for `-3`. Values are derived from the per-period lag analysis
-(provenance: the full 2012 to 2022 per-period lag table); only the two periods
-covering these campaigns are reproduced here.
+search range for `-3`. Both come from the wide-window run `-1`: the nominal lag is
+the modal lag of its lag distribution, and the narrow window spans the range of
+that distribution's peak (the bottom row of notebook 03).
 
-#### 2021_1 (QCL), source period `2020_4+5_2021_1`
+#### 2021_1 (QCL)
 
 | Gas | Nominal lag (s) | Narrow window (s) |
 | --- | --------------- | ----------------- |
@@ -134,7 +134,7 @@ covering these campaigns are reproduced here.
 nominal lag is the fallback for `-2` and `-3` and the fixed lag for `-4`; the
 narrow window is the search range for `-3`. {#tbl-lags-qcl}
 
-#### 2021_2 (LGR), source period `2021_2_2022_1`
+#### 2021_2 (LGR)
 
 | Gas | Nominal lag (s) | Narrow window (s) |
 | --- | --------------- | ----------------- |
@@ -170,7 +170,7 @@ other versions.
 lag while protecting against clearly implausible detections, but it retains most
 of the mirroring bias, because the search range is unchanged.
 
-**3. CM-W CTR + default.** The search is constrained to a narrow window around
+**3. CM-W$^{CTR}$ + default.** The search is constrained to a narrow window around
 the peak, with the same fallback. The narrow window limits the mirroring bias
 while still allowing the lag to follow real variation within a known range. It is
 appropriate where the true lag is well constrained and reasonably stable, and is
@@ -182,7 +182,7 @@ appropriate where the lag is physically stable, for example in a steady
 closed-path setup. It ignores any real variation of the lag over time, so it is
 only as reliable as the assumption that the lag is constant over the period.
 
-**5. PWB OPT.** Independent of covariance maximisation and robust to the
+**5. PWB$^{OPT}$.** Independent of covariance maximisation and robust to the
 mirroring bias. It is the reference method (Vitale et al. 2024) against which the
 covariance-maximisation versions are compared. It also searches a window
 (symmetric ±10 s, wider than the window used for covariance maximisation here),
@@ -197,10 +197,10 @@ below.
   Before its flux is interpreted as a bias estimate, check how often its lags
   fall on the window limits: a large share indicates a failed search rather than
   a small or large bias.
-- For a covariance-maximisation flux, the constrained **CM-W CTR** is preferable
+- For a covariance-maximisation flux, the constrained **CM-W$^{CTR}$** is preferable
   to the wide-window versions, as the narrow window is what limits the bias.
 - Apply the **constant lag** only where the lag is stable over the whole period.
-- Use **PWB OPT** where a bias-resistant lag is required without manual tuning of
+- Use **PWB$^{OPT}$** where a bias-resistant lag is required without manual tuning of
   a search window, and as the reference for the other versions.
 
 ## The PWB method in detail
@@ -238,10 +238,10 @@ distinguishing property of PWB is not the absence of a window but that its lags
 do not accumulate at the window limits. The runs reported here used *N*ᵦ = 99
 bootstrap samples and a block length of 20 s.
 
-### PWB$_{OPT}$: choosing the lag to apply
+### PWB$^{OPT}$: choosing the lag to apply
 
 The per-period PWB mode is not the lag that gets applied. Vitale et al. (2024,
-Sect. 2.3) define an optimal lag, PWB$_{OPT}$, through three steps applied to the
+Sect. 2.3) define an optimal lag, PWB$^{OPT}$, through three steps applied to the
 periods in temporal order:
 
 - **S1** a lag whose 95% HDI range is below 0.5 s is reliable and is taken as
@@ -281,19 +281,19 @@ uv run diive-tlag-pwb-detect-remove-tui
 ```
 
 The form sets the input and output paths, the wind (u, v, w) and sonic-temperature
-columns, the scalars (CH₄, N₂O), the PWB and chunking parameters, the raw-file
+columns, the scalars (CH₄, N₂O, H₂O), the PWB and chunking parameters, the raw-file
 format (skip-rows, header rows, separator, file glob), and the per-chunk output
 naming. Settings persist between sessions in `~/.diive/detect_remove_tui.yaml`, so
 you enter them only once. The same pipeline runs headless as
 `uv run diive-tlag-pwb-detect-remove`.
 
 Each long raw file (e.g. 6 h) is read once and processed in 30-minute chunks
-snapped to the wall-clock grid (:00 / :30), in two phases:
+snapped to the wall-clock grid (:00 / :30), in three steps:
 
 1. **Detect.** For each chunk, the wind vector is double-rotated in memory (the
    rotated data are never written to disk), and `PreWhiteningBootstrap` runs on
    the rotated W, each scalar, and sonic temperature to estimate the lag per gas.
-2. **PWBOPT.** Once every chunk is detected, the PWBOPT decision rule (S1/S2/S3
+2. **PWB$^{OPT}$.** Once every chunk is detected, the PWB$^{OPT}$ decision rule (S1/S2/S3
    carry-forward and gap-fill) is applied across the *whole* chunk sequence in
    temporal order to pick the best lag for each chunk. This replaces a spurious
    wide-HDI estimate with the neighboring optimal lag.
@@ -314,8 +314,8 @@ high-frequency spectral correction (here EddyPro's Fratini method) is humidity
 dependent and uses the H₂O series to characterize the tube attenuation, so
 dropping H₂O changes the correction applied to N₂O and CH₄ and biases their
 fluxes low. This matters for a fair comparison: the `*-5` runs should differ
-from the other versions only in how the N₂O and CH₄ lag is handled, not in
-whether H₂O is present. Only the N₂O and CH₄ lag is removed beforehand (that is
-the study variable); the H₂O lag is left in the raw data and compensated by
-EddyPro in the normal way, using the same constant H₂O lag as the other
-versions.
+from the other versions only in how the lag is found, not in whether H₂O is
+present. The H₂O lag is handled like the N₂O and CH₄ lags: the detect-and-remove
+run estimates it with PWB and removes it from the raw data, and EddyPro then
+applies no lag compensation to any of the three gases (`tlag_meth=0`, nominal
+lags of 0 s in the `.metadata` files).

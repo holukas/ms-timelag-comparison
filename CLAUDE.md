@@ -71,7 +71,10 @@ folders are raw inputs and are never written to; higher numbers are derived.
 ```
 data/00-eddypro_fluxes_level-1/                  raw EddyPro FLUXNET CSVs
 data/00-eddypro_settings/                        EddyPro .eddypro + .metadata files
-data/00-meteo/                                    meteo data
+data/00-management/                              CH-Cha management record (.xlsx),
+                                                 events drawn in notebook 03
+data/00-meteo/                                   2021 rain, SWC, TS subset of FP2025.3,
+                                                 rain drawn in the N2O flux panels (nb 03)
 data/00-pwb_tlag_summary/                        PWB (*-5) tlag summary CSVs
 data/01-eddypro_fluxes_level-1_parquet/          flux CSVs as Parquet  (notebook 01)
 data/01-pwb_tlag_summary_parquet/                PWB tlag as Parquet   (notebook 01)
@@ -102,20 +105,22 @@ Gatos Research, campaign 2021_2), the five variants share one scheme:
 - `*-2`: covariance maximization, 0 to 10 s window, default fallback lag
   (`DEFAULT`; CM).
 - `*-3`: covariance maximization, narrow per-campaign window, default fallback
-  lag (`DEFAULT`, narrow; CM$_{CTR}$).
+  lag (`DEFAULT`, narrow; CM$^{CTR}$).
 - `*-4`: constant lag, fixed at the per-campaign nominal lag (EddyPro
   `tlag_meth=1`, `CONSTANT`; no paper acronym).
 - `*-5`: PWB. Detect and remove the lag from the raw data in one run via diive's
   detect-and-remove TUI (`diive-tlag-pwb-detect-remove-tui`; rotation is
   in-memory, no separate apply step), then process fluxes with EC maximization
   disabled (see `docs/time-lag.qmd`). The lag applied is the optimised
-  PWB$_{OPT}$ lag (`PWB$_{OPT}$`).
+  PWB$^{OPT}$ lag (`PWB$^{OPT}$`).
 
 The `OPENLAG` / `DEFAULT` / `CONSTANT` / `PWB` tokens are the EddyPro/diive
-setting names; `CM`, `CM$_{CTR}$`, `PWB`, `PWB$_{OPT}$` are the method
+setting names; `CM`, `CM$^{CTR}$`, `PWB`, `PWB$^{OPT}$` are the method
 abbreviations from Vitale et al. (2024) used in the figures and docs (CM =
-covariance maximisation, CTR = constrained/narrow window, PWB$_{OPT}$ = optimised
+covariance maximisation, CTR = constrained/narrow window, PWB$^{OPT}$ = optimised
 pre-whitening with block-bootstrap). Both name the same five variants.
+OPT and CTR are superscripts, as in Vitale et al. (2024, Sect. 3.2) and the
+figure titles: write PWB$^{OPT}$ and CM$^{CTR}$, never a subscript.
 
 Implementation status: all five variants (`*-1` to `*-5`) have flux output for
 both analyzers. The `*-5` (PWB) EddyPro run uses `tlag_meth=0` (no lag
@@ -165,7 +170,7 @@ F:\Sync\luhk_work\dev-data\diive-data\references\VITALE_2024_TIME-LAG-DETECTION\
 
 Facts worth not re-deriving:
 
-- **PWB$_{OPT}$ is the paper's, not diive's.** The S1/S2/S3 rule is Sect. 2.3 of
+- **PWB$^{OPT}$ is the paper's, not diive's.** The S1/S2/S3 rule is Sect. 2.3 of
   Vitale et al. (2024): S1 accepts a lag whose 95 % HDI range is below 0.5 s, S2
   accepts a wider-HDI lag if it deviates by no more than 0.5 s from the optimal
   lag of the closest preceding averaging period, S3 replaces the rest with that
@@ -221,9 +226,9 @@ then plots the merged flux, time lag used, and a per-instrument lag histogram
 survives, so the lag row, histogram and mode describe exactly the records in the
 flux row. `09` is the single place the cumulative comparison is produced, one
 figure per gas with two rows: the half-hourly flux density distribution per
-variant on top (kernel-density line, fixed x-range per gas, PWB$_{OPT}$ drawn as a
+variant on top (kernel-density line, fixed x-range per gas, PWB$^{OPT}$ drawn as a
 grey shaded reference area), and the running QC-flux budget per variant over the
-paired common samples below (QCL and LGR panels, PWB$_{OPT}$ again a grey shaded
+paired common samples below (QCL and LGR panels, PWB$^{OPT}$ again a grey shaded
 area), writing `figures/09_cumulative_*.png`. `SUPPL_level1_lag_diagnostics` sits
 beside `03` rather than in the numbered chain: it reads the same merged file
 (`02-`) along the time lag instead of along time (off-mode share of the lag by
