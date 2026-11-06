@@ -15,14 +15,18 @@ the merged Level-1 table of
 
 ![**Figure XLAG-N2OX:** Half-hourly N₂O fluxes in 2021 at the Chamau grassland
 site (CH-Cha, Switzerland) and the time lags used to compute them. N₂O was
-measured with a quantum cascade laser (QCL, Aerodyne Research Inc., MA, USA) from
-1 Jan until 20 Jul and with a laser spectrometer (LGR, Los Gatos Research,
-Mountain View, CA, USA) from 22 Jul until 31 Dec; the dashed line marks the
-instrument changeover. Fluxes are EddyPro output, before quality control.
+measured with a quantum cascade laser (QCL, mini-QCLAS, Aerodyne Research Inc.,
+MA, USA) from 1 Jan until 20 Jul and with a laser spectrometer (LGR,
+GLA351-N2OM1, Los Gatos Research, Mountain View, CA, USA) from 22 Jul until
+31 Dec; the dashed line marks the instrument changeover and the dotted line the
+grassland renewal on 20 Aug. Letters along the top of the flux panels mark
+management events (F slurry fertilisation, H herbicide, S resowing, M mowing,
+T tillage and resowing, G sheep grazing), each with a thin grey line through the
+flux data, and grey bands above them mark rain periods. Fluxes are EddyPro output, before quality control.
 Columns: covariance maximisation without fallback (a, f, k), the same search
 falling back to the nominal lag (b, g, l), a narrow window with that fallback
 (c, h, m), a constant lag at the campaign nominal value (d, i, n), and
-pre-whitening with block-bootstrap cross-correlation (PWB_OPT; Vitale et al.,
+pre-whitening with block-bootstrap cross-correlation (PWB$^{OPT}$; Vitale et al.,
 2024) with 99 resamples (e, j, o). The searched window differs per column: 0 to
 10 s in (a, b), a campaign-specific narrow window in (c) (0.40 to 0.90 s, default
 0.60 s, for QCL; 1.50 to 3.30 s, default 1.75 s, for LGR), ±10 s in (e), and none
@@ -31,28 +35,34 @@ its lag distribution (k) sets the nominal lag of (b, c, d), its spread the windo
 of (c). Rows: flux (top), lag used (middle), and the distribution of those lags
 per instrument in 0.05 s bins with the modal lag given (bottom). N₂O emissions
 alternate between extended low-flux periods and short episodes of high emission
-(a to e), so the signal available for temporal alignment varies strongly over the
-year. Only the wide search accumulates lags at its limits (f, k); the narrow
+(a to e), mainly after fertilisation (F) and the grassland renewal (T), so the
+signal available for temporal alignment varies strongly over the year. Only the
+wide search accumulates lags at its limits (f, k); the narrow
 search instead falls back to the nominal lag in a large share of half-hours
-(h, m), while the PWB_OPT lags stay well inside their window (j, o). During the
-high-emission episodes, when the signal-to-noise ratio is high, the methods
-converge on the same lag. The narrow window (h) and PWB_OPT (j) both follow the
-seasonal drift of the lag, which the constant lag cannot reproduce (i). In
-periods where PWB_OPT cannot detect a clear time lag, the optimal lag of the
+(h, m), while the PWB$^{OPT}$ lags stay well inside their window (j, o). During the
+high-emission episodes, when the signal-to-noise ratio is high, the
+covariance-maximisation lags (f to h) agree more closely with the PWB$^{OPT}$ lag
+(j), although part of the wide-search lags remain at the window limits (f).
+From October onwards, when fluxes are low, the narrow-window lags spread across
+the window (h), whereas the PWB$^{OPT}$ lags remain in a narrow band (j). In periods where PWB$^{OPT}$ cannot detect a clear time lag, the optimal lag of the
 closest preceding averaging period is carried forward (j). The shared count axis
 is scaled to (o), so taller spikes are cut off. The equivalent figure for CH₄ is
 shown in the Supplement (Fig. XLAG-CH4X).](../figures/03_merged_n2o.png){#fig-paper-n2o}
 
 ![**Figure XLAG-CH4X:** Half-hourly CH₄ fluxes in 2021 at the Chamau grassland
 site (CH-Cha, Switzerland) and the time lags used to compute them. CH₄ was
-measured with a quantum cascade laser (QCL, Aerodyne Research Inc., MA, USA) from
-1 Jan until 20 Jul and with a laser spectrometer (LGR, Los Gatos Research,
-Mountain View, CA, USA) from 22 Jul until 31 Dec; the dashed line marks the
-changeover. Fluxes are EddyPro output, before quality control. Columns:
+measured with a quantum cascade laser (QCL, mini-QCLAS, Aerodyne Research Inc.,
+MA, USA) from 1 Jan until 20 Jul and with a laser spectrometer (LGR,
+GLA351-N2OM1, Los Gatos Research, Mountain View, CA, USA) from 22 Jul until
+31 Dec; the dashed line marks the changeover and the dotted line the grassland
+renewal on 20 Aug. Letters along the top of the flux panels mark management
+events (F slurry fertilisation, H herbicide, S resowing, M mowing, T tillage and
+resowing, G sheep grazing). Fluxes are EddyPro output, before quality control.
+Columns:
 covariance maximisation without fallback (a, f, k), the same search falling back
 to the nominal lag (b, g, l), a narrow window with that fallback (c, h, m), a
 constant lag at the campaign nominal value (d, i, n), and pre-whitening with
-block-bootstrap cross-correlation (PWB_OPT; Vitale et al., 2024) with 99
+block-bootstrap cross-correlation (PWB$^{OPT}$; Vitale et al., 2024) with 99
 resamples (e, j, o). The searched window differs per column: 0 to 10 s in (a, b),
 a campaign-specific narrow window in (c) (0.45 to 0.90 s, default 0.65 s, for
 QCL; 1.50 to 3.30 s, default 1.75 s, for LGR), ±10 s in (e), and none in (d),
@@ -66,9 +76,9 @@ the 0 s or 10 s limit and its most frequent value is the 10 s limit itself
 (f, k), so the nominal lag of (b, c, d) was taken from the peak of the
 distribution below that limit. The fallback removes most of this accumulation
 (g, l), and the narrow search resorts to the nominal lag in a large share of
-half-hours (h, m). PWB_OPT keeps to a narrow band well inside its window and
+half-hours (h, m). PWB$^{OPT}$ keeps to a narrow band well inside its window and
 follows the seasonal drift of the lag, which the constant lag cannot reproduce
-(i, j, o). In periods where PWB_OPT cannot detect a clear time lag, the optimal
+(i, j, o). In periods where PWB$^{OPT}$ cannot detect a clear time lag, the optimal
 lag of the closest preceding averaging period is carried forward (j). The shared
 count axis is scaled to (o), so taller spikes are cut off. The equivalent figure
 for N₂O is shown in Fig. XLAG-N2OX.](../figures/03_merged_ch4.png){#fig-paper-ch4}
@@ -81,7 +91,7 @@ one figure per gas. Top row: the share of half-hours whose lag left that
 version's modal lag by more than 0.5 s, by month and hour of day. Middle row: the
 joint distribution of the half-hourly flux and the lag it was computed with.
 Bottom row: how often two versions select the same lag, what that means for the
-summed flux, and how the flux offset to PWB$_{OPT}$ develops with the distance
+summed flux, and how the flux offset to PWB$^{OPT}$ develops with the distance
 between the two lags.
 
 ::: {.grid}
